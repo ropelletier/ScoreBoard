@@ -39,7 +39,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var textFieldTimer: NSTextField!
     @IBOutlet weak var buttonStart: NSButton!
     @IBOutlet weak var switchTimer: NSSwitch!
-    @IBOutlet weak var titleForTimer: NSTextField!
+    @IBOutlet weak var titleTimerMode: NSTextField!
     @IBOutlet weak var resetButton: NSButton!
     @IBOutlet weak var sliderTimer: NSSlider!
     @IBOutlet weak var textFieldHomeName: NSTextField!
@@ -393,9 +393,9 @@ class ViewController: NSViewController {
     
     @IBAction func switchTimerOnOff(_ sender: Any) {
         if switchTimer.state == .on {
-            titleForTimer.stringValue = "Обратный отсчет: ВКЛ"
+            titleTimerMode.stringValue = "Обратный отсчет: ВКЛ"
         } else {
-            titleForTimer.stringValue = "Обратный отсчет: ВЫКЛ"
+            titleTimerMode.stringValue = "Обратный отсчет: ВЫКЛ"
         }
         setTimeDefault()
         showTimeInLabel()
