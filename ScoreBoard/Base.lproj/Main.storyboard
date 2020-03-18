@@ -514,25 +514,27 @@
                             <textField verticalHuggingPriority="750" id="7b5-xV-TVs">
                                 <rect key="frame" x="20" y="220" width="100" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="center" title="Хозяева" drawsBackground="YES" id="wbQ-Y7-Vkk">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" alignment="center" title="Хозяева" drawsBackground="YES" id="wbQ-Y7-Vkk">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
                                     <action selector="textFieldHomeNameAction:" target="XfG-lQ-9wD" id="B0L-zW-tKS"/>
+                                    <outlet property="nextKeyView" destination="Nb1-sC-9Oh" id="AXY-8K-54z"/>
                                 </connections>
                             </textField>
                             <textField verticalHuggingPriority="750" id="Nb1-sC-9Oh">
                                 <rect key="frame" x="361" y="220" width="100" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="center" title="Гости" drawsBackground="YES" id="lTh-p4-b5h">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" alignment="center" title="Гости" drawsBackground="YES" id="lTh-p4-b5h">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
                                     <action selector="textFieldAwayNameAction:" target="XfG-lQ-9wD" id="6h4-Fr-aRE"/>
+                                    <outlet property="nextKeyView" destination="nD0-gN-t1M" id="SxS-cP-2L3"/>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-gN-t1M">
@@ -544,6 +546,7 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="pushButtonStart:" target="XfG-lQ-9wD" id="I0Y-n2-dPZ"/>
+                                    <outlet property="nextKeyView" destination="7b5-xV-TVs" id="NdZ-oq-5wD"/>
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RXY-hW-hdK">
@@ -552,7 +555,7 @@
                                     <constraint firstAttribute="width" constant="130" id="7fg-bY-QEA"/>
                                     <constraint firstAttribute="height" constant="40" id="NKO-Lw-SSK"/>
                                 </constraints>
-                                <textFieldCell key="cell" selectable="YES" editable="YES" borderStyle="border" alignment="center" title="00:00" id="ftR-HJ-sNJ">
+                                <textFieldCell key="cell" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="border" alignment="center" title="00:00" id="ftR-HJ-sNJ">
                                     <font key="font" metaFont="system" size="30"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -564,7 +567,7 @@
                             <slider toolTip="Установка времени" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15e-3A-sM7">
                                 <rect key="frame" x="15" y="52" width="188" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" continuous="YES" alignment="left" minValue="600" maxValue="1200" doubleValue="900" tickMarkPosition="above" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VG6-g9-2KU"/>
+                                <sliderCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" minValue="600" maxValue="1200" doubleValue="900" tickMarkPosition="above" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VG6-g9-2KU"/>
                                 <connections>
                                     <action selector="sliderTimerAction:" target="XfG-lQ-9wD" id="OWD-a0-Uo3"/>
                                 </connections>
@@ -599,7 +602,10 @@
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-6e-EiV">
                                 <rect key="frame" x="311" y="186" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="PxT-FV-P5k"/>
+                                <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" maxValue="5000" id="PxT-FV-P5k"/>
+                                <connections>
+                                    <action selector="stepperSecondsAction:" target="XfG-lQ-9wD" id="xMq-Na-vnB"/>
+                                </connections>
                             </stepper>
                             <button verticalHuggingPriority="750" id="cra-ZW-qR3">
                                 <rect key="frame" x="446" y="5" width="30" height="30"/>
@@ -615,7 +621,7 @@
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yVs-io-wuS">
                                 <rect key="frame" x="362.5" y="188" width="101" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="hHp-F2-hco">
+                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="hHp-F2-hco">
                                     <font key="font" metaFont="systemBold"/>
                                     <segments>
                                         <segment image="NSRemoveTemplate" imageScaling="none" width="26"/>
@@ -649,18 +655,7 @@
                                 <rect key="frame" x="0.0" y="103" width="480" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRm-lG-iVH">
-                                <rect key="frame" x="371" y="124" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Pg6-Ow-l0f">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <connections>
-                                        <action selector="TestButtonPush:" target="XfG-lQ-9wD" id="cAy-rx-SSu"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
-                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="10" baseWritingDirection="leftToRight" alignment="left" state="on" id="dRb-Gv-lIH">
+                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="10" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" state="on" id="dRb-Gv-lIH">
                                 <rect key="frame" x="258" y="50" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -679,12 +674,15 @@
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gch-6s-7NE">
                                 <rect key="frame" x="151" y="186" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="EW6-qC-lEd"/>
+                                <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" increment="60" maxValue="5000" id="EW6-qC-lEd"/>
+                                <connections>
+                                    <action selector="stepperMinutesAction:" target="XfG-lQ-9wD" id="Vyd-8f-ycN"/>
+                                </connections>
                             </stepper>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Bi-Qn-fW6">
                                 <rect key="frame" x="23.5" y="189" width="101" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="5uH-Y9-x5h">
+                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="5uH-Y9-x5h">
                                     <font key="font" metaFont="systemBold"/>
                                     <segments>
                                         <segment image="NSRemoveTemplate" imageScaling="none" width="26"/>
@@ -699,7 +697,7 @@
                             <segmentedControl verticalHuggingPriority="750" id="QBp-bO-XRp">
                                 <rect key="frame" x="191.5" y="227" width="101" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="Q2V-qE-yLO">
+                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="Q2V-qE-yLO">
                                     <font key="font" metaFont="systemBold"/>
                                     <segments>
                                         <segment image="NSRemoveTemplate" imageScaling="none" width="26"/>
@@ -728,8 +726,9 @@
                         <outlet property="period" destination="QBp-bO-XRp" id="6Wz-ee-fyb"/>
                         <outlet property="resetButton" destination="cra-ZW-qR3" id="Tey-RS-Es2"/>
                         <outlet property="sliderTimer" destination="15e-3A-sM7" id="w3Y-kL-uy7"/>
-                        <outlet property="switchTimer" destination="dRb-Gv-lIH" id="WRK-oP-2dz"/>
-                        <outlet property="testButton" destination="Pg6-Ow-l0f" id="evM-m7-qj9"/>
+                        <outlet property="stepperMinutes" destination="gch-6s-7NE" id="79I-AN-SsD"/>
+                        <outlet property="stepperSeconds" destination="ktK-6e-EiV" id="LEl-Lp-VdZ"/>
+                        <outlet property="switchTimerMode" destination="dRb-Gv-lIH" id="WRK-oP-2dz"/>
                         <outlet property="textFieldAwayName" destination="Nb1-sC-9Oh" id="2V6-Om-ixK"/>
                         <outlet property="textFieldHomeName" destination="7b5-xV-TVs" id="Ggh-nU-nRM"/>
                         <outlet property="textFieldTimer" destination="RXY-hW-hdK" id="KVK-E6-sx1"/>

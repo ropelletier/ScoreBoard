@@ -13,6 +13,8 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        setTimeDefault() // сразу запоминаем время по умолчанию
         showTimeInLabel() //при запуске выставляем таймер по умолчанию
         writeToDisk("all") //создаем папку + все файлы
         
@@ -38,7 +40,7 @@ class ViewController: NSViewController {
         // MARK: - IBOutlet
     @IBOutlet weak var textFieldTimer: NSTextField!
     @IBOutlet weak var buttonStart: NSButton!
-    @IBOutlet weak var switchTimer: NSSwitch!
+    @IBOutlet weak var switchTimerMode: NSSwitch!
     @IBOutlet weak var titleTimerMode: NSTextField!
     @IBOutlet weak var resetButton: NSButton!
     @IBOutlet weak var sliderTimer: NSSlider!
@@ -47,57 +49,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var goalHome: NSSegmentedControl!
     @IBOutlet weak var goalAway: NSSegmentedControl!
     @IBOutlet weak var period: NSSegmentedControl!
-    
-    // тестовая кнопка
-    @IBOutlet weak var testButton: NSButtonCell!
-    @IBAction func TestButtonPush(_ sender: Any) {
-        do {
-            
-            //try FileManager.default.createDirectory(atPath: "Downloads/ScoreBoard Outputs/", withIntermediateDirectories: true, attributes: nil)
-           
-            //try FileManager.default.createDirectory(atPath: "./ScoreBoard Outputs/", withIntermediateDirectories: true, attributes: nil)
-            
-           // try FileManager.default.createDirectory(atPath: "~/Documents/Трансляции", withIntermediateDirectories: true, attributes: nil)
-            
-            //let myDirectory = FileManager.default.homeDirectoryForCurrentUser // домашняя папка пользователя
-            //var myDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) // папка документов
-            
-            
-            if var userDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                userDirectory = userDirectory.appendingPathComponent("Трансляции/ScoreBoard Outputs")
-                
-                // если использовать тип 'URL'
-                try FileManager.default.createDirectory(at: userDirectory, withIntermediateDirectories: true, attributes: nil)
-                
-                // если использовать адрес в виде String
-                //try FileManager.default.createDirectory(atPath: "ScoreBoard Outputs", withIntermediateDirectories: true, attributes: nil)
-                
-                print (userDirectory)
-                
-            }
-            
-            //let userDirectory1 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            
-            
-            //let directoryProgramm = "ScoreBoard Outputs"
-            //let directoryForWrite = userDirectory.appendingPathComponent(directoryProgramm)
-            
-            //print (userDirectory1)
-            
-            //let userDirectory1 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            //print (userDirectory1)
-            
-        } catch {
-                    // + работает алерт
-            let alert = NSAlert()
-            alert.messageText = "Ошибка создания файла"
-            alert.informativeText = "Не удалось получить доступ для записи файлов или каталога"
-            alert.addButton(withTitle: "OK")
-            alert.alertStyle = .warning
-            alert.runModal()
-        }
-    }
-    
+    @IBOutlet weak var stepperSeconds: NSStepper!
+    @IBOutlet weak var stepperMinutes: NSStepper!
     
     //lazy var timeUserPreset:Int = sliderTimer.integerValue //900 секунд по умолчанию в свойствах слайдера
     //lazy var timeNow:Int = sliderTimer.integerValue //900 секунд по умолчанию в свойствах слайдера
@@ -204,7 +157,7 @@ class ViewController: NSViewController {
     // функция запоминает установленные параметры таймера из слайдера
     func setTimeDefault() {
         timeUserPreset = sliderTimer.integerValue
-        if switchTimer.state == .on {
+        if switchTimerMode.state == .on {
             timeNow = sliderTimer.integerValue
         } else {
             timeNow = 0
@@ -213,6 +166,10 @@ class ViewController: NSViewController {
     
     // функция показывает время в поле (берет из таймера)
     func showTimeInLabel() -> Void {
+        
+        stepperSeconds.integerValue = timeNow //сохраняет время для степперов
+        stepperMinutes.integerValue = timeNow
+        
         let minutes:Int = timeNow / 60
         let seconds:Int = timeNow - (minutes*60)
         var minStr:String = "\(minutes)"
@@ -232,35 +189,35 @@ class ViewController: NSViewController {
     }
     
     var timerStatus: Timer? //две функции для таймера (старт/стоп)
-        func startTimer(){
-          if timerStatus == nil {
-                timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
-                (timer) in
-                    if self.switchTimer.state == .on {
-                        
-                            self.timeNow -= 1
-                        if self.timeNow <= 0 {
-                            //self.stopTimer()
-                            self.resetStateButtonStar()
-                        }
-                        
-                    } else {
-                        self.timeNow += 1
-                        if self.timeNow >= self.timeUserPreset {
-                            //self.stopTimer()
-                            self.resetStateButtonStar()
-                        }
+    func startTimer(){
+      if timerStatus == nil {
+            timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
+            (timer) in
+                if self.switchTimerMode.state == .on {
+                    
+                        self.timeNow -= 1
+                    if self.timeNow <= 0 {
+                        //self.stopTimer()
+                        self.resetStateButtonStar()
                     }
-                    self.showTimeInLabel()
+                    
+                } else {
+                    self.timeNow += 1
+                    if self.timeNow >= self.timeUserPreset {
+                        //self.stopTimer()
+                        self.resetStateButtonStar()
+                    }
                 }
-          }
-        }
-        func stopTimer(){
-          if timerStatus != nil {
-            timerStatus?.invalidate()
-            timerStatus = nil
-          }
-        }
+                self.showTimeInLabel()
+            }
+      }
+    }
+    func stopTimer(){
+      if timerStatus != nil {
+        timerStatus?.invalidate()
+        timerStatus = nil
+      }
+    }
     
     // Сброс кнопки СТАРТ на начальное значение + остановка таймера
     func resetStateButtonStar(){
@@ -317,6 +274,16 @@ class ViewController: NSViewController {
         showTimeInLabel()
     }
     
+    @IBAction func stepperSecondsAction(_ sender: Any) {
+        timeNow = stepperSeconds.integerValue
+        showTimeInLabel()
+    }
+    
+    
+    @IBAction func stepperMinutesAction(_ sender: Any) {
+        timeNow = stepperMinutes.integerValue
+        showTimeInLabel()
+    }
     
     @IBAction func goalHomeAction(_ sender: Any) {
         if goalHome.selectedSegment == 0 {
@@ -392,7 +359,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func switchTimerOnOff(_ sender: Any) {
-        if switchTimer.state == .on {
+        if switchTimerMode.state == .on {
             titleTimerMode.stringValue = "Обратный отсчет: ВКЛ"
         } else {
             titleTimerMode.stringValue = "Обратный отсчет: ВЫКЛ"
