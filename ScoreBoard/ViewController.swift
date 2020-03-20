@@ -12,24 +12,10 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        // Do any additional setup after loading the view.
         setTimeDefault() // сразу запоминаем время по умолчанию
         showTimeInLabel() //при запуске выставляем таймер по умолчанию
         writeToDisk("all") //создаем папку + все файлы
-        
-        
-        //получение нажатия кнопки в меню
-//        NotificationCenter.default.addObserver(forName: NSNotification.Name("menuPushStart"), object: nil, queue: OperationQueue.main){
-//            (notification) in
-//            //self.startTimer()
-//            //self.resetStateButtonStar()
-//            //self.pushButtonStart(self)
-//            print("Hello")
-//        }
-        
-        
-        // Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {
@@ -58,8 +44,8 @@ class ViewController: NSViewController {
     // параметры по умолчанию
     var timeUserPreset:Int = 900 //900 секунд по умолчанию в свойствах слайдера
     var timeNow:Int = 900 //900 секунд по умолчанию в свойствах слайдера
-    var homeName:String = "Хозяева"
-    var awayName:String = "Гости"
+    var homeName:String = "Home"
+    var awayName:String = "Away"
     var countGoalHome:Int = 0
     var countGoalAway:Int = 0
     var periodCount:Int = 1
@@ -77,7 +63,6 @@ class ViewController: NSViewController {
                 } else {
                     try FileManager.default.createDirectory(at: userDirectory, withIntermediateDirectories: true, attributes: nil)
                 }
-                
                 
                 switch fileName {
                     case "time":
@@ -108,19 +93,18 @@ class ViewController: NSViewController {
                     
                 default:
                     let alert = NSAlert()
-                    alert.messageText = "Неверный параметр"
-                    alert.informativeText = "Не получилось записать файл, так как неверно указан параметр: \(fileName)"
+                    alert.messageText = "Invalid parameter"
+                    alert.informativeText = "It was not possible to write the file, because the parameter is incorrectly specified: \(fileName)"
                     alert.addButton(withTitle: "OK")
                     alert.alertStyle = .warning
                     alert.runModal()
                 }
-                
             }
             
         } catch {
             let alert = NSAlert()
-            alert.messageText = "Невозможно запасить файл"
-            alert.informativeText = "Нет доступа к каталогу для записи или путь некорректен)"
+            alert.messageText = "Unable to write file"
+            alert.informativeText = "There is no access to the directory for writing or the path is incorrect"
             alert.addButton(withTitle: "OK")
             alert.alertStyle = .warning
             alert.runModal()
@@ -222,7 +206,6 @@ class ViewController: NSViewController {
     // Сброс кнопки СТАРТ на начальное значение + остановка таймера
     func resetStateButtonStar(){
         stopTimer()
-        buttonStart.state = .off
         buttonStart.title = "START"
         textFieldTimer.textColor = .black
     }
@@ -232,9 +215,9 @@ class ViewController: NSViewController {
         resetStateButtonStar()
         setTimeDefault()
         showTimeInLabel()
-        homeName = "Хозяева"
+        homeName = "Home"
         textFieldHomeName.stringValue = homeName
-        awayName = "Гости"
+        awayName = "Away"
         textFieldAwayName.stringValue = awayName
         countGoalHome = 0
         goalHome.setLabel(String(countGoalHome), forSegment: 1)
@@ -286,45 +269,38 @@ class ViewController: NSViewController {
     }
     
     @IBAction func goalHomeAction(_ sender: Any) {
-        if goalHome.selectedSegment == 0 {
+        if goalHome.selectedSegment == 0, countGoalHome > 0 {
             countGoalHome -= 1
-            if countGoalHome < 0 {countGoalHome = 0} //проверка, чтобы не был счет отрицательным
-            goalHome.setLabel(String(countGoalHome), forSegment: 1)
         }
-        if goalHome.selectedSegment == 2 {
+        if goalHome.selectedSegment == 2 || goalHome.selectedSegment == -1 { // -1 когда передается действие из меню (не нажатие)
             countGoalHome += 1
-            goalHome.setLabel(String(countGoalHome), forSegment: 1)
         }
         //writeFileToDisk(nameFile:"HomeScore.txt", textToWrite: String(countGoalHome))
+        goalHome.setLabel(String(countGoalHome), forSegment: 1)
         writeToDisk("homeGoal")
     }
     
     @IBAction func goalAwayAction(_ sender: Any) {
-        if goalAway.selectedSegment == 0 {
+        if goalAway.selectedSegment == 0, countGoalAway > 0 {
             countGoalAway -= 1
-            if countGoalAway < 0 {countGoalAway = 0} //проверка, чтобы не был счет отрицательным
-            goalAway.setLabel(String(countGoalAway), forSegment: 1)
-            
         }
-        if goalAway.selectedSegment == 2 {
+        if goalAway.selectedSegment == 2  || goalAway.selectedSegment == -1 {
             countGoalAway += 1
-            goalAway.setLabel(String(countGoalAway), forSegment: 1)
         }
         //writeFileToDisk(nameFile:"AwayScore.txt", textToWrite: String(countGoalAway))
+        goalAway.setLabel(String(countGoalAway), forSegment: 1)
         writeToDisk("awayGoal")
     }
     
     @IBAction func periodAction(_ sender: Any) {
-        if period.selectedSegment == 0 {
+        if period.selectedSegment == 0, periodCount > 1 {
             periodCount -= 1
-            if periodCount < 1 {periodCount = 1} //проверка, чтобы не был счет отрицательным
-            period.setLabel(String(periodCount), forSegment: 1)
         }
-        if period.selectedSegment == 2 {
+        if period.selectedSegment == 2  || period.selectedSegment == -1 {
             periodCount += 1
-            period.setLabel(String(periodCount), forSegment: 1)
         }
         //writeFileToDisk(nameFile:"Period.txt", textToWrite: String(periodCount))
+        period.setLabel(String(periodCount), forSegment: 1)
         writeToDisk("period")
     }
     
@@ -348,21 +324,20 @@ class ViewController: NSViewController {
     
     @IBAction func pushButtonStart(_ sender: Any) {
         //sliderTimer.isEnabled = false
-        if buttonStart.state == .on {
+        if timerStatus == nil {
             buttonStart.title = "PAUSE"
             textFieldTimer.textColor = .red
             startTimer()
         } else {
-            //textFieldTimer.textColor = .black
             resetStateButtonStar()
         }
     }
     
     @IBAction func switchTimerOnOff(_ sender: Any) {
         if switchTimerMode.state == .on {
-            titleTimerMode.stringValue = "Обратный отсчет: ВКЛ"
+            titleTimerMode.stringValue = "Countdown: ON"
         } else {
-            titleTimerMode.stringValue = "Обратный отсчет: ВЫКЛ"
+            titleTimerMode.stringValue = "Countdown: OFF"
         }
         setTimeDefault()
         showTimeInLabel()
@@ -372,7 +347,49 @@ class ViewController: NSViewController {
         resetAllState()
     }
     
-
+// MARK:- Menu action
+    
+    @IBAction func startPauseTimerFromMenu(_ sender: Any) {
+        pushButtonStart(self)
+    }
+    
+    @IBAction func plus1SecFromMenu(_ sender: Any) {
+        timeNow += 1
+        showTimeInLabel()
+    }
+    
+    @IBAction func minus1SecFromMenu(_ sender: Any) {
+        timeNow -= 1
+        showTimeInLabel()
+    }
+    
+    @IBAction func plus1MinFromMenu(_ sender: Any) {
+        timeNow += 60
+        showTimeInLabel()
+        //stepperMinutesAction.()
+    }
+    
+    @IBAction func minus1MinFromMenu(_ sender: Any) {
+        timeNow -= 60
+        showTimeInLabel()
+    }
+    
+    @IBAction func resetAllStateFromMenu(_ sender: Any) {
+        resetButtonPush(self)
+    }
+    
+    @IBAction func plus1GoalHomeFromMenu(_ sender: Any) {
+        goalHomeAction(self)
+    }
+    
+    @IBAction func plus1GoalAwayFromMenu(_ sender: Any) {
+        goalAwayAction(self)
+    }
+    
+    @IBAction func plus1PeriodFromMenu(_ sender: Any) {
+        periodAction(self)
+    }
+    
 
 }
 

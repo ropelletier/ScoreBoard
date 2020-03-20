@@ -21,6 +21,7 @@
 		D975873923B607C40004BDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D975873B23B607C40004BDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D975873C23B607C40004BDAD /* ScoreBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScoreBoard.entitlements; sourceTree = "<group>"; };
+		D997435A242255E100F4A1A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +147,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D975873923B607C40004BDAD /* Base */,
+				D997435A242255E100F4A1A4 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
