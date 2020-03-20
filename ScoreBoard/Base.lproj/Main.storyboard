@@ -250,8 +250,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userGuides>
-                            <userLayoutGuide location="135" affinity="minY"/>
-                            <userLayoutGuide location="342" affinity="maxX"/>
+                            <userLayoutGuide location="114" affinity="minY"/>
+                            <userLayoutGuide location="21" affinity="maxX"/>
                         </userGuides>
                         <subviews>
                             <textField toolTip="Name home team" verticalHuggingPriority="750" id="7b5-xV-TVs">
@@ -308,35 +308,62 @@
                                 </connections>
                             </textField>
                             <slider toolTip="Timer setting" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15e-3A-sM7">
-                                <rect key="frame" x="15" y="52" width="188" height="24"/>
+                                <rect key="frame" x="16" y="63" width="448" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" minValue="600" maxValue="1200" doubleValue="900" tickMarkPosition="above" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VG6-g9-2KU"/>
+                                <sliderCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" minValue="300" maxValue="5400" doubleValue="900" tickMarkPosition="above" numberOfTickMarks="86" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VG6-g9-2KU"/>
                                 <connections>
                                     <action selector="sliderTimerAction:" target="XfG-lQ-9wD" id="OWD-a0-Uo3"/>
                                 </connections>
                             </slider>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GXV-t9-nWq">
-                                <rect key="frame" x="17" y="75" width="20" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="otc-Kn-LFT">
+                                <rect key="frame" x="17" y="88" width="20" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="10" id="1E0-Q7-IuJ">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="5" id="5ME-VK-dp0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Mfq-dM-UQs">
+                                <rect key="frame" x="41" y="88" width="20" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="10" id="frH-C7-1El">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TLo-of-hE4">
-                                <rect key="frame" x="100" y="75" width="20" height="16"/>
+                                <rect key="frame" x="66" y="88" width="20" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="15" id="pQq-eB-vYx">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="15" id="pQq-eB-vYx">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Q5f-ry-kxi">
-                                <rect key="frame" x="183" y="75" width="20" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="syC-0B-HuT">
+                                <rect key="frame" x="91" y="88" width="20" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="20" id="vgO-k8-cyV">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="20" id="OrR-rA-ct3">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iYZ-Jt-E31">
+                                <rect key="frame" x="215" y="88" width="21" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="45" id="nvF-R2-VId">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FXT-Tp-HWe">
+                                <rect key="frame" x="441" y="88" width="21" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="90" id="lBP-fQ-9rk">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -376,35 +403,28 @@
                                     <action selector="goalAwayAction:" target="XfG-lQ-9wD" id="CVp-id-hRM"/>
                                 </connections>
                             </segmentedControl>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TAq-ib-OCo">
+                                <rect key="frame" x="213" y="253" width="54" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="period" id="gpH-7w-dee">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Yee-Wl-rvj">
-                                <rect key="frame" x="26" y="35" width="167" height="16"/>
+                                <rect key="frame" x="157" y="51" width="167" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Setting the timer (minutes)" id="XO1-SI-dNp">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="elC-Zq-q9j">
-                                <rect key="frame" x="0.0" y="103" width="480" height="5"/>
+                                <rect key="frame" x="0.0" y="131" width="480" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
-                            <switch toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="10" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" state="on" id="dRb-Gv-lIH">
-                                <rect key="frame" x="257" y="50" width="42" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="switchTimerOnOff:" target="XfG-lQ-9wD" id="k6G-xn-BiE"/>
-                                </connections>
-                            </switch>
-                            <textField toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QlU-kf-kyh">
-                                <rect key="frame" x="300" y="55" width="173" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Countdown: ON" id="SLq-6B-6Nd">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gch-6s-7NE">
                                 <rect key="frame" x="151" y="186" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -443,10 +463,17 @@
                                     <action selector="periodAction:" target="XfG-lQ-9wD" id="NVH-EW-4As"/>
                                 </connections>
                             </segmentedControl>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TAq-ib-OCo">
-                                <rect key="frame" x="213" y="253" width="54" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="period" id="gpH-7w-dee">
+                            <switch toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="10" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" state="on" id="dRb-Gv-lIH">
+                                <rect key="frame" x="161" y="7" width="42" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchTimerOnOff:" target="XfG-lQ-9wD" id="k6G-xn-BiE"/>
+                                </connections>
+                            </switch>
+                            <textField toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QlU-kf-kyh">
+                                <rect key="frame" x="204" y="12" width="116" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Countdown: ON" id="SLq-6B-6Nd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -480,7 +507,7 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="im6-8H-BjF"/>
             </objects>
-            <point key="canvasLocation" x="74.5" y="655"/>
+            <point key="canvasLocation" x="74" y="655"/>
         </scene>
     </scenes>
     <resources>
