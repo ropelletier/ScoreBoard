@@ -13,6 +13,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        textFieldTimer.font = NSFont.monospacedDigitSystemFont(ofSize: 30, weight: .regular)
         setTimeDefault() // сразу запоминаем время по умолчанию
         showTimeInLabel() //при запуске выставляем таймер по умолчанию
         writeToDisk("all") //создаем папку + все файлы
@@ -28,6 +29,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var buttonStart: NSButton!
     @IBOutlet weak var switchTimerMode: NSSwitch!
     @IBOutlet weak var titleTimerMode: NSTextField!
+    @IBOutlet weak var continueTimeSwitcher: NSSwitch!
     @IBOutlet weak var resetButton: NSButton!
     @IBOutlet weak var sliderTimer: NSSlider!
     @IBOutlet weak var textFieldHomeName: NSTextField!
@@ -153,7 +155,7 @@ class ViewController: NSViewController {
         
         stepperSeconds.integerValue = timeNow //сохраняет время для степперов
         stepperMinutes.integerValue = timeNow
-        
+
         let minutes:Int = timeNow / 60
         let seconds:Int = timeNow - (minutes*60)
         var minStr:String = "\(minutes)"
@@ -178,24 +180,24 @@ class ViewController: NSViewController {
             timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
             (timer) in
                 if self.switchTimerMode.state == .on {
-                    
-                        self.timeNow -= 1
-                    if self.timeNow <= 0 {
-                        //self.stopTimer()
+                    guard self.timeNow > 0 else {
                         self.resetStateButtonStar()
+                        return
                     }
-                    
+                    self.timeNow -= 1
                 } else {
-                    self.timeNow += 1
-                    if self.timeNow >= self.timeUserPreset {
-                        //self.stopTimer()
+                    guard self.timeNow < self.timeUserPreset else {
+                        if self.continueTimeSwitcher.state == .on { self.timeUserPreset += self.timeUserPreset }
                         self.resetStateButtonStar()
+                        return
                     }
+                    self.timeNow += 1
                 }
                 self.showTimeInLabel()
             }
       }
     }
+    
     func stopTimer(){
       if timerStatus != nil {
         timerStatus?.invalidate()
@@ -215,10 +217,10 @@ class ViewController: NSViewController {
         resetStateButtonStar()
         setTimeDefault()
         showTimeInLabel()
-        homeName = "Home"
-        textFieldHomeName.stringValue = homeName
-        awayName = "Away"
-        textFieldAwayName.stringValue = awayName
+//        homeName = "Home"
+//        textFieldHomeName.stringValue = homeName
+//        awayName = "Away"
+//        textFieldAwayName.stringValue = awayName
         countGoalHome = 0
         goalHome.setLabel(String(countGoalHome), forSegment: 1)
         countGoalAway = 0
@@ -336,15 +338,30 @@ class ViewController: NSViewController {
     @IBAction func switchTimerOnOff(_ sender: Any) {
         if switchTimerMode.state == .on {
             titleTimerMode.stringValue = "Countdown: ON"
+            continueTimeSwitcher.state = .off
+            continueTimeSwitcher.isEnabled = false
+            timeNow = timeUserPreset - timeNow // смена времени на табло с сохранением пройденных секунд
         } else {
             titleTimerMode.stringValue = "Countdown: OFF"
+            continueTimeSwitcher.isEnabled = true
+            timeNow = timeUserPreset - timeNow  // смена времени на табло с сохранением пройденных секунд
         }
-        setTimeDefault()
         showTimeInLabel()
     }
     
     @IBAction func resetButtonPush(_ sender: Any) {
         resetAllState()
+        writeToDisk("all")
+    }
+    
+    @IBAction func swapHomeAwayScores(_ sender: Any) {
+        swap(&homeName, &awayName)
+        textFieldHomeName.stringValue = homeName
+        textFieldAwayName.stringValue = awayName
+        swap(&countGoalHome, &countGoalAway)
+        goalHome.setLabel(String(countGoalHome), forSegment: 1)
+        goalAway.setLabel(String(countGoalAway), forSegment: 1)
+        writeToDisk("all") //пишем все сразу, но надо указать нужное
     }
     
 // MARK:- Menu action
@@ -359,6 +376,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func minus1SecFromMenu(_ sender: Any) {
+        guard timeNow > 0 else { return }
         timeNow -= 1
         showTimeInLabel()
     }
@@ -370,6 +388,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func minus1MinFromMenu(_ sender: Any) {
+        guard timeNow > 60 else { return }
         timeNow -= 60
         showTimeInLabel()
     }

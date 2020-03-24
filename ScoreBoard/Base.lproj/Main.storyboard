@@ -249,15 +249,13 @@
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <userGuides>
-                            <userLayoutGuide location="114" affinity="minY"/>
-                            <userLayoutGuide location="21" affinity="maxX"/>
-                        </userGuides>
                         <subviews>
-                            <textField toolTip="Name home team" verticalHuggingPriority="750" id="7b5-xV-TVs">
-                                <rect key="frame" x="20" y="220" width="100" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" alignment="center" title="Home" drawsBackground="YES" id="wbQ-Y7-Vkk">
+                            <textField toolTip="Name home team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7b5-xV-TVs">
+                                <rect key="frame" x="20" y="190" width="100" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="bWf-7v-uSN"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Home" drawsBackground="YES" id="wbQ-Y7-Vkk">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -267,21 +265,8 @@
                                     <outlet property="nextKeyView" destination="Nb1-sC-9Oh" id="AXY-8K-54z"/>
                                 </connections>
                             </textField>
-                            <textField toolTip="Name away team" verticalHuggingPriority="750" id="Nb1-sC-9Oh">
-                                <rect key="frame" x="360" y="220" width="100" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" alignment="center" title="Away" drawsBackground="YES" id="lTh-p4-b5h">
-                                    <font key="font" metaFont="system" size="22"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <action selector="textFieldAwayNameAction:" target="XfG-lQ-9wD" id="6h4-Fr-aRE"/>
-                                    <outlet property="nextKeyView" destination="nD0-gN-t1M" id="SxS-cP-2L3"/>
-                                </connections>
-                            </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-gN-t1M">
-                                <rect key="frame" x="198" y="139" width="84" height="35"/>
+                                <rect key="frame" x="198" y="144" width="84" height="35"/>
                                 <buttonCell key="cell" type="bevel" title="START" bezelStyle="regularSquare" alignment="center" lineBreakMode="charWrapping" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="saF-P2-6MX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="20"/>
@@ -293,7 +278,7 @@
                                 </connections>
                             </button>
                             <textField toolTip="Timer" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RXY-hW-hdK">
-                                <rect key="frame" x="175" y="180" width="130" height="40"/>
+                                <rect key="frame" x="175" y="185" width="130" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="7fg-bY-QEA"/>
                                     <constraint firstAttribute="height" constant="40" id="NKO-Lw-SSK"/>
@@ -307,16 +292,16 @@
                                     <action selector="timeLabelAction:" target="XfG-lQ-9wD" id="JAj-vb-cly"/>
                                 </connections>
                             </textField>
-                            <slider toolTip="Timer setting" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15e-3A-sM7">
-                                <rect key="frame" x="16" y="63" width="448" height="26"/>
+                            <slider toolTip="Setting the timer duration in minutes" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15e-3A-sM7">
+                                <rect key="frame" x="16" y="73" width="448" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" minValue="300" maxValue="5400" doubleValue="900" tickMarkPosition="above" numberOfTickMarks="86" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VG6-g9-2KU"/>
+                                <sliderCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" minValue="60" maxValue="3600" doubleValue="900" tickMarkPosition="above" numberOfTickMarks="60" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VG6-g9-2KU"/>
                                 <connections>
                                     <action selector="sliderTimerAction:" target="XfG-lQ-9wD" id="OWD-a0-Uo3"/>
                                 </connections>
                             </slider>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="otc-Kn-LFT">
-                                <rect key="frame" x="17" y="88" width="20" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="otc-Kn-LFT">
+                                <rect key="frame" x="46" y="98" width="20" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="5" id="5ME-VK-dp0">
                                     <font key="font" metaFont="system"/>
@@ -325,7 +310,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Mfq-dM-UQs">
-                                <rect key="frame" x="41" y="88" width="20" height="16"/>
+                                <rect key="frame" x="81" y="98" width="20" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="10" id="frH-C7-1El">
                                     <font key="font" metaFont="system"/>
@@ -334,7 +319,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TLo-of-hE4">
-                                <rect key="frame" x="66" y="88" width="20" height="16"/>
+                                <rect key="frame" x="118" y="98" width="20" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="15" id="pQq-eB-vYx">
                                     <font key="font" metaFont="system"/>
@@ -343,7 +328,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="syC-0B-HuT">
-                                <rect key="frame" x="91" y="88" width="20" height="16"/>
+                                <rect key="frame" x="153" y="98" width="20" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="20" id="OrR-rA-ct3">
                                     <font key="font" metaFont="system"/>
@@ -351,8 +336,17 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t9S-5K-59s">
+                                <rect key="frame" x="225" y="98" width="20" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="30" id="pL6-V4-uaR">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iYZ-Jt-E31">
-                                <rect key="frame" x="215" y="88" width="21" height="16"/>
+                                <rect key="frame" x="333" y="98" width="21" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="45" id="nvF-R2-VId">
                                     <font key="font" metaFont="system"/>
@@ -361,36 +355,28 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FXT-Tp-HWe">
-                                <rect key="frame" x="441" y="88" width="21" height="16"/>
+                                <rect key="frame" x="442" y="98" width="21" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="90" id="lBP-fQ-9rk">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="60" id="lBP-fQ-9rk">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-6e-EiV">
-                                <rect key="frame" x="310" y="186" width="19" height="28"/>
+                                <rect key="frame" x="310" y="191" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" maxValue="5000" id="PxT-FV-P5k"/>
                                 <connections>
                                     <action selector="stepperSecondsAction:" target="XfG-lQ-9wD" id="xMq-Na-vnB"/>
                                 </connections>
                             </stepper>
-                            <button verticalHuggingPriority="750" id="cra-ZW-qR3">
-                                <rect key="frame" x="445" y="5" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NSTouchBarRefreshTemplate" imagePosition="overlaps" alignment="center" refusesFirstResponder="YES" state="on" imageScaling="proportionallyDown" inset="2" id="wj7-ys-TZX">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="systemBold" size="18"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="resetButtonPush:" target="XfG-lQ-9wD" id="6d1-6V-AoW"/>
-                                </connections>
-                            </button>
-                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yVs-io-wuS">
-                                <rect key="frame" x="360.5" y="189" width="99" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <segmentedControl toolTip="The number of goals of the away team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yVs-io-wuS">
+                                <rect key="frame" x="360.5" y="225" width="99" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="EFc-RX-SNf"/>
+                                    <constraint firstAttribute="width" constant="98" id="TZW-hh-FlY"/>
+                                </constraints>
                                 <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="hHp-F2-hco">
                                     <font key="font" metaFont="systemBold"/>
                                     <segments>
@@ -404,16 +390,16 @@
                                 </connections>
                             </segmentedControl>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TAq-ib-OCo">
-                                <rect key="frame" x="213" y="253" width="54" height="16"/>
+                                <rect key="frame" x="214" y="250" width="54" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="period" id="gpH-7w-dee">
-                                    <font key="font" metaFont="system"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="PERIOD" id="gpH-7w-dee">
+                                    <font key="font" size="10" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Yee-Wl-rvj">
-                                <rect key="frame" x="157" y="51" width="167" height="16"/>
+                                <rect key="frame" x="157" y="61" width="167" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Setting the timer (minutes)" id="XO1-SI-dNp">
                                     <font key="font" metaFont="system"/>
@@ -422,35 +408,19 @@
                                 </textFieldCell>
                             </textField>
                             <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="elC-Zq-q9j">
-                                <rect key="frame" x="0.0" y="131" width="480" height="5"/>
+                                <rect key="frame" x="0.0" y="120" width="480" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gch-6s-7NE">
-                                <rect key="frame" x="151" y="186" width="19" height="28"/>
+                                <rect key="frame" x="151" y="191" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" increment="60" maxValue="5000" id="EW6-qC-lEd"/>
                                 <connections>
                                     <action selector="stepperMinutesAction:" target="XfG-lQ-9wD" id="Vyd-8f-ycN"/>
                                 </connections>
                             </stepper>
-                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Bi-Qn-fW6">
-                                <rect key="frame" x="20.5" y="189" width="99" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="5uH-Y9-x5h">
-                                    <font key="font" metaFont="systemBold"/>
-                                    <segments>
-                                        <segment image="NSRemoveTemplate" imageScaling="none"/>
-                                        <segment label="0" width="40"/>
-                                        <segment image="NSAddTemplate" imageScaling="none"/>
-                                    </segments>
-                                </segmentedCell>
-                                <connections>
-                                    <action selector="goalHomeAction:" target="XfG-lQ-9wD" id="tSE-Qg-fCx"/>
-                                </connections>
-                            </segmentedControl>
-                            <segmentedControl toolTip="Number of period" verticalHuggingPriority="750" id="QBp-bO-XRp">
-                                <rect key="frame" x="190.5" y="227" width="99" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <segmentedControl toolTip="Number of period" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-bO-XRp">
+                                <rect key="frame" x="190.5" y="227" width="100" height="23"/>
                                 <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="Q2V-qE-yLO">
                                     <font key="font" metaFont="systemBold"/>
                                     <segments>
@@ -464,32 +434,116 @@
                                 </connections>
                             </segmentedControl>
                             <switch toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="10" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" state="on" id="dRb-Gv-lIH">
-                                <rect key="frame" x="161" y="7" width="42" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="21" y="30" width="42" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="switchTimerOnOff:" target="XfG-lQ-9wD" id="k6G-xn-BiE"/>
                                 </connections>
                             </switch>
                             <textField toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QlU-kf-kyh">
-                                <rect key="frame" x="204" y="12" width="116" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="64" y="35" width="112" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Countdown: ON" id="SLq-6B-6Nd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField toolTip="Continue the timer in the next period (football: 45 + 45 minutes)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qJk-nm-ZKW">
+                                <rect key="frame" x="64" y="8" width="169" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Continue time (for soccer)" id="EFG-0O-9pk">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button toolTip="Swap Home and Away scores" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2iv-ah-fII">
+                                <rect key="frame" x="409" y="0.0" width="32" height="35"/>
+                                <buttonCell key="cell" type="recessed" title="⇆" bezelStyle="recessed" alignment="center" refusesFirstResponder="YES" state="on" imageScaling="proportionallyDown" inset="2" id="56k-MK-Kqd">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="systemBold" size="30"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="swapHomeAwayScores:" target="XfG-lQ-9wD" id="bFq-6P-59L"/>
+                                </connections>
+                            </button>
+                            <button toolTip="Reset all scores" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cra-ZW-qR3">
+                                <rect key="frame" x="455" y="3" width="19" height="30"/>
+                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NSTouchBarRefreshTemplate" imagePosition="overlaps" alignment="center" refusesFirstResponder="YES" state="on" imageScaling="proportionallyDown" inset="2" id="wj7-ys-TZX">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="systemBold" size="18"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resetButtonPush:" target="XfG-lQ-9wD" id="6d1-6V-AoW"/>
+                                </connections>
+                            </button>
+                            <textField toolTip="Name away team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nb1-sC-9Oh">
+                                <rect key="frame" x="360" y="190" width="100" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="6tW-uS-Rb0"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Away" drawsBackground="YES" id="lTh-p4-b5h">
+                                    <font key="font" metaFont="system" size="22"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="textFieldAwayNameAction:" target="XfG-lQ-9wD" id="6h4-Fr-aRE"/>
+                                    <outlet property="nextKeyView" destination="nD0-gN-t1M" id="SxS-cP-2L3"/>
+                                </connections>
+                            </textField>
+                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" id="Lpn-cp-aMc">
+                                <rect key="frame" x="21" y="3" width="42" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <segmentedControl toolTip="The number of goals of the home team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Bi-Qn-fW6">
+                                <rect key="frame" x="20.5" y="225" width="99" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="PgX-CG-q4G"/>
+                                    <constraint firstAttribute="height" constant="22" id="glw-dA-WZ0"/>
+                                </constraints>
+                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="5uH-Y9-x5h">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <segments>
+                                        <segment image="NSRemoveTemplate" imageScaling="none"/>
+                                        <segment label="0" width="40"/>
+                                        <segment image="NSAddTemplate" imageScaling="none"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="goalHomeAction:" target="XfG-lQ-9wD" id="tSE-Qg-fCx"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="RXY-hW-hdK" firstAttribute="top" secondItem="QBp-bO-XRp" secondAttribute="bottom" constant="3" id="1ZG-eR-LSM"/>
+                            <constraint firstItem="QBp-bO-XRp" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="5CJ-yg-Hme"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7b5-xV-TVs" secondAttribute="trailing" constant="360" id="EDG-ak-ZE5"/>
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Fxc-Pe-qoL"/>
+                            <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="8Bi-Qn-fW6" secondAttribute="bottom" constant="5" id="Iaj-SD-z4e"/>
+                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="49" id="J1E-hf-Uud"/>
+                            <constraint firstItem="2iv-ah-fII" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="235" id="KqU-5P-jI7"/>
+                            <constraint firstItem="cra-ZW-qR3" firstAttribute="leading" secondItem="2iv-ah-fII" secondAttribute="trailing" constant="14" id="L6s-dF-u4L"/>
+                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="yVs-io-wuS" secondAttribute="bottom" constant="5" id="Qwk-0a-2KR"/>
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="STa-Nu-dy1"/>
-                            <constraint firstItem="RXY-hW-hdK" firstAttribute="top" secondItem="QBp-bO-XRp" secondAttribute="bottom" constant="8" id="TW8-Au-zaW"/>
-                            <constraint firstItem="nD0-gN-t1M" firstAttribute="top" secondItem="RXY-hW-hdK" secondAttribute="bottom" constant="8" id="ll3-ic-NNU"/>
+                            <constraint firstAttribute="trailing" secondItem="yVs-io-wuS" secondAttribute="trailing" constant="21" id="Tjz-VO-fhq"/>
+                            <constraint firstItem="QBp-bO-XRp" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="X8B-qA-qYG"/>
+                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="360" id="aNS-vI-O8D"/>
+                            <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="49" id="aPF-lM-5YP"/>
+                            <constraint firstItem="8Bi-Qn-fW6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="bIP-ve-oeo"/>
+                            <constraint firstAttribute="trailing" secondItem="Nb1-sC-9Oh" secondAttribute="trailing" constant="20" id="c5Y-wj-7E6"/>
+                            <constraint firstItem="qJk-nm-ZKW" firstAttribute="leading" secondItem="Lpn-cp-aMc" secondAttribute="trailing" constant="5" id="glN-Sp-ZfV"/>
+                            <constraint firstItem="cra-ZW-qR3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="237" id="ja7-1S-zJY"/>
+                            <constraint firstItem="nD0-gN-t1M" firstAttribute="top" secondItem="RXY-hW-hdK" secondAttribute="bottom" constant="8" id="kCi-cQ-2R0"/>
                             <constraint firstItem="QlU-kf-kyh" firstAttribute="leading" secondItem="dRb-Gv-lIH" secondAttribute="trailing" constant="5" id="oum-v3-Vyz"/>
+                            <constraint firstAttribute="trailing" secondItem="cra-ZW-qR3" secondAttribute="trailing" constant="6" id="xfk-qM-FAR"/>
+                            <constraint firstItem="7b5-xV-TVs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="ziF-1z-U6z"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="buttonStart" destination="nD0-gN-t1M" id="sNw-5c-cDe"/>
+                        <outlet property="continueTimeSwitcher" destination="Lpn-cp-aMc" id="swZ-Hw-aSi"/>
                         <outlet property="goalAway" destination="yVs-io-wuS" id="Pxg-qA-tyk"/>
                         <outlet property="goalHome" destination="8Bi-Qn-fW6" id="VF1-gq-tzK"/>
                         <outlet property="period" destination="QBp-bO-XRp" id="6Wz-ee-fyb"/>
