@@ -113,33 +113,6 @@ class ViewController: NSViewController {
         }
     }
     
-    //старая моя функция для записи файлов
-//    func writeFileToDisk(nameFile:String, textToWrite:String) {
-//        //if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-//        if var dir = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first {
-//            // если папки нет, записать не сможет
-//            dir = dir.appendingPathComponent("ScoreBoard Outputs")
-//            let fileURL = dir.appendingPathComponent(nameFile)
-//
-//            //writing
-//            do {
-//                try textToWrite.write(to: fileURL, atomically: false, encoding: .utf8)
-//                //print(fileURL)
-//                //print("записан файл")
-//            }
-//            catch {/* error handling here */
-//               // print(fileURL)
-//                print("не удалось записать файл: \(error)")
-//            }
-//                    //reading
-//        //            do {
-//        //                let text2 = try String(contentsOf: fileURL, encoding: .utf8)
-//        //            }
-//        //            catch {/* error handling here */}
-//        }
-//
-//    }
-    
     // функция запоминает установленные параметры таймера из слайдера
     func setTimeDefault() {
         timeUserPreset = sliderTimer.integerValue
@@ -340,12 +313,11 @@ class ViewController: NSViewController {
             titleTimerMode.stringValue = "Countdown: ON"
             continueTimeSwitcher.state = .off
             continueTimeSwitcher.isEnabled = false
-            timeNow = timeUserPreset - timeNow // смена времени на табло с сохранением пройденных секунд
         } else {
             titleTimerMode.stringValue = "Countdown: OFF"
             continueTimeSwitcher.isEnabled = true
-            timeNow = timeUserPreset - timeNow  // смена времени на табло с сохранением пройденных секунд
         }
+        timeNow = timeUserPreset - timeNow  // смена времени на табло с сохранением пройденных секунд
         showTimeInLabel()
     }
     

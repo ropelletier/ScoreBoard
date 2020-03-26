@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -226,7 +226,7 @@
                     <window key="window" title="ScoreBoard" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="634" y="400" width="480" height="270"/>
+                        <rect key="contentRect" x="1135" y="70" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="480" height="270"/>
                         <value key="maxSize" type="size" width="480" height="270"/>
@@ -247,13 +247,13 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="492" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField toolTip="Name home team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7b5-xV-TVs">
-                                <rect key="frame" x="20" y="190" width="100" height="31"/>
+                                <rect key="frame" x="10" y="190" width="122" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="bWf-7v-uSN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="bWf-7v-uSN"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Home" drawsBackground="YES" id="wbQ-Y7-Vkk">
                                     <font key="font" metaFont="system" size="22"/>
@@ -266,7 +266,7 @@
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-gN-t1M">
-                                <rect key="frame" x="198" y="144" width="84" height="35"/>
+                                <rect key="frame" x="204" y="144" width="84" height="35"/>
                                 <buttonCell key="cell" type="bevel" title="START" bezelStyle="regularSquare" alignment="center" lineBreakMode="charWrapping" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="saF-P2-6MX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="20"/>
@@ -278,7 +278,7 @@
                                 </connections>
                             </button>
                             <textField toolTip="Timer" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RXY-hW-hdK">
-                                <rect key="frame" x="175" y="185" width="130" height="40"/>
+                                <rect key="frame" x="181" y="185" width="130" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="7fg-bY-QEA"/>
                                     <constraint firstAttribute="height" constant="40" id="NKO-Lw-SSK"/>
@@ -301,7 +301,7 @@
                                 </connections>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="otc-Kn-LFT">
-                                <rect key="frame" x="46" y="98" width="20" height="16"/>
+                                <rect key="frame" x="43" y="98" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="5" id="5ME-VK-dp0">
                                     <font key="font" metaFont="system"/>
@@ -310,16 +310,16 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Mfq-dM-UQs">
-                                <rect key="frame" x="81" y="98" width="20" height="16"/>
+                                <rect key="frame" x="80" y="98" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="10" id="frH-C7-1El">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="center" title="10" id="frH-C7-1El">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TLo-of-hE4">
-                                <rect key="frame" x="118" y="98" width="20" height="16"/>
+                                <rect key="frame" x="116" y="98" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="15" id="pQq-eB-vYx">
                                     <font key="font" metaFont="system"/>
@@ -328,7 +328,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="syC-0B-HuT">
-                                <rect key="frame" x="153" y="98" width="20" height="16"/>
+                                <rect key="frame" x="152" y="98" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="20" id="OrR-rA-ct3">
                                     <font key="font" metaFont="system"/>
@@ -337,7 +337,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t9S-5K-59s">
-                                <rect key="frame" x="225" y="98" width="20" height="16"/>
+                                <rect key="frame" x="224" y="98" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="30" id="pL6-V4-uaR">
                                     <font key="font" metaFont="system"/>
@@ -346,7 +346,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iYZ-Jt-E31">
-                                <rect key="frame" x="333" y="98" width="21" height="16"/>
+                                <rect key="frame" x="333" y="98" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="45" id="nvF-R2-VId">
                                     <font key="font" metaFont="system"/>
@@ -355,8 +355,8 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FXT-Tp-HWe">
-                                <rect key="frame" x="442" y="98" width="21" height="16"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <rect key="frame" x="454" y="98" width="25" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="60" id="lBP-fQ-9rk">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -364,7 +364,7 @@
                                 </textFieldCell>
                             </textField>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-6e-EiV">
-                                <rect key="frame" x="310" y="191" width="19" height="28"/>
+                                <rect key="frame" x="311" y="191" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" maxValue="5000" id="PxT-FV-P5k"/>
                                 <connections>
@@ -372,16 +372,16 @@
                                 </connections>
                             </stepper>
                             <segmentedControl toolTip="The number of goals of the away team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yVs-io-wuS">
-                                <rect key="frame" x="360.5" y="225" width="99" height="23"/>
+                                <rect key="frame" x="359.5" y="225" width="123" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="EFc-RX-SNf"/>
-                                    <constraint firstAttribute="width" constant="98" id="TZW-hh-FlY"/>
+                                    <constraint firstAttribute="width" constant="122" id="TZW-hh-FlY"/>
                                 </constraints>
-                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="hHp-F2-hco">
+                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="hHp-F2-hco">
                                     <font key="font" metaFont="systemBold"/>
                                     <segments>
                                         <segment image="NSRemoveTemplate" imageScaling="none"/>
-                                        <segment label="0" width="40"/>
+                                        <segment label="0" imageScaling="none" width="40"/>
                                         <segment image="NSAddTemplate" imageScaling="none"/>
                                     </segments>
                                 </segmentedCell>
@@ -389,9 +389,8 @@
                                     <action selector="goalAwayAction:" target="XfG-lQ-9wD" id="CVp-id-hRM"/>
                                 </connections>
                             </segmentedControl>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TAq-ib-OCo">
-                                <rect key="frame" x="214" y="250" width="54" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TAq-ib-OCo">
+                                <rect key="frame" x="224" y="253" width="45" height="12"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="PERIOD" id="gpH-7w-dee">
                                     <font key="font" size="10" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -412,7 +411,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gch-6s-7NE">
-                                <rect key="frame" x="151" y="191" width="19" height="28"/>
+                                <rect key="frame" x="162" y="191" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" increment="60" maxValue="5000" id="EW6-qC-lEd"/>
                                 <connections>
@@ -420,13 +419,16 @@
                                 </connections>
                             </stepper>
                             <segmentedControl toolTip="Number of period" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-bO-XRp">
-                                <rect key="frame" x="190.5" y="227" width="100" height="23"/>
+                                <rect key="frame" x="184.5" y="227" width="123" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="kh9-Je-xMM"/>
+                                </constraints>
                                 <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="Q2V-qE-yLO">
                                     <font key="font" metaFont="systemBold"/>
                                     <segments>
-                                        <segment image="NSRemoveTemplate" imageScaling="none" width="26"/>
+                                        <segment image="NSRemoveTemplate" imageScaling="none"/>
                                         <segment label="1" width="40"/>
-                                        <segment image="NSAddTemplate" imageScaling="none" width="26"/>
+                                        <segment image="NSAddTemplate" imageScaling="none"/>
                                     </segments>
                                 </segmentedCell>
                                 <connections>
@@ -459,7 +461,7 @@
                                 </textFieldCell>
                             </textField>
                             <button toolTip="Swap Home and Away scores" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2iv-ah-fII">
-                                <rect key="frame" x="409" y="0.0" width="32" height="35"/>
+                                <rect key="frame" x="421" y="0.0" width="32" height="35"/>
                                 <buttonCell key="cell" type="recessed" title="⇆" bezelStyle="recessed" alignment="center" refusesFirstResponder="YES" state="on" imageScaling="proportionallyDown" inset="2" id="56k-MK-Kqd">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="30"/>
@@ -469,7 +471,7 @@
                                 </connections>
                             </button>
                             <button toolTip="Reset all scores" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cra-ZW-qR3">
-                                <rect key="frame" x="455" y="3" width="19" height="30"/>
+                                <rect key="frame" x="467" y="3" width="19" height="30"/>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NSTouchBarRefreshTemplate" imagePosition="overlaps" alignment="center" refusesFirstResponder="YES" state="on" imageScaling="proportionallyDown" inset="2" id="wj7-ys-TZX">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="18"/>
@@ -479,9 +481,9 @@
                                 </connections>
                             </button>
                             <textField toolTip="Name away team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nb1-sC-9Oh">
-                                <rect key="frame" x="360" y="190" width="100" height="31"/>
+                                <rect key="frame" x="360" y="190" width="122" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="6tW-uS-Rb0"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="6tW-uS-Rb0"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Away" drawsBackground="YES" id="lTh-p4-b5h">
                                     <font key="font" metaFont="system" size="22"/>
@@ -498,16 +500,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <segmentedControl toolTip="The number of goals of the home team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Bi-Qn-fW6">
-                                <rect key="frame" x="20.5" y="225" width="99" height="23"/>
+                                <rect key="frame" x="9.5" y="225" width="123" height="23"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="98" id="PgX-CG-q4G"/>
+                                    <constraint firstAttribute="width" constant="122" id="PgX-CG-q4G"/>
                                     <constraint firstAttribute="height" constant="22" id="glw-dA-WZ0"/>
                                 </constraints>
-                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="5uH-Y9-x5h">
+                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="5uH-Y9-x5h">
                                     <font key="font" metaFont="systemBold"/>
                                     <segments>
                                         <segment image="NSRemoveTemplate" imageScaling="none"/>
-                                        <segment label="0" width="40"/>
+                                        <segment label="0" imageScaling="none" width="40"/>
                                         <segment image="NSAddTemplate" imageScaling="none"/>
                                     </segments>
                                 </segmentedCell>
@@ -527,18 +529,20 @@
                             <constraint firstItem="cra-ZW-qR3" firstAttribute="leading" secondItem="2iv-ah-fII" secondAttribute="trailing" constant="14" id="L6s-dF-u4L"/>
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="yVs-io-wuS" secondAttribute="bottom" constant="5" id="Qwk-0a-2KR"/>
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="STa-Nu-dy1"/>
-                            <constraint firstAttribute="trailing" secondItem="yVs-io-wuS" secondAttribute="trailing" constant="21" id="Tjz-VO-fhq"/>
+                            <constraint firstAttribute="trailing" secondItem="yVs-io-wuS" secondAttribute="trailing" constant="10" id="Tjz-VO-fhq"/>
+                            <constraint firstItem="TAq-ib-OCo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Wra-kS-dvx"/>
                             <constraint firstItem="QBp-bO-XRp" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="X8B-qA-qYG"/>
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="360" id="aNS-vI-O8D"/>
                             <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="49" id="aPF-lM-5YP"/>
-                            <constraint firstItem="8Bi-Qn-fW6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="bIP-ve-oeo"/>
-                            <constraint firstAttribute="trailing" secondItem="Nb1-sC-9Oh" secondAttribute="trailing" constant="20" id="c5Y-wj-7E6"/>
+                            <constraint firstItem="8Bi-Qn-fW6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="bIP-ve-oeo"/>
+                            <constraint firstAttribute="trailing" secondItem="Nb1-sC-9Oh" secondAttribute="trailing" constant="10" id="c5Y-wj-7E6"/>
+                            <constraint firstItem="TAq-ib-OCo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="d2k-dD-qhb"/>
                             <constraint firstItem="qJk-nm-ZKW" firstAttribute="leading" secondItem="Lpn-cp-aMc" secondAttribute="trailing" constant="5" id="glN-Sp-ZfV"/>
                             <constraint firstItem="cra-ZW-qR3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="237" id="ja7-1S-zJY"/>
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="top" secondItem="RXY-hW-hdK" secondAttribute="bottom" constant="8" id="kCi-cQ-2R0"/>
                             <constraint firstItem="QlU-kf-kyh" firstAttribute="leading" secondItem="dRb-Gv-lIH" secondAttribute="trailing" constant="5" id="oum-v3-Vyz"/>
                             <constraint firstAttribute="trailing" secondItem="cra-ZW-qR3" secondAttribute="trailing" constant="6" id="xfk-qM-FAR"/>
-                            <constraint firstItem="7b5-xV-TVs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="ziF-1z-U6z"/>
+                            <constraint firstItem="7b5-xV-TVs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="ziF-1z-U6z"/>
                         </constraints>
                     </view>
                     <connections>
