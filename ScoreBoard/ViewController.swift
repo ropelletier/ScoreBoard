@@ -16,6 +16,8 @@ class ViewController: NSViewController {
         textFieldTimer.font = NSFont.monospacedDigitSystemFont(ofSize: 30, weight: .regular)
         setTimeDefault() // сразу запоминаем время по умолчанию
         showTimeInLabel() //при запуске выставляем таймер по умолчанию
+        //restoreFileAccess(with: UserDefaults.standard.data(forKey: "bookmarkData")!)
+        pathToWorkDirectory.url = userDirectoryDefault // выставляем директорию Downloads по умолчанию
         writeToDisk("all") //создаем папку + все файлы
     }
 
@@ -31,6 +33,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var titleTimerMode: NSTextField!
     @IBOutlet weak var continueTimeSwitcher: NSSwitch!
     @IBOutlet weak var resetButton: NSButton!
+    @IBOutlet weak var swapScores: NSButton!
     @IBOutlet weak var sliderTimer: NSSlider!
     @IBOutlet weak var textFieldHomeName: NSTextField!
     @IBOutlet weak var textFieldAwayName: NSTextField!
@@ -39,27 +42,79 @@ class ViewController: NSViewController {
     @IBOutlet weak var period: NSSegmentedControl!
     @IBOutlet weak var stepperSeconds: NSStepper!
     @IBOutlet weak var stepperMinutes: NSStepper!
+    @IBOutlet weak var pathToWorkDirectory: NSPathControl!
     
     //lazy var timeUserPreset:Int = sliderTimer.integerValue //900 секунд по умолчанию в свойствах слайдера
     //lazy var timeNow:Int = sliderTimer.integerValue //900 секунд по умолчанию в свойствах слайдера
     
     // параметры по умолчанию
-    var timeUserPreset:Int = 900 //900 секунд по умолчанию в свойствах слайдера
-    var timeNow:Int = 900 //900 секунд по умолчанию в свойствах слайдера
-    var homeName:String = "Home"
-    var awayName:String = "Away"
-    var countGoalHome:Int = 0
-    var countGoalAway:Int = 0
-    var periodCount:Int = 1
+    var timeUserPreset: Int = 900 //900 секунд по умолчанию в свойствах слайдера
+    var timeNow: Int = 900 //900 секунд по умолчанию в свойствах слайдера
+    var homeName: String = "Home"
+    var awayName: String = "Away"
+    var countGoalHome: Int = 0
+    var countGoalAway: Int = 0
+    var periodCount: Int = 1
+//    var userDirectoryDefault = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first
+
+    
+    var userDirectoryDefault: URL? {
+        get {
+            let pathDefault = UserDefaults.standard.url(forKey: "pathToDirectory") ?? FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first
+            return pathDefault
+        } set {
+            UserDefaults.standard.set(newValue, forKey: "pathToDirectory")
+        }
+    }
+
+    
+    
+    
+//    private func saveBookmarkData(for workDir: URL) {
+//        do {
+//            let bookmarkData = try workDir.bookmarkData(options: .withSecurityScope,
+//                                                        includingResourceValuesForKeys: nil,
+//                                                        relativeTo: nil)
+//
+//            // save in UserDefaults
+//            //Preferences.workingDirectoryBookmark = bookmarkData
+//            UserDefaults.standard.set(bookmarkData, forKey: "bookmarkData")
+//        } catch {
+//            print("Failed to save bookmark data for \(workDir)", error)
+//        }
+//    }
+//
+//    private func restoreFileAccess(with bookmarkData: Data) -> URL? {
+//        do {
+//            var isStale = false
+//            let url = try URL(resolvingBookmarkData: bookmarkData,
+//                              options: .withSecurityScope,
+//                              relativeTo: nil,
+//                              bookmarkDataIsStale: &isStale)
+//            if isStale {
+//                // bookmarks could become stale as the OS changes
+//                print("Bookmark is stale, need to save a new one... ")
+//                saveBookmarkData(for: url)
+//            }
+////print (url)
+//            return url
+//        } catch {
+//            print("Error resolving bookmark:", error)
+//            return nil
+//        }
+//    }
+
+    
     
     // MARK: - FUNCtions
     
     func writeToDisk(_ fileName:String) {
-        
         do {
-            if var userDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                userDirectory = userDirectory.appendingPathComponent("Трансляции/ScoreBoard Outputs")
-                
+            //if var userDirectory = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first {
+            if var userDirectory = userDirectoryDefault {
+            //if var userDirectory = restoreFileAccess(with: UserDefaults.standard.data(forKey: "bookmarkData")!) {
+                userDirectory = userDirectory.appendingPathComponent("ScoreBoard Outputs")
+
                 // проверка на существование папки (создаем если ее нет иначе пропускаем)
                 if FileManager().fileExists(atPath: userDirectory.path) {
                 } else {
@@ -106,7 +161,15 @@ class ViewController: NSViewController {
         } catch {
             let alert = NSAlert()
             alert.messageText = "Unable to write file"
-            alert.informativeText = "There is no access to the directory for writing or the path is incorrect"
+            alert.informativeText = """
+            There is no access to the directory for writing.
+            Give the program access to write files to disk:
+            
+            System Preferences > Security and Privacy > Privacy > Files and Folders
+            
+            Check the box for the program "ScoreBoard.app".
+
+            """
             alert.addButton(withTitle: "OK")
             alert.alertStyle = .warning
             alert.runModal()
@@ -319,6 +382,13 @@ class ViewController: NSViewController {
         }
         timeNow = timeUserPreset - timeNow  // смена времени на табло с сохранением пройденных секунд
         showTimeInLabel()
+    }
+    
+    @IBAction func selectUserDirectory(_ sender: Any) {
+        userDirectoryDefault = pathToWorkDirectory.url
+        //saveBookmarkData(for: userDirectoryDefault!)
+        //saveBookmarkData(for: pathToWorkDirectory.url!)
+        
     }
     
     @IBAction func resetButtonPush(_ sender: Any) {

@@ -276,14 +276,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = C3T29LJ4SV;
+				DEVELOPMENT_TEAM = 55MCT9R6B9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ScoreBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = VasPet.ScoreBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = VasilyPetuhov.ScoreBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -297,14 +297,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = C3T29LJ4SV;
+				DEVELOPMENT_TEAM = 55MCT9R6B9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ScoreBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = VasPet.ScoreBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = VasilyPetuhov.ScoreBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
