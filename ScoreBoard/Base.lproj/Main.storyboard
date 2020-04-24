@@ -270,7 +270,6 @@
                                 <buttonCell key="cell" type="bevel" title="START" bezelStyle="regularSquare" alignment="center" lineBreakMode="charWrapping" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="saF-P2-6MX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="20"/>
-                                    <string key="keyEquivalent"></string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="pushButtonStart:" target="XfG-lQ-9wD" id="I0Y-n2-dPZ"/>

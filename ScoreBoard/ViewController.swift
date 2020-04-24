@@ -14,7 +14,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         textFieldTimer.font = NSFont.monospacedDigitSystemFont(ofSize: 30, weight: .regular)
-        setTimeDefault() // сразу запоминаем время по умолчанию
+        sliderTimer.integerValue = timeUserPreset // возвращаем состояние слайдера до закрытия проги
         showTimeInLabel() //при запуске выставляем таймер по умолчанию
         //restoreFileAccess(with: UserDefaults.standard.data(forKey: "bookmarkData")!)
         pathToWorkDirectory.url = userDirectoryDefault // выставляем директорию Downloads по умолчанию
@@ -44,30 +44,71 @@ class ViewController: NSViewController {
     @IBOutlet weak var stepperMinutes: NSStepper!
     @IBOutlet weak var pathToWorkDirectory: NSPathControl!
     
-    //lazy var timeUserPreset:Int = sliderTimer.integerValue //900 секунд по умолчанию в свойствах слайдера
-    //lazy var timeNow:Int = sliderTimer.integerValue //900 секунд по умолчанию в свойствах слайдера
     
-    // параметры по умолчанию
-    var timeUserPreset: Int = 900 //900 секунд по умолчанию в свойствах слайдера
-    var timeNow: Int = 900 //900 секунд по умолчанию в свойствах слайдера
+// параметры по умолчанию
+    var timeUserPreset: Int {
+        get {
+            UserDefaults.standard.register(defaults: ["timeUserPreset" : 900])
+            return UserDefaults.standard.integer(forKey: "timeUserPreset")
+        } set {
+            UserDefaults.standard.set(newValue, forKey: "timeUserPreset")
+        }
+    }
+    lazy var timeNow: Int = timeUserPreset
     var homeName: String = "Home"
     var awayName: String = "Away"
     var countGoalHome: Int = 0
     var countGoalAway: Int = 0
     var periodCount: Int = 1
-//    var userDirectoryDefault = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first
 
+
+    //var userDirectoryDefault = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first
     
     var userDirectoryDefault: URL? {
         get {
-            let pathDefault = UserDefaults.standard.url(forKey: "pathToDirectory") ?? FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first
-            return pathDefault
+            UserDefaults.standard.register(defaults: ["pathToDirectory" : FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!])
+//            return UserDefaults.standard.url(forKey: "pathToDirectory") ?? FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first
+            return UserDefaults.standard.url(forKey: "pathToDirectory")
         } set {
             UserDefaults.standard.set(newValue, forKey: "pathToDirectory")
         }
     }
 
     
+    // тест для хранения пользовательских прав доступа к ссылке
+    
+//    let data = userDirectoryDefault?.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+//
+//    UserDefaults.standard.set(data, forKey: "bookmark")
+    
+    var bookmarkData: Data? {
+        get {
+            
+            return UserDefaults.standard.data(forKey: "bookmarkForDirecory")!
+            
+            
+        } set {
+            do {
+             let bookmark = try userDirectoryDefault?.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+            UserDefaults.standard.set(bookmark, forKey: "bookmarkForDirecory")
+            } catch {
+                print("Failed to save bookmark data")
+                //return nil
+            }
+            
+        }
+        
+        
+        
+        
+//        do {
+//            return try userDirectoryDefault?.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+//        } catch {
+//            print("Failed to save bookmark data")
+//            return nil
+//        }
+    }
+
     
     
 //    private func saveBookmarkData(for workDir: URL) {
@@ -180,7 +221,8 @@ class ViewController: NSViewController {
     func setTimeDefault() {
         timeUserPreset = sliderTimer.integerValue
         if switchTimerMode.state == .on {
-            timeNow = sliderTimer.integerValue
+            //timeNow = sliderTimer.integerValue // зачем снова опрашивать слайдер? но так можно
+            timeNow = timeUserPreset
         } else {
             timeNow = 0
         }
