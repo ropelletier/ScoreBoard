@@ -16,9 +16,17 @@ class ViewController: NSViewController {
         textFieldTimer.font = NSFont.monospacedDigitSystemFont(ofSize: 30, weight: .regular)
         sliderTimer.integerValue = timeUserPreset // возвращаем состояние слайдера до закрытия проги
         showTimeInLabel() //при запуске выставляем таймер по умолчанию
+        
+        
+// newWrite стандартный путь к каталогу при первом запуске
+        UserDefaults.standard.register(defaults: ["pathToUserDirectory" : FileManager.default.urls(for: .downloadsDirectory,
+        in: .userDomainMask).first!])
+        
+        
         //restoreFileAccess(with: UserDefaults.standard.data(forKey: "bookmarkData")!)
         pathToWorkDirectory.url = userDirectoryDefault // выставляем директорию Downloads по умолчанию
-        writeToDisk("all") //создаем папку + все файлы
+        //writeToDisk("all") //создаем папку + все файлы
+        writeFilesToDisk(.timer, .homeName, .awayName)
     }
 
     override var representedObject: Any? {
@@ -76,78 +84,134 @@ class ViewController: NSViewController {
 
     
     // тест для хранения пользовательских прав доступа к ссылке
-    
 //    let data = userDirectoryDefault?.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
 //
 //    UserDefaults.standard.set(data, forKey: "bookmark")
     
-    var bookmarkData: Data? {
-        get {
-            
-            return UserDefaults.standard.data(forKey: "bookmarkForDirecory")!
-            
-            
-        } set {
-            do {
-             let bookmark = try userDirectoryDefault?.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-            UserDefaults.standard.set(bookmark, forKey: "bookmarkForDirecory")
-            } catch {
-                print("Failed to save bookmark data")
-                //return nil
-            }
-            
-        }
-        
-        
-        
-        
-//        do {
-//            return try userDirectoryDefault?.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-//        } catch {
-//            print("Failed to save bookmark data")
-//            return nil
-//        }
-    }
-
-    
-    
-//    private func saveBookmarkData(for workDir: URL) {
-//        do {
-//            let bookmarkData = try workDir.bookmarkData(options: .withSecurityScope,
-//                                                        includingResourceValuesForKeys: nil,
-//                                                        relativeTo: nil)
-//
-//            // save in UserDefaults
-//            //Preferences.workingDirectoryBookmark = bookmarkData
-//            UserDefaults.standard.set(bookmarkData, forKey: "bookmarkData")
-//        } catch {
-//            print("Failed to save bookmark data for \(workDir)", error)
-//        }
-//    }
-//
-//    private func restoreFileAccess(with bookmarkData: Data) -> URL? {
-//        do {
-//            var isStale = false
-//            let url = try URL(resolvingBookmarkData: bookmarkData,
-//                              options: .withSecurityScope,
-//                              relativeTo: nil,
-//                              bookmarkDataIsStale: &isStale)
-//            if isStale {
-//                // bookmarks could become stale as the OS changes
-//                print("Bookmark is stale, need to save a new one... ")
-//                saveBookmarkData(for: url)
+//    var bookmarkData: Data? {
+//        get {
+//            return UserDefaults.standard.data(forKey: "bookmarkForDirecory")!
+//        } set {
+//            do {
+//             let bookmark = try userDirectoryDefault?.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+//            UserDefaults.standard.set(bookmark, forKey: "bookmarkForDirecory")
+//            } catch {
+//                print("Failed to save bookmark data")
 //            }
-////print (url)
-//            return url
-//        } catch {
-//            print("Error resolving bookmark:", error)
-//            return nil
 //        }
 //    }
 
     
+
     
     // MARK: - FUNCtions
+
+// newWrite сохранить закладку
+    func saveBookmarksPathDirectory(_ userDirectoryUrl:URL) {
+        
+        // открыть панель выбора файла
+//        let panel = NSOpenPanel()
+//        panel.canChooseDirectories = true
+//        panel.canChooseFiles = false
+//        panel.prompt = "Select"
+//        guard panel.runModal() == NSApplication.ModalResponse.OK else { return }
+//        guard let userDirectoryUrl = panel.url else { return }
+        
+        // добавить название папки к пути выбранному пользователем
+        //pathDirectory.url = userDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
+        //guard let userDirectoryUrl = pathDirectory.url else { return }
+        
+        // сохраняем закладку безопасности на будущее
+        do {
+            let bookmark = try userDirectoryUrl.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+            UserDefaults.standard.set(bookmark, forKey: "bookmarkForDirecory")
+            print("закладка сохранилась успешно: \(userDirectoryUrl)")
+        } catch { return }
+    }
+    
+// newWrite восстановить закладку
+    func restoreBookmarksPathDirectory() -> URL? {
+        let bookmark = UserDefaults.standard.data(forKey: "bookmarkForDirecory")!
+        var bookmarkDataIsStale: ObjCBool = false
+        
+        do {
+           let userDirectoryUrl = try (NSURL(resolvingBookmarkData: bookmark, options: [.withoutUI, .withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &bookmarkDataIsStale) as URL)
+            
+            if bookmarkDataIsStale.boolValue { return nil }
+            
+            guard userDirectoryUrl.startAccessingSecurityScopedResource() else { return nil }
+            
+            print("закладка открыта успешно: \(userDirectoryUrl)")
+            return userDirectoryUrl
+            
+        } catch { return nil }
+    }
+    
+// newWrite перечисление файлов для записи
+    enum FilesToWrite {
+        case timer, homeName, awayName, period, homeGoal, awayGoal
+    }
+    
+// newWrite запись файлов
+    func writeFilesToDisk(_ fileToWrite: FilesToWrite...) {
+        do {
+            if var userDirectoryUrl = restoreBookmarksPathDirectory() {
+                userDirectoryUrl = userDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
+                
+                // проверка - существование каталога на диске
+                if !FileManager().fileExists(atPath: userDirectoryUrl.path) {
+                try FileManager.default.createDirectory(at: userDirectoryUrl, withIntermediateDirectories: true, attributes: nil)
+                }
+                
+                var text: String
+                var fileName: String
+                
+                //let text = textFieldTimer.stringValue //String("\(fileToWrite.self).txt")
+                //let fileName = fileToWrite.rawValue
+                
+                for file in fileToWrite {
+                    switch file {
+                    case .timer:
+                    text = textFieldTimer.stringValue
+                    fileName = "Timer.txt"
+                    case .homeName:
+                       text = homeName
+                       fileName = "Home_Name.txt"
+                    case .awayName:
+                       text = awayName
+                       fileName = "Away_Name.txt"
+                    case .period:
+                       text = String(periodCount)
+                       fileName = "Period.txt"
+                    case .homeGoal:
+                       text = String(countGoalHome)
+                       fileName = "HomeGoal.txt"
+                    case .awayGoal:
+                       text = String(countGoalAway)
+                       fileName = "AwayGoal.txt"
+                   }
+                    // запись нужного файла
+                    try text.write(to: userDirectoryUrl.appendingPathComponent(fileName), atomically: false, encoding: .utf8)
+                }
+            }
+        } catch {
+            let alert = NSAlert()
+            alert.messageText = "Unable to write file"
+            alert.informativeText = """
+            There is no access to the directory for writing.
+            Give the program access to write files to disk:
+
+            System Preferences > Security and Privacy > Privacy > Files and Folders
+
+            Check the box for the program "ScoreBoard.app".
+
+            """
+            alert.addButton(withTitle: "OK")
+            alert.alertStyle = .warning
+            alert.runModal()
+        }
+    }
+    
     
     func writeToDisk(_ fileName:String) {
         do {
@@ -249,7 +313,8 @@ class ViewController: NSViewController {
         }
         textFieldTimer.stringValue = minStr + ":" + secStr //вывод времени в формате 00:00 в поле
         //writeFileToDisk(nameFile:"Time.txt", textToWrite:textFieldTimer.stringValue)
-        writeToDisk("time")
+        //writeToDisk("time")
+        writeFilesToDisk(.timer) // это команда дублируется часто в других местах...
     }
     
     var timerStatus: Timer? //две функции для таймера (старт/стоп)
@@ -305,7 +370,7 @@ class ViewController: NSViewController {
         goalAway.setLabel(String(countGoalAway), forSegment: 1)
         periodCount = 1
         period.setLabel(String(periodCount), forSegment: 1)
-        writeToDisk("all")
+        //writeToDisk("all")
     }
     
     // MARK: - ACTIONS
@@ -357,7 +422,8 @@ class ViewController: NSViewController {
         }
         //writeFileToDisk(nameFile:"HomeScore.txt", textToWrite: String(countGoalHome))
         goalHome.setLabel(String(countGoalHome), forSegment: 1)
-        writeToDisk("homeGoal")
+//        writeToDisk("homeGoal")
+        writeFilesToDisk(.homeGoal)
     }
     
     @IBAction func goalAwayAction(_ sender: Any) {
@@ -369,7 +435,8 @@ class ViewController: NSViewController {
         }
         //writeFileToDisk(nameFile:"AwayScore.txt", textToWrite: String(countGoalAway))
         goalAway.setLabel(String(countGoalAway), forSegment: 1)
-        writeToDisk("awayGoal")
+//        writeToDisk("awayGoal")
+        writeFilesToDisk(.awayGoal)
     }
     
     @IBAction func periodAction(_ sender: Any) {
@@ -381,20 +448,23 @@ class ViewController: NSViewController {
         }
         //writeFileToDisk(nameFile:"Period.txt", textToWrite: String(periodCount))
         period.setLabel(String(periodCount), forSegment: 1)
-        writeToDisk("period")
+//        writeToDisk("period")
+        writeFilesToDisk(.period)
     }
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {
         homeName = textFieldHomeName.stringValue
         //writeFileToDisk(nameFile:"HomeName.txt", textToWrite:textFieldHomeName.stringValue)
-        writeToDisk("homeName")
+//        writeToDisk("homeName")
+        writeFilesToDisk(.homeName)
 
     }
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
         awayName = textFieldAwayName.stringValue
         //writeFileToDisk(nameFile:"AwayName.txt", textToWrite:textFieldAwayName.stringValue)
-        writeToDisk("awayName")
+//        writeToDisk("awayName")
+        writeFilesToDisk(.awayName)
     }
     
     @IBAction func sliderTimerAction(_ sender: Any) {
@@ -427,15 +497,18 @@ class ViewController: NSViewController {
     }
     
     @IBAction func selectUserDirectory(_ sender: Any) {
-        userDirectoryDefault = pathToWorkDirectory.url
+        //userDirectoryDefault = pathToWorkDirectory.url
         //saveBookmarkData(for: userDirectoryDefault!)
         //saveBookmarkData(for: pathToWorkDirectory.url!)
         
+        guard let userDirectoryUrl = pathToWorkDirectory.url else { return }
+        saveBookmarksPathDirectory(userDirectoryUrl)
     }
     
     @IBAction func resetButtonPush(_ sender: Any) {
         resetAllState()
-        writeToDisk("all")
+// newWrite запись файлов
+        writeFilesToDisk(.timer) // надо all
     }
     
     @IBAction func swapHomeAwayScores(_ sender: Any) {
@@ -445,7 +518,7 @@ class ViewController: NSViewController {
         swap(&countGoalHome, &countGoalAway)
         goalHome.setLabel(String(countGoalHome), forSegment: 1)
         goalAway.setLabel(String(countGoalAway), forSegment: 1)
-        writeToDisk("all") //пишем все сразу, но надо указать нужное
+//        writeToDisk("all") //пишем все сразу, но надо указать нужное
     }
     
 // MARK:- Menu action
