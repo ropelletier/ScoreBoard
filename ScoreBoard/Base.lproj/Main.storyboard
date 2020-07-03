@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="Vr1-Lg-vXi" kind="show" id="g4G-DB-n7t"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -242,12 +246,48 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="9S3-az-ohQ">
+            <objects>
+                <windowController id="Vr1-Lg-vXi" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="AA9-qe-aTa">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="1142" y="171" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
+                        <value key="maxSize" type="size" width="480" height="270"/>
+                        <connections>
+                            <outlet property="delegate" destination="Vr1-Lg-vXi" id="sn9-8k-0Wu"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="aw4-w5-dXm" kind="relationship" relationship="window.shadowedContentViewController" id="5Gu-8W-gZZ"/>
+                    </connections>
+                </windowController>
+                <customObject id="B3V-HI-UC8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="607" y="250"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0HL-i3-GaJ">
+            <objects>
+                <viewController id="aw4-w5-dXm" sceneMemberID="viewController">
+                    <view key="view" id="QIq-4A-fvG">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="6Rm-Fd-R4t" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="607" y="698"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="492" height="271"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField toolTip="Name home team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7b5-xV-TVs">
@@ -266,7 +306,7 @@
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-gN-t1M">
-                                <rect key="frame" x="204" y="145" width="84" height="35"/>
+                                <rect key="frame" x="198" y="144" width="84" height="35"/>
                                 <buttonCell key="cell" type="bevel" title="START" bezelStyle="regularSquare" alignment="center" lineBreakMode="charWrapping" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="saF-P2-6MX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="20"/>
@@ -277,7 +317,7 @@
                                 </connections>
                             </button>
                             <textField toolTip="Timer" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RXY-hW-hdK">
-                                <rect key="frame" x="181" y="186" width="130" height="40"/>
+                                <rect key="frame" x="175" y="185" width="130" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="7fg-bY-QEA"/>
                                     <constraint firstAttribute="height" constant="40" id="NKO-Lw-SSK"/>
@@ -292,7 +332,7 @@
                                 </connections>
                             </textField>
                             <slider toolTip="Setting the timer duration in minutes" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15e-3A-sM7">
-                                <rect key="frame" x="16" y="84" width="448" height="24"/>
+                                <rect key="frame" x="16" y="83" width="448" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" minValue="60" maxValue="3600" doubleValue="900" tickMarkPosition="above" numberOfTickMarks="60" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VG6-g9-2KU"/>
                                 <connections>
@@ -354,7 +394,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FXT-Tp-HWe">
-                                <rect key="frame" x="454" y="108" width="25" height="16"/>
+                                <rect key="frame" x="442" y="108" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="60" id="lBP-fQ-9rk">
                                     <font key="font" metaFont="system"/>
@@ -363,7 +403,7 @@
                                 </textFieldCell>
                             </textField>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-6e-EiV">
-                                <rect key="frame" x="311" y="192" width="19" height="28"/>
+                                <rect key="frame" x="304" y="191" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" maxValue="5000" id="PxT-FV-P5k"/>
                                 <connections>
@@ -371,7 +411,7 @@
                                 </connections>
                             </stepper>
                             <segmentedControl toolTip="The number of goals of the away team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yVs-io-wuS">
-                                <rect key="frame" x="359.5" y="226" width="123" height="23"/>
+                                <rect key="frame" x="347.5" y="227" width="123" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="EFc-RX-SNf"/>
                                     <constraint firstAttribute="width" constant="122" id="TZW-hh-FlY"/>
@@ -389,9 +429,9 @@
                                 </connections>
                             </segmentedControl>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TAq-ib-OCo">
-                                <rect key="frame" x="224" y="254" width="45" height="12"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="PERIOD" id="gpH-7w-dee">
-                                    <font key="font" size="10" name="HelveticaNeue"/>
+                                <rect key="frame" x="219" y="253" width="43" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="period" id="gpH-7w-dee">
+                                    <font key="font" size="12" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -406,11 +446,11 @@
                                 </textFieldCell>
                             </textField>
                             <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="elC-Zq-q9j">
-                                <rect key="frame" x="0.0" y="134" width="480" height="5"/>
+                                <rect key="frame" x="0.0" y="133" width="480" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gch-6s-7NE">
-                                <rect key="frame" x="162" y="192" width="19" height="28"/>
+                                <rect key="frame" x="157" y="191" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" increment="60" maxValue="5000" id="EW6-qC-lEd"/>
                                 <connections>
@@ -418,7 +458,7 @@
                                 </connections>
                             </stepper>
                             <segmentedControl toolTip="Number of period" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-bO-XRp">
-                                <rect key="frame" x="184.5" y="228" width="123" height="23"/>
+                                <rect key="frame" x="178.5" y="227" width="123" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="kh9-Je-xMM"/>
                                 </constraints>
@@ -451,7 +491,7 @@
                                 </textFieldCell>
                             </textField>
                             <button toolTip="Swap Home and Away scores" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2iv-ah-fII">
-                                <rect key="frame" x="429.5" y="6" width="27" height="27"/>
+                                <rect key="frame" x="412.5" y="6" width="27" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="6ho-jq-v0d"/>
                                     <constraint firstAttribute="width" constant="26" id="ZGr-cN-cpY"/>
@@ -465,7 +505,7 @@
                                 </connections>
                             </button>
                             <button toolTip="Reset all scores" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cra-ZW-qR3">
-                                <rect key="frame" x="460.5" y="6" width="27" height="27"/>
+                                <rect key="frame" x="443.5" y="6" width="27" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="26" id="JPK-cd-dKR"/>
                                     <constraint firstAttribute="height" constant="26" id="Vhq-9P-4HM"/>
@@ -479,7 +519,7 @@
                                 </connections>
                             </button>
                             <textField toolTip="Name away team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nb1-sC-9Oh">
-                                <rect key="frame" x="360" y="191" width="122" height="31"/>
+                                <rect key="frame" x="348" y="191" width="122" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="6tW-uS-Rb0"/>
                                 </constraints>
@@ -494,7 +534,7 @@
                                 </connections>
                             </textField>
                             <segmentedControl toolTip="The number of goals of the home team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Bi-Qn-fW6">
-                                <rect key="frame" x="9.5" y="226" width="123" height="23"/>
+                                <rect key="frame" x="9.5" y="227" width="123" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="PgX-CG-q4G"/>
                                     <constraint firstAttribute="height" constant="22" id="glw-dA-WZ0"/>
@@ -512,7 +552,7 @@
                                 </connections>
                             </segmentedControl>
                             <textField toolTip="Continue the timer in the next period (football: 45 + 45 minutes)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qJk-nm-ZKW">
-                                <rect key="frame" x="313" y="45" width="169" height="16"/>
+                                <rect key="frame" x="301" y="45" width="169" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Continue time (for soccer)" id="EFG-0O-9pk">
                                     <font key="font" metaFont="system"/>
@@ -521,7 +561,7 @@
                                 </textFieldCell>
                             </textField>
                             <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" id="Lpn-cp-aMc">
-                                <rect key="frame" x="270" y="40" width="42" height="24"/>
+                                <rect key="frame" x="258" y="40" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QR1-dm-coq">
@@ -543,30 +583,30 @@
                         <constraints>
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="top" secondItem="QBp-bO-XRp" secondAttribute="bottom" constant="3" id="1ZG-eR-LSM"/>
                             <constraint firstItem="QBp-bO-XRp" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="5CJ-yg-Hme"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7b5-xV-TVs" secondAttribute="trailing" constant="360" id="EDG-ak-ZE5"/>
+                            <constraint firstItem="QBp-bO-XRp" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="92i-cT-dN5"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7b5-xV-TVs" secondAttribute="trailing" constant="348" id="EDG-ak-ZE5"/>
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Fxc-Pe-qoL"/>
-                            <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="8Bi-Qn-fW6" secondAttribute="bottom" constant="5" id="Iaj-SD-z4e"/>
-                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="49" id="J1E-hf-Uud"/>
-                            <constraint firstItem="2iv-ah-fII" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="238" id="KqU-5P-jI7"/>
-                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="yVs-io-wuS" secondAttribute="bottom" constant="5" id="Qwk-0a-2KR"/>
+                            <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="8Bi-Qn-fW6" secondAttribute="bottom" constant="6" id="Iaj-SD-z4e"/>
+                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="J1E-hf-Uud"/>
+                            <constraint firstItem="2iv-ah-fII" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="237" id="KqU-5P-jI7"/>
+                            <constraint firstItem="TAq-ib-OCo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="3" id="Noi-NJ-CeJ"/>
+                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="yVs-io-wuS" secondAttribute="bottom" constant="6" id="Qwk-0a-2KR"/>
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="STa-Nu-dy1"/>
+                            <constraint firstItem="TAq-ib-OCo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="TSj-T7-e1H"/>
                             <constraint firstAttribute="trailing" secondItem="yVs-io-wuS" secondAttribute="trailing" constant="10" id="Tjz-VO-fhq"/>
                             <constraint firstItem="cra-ZW-qR3" firstAttribute="leading" secondItem="2iv-ah-fII" secondAttribute="trailing" constant="5" id="UDa-DU-d4i"/>
-                            <constraint firstItem="TAq-ib-OCo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Wra-kS-dvx"/>
-                            <constraint firstItem="QBp-bO-XRp" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="X8B-qA-qYG"/>
                             <constraint firstAttribute="bottom" secondItem="2iv-ah-fII" secondAttribute="bottom" constant="7" id="Z32-Bw-DxG"/>
                             <constraint firstAttribute="bottom" secondItem="QR1-dm-coq" secondAttribute="bottom" constant="12" id="aDO-qE-XiQ"/>
-                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="360" id="aNS-vI-O8D"/>
-                            <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="49" id="aPF-lM-5YP"/>
+                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="348" id="aNS-vI-O8D"/>
+                            <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="aPF-lM-5YP"/>
                             <constraint firstItem="8Bi-Qn-fW6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="bIP-ve-oeo"/>
                             <constraint firstAttribute="trailing" secondItem="Nb1-sC-9Oh" secondAttribute="trailing" constant="10" id="c5Y-wj-7E6"/>
-                            <constraint firstItem="TAq-ib-OCo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="d2k-dD-qhb"/>
                             <constraint firstItem="qJk-nm-ZKW" firstAttribute="leading" secondItem="Lpn-cp-aMc" secondAttribute="trailing" constant="5" id="glN-Sp-ZfV"/>
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="top" secondItem="RXY-hW-hdK" secondAttribute="bottom" constant="8" id="kCi-cQ-2R0"/>
                             <constraint firstItem="QR1-dm-coq" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="23" id="kbh-uB-oPZ"/>
                             <constraint firstItem="QlU-kf-kyh" firstAttribute="leading" secondItem="dRb-Gv-lIH" secondAttribute="trailing" constant="5" id="oum-v3-Vyz"/>
                             <constraint firstAttribute="bottom" secondItem="cra-ZW-qR3" secondAttribute="bottom" constant="7" id="xSU-tS-WXq"/>
-                            <constraint firstAttribute="trailing" secondItem="cra-ZW-qR3" secondAttribute="trailing" constant="5" id="xfk-qM-FAR"/>
+                            <constraint firstAttribute="trailing" secondItem="cra-ZW-qR3" secondAttribute="trailing" constant="10" id="xfk-qM-FAR"/>
                             <constraint firstItem="7b5-xV-TVs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="ziF-1z-U6z"/>
                         </constraints>
                     </view>
@@ -592,7 +632,7 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="im6-8H-BjF"/>
             </objects>
-            <point key="canvasLocation" x="74" y="654.5"/>
+            <point key="canvasLocation" x="75" y="698"/>
         </scene>
     </scenes>
     <resources>

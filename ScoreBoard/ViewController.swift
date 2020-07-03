@@ -19,10 +19,10 @@ class ViewController: NSViewController {
         //UserDefaults.standard.removeObject(forKey: "bookmarkForDirecory")
         pathToWorkDirectory.url = restoreBookmarksPathDirectory() // выставляем директорию Downloads по умолчанию
         
-        writeFilesToDisk(.timer, .homeName, .awayName, .period, .homeGoal, .awayGoal)
+        writeFilesToDisk(.homeName, .awayName, .period, .homeGoal, .awayGoal)
         
         sliderTimer.integerValue = timeUserPreset // возвращаем состояние слайдера до закрытия проги
-        showTimeInLabel() //при запуске выставляем таймер по умолчанию
+        showTimeInLabel() //при запуске выставляем таймер по умолчанию + пишем файл с таймером
     }
 
     override var representedObject: Any? {
@@ -64,20 +64,6 @@ class ViewController: NSViewController {
     var countGoalHome: Int = 0
     var countGoalAway: Int = 0
     var periodCount: Int = 1
-
-
-    //var userDirectoryDefault = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first
-    
-//    var userDirectoryDefault: URL? {
-//        get {
-//            UserDefaults.standard.register(defaults: ["pathToDirectory" : FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!])
-////            return UserDefaults.standard.url(forKey: "pathToDirectory") ?? FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first
-//            return UserDefaults.standard.url(forKey: "pathToDirectory")
-//        } set {
-//            UserDefaults.standard.set(newValue, forKey: "pathToDirectory")
-//        }
-//    }
-
     
     
     // MARK: - FUNCtions
@@ -267,7 +253,7 @@ class ViewController: NSViewController {
     }
     
     // функция показывает время в поле (берет из таймера)
-    func showTimeInLabel() -> Void {
+    func showTimeInLabel() {
         
         stepperSeconds.integerValue = timeNow //сохраняет время для степперов
         stepperMinutes.integerValue = timeNow
@@ -278,7 +264,6 @@ class ViewController: NSViewController {
         var secStr:String = "\(seconds)"
             
         // проверки МИНУТ и СЕКУНД на отсутсвие нулей (0:45 -> 01:45)
-        // МОЖНО через SWITCH сделать, чтобы значение отслеживать
         if minutes < 10 {
             minStr = "0" + minStr
         }
@@ -342,7 +327,7 @@ class ViewController: NSViewController {
         goalAway.setLabel(String(countGoalAway), forSegment: 1)
         periodCount = 1
         period.setLabel(String(periodCount), forSegment: 1)
-        writeFilesToDisk(.timer, .homeName, .awayName, .period, .homeGoal, .awayGoal)
+        writeFilesToDisk(.homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
     // MARK: - ACTIONS
@@ -464,7 +449,6 @@ class ViewController: NSViewController {
     
     @IBAction func resetButtonPush(_ sender: Any) {
         resetAllState()
-        writeFilesToDisk(.timer, .homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
     @IBAction func swapHomeAwayScores(_ sender: Any) {
