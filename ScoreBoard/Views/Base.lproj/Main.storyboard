@@ -232,8 +232,6 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="1135" y="70" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
-                        <value key="maxSize" type="size" width="480" height="270"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -250,13 +248,11 @@
         <scene sceneID="9S3-az-ohQ">
             <objects>
                 <windowController id="Vr1-Lg-vXi" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="AA9-qe-aTa">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="AA9-qe-aTa">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="1142" y="171" width="480" height="270"/>
+                        <rect key="contentRect" x="1135" y="170" width="480" height="200"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
-                        <value key="maxSize" type="size" width="480" height="270"/>
                         <connections>
                             <outlet property="delegate" destination="Vr1-Lg-vXi" id="sn9-8k-0Wu"/>
                         </connections>
@@ -267,25 +263,76 @@
                 </windowController>
                 <customObject id="B3V-HI-UC8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="250"/>
+            <point key="canvasLocation" x="607" y="215"/>
         </scene>
-        <!--View Controller-->
+        <!--Preferences View Controller-->
         <scene sceneID="0HL-i3-GaJ">
             <objects>
-                <viewController id="aw4-w5-dXm" sceneMemberID="viewController">
+                <viewController id="aw4-w5-dXm" customClass="PreferencesViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="QIq-4A-fvG">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <pathControl horizontalHuggingPriority="249" verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-ey-13F">
+                                <rect key="frame" x="20" y="137" width="365" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <pathCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" refusesFirstResponder="YES" alignment="left" id="TyS-DA-e9Z">
+                                    <font key="font" metaFont="system"/>
+                                    <url key="url" string="file:////"/>
+                                    <color key="backgroundColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
+                                </pathCell>
+                                <connections>
+                                    <action selector="setUserDirectory:" target="aw4-w5-dXm" id="xtZ-AE-shD"/>
+                                </connections>
+                            </pathControl>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-MS-wOU">
+                                <rect key="frame" x="18" y="163" width="181" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Directory for writing .txt files:" id="vLU-dP-IQV">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-2v-uRU">
+                                <rect key="frame" x="387" y="130" width="79" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zjj-Pr-1nh">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectUserDirectory:" target="aw4-w5-dXm" id="zWW-51-OTN"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-61-dlp">
+                                <rect key="frame" x="211" y="13" width="59" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NFb-n9-y0G">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="pressOKButtonPreferences:" target="aw4-w5-dXm" id="cv2-5F-FC9"/>
+                                </connections>
+                            </button>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="WorkDirectoryPath" destination="m4C-ey-13F" id="DFn-7N-UAo"/>
+                    </connections>
                 </viewController>
                 <customObject id="6Rm-Fd-R4t" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="698"/>
+            <point key="canvasLocation" x="607" y="663"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -490,12 +537,9 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button toolTip="Swap Home and Away scores" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2iv-ah-fII">
+                            <button toolTip="Swap Home and Away scores" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2iv-ah-fII">
                                 <rect key="frame" x="412.5" y="6" width="27" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="6ho-jq-v0d"/>
-                                    <constraint firstAttribute="width" constant="26" id="ZGr-cN-cpY"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="⇆" bezelStyle="texturedRounded" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" inset="2" id="56k-MK-Kqd">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -504,12 +548,9 @@
                                     <action selector="swapHomeAwayScores:" target="XfG-lQ-9wD" id="bFq-6P-59L"/>
                                 </connections>
                             </button>
-                            <button toolTip="Reset all scores" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cra-ZW-qR3">
+                            <button toolTip="Reset all scores" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cra-ZW-qR3">
                                 <rect key="frame" x="443.5" y="6" width="27" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="26" id="JPK-cd-dKR"/>
-                                    <constraint firstAttribute="height" constant="26" id="Vhq-9P-4HM"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="↺" bezelStyle="texturedRounded" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" inset="2" id="wj7-ys-TZX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -564,21 +605,17 @@
                                 <rect key="frame" x="258" y="40" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QR1-dm-coq">
-                                <rect key="frame" x="20" y="8" width="306" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="fRA-8z-k0C"/>
-                                    <constraint firstAttribute="height" constant="16" id="ojk-uI-e94"/>
-                                </constraints>
-                                <pathCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" alignment="left" pathStyle="popUp" id="YXX-fL-wI0">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSF-dV-WH2">
+                                <rect key="frame" x="381.5" y="8" width="27" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAdvanced" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OrV-Nq-Vyp">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <url key="url" string="file:////"/>
-                                    <color key="backgroundColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
-                                </pathCell>
+                                </buttonCell>
                                 <connections>
-                                    <action selector="selectUserDirectory:" target="XfG-lQ-9wD" id="Zyk-dY-sZ3"/>
+                                    <segue destination="Vr1-Lg-vXi" kind="show" id="KJJ-UF-cM0"/>
                                 </connections>
-                            </pathControl>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="top" secondItem="QBp-bO-XRp" secondAttribute="bottom" constant="3" id="1ZG-eR-LSM"/>
@@ -588,25 +625,18 @@
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Fxc-Pe-qoL"/>
                             <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="8Bi-Qn-fW6" secondAttribute="bottom" constant="6" id="Iaj-SD-z4e"/>
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="J1E-hf-Uud"/>
-                            <constraint firstItem="2iv-ah-fII" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="237" id="KqU-5P-jI7"/>
                             <constraint firstItem="TAq-ib-OCo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="3" id="Noi-NJ-CeJ"/>
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="yVs-io-wuS" secondAttribute="bottom" constant="6" id="Qwk-0a-2KR"/>
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="STa-Nu-dy1"/>
                             <constraint firstItem="TAq-ib-OCo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="TSj-T7-e1H"/>
                             <constraint firstAttribute="trailing" secondItem="yVs-io-wuS" secondAttribute="trailing" constant="10" id="Tjz-VO-fhq"/>
-                            <constraint firstItem="cra-ZW-qR3" firstAttribute="leading" secondItem="2iv-ah-fII" secondAttribute="trailing" constant="5" id="UDa-DU-d4i"/>
-                            <constraint firstAttribute="bottom" secondItem="2iv-ah-fII" secondAttribute="bottom" constant="7" id="Z32-Bw-DxG"/>
-                            <constraint firstAttribute="bottom" secondItem="QR1-dm-coq" secondAttribute="bottom" constant="12" id="aDO-qE-XiQ"/>
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="348" id="aNS-vI-O8D"/>
                             <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="aPF-lM-5YP"/>
                             <constraint firstItem="8Bi-Qn-fW6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="bIP-ve-oeo"/>
                             <constraint firstAttribute="trailing" secondItem="Nb1-sC-9Oh" secondAttribute="trailing" constant="10" id="c5Y-wj-7E6"/>
                             <constraint firstItem="qJk-nm-ZKW" firstAttribute="leading" secondItem="Lpn-cp-aMc" secondAttribute="trailing" constant="5" id="glN-Sp-ZfV"/>
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="top" secondItem="RXY-hW-hdK" secondAttribute="bottom" constant="8" id="kCi-cQ-2R0"/>
-                            <constraint firstItem="QR1-dm-coq" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="23" id="kbh-uB-oPZ"/>
                             <constraint firstItem="QlU-kf-kyh" firstAttribute="leading" secondItem="dRb-Gv-lIH" secondAttribute="trailing" constant="5" id="oum-v3-Vyz"/>
-                            <constraint firstAttribute="bottom" secondItem="cra-ZW-qR3" secondAttribute="bottom" constant="7" id="xSU-tS-WXq"/>
-                            <constraint firstAttribute="trailing" secondItem="cra-ZW-qR3" secondAttribute="trailing" constant="10" id="xfk-qM-FAR"/>
                             <constraint firstItem="7b5-xV-TVs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="ziF-1z-U6z"/>
                         </constraints>
                     </view>
@@ -615,7 +645,6 @@
                         <outlet property="continueTimeSwitcher" destination="Lpn-cp-aMc" id="swZ-Hw-aSi"/>
                         <outlet property="goalAway" destination="yVs-io-wuS" id="Pxg-qA-tyk"/>
                         <outlet property="goalHome" destination="8Bi-Qn-fW6" id="VF1-gq-tzK"/>
-                        <outlet property="pathToWorkDirectory" destination="QR1-dm-coq" id="hvk-da-VFp"/>
                         <outlet property="period" destination="QBp-bO-XRp" id="6Wz-ee-fyb"/>
                         <outlet property="resetButton" destination="cra-ZW-qR3" id="Tey-RS-Es2"/>
                         <outlet property="sliderTimer" destination="15e-3A-sM7" id="w3Y-kL-uy7"/>
@@ -635,8 +664,12 @@
             <point key="canvasLocation" x="75" y="698"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KJJ-UF-cM0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>

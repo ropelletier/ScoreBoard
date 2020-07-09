@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,6 @@ class ViewController: NSViewController {
         
         //UserDefaults.standard.register(defaults: ["pathToUserDirectory" : FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!])
         //UserDefaults.standard.removeObject(forKey: "bookmarkForDirecory")
-        pathToWorkDirectory.url = restoreBookmarksPathDirectory() // выставляем директорию Downloads по умолчанию
         
         writeFilesToDisk(.homeName, .awayName, .period, .homeGoal, .awayGoal)
         
@@ -46,8 +45,6 @@ class ViewController: NSViewController {
     @IBOutlet weak var period: NSSegmentedControl!
     @IBOutlet weak var stepperSeconds: NSStepper!
     @IBOutlet weak var stepperMinutes: NSStepper!
-    @IBOutlet weak var pathToWorkDirectory: NSPathControl!
-    
     
 // параметры по умолчанию
     var timeUserPreset: Int {
@@ -67,17 +64,8 @@ class ViewController: NSViewController {
     
     
     // MARK: - FUNCtions
-
 // newWrite сохранить закладку
     func saveBookmarksPathDirectory(_ userDirectoryUrl:URL) {
-        
-        // открыть панель выбора файла
-//        let panel = NSOpenPanel()
-//        panel.canChooseDirectories = true
-//        panel.canChooseFiles = false
-//        panel.prompt = "Select"
-//        guard panel.runModal() == NSApplication.ModalResponse.OK else { return }
-//        guard let userDirectoryUrl = panel.url else { return }
         
         // добавить название папки к пути выбранному пользователем
         //pathDirectory.url = userDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
@@ -172,74 +160,6 @@ class ViewController: NSViewController {
         }
     }
     
-    
-//    func writeToDisk(_ fileName:String) {
-//        do {
-//            //if var userDirectory = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first {
-//            if var userDirectory = userDirectoryDefault {
-//            //if var userDirectory = restoreFileAccess(with: UserDefaults.standard.data(forKey: "bookmarkData")!) {
-//                userDirectory = userDirectory.appendingPathComponent("ScoreBoard Outputs")
-//
-//                // проверка на существование папки (создаем если ее нет иначе пропускаем)
-//                if FileManager().fileExists(atPath: userDirectory.path) {
-//                } else {
-//                    try FileManager.default.createDirectory(at: userDirectory, withIntermediateDirectories: true, attributes: nil)
-//                }
-//
-//                switch fileName {
-//                    case "time":
-//                        try textFieldTimer.stringValue.write(to: userDirectory.appendingPathComponent("Time.txt"), atomically: false, encoding: .utf8)
-//
-//                    case "period":
-//                        try String(periodCount).write(to: userDirectory.appendingPathComponent("Period.txt"), atomically: false, encoding: .utf8)
-//
-//                    case "homeName":
-//                        try homeName.write(to: userDirectory.appendingPathComponent("HomeName.txt"), atomically: false, encoding: .utf8)
-//
-//                    case "awayName":
-//                        try awayName.write(to: userDirectory.appendingPathComponent("AwayName.txt"), atomically: false, encoding: .utf8)
-//
-//                    case "homeGoal":
-//                        try String(countGoalHome).write(to: userDirectory.appendingPathComponent("HomeGoal.txt"), atomically: false, encoding: .utf8)
-//
-//                    case "awayGoal":
-//                        try String(countGoalAway).write(to: userDirectory.appendingPathComponent("AwayGoal.txt"), atomically: false, encoding: .utf8)
-//
-//                    case "all":
-//                        try textFieldTimer.stringValue.write(to: userDirectory.appendingPathComponent("Time.txt"), atomically: false, encoding: .utf8)
-//                        try String(periodCount).write(to: userDirectory.appendingPathComponent("Period.txt"), atomically: false, encoding: .utf8)
-//                        try homeName.write(to: userDirectory.appendingPathComponent("HomeName.txt"), atomically: false, encoding: .utf8)
-//                        try awayName.write(to: userDirectory.appendingPathComponent("AwayName.txt"), atomically: false, encoding: .utf8)
-//                        try String(countGoalHome).write(to: userDirectory.appendingPathComponent("HomeGoal.txt"), atomically: false, encoding: .utf8)
-//                        try String(countGoalAway).write(to: userDirectory.appendingPathComponent("AwayGoal.txt"), atomically: false, encoding: .utf8)
-//
-//                default:
-//                    let alert = NSAlert()
-//                    alert.messageText = "Invalid parameter"
-//                    alert.informativeText = "It was not possible to write the file, because the parameter is incorrectly specified: \(fileName)"
-//                    alert.addButton(withTitle: "OK")
-//                    alert.alertStyle = .warning
-//                    alert.runModal()
-//                }
-//            }
-//
-//        } catch {
-//            let alert = NSAlert()
-//            alert.messageText = "Unable to write file"
-//            alert.informativeText = """
-//            There is no access to the directory for writing.
-//            Give the program access to write files to disk:
-//
-//            System Preferences > Security and Privacy > Privacy > Files and Folders
-//
-//            Check the box for the program "ScoreBoard.app".
-//
-//            """
-//            alert.addButton(withTitle: "OK")
-//            alert.alertStyle = .warning
-//            alert.runModal()
-//        }
-//    }
     
     // функция запоминает установленные параметры таймера из слайдера
     func setTimeDefault() {
@@ -440,11 +360,6 @@ class ViewController: NSViewController {
         }
         timeNow = timeUserPreset - timeNow  // смена времени на табло с сохранением пройденных секунд
         showTimeInLabel()
-    }
-    
-    @IBAction func selectUserDirectory(_ sender: Any) {
-        guard let userDirectoryUrl = pathToWorkDirectory.url else { return }
-        saveBookmarksPathDirectory(userDirectoryUrl)
     }
     
     @IBAction func resetButtonPush(_ sender: Any) {
