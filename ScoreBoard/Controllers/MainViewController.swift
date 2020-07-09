@@ -20,7 +20,7 @@ class MainViewController: NSViewController {
         
         writeFilesToDisk(.homeName, .awayName, .period, .homeGoal, .awayGoal)
         
-        sliderTimer.integerValue = timeUserPreset // возвращаем состояние слайдера до закрытия проги
+        sliderTimer.integerValue = scoreBoardData.timeUserPreset // возвращаем состояние слайдера до закрытия проги
         showTimeInLabel() //при запуске выставляем таймер по умолчанию + пишем файл с таймером
     }
 
@@ -47,21 +47,22 @@ class MainViewController: NSViewController {
     @IBOutlet weak var stepperMinutes: NSStepper!
     
 // параметры по умолчанию
-    var timeUserPreset: Int {
-        get {
-            UserDefaults.standard.register(defaults: ["timeUserPreset" : 900])
-            return UserDefaults.standard.integer(forKey: "timeUserPreset")
-        } set {
-            UserDefaults.standard.set(newValue, forKey: "timeUserPreset")
-        }
-    }
-    lazy var timeNow: Int = timeUserPreset
-    var homeName: String = "Home"
-    var awayName: String = "Away"
-    var countGoalHome: Int = 0
-    var countGoalAway: Int = 0
-    var periodCount: Int = 1
+//    var timeUserPreset: Int {
+//        get {
+//            UserDefaults.standard.register(defaults: ["timeUserPreset" : 900])
+//            return UserDefaults.standard.integer(forKey: "timeUserPreset")
+//        } set {
+//            UserDefaults.standard.set(newValue, forKey: "timeUserPreset")
+//        }
+//    }
+//    lazy var timeNow: Int = timeUserPreset
+//    var homeName: String = "Home"
+//    var awayName: String = "Away"
+//    var countGoalHome: Int = 0
+//    var countGoalAway: Int = 0
+//    var periodCount: Int = 1
     
+    var scoreBoardData = ScoreBoardData()
     
     // MARK: - FUNCtions
 // newWrite сохранить закладку
@@ -123,19 +124,19 @@ class MainViewController: NSViewController {
                     text = textFieldTimer.stringValue
                     fileName = "Timer.txt"
                     case .homeName:
-                       text = homeName
+                        text = scoreBoardData.homeName
                        fileName = "Home_Name.txt"
                     case .awayName:
-                       text = awayName
+                       text = scoreBoardData.awayName
                        fileName = "Away_Name.txt"
                     case .period:
-                       text = String(periodCount)
+                       text = String(scoreBoardData.periodCount)
                        fileName = "Period.txt"
                     case .homeGoal:
-                       text = String(countGoalHome)
+                       text = String(scoreBoardData.countGoalHome)
                        fileName = "HomeGoal.txt"
                     case .awayGoal:
-                       text = String(countGoalAway)
+                       text = String(scoreBoardData.countGoalAway)
                        fileName = "AwayGoal.txt"
                    }
                     // запись нужного файла
@@ -163,23 +164,23 @@ class MainViewController: NSViewController {
     
     // функция запоминает установленные параметры таймера из слайдера
     func setTimeDefault() {
-        timeUserPreset = sliderTimer.integerValue
+        scoreBoardData.timeUserPreset = sliderTimer.integerValue
         if switchTimerMode.state == .on {
             //timeNow = sliderTimer.integerValue // зачем снова опрашивать слайдер? но так можно
-            timeNow = timeUserPreset
+            scoreBoardData.timeNow = scoreBoardData.timeUserPreset
         } else {
-            timeNow = 0
+            scoreBoardData.timeNow = 0
         }
     }
     
     // функция показывает время в поле (берет из таймера)
     func showTimeInLabel() {
         
-        stepperSeconds.integerValue = timeNow //сохраняет время для степперов
-        stepperMinutes.integerValue = timeNow
+        stepperSeconds.integerValue = scoreBoardData.timeNow //сохраняет время для степперов
+        stepperMinutes.integerValue = scoreBoardData.timeNow
 
-        let minutes:Int = timeNow / 60
-        let seconds:Int = timeNow - (minutes*60)
+        let minutes:Int = scoreBoardData.timeNow / 60
+        let seconds:Int = scoreBoardData.timeNow - (minutes*60)
         var minStr:String = "\(minutes)"
         var secStr:String = "\(seconds)"
             
@@ -200,18 +201,18 @@ class MainViewController: NSViewController {
             timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
             (timer) in
                 if self.switchTimerMode.state == .on {
-                    guard self.timeNow > 0 else {
+                    guard self.scoreBoardData.timeNow > 0 else {
                         self.resetStateButtonStar()
                         return
                     }
-                    self.timeNow -= 1
+                    self.scoreBoardData.timeNow -= 1
                 } else {
-                    guard self.timeNow < self.timeUserPreset else {
-                        if self.continueTimeSwitcher.state == .on { self.timeUserPreset += self.timeUserPreset }
+                    guard self.scoreBoardData.timeNow < self.scoreBoardData.timeUserPreset else {
+                        if self.continueTimeSwitcher.state == .on { self.scoreBoardData.timeUserPreset += self.scoreBoardData.timeUserPreset }
                         self.resetStateButtonStar()
                         return
                     }
-                    self.timeNow += 1
+                    self.scoreBoardData.timeNow += 1
                 }
                 self.showTimeInLabel()
             }
@@ -241,12 +242,12 @@ class MainViewController: NSViewController {
 //        textFieldHomeName.stringValue = homeName
 //        awayName = "Away"
 //        textFieldAwayName.stringValue = awayName
-        countGoalHome = 0
-        goalHome.setLabel(String(countGoalHome), forSegment: 1)
-        countGoalAway = 0
-        goalAway.setLabel(String(countGoalAway), forSegment: 1)
-        periodCount = 1
-        period.setLabel(String(periodCount), forSegment: 1)
+        scoreBoardData.countGoalHome = 0
+        goalHome.setLabel(String(scoreBoardData.countGoalHome), forSegment: 1)
+        scoreBoardData.countGoalAway = 0
+        goalAway.setLabel(String(scoreBoardData.countGoalAway), forSegment: 1)
+        scoreBoardData.periodCount = 1
+        period.setLabel(String(scoreBoardData.periodCount), forSegment: 1)
         writeFilesToDisk(.homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
@@ -259,8 +260,8 @@ class MainViewController: NSViewController {
         //надо сразу чистить массив чтобы не было лишнего .map .sort и тд
         
         // запоминает время до изменения
-        var minutesFromUser:Int = timeNow / 60
-        var secondsFromUser:Int = timeNow - ((timeNow / 60) * 60)
+        var minutesFromUser:Int = scoreBoardData.timeNow / 60
+        var secondsFromUser:Int = scoreBoardData.timeNow - ((scoreBoardData.timeNow / 60) * 60)
         
         
         if timeFromUserInLabel.count < 3 { //проверка на количество цифр, не меннее 3-ех (минуты:секунды), иначе ,будет краш проги
@@ -275,61 +276,61 @@ class MainViewController: NSViewController {
             minutesFromUser = Int (String (timeFromUserInLabel [0...1]))!
             secondsFromUser = Int (String (timeFromUserInLabel [2...3]))!
         }
-        timeNow = (minutesFromUser * 60) + secondsFromUser
+        scoreBoardData.timeNow = (minutesFromUser * 60) + secondsFromUser
         showTimeInLabel()
     }
     
     @IBAction func stepperSecondsAction(_ sender: Any) {
-        timeNow = stepperSeconds.integerValue
+        scoreBoardData.timeNow = stepperSeconds.integerValue
         showTimeInLabel()
     }
     
     
     @IBAction func stepperMinutesAction(_ sender: Any) {
-        timeNow = stepperMinutes.integerValue
+        scoreBoardData.timeNow = stepperMinutes.integerValue
         showTimeInLabel()
     }
     
     @IBAction func goalHomeAction(_ sender: Any) {
-        if goalHome.selectedSegment == 0, countGoalHome > 0 {
-            countGoalHome -= 1
+        if goalHome.selectedSegment == 0, scoreBoardData.countGoalHome > 0 {
+            scoreBoardData.countGoalHome -= 1
         }
         if goalHome.selectedSegment == 2 || goalHome.selectedSegment == -1 { // -1 когда передается действие из меню (не нажатие)
-            countGoalHome += 1
+            scoreBoardData.countGoalHome += 1
         }
-        goalHome.setLabel(String(countGoalHome), forSegment: 1)
+        goalHome.setLabel(String(scoreBoardData.countGoalHome), forSegment: 1)
         writeFilesToDisk(.homeGoal)
     }
     
     @IBAction func goalAwayAction(_ sender: Any) {
-        if goalAway.selectedSegment == 0, countGoalAway > 0 {
-            countGoalAway -= 1
+        if goalAway.selectedSegment == 0, scoreBoardData.countGoalAway > 0 {
+            scoreBoardData.countGoalAway -= 1
         }
         if goalAway.selectedSegment == 2  || goalAway.selectedSegment == -1 {
-            countGoalAway += 1
+            scoreBoardData.countGoalAway += 1
         }
-        goalAway.setLabel(String(countGoalAway), forSegment: 1)
+        goalAway.setLabel(String(scoreBoardData.countGoalAway), forSegment: 1)
         writeFilesToDisk(.awayGoal)
     }
     
     @IBAction func periodAction(_ sender: Any) {
-        if period.selectedSegment == 0, periodCount > 1 {
-            periodCount -= 1
+        if period.selectedSegment == 0, scoreBoardData.periodCount > 1 {
+            scoreBoardData.periodCount -= 1
         }
         if period.selectedSegment == 2  || period.selectedSegment == -1 {
-            periodCount += 1
+            scoreBoardData.periodCount += 1
         }
-        period.setLabel(String(periodCount), forSegment: 1)
+        period.setLabel(String(scoreBoardData.periodCount), forSegment: 1)
         writeFilesToDisk(.period)
     }
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {
-        homeName = textFieldHomeName.stringValue
+        scoreBoardData.homeName = textFieldHomeName.stringValue
         writeFilesToDisk(.homeName)
     }
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
-        awayName = textFieldAwayName.stringValue
+        scoreBoardData.awayName = textFieldAwayName.stringValue
         writeFilesToDisk(.awayName)
     }
     
@@ -358,7 +359,7 @@ class MainViewController: NSViewController {
             titleTimerMode.stringValue = "Countdown: OFF"
             continueTimeSwitcher.isEnabled = true
         }
-        timeNow = timeUserPreset - timeNow  // смена времени на табло с сохранением пройденных секунд
+        scoreBoardData.timeNow = scoreBoardData.timeUserPreset - scoreBoardData.timeNow  // смена времени на табло с сохранением пройденных секунд
         showTimeInLabel()
     }
     
@@ -367,12 +368,12 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func swapHomeAwayScores(_ sender: Any) {
-        swap(&homeName, &awayName)
-        textFieldHomeName.stringValue = homeName
-        textFieldAwayName.stringValue = awayName
-        swap(&countGoalHome, &countGoalAway)
-        goalHome.setLabel(String(countGoalHome), forSegment: 1)
-        goalAway.setLabel(String(countGoalAway), forSegment: 1)
+        swap(&scoreBoardData.homeName, &scoreBoardData.awayName)
+        textFieldHomeName.stringValue = scoreBoardData.homeName
+        textFieldAwayName.stringValue = scoreBoardData.awayName
+        swap(&scoreBoardData.countGoalHome, &scoreBoardData.countGoalAway)
+        goalHome.setLabel(String(scoreBoardData.countGoalHome), forSegment: 1)
+        goalAway.setLabel(String(scoreBoardData.countGoalAway), forSegment: 1)
         writeFilesToDisk(.homeName, .awayName, .homeGoal, .awayGoal)
     }
     
@@ -383,25 +384,25 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func plus1SecFromMenu(_ sender: Any) {
-        timeNow += 1
+        scoreBoardData.timeNow += 1
         showTimeInLabel()
     }
     
     @IBAction func minus1SecFromMenu(_ sender: Any) {
-        guard timeNow > 0 else { return }
-        timeNow -= 1
+        guard scoreBoardData.timeNow > 0 else { return }
+        scoreBoardData.timeNow -= 1
         showTimeInLabel()
     }
     
     @IBAction func plus1MinFromMenu(_ sender: Any) {
-        timeNow += 60
+        scoreBoardData.timeNow += 60
         showTimeInLabel()
         //stepperMinutesAction.()
     }
     
     @IBAction func minus1MinFromMenu(_ sender: Any) {
-        guard timeNow > 60 else { return }
-        timeNow -= 60
+        guard scoreBoardData.timeNow > 60 else { return }
+        scoreBoardData.timeNow -= 60
         showTimeInLabel()
     }
     
