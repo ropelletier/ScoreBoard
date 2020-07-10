@@ -273,9 +273,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <pathControl horizontalHuggingPriority="249" verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-ey-13F">
-                                <rect key="frame" x="20" y="137" width="365" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <pathControl horizontalHuggingPriority="249" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-ey-13F">
+                                <rect key="frame" x="20" y="137" width="353" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="353" id="QHc-j9-i9w"/>
+                                </constraints>
                                 <pathCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" refusesFirstResponder="YES" alignment="left" id="TyS-DA-e9Z">
                                     <font key="font" metaFont="system"/>
                                     <url key="url" string="file:////"/>
@@ -285,29 +287,16 @@
                                     <action selector="setUserDirectory:" target="aw4-w5-dXm" id="xtZ-AE-shD"/>
                                 </connections>
                             </pathControl>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-MS-wOU">
-                                <rect key="frame" x="18" y="163" width="181" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-MS-wOU">
+                                <rect key="frame" x="18" y="164" width="181" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Directory for writing .txt files:" id="vLU-dP-IQV">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-2v-uRU">
-                                <rect key="frame" x="387" y="130" width="79" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zjj-Pr-1nh">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="selectUserDirectory:" target="aw4-w5-dXm" id="zWW-51-OTN"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-61-dlp">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-61-dlp">
                                 <rect key="frame" x="211" y="13" width="59" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NFb-n9-y0G">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -319,7 +308,29 @@ DQ
                                     <action selector="pressOKButtonPreferences:" target="aw4-w5-dXm" id="cv2-5F-FC9"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-2v-uRU">
+                                <rect key="frame" x="387" y="131" width="79" height="32"/>
+                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zjj-Pr-1nh">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectUserDirectory:" target="aw4-w5-dXm" id="zWW-51-OTN"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="mZ0-2v-uRU" firstAttribute="centerY" secondItem="m4C-ey-13F" secondAttribute="centerY" id="0SN-Ss-yod"/>
+                            <constraint firstAttribute="bottom" secondItem="4ra-61-dlp" secondAttribute="bottom" constant="20" id="5Io-dI-f9U"/>
+                            <constraint firstItem="DBG-MS-wOU" firstAttribute="leading" secondItem="QIq-4A-fvG" secondAttribute="leading" constant="20" id="906-JW-pNa"/>
+                            <constraint firstAttribute="trailing" secondItem="mZ0-2v-uRU" secondAttribute="trailing" constant="20" id="AW5-oy-eKi"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="DBG-MS-wOU" secondAttribute="trailing" constant="283" id="GLJ-GZ-ofX"/>
+                            <constraint firstItem="DBG-MS-wOU" firstAttribute="top" secondItem="QIq-4A-fvG" secondAttribute="top" constant="20" id="Jds-xk-zv9"/>
+                            <constraint firstItem="4ra-61-dlp" firstAttribute="centerX" secondItem="QIq-4A-fvG" secondAttribute="centerX" id="QZG-sU-sPs"/>
+                            <constraint firstItem="m4C-ey-13F" firstAttribute="leading" secondItem="QIq-4A-fvG" secondAttribute="leading" constant="20" id="bJe-Oh-59Q"/>
+                            <constraint firstItem="mZ0-2v-uRU" firstAttribute="leading" secondItem="m4C-ey-13F" secondAttribute="trailing" constant="20" id="mJs-Vd-LdD"/>
+                            <constraint firstItem="m4C-ey-13F" firstAttribute="top" secondItem="DBG-MS-wOU" secondAttribute="bottom" constant="5" id="xF4-2O-KhT"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="WorkDirectoryPath" destination="m4C-ey-13F" id="DFn-7N-UAo"/>
