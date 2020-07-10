@@ -13,6 +13,7 @@
 		D975873A23B607C40004BDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D975873823B607C40004BDAD /* Main.storyboard */; };
 		D9BD25DE24B336260064230E /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25DD24B336260064230E /* PreferencesViewController.swift */; };
 		D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E324B60D800064230E /* ScoreBoardData.swift */; };
+		D9BD25E624B884490064230E /* WriteFilesToDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E524B884490064230E /* WriteFilesToDisk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D997435A242255E100F4A1A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D9BD25DD24B336260064230E /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		D9BD25E324B60D800064230E /* ScoreBoardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardData.swift; sourceTree = "<group>"; };
+		D9BD25E524B884490064230E /* WriteFilesToDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteFilesToDisk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				D9BD25E324B60D800064230E /* ScoreBoardData.swift */,
+				D9BD25E524B884490064230E /* WriteFilesToDisk.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9BD25E624B884490064230E /* WriteFilesToDisk.swift in Sources */,
 				D975873523B607C20004BDAD /* MainViewController.swift in Sources */,
 				D975873323B607C20004BDAD /* AppDelegate.swift in Sources */,
 				D9BD25DE24B336260064230E /* PreferencesViewController.swift in Sources */,

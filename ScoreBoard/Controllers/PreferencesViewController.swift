@@ -15,7 +15,7 @@ class PreferencesViewController: NSViewController {
         
         //UserDefaults.standard.removeObject(forKey: "bookmarkForDirecory")
         // выставляем директорию Downloads по умолчанию
-        WorkDirectoryPath.url = MainViewController().restoreBookmarksPathDirectory()?.appendingPathComponent("ScoreBoard Outputs")
+        WorkDirectoryPath.url = WriteFilesToDisk().restoreBookmarksPathDirectory()?.appendingPathComponent("ScoreBoard Outputs")
     }
     
     @IBOutlet weak var WorkDirectoryPath: NSPathControl!
@@ -33,7 +33,7 @@ class PreferencesViewController: NSViewController {
         WorkDirectoryPath.url = userDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
         
         // сохранить закладку безопасности на будущее
-        MainViewController().saveBookmarksPathDirectory(userDirectoryUrl)
+        WriteFilesToDisk().saveBookmarksPathDirectory(userDirectoryUrl)
     }
     
     @IBAction func setUserDirectory(_ sender: Any) {
