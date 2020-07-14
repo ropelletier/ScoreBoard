@@ -12,16 +12,22 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+        //UserDefaults.standard.removeObject(forKey: "homeName")
         
         sliderTimer.integerValue = ScoreBoardData.timeUserPreset // возвращаем состояние слайдера до закрытия проги
+        homeNameTextField.stringValue = ScoreBoardData.homeName
+        awayNameTextField.stringValue = ScoreBoardData.awayName
+        
+        if switchTimerMode.state == .on {
+            TimerFunctions.isCountdownState = true
+        } else { TimerFunctions.isCountdownState = false }
+        
         showTimeInLabel() //при запуске выставляем таймер по умолчанию + пишем файл с таймером
         
-        textFieldTimer.font = NSFont.monospacedDigitSystemFont(ofSize: 30, weight: .regular) // настройка шрифта таймера (одинаковая ширина символа)
+        timerTextField.font = NSFont.monospacedDigitSystemFont(ofSize: 30, weight: .regular) // настройка шрифта таймера (одинаковая ширина символа)
         
-        //UserDefaults.standard.register(defaults: ["pathToUserDirectory" : FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!])
-        //UserDefaults.standard.removeObject(forKey: "bookmarkForDirecory")
-        
-        writeFilesToDisk.writeFilesToDisk(.homeName, .awayName, .period, .homeGoal, .awayGoal)
+        WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
 
     override var representedObject: Any? {
@@ -30,7 +36,7 @@ class MainViewController: NSViewController {
         }
     }
         // MARK: - IBOutlet
-    @IBOutlet weak var textFieldTimer: NSTextField!
+    @IBOutlet weak var timerTextField: NSTextField!
     @IBOutlet weak var buttonStart: NSButton!
     @IBOutlet weak var switchTimerMode: NSSwitch!
     @IBOutlet weak var titleTimerMode: NSTextField!
@@ -38,8 +44,8 @@ class MainViewController: NSViewController {
     @IBOutlet weak var resetButton: NSButton!
     @IBOutlet weak var swapScores: NSButton!
     @IBOutlet weak var sliderTimer: NSSlider!
-    @IBOutlet weak var textFieldHomeName: NSTextField!
-    @IBOutlet weak var textFieldAwayName: NSTextField!
+    @IBOutlet weak var homeNameTextField: NSTextField!
+    @IBOutlet weak var awayNameTextField: NSTextField!
     @IBOutlet weak var goalHome: NSSegmentedControl!
     @IBOutlet weak var goalAway: NSSegmentedControl!
     @IBOutlet weak var period: NSSegmentedControl!
@@ -61,8 +67,7 @@ class MainViewController: NSViewController {
 //    var countGoalHome: Int = 0
 //    var countGoalAway: Int = 0
 //    var periodCount: Int = 1
-    
-    var writeFilesToDisk = WriteFilesToDisk()
+
     
     // MARK: - FUNCtions
 //// newWrite сохранить закладку
@@ -191,16 +196,15 @@ class MainViewController: NSViewController {
             secStr = "0" + secStr
         }
     
-        textFieldTimer.stringValue = minStr + ":" + secStr //вывод времени в формате 00:00 в поле
-        ScoreBoardData.timerString = textFieldTimer.stringValue
-        writeFilesToDisk.writeFilesToDisk(.timer)
+        timerTextField.stringValue = minStr + ":" + secStr //вывод времени в формате 00:00 в поле
+        ScoreBoardData.timerString = minStr + ":" + secStr //timerTextField.stringValue
+        WriteFilesToDisk().writeFile(.timer)
     }
     
-    var timerStatus: Timer? //две функции для таймера (старт/стоп)
+    var timerStatus: Timer?
     func startTimer(){
       if timerStatus == nil {
-            timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
-            (timer) in
+            timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                 if self.switchTimerMode.state == .on {
                     guard ScoreBoardData.timeNow > 0 else {
                         self.resetStateButtonStar()
@@ -219,7 +223,7 @@ class MainViewController: NSViewController {
             }
       }
     }
-    
+
     func stopTimer(){
       if timerStatus != nil {
         timerStatus?.invalidate()
@@ -230,8 +234,9 @@ class MainViewController: NSViewController {
     // Сброс кнопки СТАРТ на начальное значение + остановка таймера
     func resetStateButtonStar(){
         stopTimer()
+        //TimerFunctions().stopTimer()
         buttonStart.title = "START"
-        textFieldTimer.textColor = .black
+        timerTextField.textColor = .black
     }
     
     // Сброс всех параметров проги на умолчание
@@ -249,13 +254,13 @@ class MainViewController: NSViewController {
         goalAway.setLabel(String(ScoreBoardData.countGoalAway), forSegment: 1)
         ScoreBoardData.periodCount = 1
         period.setLabel(String(ScoreBoardData.periodCount), forSegment: 1)
-        writeFilesToDisk.writeFilesToDisk(.homeName, .awayName, .period, .homeGoal, .awayGoal)
+        WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
     // MARK: - ACTIONS
     
     @IBAction func timeLabelAction(_ sender: Any) {
-        var timeFromUserInLabel = Array (textFieldTimer.stringValue.components(separatedBy:CharacterSet.decimalDigits.inverted)
+        var timeFromUserInLabel = Array (timerTextField.stringValue.components(separatedBy:CharacterSet.decimalDigits.inverted)
             .joined()) //убирает все кроме цифр
         
         //надо сразу чистить массив чтобы не было лишнего .map .sort и тд
@@ -300,7 +305,7 @@ class MainViewController: NSViewController {
             ScoreBoardData.countGoalHome += 1
         }
         goalHome.setLabel(String(ScoreBoardData.countGoalHome), forSegment: 1)
-        writeFilesToDisk.writeFilesToDisk(.homeGoal)
+        //WriteFilesToDisk().writeFile(.homeGoal)
     }
     
     @IBAction func goalAwayAction(_ sender: Any) {
@@ -311,7 +316,7 @@ class MainViewController: NSViewController {
             ScoreBoardData.countGoalAway += 1
         }
         goalAway.setLabel(String(ScoreBoardData.countGoalAway), forSegment: 1)
-        writeFilesToDisk.writeFilesToDisk(.awayGoal)
+        //WriteFilesToDisk().writeFile(.awayGoal)
     }
     
     @IBAction func periodAction(_ sender: Any) {
@@ -322,17 +327,17 @@ class MainViewController: NSViewController {
             ScoreBoardData.periodCount += 1
         }
         period.setLabel(String(ScoreBoardData.periodCount), forSegment: 1)
-        writeFilesToDisk.writeFilesToDisk(.period)
+        //WriteFilesToDisk().writeFile(.period)
     }
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {
-        ScoreBoardData.homeName = textFieldHomeName.stringValue
-        writeFilesToDisk.writeFilesToDisk(.homeName)
+        ScoreBoardData.homeName = homeNameTextField.stringValue
+        WriteFilesToDisk().writeFile(.homeName)
     }
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
-        ScoreBoardData.awayName = textFieldAwayName.stringValue
-        writeFilesToDisk.writeFilesToDisk(.awayName)
+        ScoreBoardData.awayName = awayNameTextField.stringValue
+        WriteFilesToDisk().writeFile(.awayName)
     }
     
     @IBAction func sliderTimerAction(_ sender: Any) {
@@ -344,8 +349,9 @@ class MainViewController: NSViewController {
         //sliderTimer.isEnabled = false
         if timerStatus == nil {
             buttonStart.title = "PAUSE"
-            textFieldTimer.textColor = .red
+            timerTextField.textColor = .red
             startTimer()
+            //TimerFunctions().startTimer()
         } else {
             resetStateButtonStar()
         }
@@ -360,7 +366,8 @@ class MainViewController: NSViewController {
             titleTimerMode.stringValue = "Countdown: OFF"
             continueTimeSwitcher.isEnabled = true
         }
-        ScoreBoardData.timeNow = ScoreBoardData.timeUserPreset - ScoreBoardData.timeNow  // смена времени на табло с сохранением пройденных секунд
+        // смена времени на табло с сохранением пройденных секунд
+        ScoreBoardData.timeNow = ScoreBoardData.timeUserPreset - ScoreBoardData.timeNow
         showTimeInLabel()
     }
     
@@ -370,12 +377,12 @@ class MainViewController: NSViewController {
     
     @IBAction func swapHomeAwayScores(_ sender: Any) {
         swap(&ScoreBoardData.homeName, &ScoreBoardData.awayName)
-        textFieldHomeName.stringValue = ScoreBoardData.homeName
-        textFieldAwayName.stringValue = ScoreBoardData.awayName
+        homeNameTextField.stringValue = ScoreBoardData.homeName
+        awayNameTextField.stringValue = ScoreBoardData.awayName
         swap(&ScoreBoardData.countGoalHome, &ScoreBoardData.countGoalAway)
         goalHome.setLabel(String(ScoreBoardData.countGoalHome), forSegment: 1)
         goalAway.setLabel(String(ScoreBoardData.countGoalAway), forSegment: 1)
-        writeFilesToDisk.writeFilesToDisk(.homeName, .awayName, .homeGoal, .awayGoal)
+        WriteFilesToDisk().writeFile(.homeName, .awayName, .homeGoal, .awayGoal)
     }
     
 // MARK:- Menu action

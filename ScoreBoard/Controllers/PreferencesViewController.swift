@@ -21,19 +21,13 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var WorkDirectoryPath: NSPathControl!
     
     @IBAction func selectUserDirectory(_ sender: Any) {
-        // открыть панель выбора файла
-        let panel = NSOpenPanel()
-        panel.canChooseDirectories = true
-        panel.canChooseFiles = false
-        panel.prompt = "Select"
-        guard panel.runModal() == NSApplication.ModalResponse.OK else { return }
-        guard let userDirectoryUrl = panel.url else { return }
+
+        guard let userSelectedDirectoryUrl = SelectDirectoryWindow().selectDirectory() else { return }
         
-        // добавить название папки к пути выбранному пользователем
-        WorkDirectoryPath.url = userDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
+        WorkDirectoryPath.url = userSelectedDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
         
         // сохранить закладку безопасности на будущее
-        WriteFilesToDisk().saveBookmarksPathDirectory(userDirectoryUrl)
+        WriteFilesToDisk().saveBookmarksPathDirectory(userSelectedDirectoryUrl)
     }
     
     @IBAction func setUserDirectory(_ sender: Any) {

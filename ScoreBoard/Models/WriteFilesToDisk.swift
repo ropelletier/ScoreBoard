@@ -6,18 +6,17 @@
 //  Copyright © 2020 Vasily Petuhov. All rights reserved.
 //
 
-import Cocoa
-//import Foundation
+import Foundation
 
 class WriteFilesToDisk {
     
     // перечисление файлов для записи
-    enum FilesToWrite {
+    enum FilesList {
         case timer, homeName, awayName, period, homeGoal, awayGoal
     }
     
     // запись файлов
-    func writeFilesToDisk(_ fileToWrite: FilesToWrite...) {
+    func writeFile(_ fileToWrite: FilesList...) {
         do {
             if var userDirectoryUrl = restoreBookmarksPathDirectory() {
                 userDirectoryUrl = userDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
@@ -34,7 +33,6 @@ class WriteFilesToDisk {
                     switch file {
                     case .timer:
                         text = ScoreBoardData.timerString
-                        //text = MainViewController().textFieldTimer.stringValue
                         fileName = "Timer.txt"
                     case .homeName:
                         text = ScoreBoardData.homeName
@@ -57,20 +55,7 @@ class WriteFilesToDisk {
                 }
             }
         } catch {
-            let alert = NSAlert()
-            alert.messageText = "Unable to write file"
-            alert.informativeText = """
-            There is no access to the directory for writing.
-            Give the program access to write files to disk:
-            
-            System Preferences > Security and Privacy > Privacy > Files and Folders
-            
-            Check the box for the program "ScoreBoard.app".
-            
-            """
-            alert.addButton(withTitle: "OK")
-            alert.alertStyle = .warning
-            alert.runModal()
+            AlertWindow().showAlert() // передавать текст ошибки и рекомендации
         }
     }
     

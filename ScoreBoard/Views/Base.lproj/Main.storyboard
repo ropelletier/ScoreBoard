@@ -353,7 +353,7 @@ DQ
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="bWf-7v-uSN"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Home" drawsBackground="YES" id="wbQ-Y7-Vkk">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Home" placeholderString="Home name" drawsBackground="YES" id="wbQ-Y7-Vkk">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -575,7 +575,7 @@ DQ
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="6tW-uS-Rb0"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Away" drawsBackground="YES" id="lTh-p4-b5h">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Away" placeholderString="Away name" drawsBackground="YES" id="lTh-p4-b5h">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -619,7 +619,7 @@ DQ
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSF-dV-WH2">
                                 <rect key="frame" x="381.5" y="8" width="27" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAdvanced" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OrV-Nq-Vyp">
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAdvanced" imagePosition="only" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OrV-Nq-Vyp">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -652,10 +652,12 @@ DQ
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="awayNameTextField" destination="Nb1-sC-9Oh" id="6kV-61-gtT"/>
                         <outlet property="buttonStart" destination="nD0-gN-t1M" id="sNw-5c-cDe"/>
                         <outlet property="continueTimeSwitcher" destination="Lpn-cp-aMc" id="swZ-Hw-aSi"/>
                         <outlet property="goalAway" destination="yVs-io-wuS" id="Pxg-qA-tyk"/>
                         <outlet property="goalHome" destination="8Bi-Qn-fW6" id="VF1-gq-tzK"/>
+                        <outlet property="homeNameTextField" destination="7b5-xV-TVs" id="ZwM-78-Hyw"/>
                         <outlet property="period" destination="QBp-bO-XRp" id="6Wz-ee-fyb"/>
                         <outlet property="resetButton" destination="cra-ZW-qR3" id="Tey-RS-Es2"/>
                         <outlet property="sliderTimer" destination="15e-3A-sM7" id="w3Y-kL-uy7"/>
@@ -663,9 +665,7 @@ DQ
                         <outlet property="stepperSeconds" destination="ktK-6e-EiV" id="LEl-Lp-VdZ"/>
                         <outlet property="swapScores" destination="2iv-ah-fII" id="alj-zk-Klr"/>
                         <outlet property="switchTimerMode" destination="dRb-Gv-lIH" id="WRK-oP-2dz"/>
-                        <outlet property="textFieldAwayName" destination="Nb1-sC-9Oh" id="2V6-Om-ixK"/>
-                        <outlet property="textFieldHomeName" destination="7b5-xV-TVs" id="Ggh-nU-nRM"/>
-                        <outlet property="textFieldTimer" destination="RXY-hW-hdK" id="KVK-E6-sx1"/>
+                        <outlet property="timerTextField" destination="RXY-hW-hdK" id="r3S-5a-96w"/>
                         <outlet property="titleTimerMode" destination="QlU-kf-kyh" id="Jfw-yY-KpL"/>
                     </connections>
                 </viewController>

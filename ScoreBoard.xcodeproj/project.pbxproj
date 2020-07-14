@@ -14,6 +14,9 @@
 		D9BD25DE24B336260064230E /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25DD24B336260064230E /* PreferencesViewController.swift */; };
 		D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E324B60D800064230E /* ScoreBoardData.swift */; };
 		D9BD25E624B884490064230E /* WriteFilesToDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E524B884490064230E /* WriteFilesToDisk.swift */; };
+		D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E724B8A55D0064230E /* AlertWindow.swift */; };
+		D9BD25EA24BC76D10064230E /* SelectDirectoryWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */; };
+		D9BD25EC24BC8EEA0064230E /* TimerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		D9BD25DD24B336260064230E /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		D9BD25E324B60D800064230E /* ScoreBoardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardData.swift; sourceTree = "<group>"; };
 		D9BD25E524B884490064230E /* WriteFilesToDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteFilesToDisk.swift; sourceTree = "<group>"; };
+		D9BD25E724B8A55D0064230E /* AlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWindow.swift; sourceTree = "<group>"; };
+		D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDirectoryWindow.swift; sourceTree = "<group>"; };
+		D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 			children = (
 				D9BD25E324B60D800064230E /* ScoreBoardData.swift */,
 				D9BD25E524B884490064230E /* WriteFilesToDisk.swift */,
+				D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -102,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				D975873823B607C40004BDAD /* Main.storyboard */,
+				D9BD25E724B8A55D0064230E /* AlertWindow.swift */,
+				D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,8 +188,11 @@
 				D9BD25E624B884490064230E /* WriteFilesToDisk.swift in Sources */,
 				D975873523B607C20004BDAD /* MainViewController.swift in Sources */,
 				D975873323B607C20004BDAD /* AppDelegate.swift in Sources */,
+				D9BD25EA24BC76D10064230E /* SelectDirectoryWindow.swift in Sources */,
 				D9BD25DE24B336260064230E /* PreferencesViewController.swift in Sources */,
 				D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */,
+				D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */,
+				D9BD25EC24BC8EEA0064230E /* TimerFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
