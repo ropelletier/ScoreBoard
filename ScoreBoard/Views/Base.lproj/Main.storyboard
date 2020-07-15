@@ -658,13 +658,13 @@ DQ
                         <outlet property="goalAway" destination="yVs-io-wuS" id="Pxg-qA-tyk"/>
                         <outlet property="goalHome" destination="8Bi-Qn-fW6" id="VF1-gq-tzK"/>
                         <outlet property="homeNameTextField" destination="7b5-xV-TVs" id="ZwM-78-Hyw"/>
+                        <outlet property="isCountdown" destination="dRb-Gv-lIH" id="faT-s4-usk"/>
                         <outlet property="period" destination="QBp-bO-XRp" id="6Wz-ee-fyb"/>
                         <outlet property="resetButton" destination="cra-ZW-qR3" id="Tey-RS-Es2"/>
                         <outlet property="sliderTimer" destination="15e-3A-sM7" id="w3Y-kL-uy7"/>
                         <outlet property="stepperMinutes" destination="gch-6s-7NE" id="79I-AN-SsD"/>
                         <outlet property="stepperSeconds" destination="ktK-6e-EiV" id="LEl-Lp-VdZ"/>
                         <outlet property="swapScores" destination="2iv-ah-fII" id="alj-zk-Klr"/>
-                        <outlet property="switchTimerMode" destination="dRb-Gv-lIH" id="WRK-oP-2dz"/>
                         <outlet property="timerTextField" destination="RXY-hW-hdK" id="r3S-5a-96w"/>
                         <outlet property="titleTimerMode" destination="QlU-kf-kyh" id="Jfw-yY-KpL"/>
                     </connections>

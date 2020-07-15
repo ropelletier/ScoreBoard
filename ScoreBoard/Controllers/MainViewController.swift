@@ -12,14 +12,14 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
         //UserDefaults.standard.removeObject(forKey: "homeName")
         
         sliderTimer.integerValue = ScoreBoardData.timeUserPreset // возвращаем состояние слайдера до закрытия проги
         homeNameTextField.stringValue = ScoreBoardData.homeName
         awayNameTextField.stringValue = ScoreBoardData.awayName
         
-        if switchTimerMode.state == .on {
+        if isCountdown.state == .on {
             TimerFunctions.isCountdownState = true
         } else { TimerFunctions.isCountdownState = false }
         
@@ -29,16 +29,16 @@ class MainViewController: NSViewController {
         
         WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
-
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
-        // MARK: - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak var timerTextField: NSTextField!
     @IBOutlet weak var buttonStart: NSButton!
-    @IBOutlet weak var switchTimerMode: NSSwitch!
+    @IBOutlet weak var isCountdown: NSSwitch!
     @IBOutlet weak var titleTimerMode: NSTextField!
     @IBOutlet weak var continueTimeSwitcher: NSSwitch!
     @IBOutlet weak var resetButton: NSButton!
@@ -52,125 +52,13 @@ class MainViewController: NSViewController {
     @IBOutlet weak var stepperSeconds: NSStepper!
     @IBOutlet weak var stepperMinutes: NSStepper!
     
-// параметры по умолчанию
-//    var timeUserPreset: Int {
-//        get {
-//            UserDefaults.standard.register(defaults: ["timeUserPreset" : 900])
-//            return UserDefaults.standard.integer(forKey: "timeUserPreset")
-//        } set {
-//            UserDefaults.standard.set(newValue, forKey: "timeUserPreset")
-//        }
-//    }
-//    lazy var timeNow: Int = timeUserPreset
-//    var homeName: String = "Home"
-//    var awayName: String = "Away"
-//    var countGoalHome: Int = 0
-//    var countGoalAway: Int = 0
-//    var periodCount: Int = 1
-
     
     // MARK: - FUNCtions
-//// newWrite сохранить закладку
-//    func saveBookmarksPathDirectory(_ userDirectoryUrl:URL) {
-//        
-//        // добавить название папки к пути выбранному пользователем
-//        //pathDirectory.url = userDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
-//        //guard let userDirectoryUrl = pathDirectory.url else { return }
-//        
-//        // сохраняем закладку безопасности на будущее
-//        do {
-//            let bookmark = try userDirectoryUrl.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-//            UserDefaults.standard.set(bookmark, forKey: "bookmarkForDirecory")
-//            print("закладка сохранилась успешно: \(userDirectoryUrl)")
-//        } catch { return }
-//    }
-//    
-//// newWrite восстановить закладку
-//    func restoreBookmarksPathDirectory() -> URL? {
-//        guard let bookmark = UserDefaults.standard.data(forKey: "bookmarkForDirecory")
-//            else { return FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first } // каталог downloads по умолчанию
-//        var bookmarkDataIsStale: ObjCBool = false
-//        
-//        do {
-//           let userDirectoryUrl = try (NSURL(resolvingBookmarkData: bookmark, options: [.withoutUI, .withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &bookmarkDataIsStale) as URL)
-//            
-//            if bookmarkDataIsStale.boolValue { return nil }
-//            
-//            guard userDirectoryUrl.startAccessingSecurityScopedResource() else { return nil }
-//            
-//            print("закладка открыта успешно: \(userDirectoryUrl)")
-//            return userDirectoryUrl
-//            
-//        } catch { return nil }
-//    }
-//    
-//// newWrite перечисление файлов для записи
-//    enum FilesToWrite {
-//        case timer, homeName, awayName, period, homeGoal, awayGoal
-//    }
-//    
-//// newWrite запись файлов
-//    func writeFilesToDisk(_ fileToWrite: FilesToWrite...) {
-//        do {
-//            if var userDirectoryUrl = restoreBookmarksPathDirectory() {
-//                userDirectoryUrl = userDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
-//                
-//                // проверка - существование каталога на диске
-//                if !FileManager().fileExists(atPath: userDirectoryUrl.path) {
-//                try FileManager.default.createDirectory(at: userDirectoryUrl, withIntermediateDirectories: true, attributes: nil)
-//                }
-//                
-//                var text: String
-//                var fileName: String
-//                
-//                for file in fileToWrite {
-//                    switch file {
-//                    case .timer:
-//                    text = textFieldTimer.stringValue
-//                    fileName = "Timer.txt"
-//                    case .homeName:
-//                        text = scoreBoardData.homeName
-//                       fileName = "Home_Name.txt"
-//                    case .awayName:
-//                       text = scoreBoardData.awayName
-//                       fileName = "Away_Name.txt"
-//                    case .period:
-//                       text = String(scoreBoardData.periodCount)
-//                       fileName = "Period.txt"
-//                    case .homeGoal:
-//                       text = String(scoreBoardData.countGoalHome)
-//                       fileName = "HomeGoal.txt"
-//                    case .awayGoal:
-//                       text = String(scoreBoardData.countGoalAway)
-//                       fileName = "AwayGoal.txt"
-//                   }
-//                    // запись нужного файла
-//                    try text.write(to: userDirectoryUrl.appendingPathComponent(fileName), atomically: false, encoding: .utf8)
-//                }
-//            }
-//        } catch {
-//            let alert = NSAlert()
-//            alert.messageText = "Unable to write file"
-//            alert.informativeText = """
-//            There is no access to the directory for writing.
-//            Give the program access to write files to disk:
-//
-//            System Preferences > Security and Privacy > Privacy > Files and Folders
-//
-//            Check the box for the program "ScoreBoard.app".
-//
-//            """
-//            alert.addButton(withTitle: "OK")
-//            alert.alertStyle = .warning
-//            alert.runModal()
-//        }
-//    }
-    
     
     // функция запоминает установленные параметры таймера из слайдера
     func setTimeDefault() {
         ScoreBoardData.timeUserPreset = sliderTimer.integerValue
-        if switchTimerMode.state == .on {
+        if isCountdown.state == .on {
             ScoreBoardData.timeNow = ScoreBoardData.timeUserPreset
         } else {
             ScoreBoardData.timeNow = 0
@@ -182,12 +70,12 @@ class MainViewController: NSViewController {
         
         stepperSeconds.integerValue = ScoreBoardData.timeNow //сохраняет время для степперов
         stepperMinutes.integerValue = ScoreBoardData.timeNow
-
+        
         let minutes:Int = ScoreBoardData.timeNow / 60
         let seconds:Int = ScoreBoardData.timeNow - (minutes*60)
         var minStr:String = "\(minutes)"
         var secStr:String = "\(seconds)"
-            
+        
         // проверки МИНУТ и СЕКУНД на отсутсвие нулей (0:45 -> 01:45)
         if minutes < 10 {
             minStr = "0" + minStr
@@ -195,40 +83,41 @@ class MainViewController: NSViewController {
         if seconds < 10 {
             secStr = "0" + secStr
         }
-    
+        
         timerTextField.stringValue = minStr + ":" + secStr //вывод времени в формате 00:00 в поле
         ScoreBoardData.timerString = minStr + ":" + secStr //timerTextField.stringValue
-        WriteFilesToDisk().writeFile(.timer)
     }
     
     var timerStatus: Timer?
     func startTimer(){
-      if timerStatus == nil {
+        if timerStatus == nil {
             timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-                if self.switchTimerMode.state == .on {
+                if self.isCountdown.state == .on {
                     guard ScoreBoardData.timeNow > 0 else {
                         self.resetStateButtonStar()
                         return
                     }
                     ScoreBoardData.timeNow -= 1
                 } else {
-                    guard ScoreBoardData.timeNow < ScoreBoardData.timeUserPreset else {
-                        if self.continueTimeSwitcher.state == .on { ScoreBoardData.timeUserPreset += ScoreBoardData.timeUserPreset }
-                        self.resetStateButtonStar()
-                        return
+                    // остановить таймер если выключен режим "футбола" (продолжать отсчет)
+                    if self.continueTimeSwitcher.state == .off  {
+                        guard ScoreBoardData.timeNow < ScoreBoardData.timeUserPreset else {
+                            self.resetStateButtonStar()
+                            return
+                        }
                     }
                     ScoreBoardData.timeNow += 1
                 }
                 self.showTimeInLabel()
             }
-      }
+        }
     }
-
+    
     func stopTimer(){
-      if timerStatus != nil {
-        timerStatus?.invalidate()
-        timerStatus = nil
-      }
+        if timerStatus != nil {
+            timerStatus?.invalidate()
+            timerStatus = nil
+        }
     }
     
     // Сброс кнопки СТАРТ на начальное значение + остановка таймера
@@ -244,17 +133,16 @@ class MainViewController: NSViewController {
         resetStateButtonStar()
         setTimeDefault()
         showTimeInLabel()
-//        homeName = "Home"
-//        textFieldHomeName.stringValue = homeName
-//        awayName = "Away"
-//        textFieldAwayName.stringValue = awayName
+        //        homeName = "Home"
+        //        textFieldHomeName.stringValue = homeName
+        //        awayName = "Away"
+        //        textFieldAwayName.stringValue = awayName
         ScoreBoardData.countGoalHome = 0
         goalHome.setLabel(String(ScoreBoardData.countGoalHome), forSegment: 1)
         ScoreBoardData.countGoalAway = 0
         goalAway.setLabel(String(ScoreBoardData.countGoalAway), forSegment: 1)
         ScoreBoardData.periodCount = 1
         period.setLabel(String(ScoreBoardData.periodCount), forSegment: 1)
-        WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
     // MARK: - ACTIONS
@@ -271,7 +159,7 @@ class MainViewController: NSViewController {
         
         
         if timeFromUserInLabel.count < 3 { //проверка на количество цифр, не меннее 3-ех (минуты:секунды), иначе ,будет краш проги
-        showTimeInLabel()
+            showTimeInLabel()
         }
         if timeFromUserInLabel.count >= 4 { // если пользователь ввел 4 или больше знаков
             minutesFromUser = Int (String (timeFromUserInLabel [0...1]))!
@@ -305,7 +193,6 @@ class MainViewController: NSViewController {
             ScoreBoardData.countGoalHome += 1
         }
         goalHome.setLabel(String(ScoreBoardData.countGoalHome), forSegment: 1)
-        //WriteFilesToDisk().writeFile(.homeGoal)
     }
     
     @IBAction func goalAwayAction(_ sender: Any) {
@@ -316,7 +203,6 @@ class MainViewController: NSViewController {
             ScoreBoardData.countGoalAway += 1
         }
         goalAway.setLabel(String(ScoreBoardData.countGoalAway), forSegment: 1)
-        //WriteFilesToDisk().writeFile(.awayGoal)
     }
     
     @IBAction func periodAction(_ sender: Any) {
@@ -327,17 +213,14 @@ class MainViewController: NSViewController {
             ScoreBoardData.periodCount += 1
         }
         period.setLabel(String(ScoreBoardData.periodCount), forSegment: 1)
-        //WriteFilesToDisk().writeFile(.period)
     }
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {
         ScoreBoardData.homeName = homeNameTextField.stringValue
-        WriteFilesToDisk().writeFile(.homeName)
     }
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
         ScoreBoardData.awayName = awayNameTextField.stringValue
-        WriteFilesToDisk().writeFile(.awayName)
     }
     
     @IBAction func sliderTimerAction(_ sender: Any) {
@@ -358,7 +241,7 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func switchTimerOnOff(_ sender: Any) {
-        if switchTimerMode.state == .on {
+        if isCountdown.state == .on {
             titleTimerMode.stringValue = "Countdown: ON"
             continueTimeSwitcher.state = .off
             continueTimeSwitcher.isEnabled = false
@@ -382,10 +265,9 @@ class MainViewController: NSViewController {
         swap(&ScoreBoardData.countGoalHome, &ScoreBoardData.countGoalAway)
         goalHome.setLabel(String(ScoreBoardData.countGoalHome), forSegment: 1)
         goalAway.setLabel(String(ScoreBoardData.countGoalAway), forSegment: 1)
-        WriteFilesToDisk().writeFile(.homeName, .awayName, .homeGoal, .awayGoal)
     }
     
-// MARK:- Menu action
+    // MARK:- Menu action
     
     @IBAction func startPauseTimerFromMenu(_ sender: Any) {
         pushButtonStart(self)
@@ -430,6 +312,6 @@ class MainViewController: NSViewController {
         periodAction(self)
     }
     
-
+    
 }
 
