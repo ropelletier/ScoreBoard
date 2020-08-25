@@ -145,6 +145,11 @@ class MainViewController: NSViewController {
         period.setLabel(String(ScoreBoardData.periodCount), forSegment: 1)
     }
     
+        // при щелчке в пустое место окна скрывается фокус со всех элементов
+    //    override func mouseDown(with: NSEvent) {
+    //        NSApp.mainWindow?.makeFirstResponder(nil)
+    //    }
+    
     // MARK: - ACTIONS
     
     @IBAction func timeLabelAction(_ sender: Any) {
@@ -217,10 +222,12 @@ class MainViewController: NSViewController {
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {
         ScoreBoardData.homeName = homeNameTextField.stringValue
+        awayNameTextField.becomeFirstResponder()
     }
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
         ScoreBoardData.awayName = awayNameTextField.stringValue
+        NSApp.mainWindow?.makeFirstResponder(buttonStart)
     }
     
     @IBAction func sliderTimerAction(_ sender: Any) {
