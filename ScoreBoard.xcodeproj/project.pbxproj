@@ -78,9 +78,9 @@
 		D9BD25DF24B370280064230E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D975873223B607C20004BDAD /* AppDelegate.swift */,
 				D975873423B607C20004BDAD /* MainViewController.swift */,
 				D9BD25DD24B336260064230E /* PreferencesViewController.swift */,
+				D975873223B607C20004BDAD /* AppDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
