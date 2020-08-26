@@ -372,7 +372,7 @@ DQ
                                 </textFieldCell>
                                 <connections>
                                     <action selector="textFieldAwayNameAction:" target="XfG-lQ-9wD" id="6h4-Fr-aRE"/>
-                                    <outlet property="nextKeyView" destination="nD0-gN-t1M" id="SxS-cP-2L3"/>
+                                    <outlet property="nextKeyView" destination="7b5-xV-TVs" id="SuE-zM-9ou"/>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-gN-t1M">
@@ -383,7 +383,6 @@ DQ
                                 </buttonCell>
                                 <connections>
                                     <action selector="pushButtonStart:" target="XfG-lQ-9wD" id="I0Y-n2-dPZ"/>
-                                    <outlet property="nextKeyView" destination="7b5-xV-TVs" id="NdZ-oq-5wD"/>
                                 </connections>
                             </button>
                             <textField toolTip="Timer" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RXY-hW-hdK">

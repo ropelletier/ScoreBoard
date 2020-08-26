@@ -35,6 +35,7 @@ class MainViewController: NSViewController {
             // Update the view, if already loaded.
         }
     }
+    
     // MARK: - IBOutlet
     @IBOutlet weak var timerTextField: NSTextField!
     @IBOutlet weak var buttonStart: NSButton!
@@ -145,36 +146,44 @@ class MainViewController: NSViewController {
         period.setLabel(String(ScoreBoardData.periodCount), forSegment: 1)
     }
     
-        // при щелчке в пустое место окна скрывается фокус со всех элементов
-    //    override func mouseDown(with: NSEvent) {
-    //        NSApp.mainWindow?.makeFirstResponder(nil)
-    //    }
+    // клик мышкой
+    override func mouseDown(with: NSEvent) {
+        //NSApp.mainWindow?.makeFirstResponder(nil) //снять выделения со всех элементов окна
+        buttonStart.window?.makeFirstResponder(buttonStart)
+        deselectTextInTextFileds()
+    }
+    
+    //отменить выделение текста в полях NSTextFiled, так как фокус не связан с выделением (фокус на кнопке, а выделено назавание команды)
+    func deselectTextInTextFileds() {
+        homeNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
+        awayNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
+    }
     
     // MARK: - ACTIONS
     
     @IBAction func timeLabelAction(_ sender: Any) {
-        var timeFromUserInLabel = Array (timerTextField.stringValue.components(separatedBy:CharacterSet.decimalDigits.inverted)
+        var timeFromUserInLabel = Array(timerTextField.stringValue.components(separatedBy: CharacterSet.decimalDigits.inverted)
             .joined()) //убирает все кроме цифр
-        
-        //надо сразу чистить массив чтобы не было лишнего .map .sort и тд
         
         // запоминает время до изменения
         var minutesFromUser:Int = ScoreBoardData.timeNow / 60
         var secondsFromUser:Int = ScoreBoardData.timeNow - ((ScoreBoardData.timeNow / 60) * 60)
         
-        
         if timeFromUserInLabel.count < 3 { //проверка на количество цифр, не меннее 3-ех (минуты:секунды), иначе ,будет краш проги
             showTimeInLabel()
         }
+        
         if timeFromUserInLabel.count >= 4 { // если пользователь ввел 4 или больше знаков
             minutesFromUser = Int (String (timeFromUserInLabel [0...1]))!
             secondsFromUser = Int (String (timeFromUserInLabel [2...3]))!
         }
+        
         if timeFromUserInLabel.count == 3 { // если пользователь ввел 3 знака
             timeFromUserInLabel.insert("0", at: 0)
             minutesFromUser = Int (String (timeFromUserInLabel [0...1]))!
             secondsFromUser = Int (String (timeFromUserInLabel [2...3]))!
         }
+        
         ScoreBoardData.timeNow = (minutesFromUser * 60) + secondsFromUser
         showTimeInLabel()
     }
@@ -183,7 +192,6 @@ class MainViewController: NSViewController {
         ScoreBoardData.timeNow = stepperSeconds.integerValue
         showTimeInLabel()
     }
-    
     
     @IBAction func stepperMinutesAction(_ sender: Any) {
         ScoreBoardData.timeNow = stepperMinutes.integerValue
@@ -227,7 +235,8 @@ class MainViewController: NSViewController {
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
         ScoreBoardData.awayName = awayNameTextField.stringValue
-        NSApp.mainWindow?.makeFirstResponder(buttonStart)
+        buttonStart.window?.makeFirstResponder(buttonStart)
+        deselectTextInTextFileds()
     }
     
     @IBAction func sliderTimerAction(_ sender: Any) {
@@ -236,6 +245,9 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func pushButtonStart(_ sender: Any) {
+        buttonStart.window?.makeFirstResponder(buttonStart)
+        deselectTextInTextFileds()
+
         //sliderTimer.isEnabled = false
         if timerStatus == nil {
             buttonStart.title = "PAUSE"
