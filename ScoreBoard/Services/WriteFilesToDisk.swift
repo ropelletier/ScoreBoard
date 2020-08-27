@@ -10,6 +10,8 @@ import Foundation
 
 class WriteFilesToDisk {
     
+    let scoreboardData = ScoreBoardData.instance
+    
     // перечисление файлов для записи
     enum FilesList {
         case timer, homeName, awayName, period, homeGoal, awayGoal
@@ -32,22 +34,22 @@ class WriteFilesToDisk {
                 for file in fileToWrite {
                     switch file {
                     case .timer:
-                        text = ScoreBoardData.timerString
+                        text = scoreboardData.timerString
                         fileName = "Timer.txt"
                     case .homeName:
-                        text = ScoreBoardData.homeName
+                        text = scoreboardData.homeName
                         fileName = "Home_Name.txt"
                     case .awayName:
-                        text = ScoreBoardData.awayName
+                        text = scoreboardData.awayName
                         fileName = "Away_Name.txt"
                     case .period:
-                        text = String(ScoreBoardData.periodCount)
+                        text = String(scoreboardData.periodCount)
                         fileName = "Period.txt"
                     case .homeGoal:
-                        text = String(ScoreBoardData.countGoalHome)
+                        text = String(scoreboardData.countGoalHome)
                         fileName = "HomeGoal.txt"
                     case .awayGoal:
-                        text = String(ScoreBoardData.countGoalAway)
+                        text = String(scoreboardData.countGoalAway)
                         fileName = "AwayGoal.txt"
                     }
                     // запись нужного файла

@@ -10,7 +10,10 @@ import Foundation
 
 class ScoreBoardData {
     
-    static var timeUserPreset: Int {
+    private init() {}
+    static let instance = ScoreBoardData()
+    
+    var timeUserPreset: Int {
         get {
             UserDefaults.standard.register(defaults: ["timeUserPreset" : 900])
             return UserDefaults.standard.integer(forKey: "timeUserPreset")
@@ -19,15 +22,15 @@ class ScoreBoardData {
         }
     }
     
-    static var timeNow: Int = timeUserPreset
+    lazy var timeNow: Int = timeUserPreset
     
-    static var timerString: String = "00:00" {
+    var timerString: String = "00:00" {
         didSet {
             WriteFilesToDisk().writeFile(.timer)
         }
     }
     
-    static var homeName: String {
+    var homeName: String {
         get {
             return UserDefaults.standard.string(forKey: "homeName") ?? "Home"
         } set {
@@ -36,7 +39,7 @@ class ScoreBoardData {
         }
     }
     
-    static var awayName: String {
+    var awayName: String {
         get {
             return UserDefaults.standard.string(forKey: "awayName") ?? "Away"
         } set {
@@ -45,19 +48,19 @@ class ScoreBoardData {
         }
     }
     
-    static var countGoalHome: Int = 0 {
+    var countGoalHome: Int = 0 {
         didSet{
             WriteFilesToDisk().writeFile(.homeGoal)
         }
     }
     
-    static var countGoalAway: Int = 0 {
+    var countGoalAway: Int = 0 {
         didSet{
             WriteFilesToDisk().writeFile(.awayGoal)
         }
     }
     
-    static var periodCount: Int = 1 {
+    var periodCount: Int = 1 {
         didSet{
             WriteFilesToDisk().writeFile(.period)
         }

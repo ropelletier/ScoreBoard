@@ -10,14 +10,16 @@ import Cocoa
 
 class MainViewController: NSViewController {
     
+    let scoreboardData = ScoreBoardData.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //UserDefaults.standard.removeObject(forKey: "homeName")
         
-        sliderTimer.integerValue = ScoreBoardData.timeUserPreset // возвращаем состояние слайдера до закрытия проги
-        homeNameTextField.stringValue = ScoreBoardData.homeName
-        awayNameTextField.stringValue = ScoreBoardData.awayName
+        sliderTimer.integerValue = scoreboardData.timeUserPreset // возвращаем состояние слайдера до закрытия проги
+        homeNameTextField.stringValue = scoreboardData.homeName
+        awayNameTextField.stringValue = scoreboardData.awayName
         
         if isCountdown.state == .on {
             TimerFunctions.isCountdownState = true
@@ -58,22 +60,22 @@ class MainViewController: NSViewController {
     
     // функция запоминает установленные параметры таймера из слайдера
     func setTimeDefault() {
-        ScoreBoardData.timeUserPreset = sliderTimer.integerValue
+        scoreboardData.timeUserPreset = sliderTimer.integerValue
         if isCountdown.state == .on {
-            ScoreBoardData.timeNow = ScoreBoardData.timeUserPreset
+            scoreboardData.timeNow = scoreboardData.timeUserPreset
         } else {
-            ScoreBoardData.timeNow = 0
+            scoreboardData.timeNow = 0
         }
     }
     
     // функция показывает время в поле (берет из таймера)
     func showTimeInLabel() {
         
-        stepperSeconds.integerValue = ScoreBoardData.timeNow //сохраняет время для степперов
-        stepperMinutes.integerValue = ScoreBoardData.timeNow
+        stepperSeconds.integerValue = scoreboardData.timeNow //сохраняет время для степперов
+        stepperMinutes.integerValue = scoreboardData.timeNow
         
-        let minutes:Int = ScoreBoardData.timeNow / 60
-        let seconds:Int = ScoreBoardData.timeNow - (minutes*60)
+        let minutes:Int = scoreboardData.timeNow / 60
+        let seconds:Int = scoreboardData.timeNow - (minutes*60)
         var minStr:String = "\(minutes)"
         var secStr:String = "\(seconds)"
         
@@ -86,7 +88,7 @@ class MainViewController: NSViewController {
         }
         
         timerTextField.stringValue = minStr + ":" + secStr //вывод времени в формате 00:00 в поле
-        ScoreBoardData.timerString = minStr + ":" + secStr //timerTextField.stringValue
+        scoreboardData.timerString = minStr + ":" + secStr //timerTextField.stringValue
     }
     
     var timerStatus: Timer?
@@ -94,20 +96,20 @@ class MainViewController: NSViewController {
         if timerStatus == nil {
             timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                 if self.isCountdown.state == .on {
-                    guard ScoreBoardData.timeNow > 0 else {
+                    guard self.scoreboardData.timeNow > 0 else {
                         self.resetStateButtonStar()
                         return
                     }
-                    ScoreBoardData.timeNow -= 1
+                    self.scoreboardData.timeNow -= 1
                 } else {
                     // остановить таймер если выключен режим "футбола" (продолжать отсчет)
                     if self.continueTimeSwitcher.state == .off  {
-                        guard ScoreBoardData.timeNow < ScoreBoardData.timeUserPreset else {
+                        guard self.scoreboardData.timeNow < self.scoreboardData.timeUserPreset else {
                             self.resetStateButtonStar()
                             return
                         }
                     }
-                    ScoreBoardData.timeNow += 1
+                    self.scoreboardData.timeNow += 1
                 }
                 self.showTimeInLabel()
             }
@@ -138,12 +140,12 @@ class MainViewController: NSViewController {
         //        textFieldHomeName.stringValue = homeName
         //        awayName = "Away"
         //        textFieldAwayName.stringValue = awayName
-        ScoreBoardData.countGoalHome = 0
-        goalHome.setLabel(String(ScoreBoardData.countGoalHome), forSegment: 1)
-        ScoreBoardData.countGoalAway = 0
-        goalAway.setLabel(String(ScoreBoardData.countGoalAway), forSegment: 1)
-        ScoreBoardData.periodCount = 1
-        period.setLabel(String(ScoreBoardData.periodCount), forSegment: 1)
+        scoreboardData.countGoalHome = 0
+        goalHome.setLabel(String(scoreboardData.countGoalHome), forSegment: 1)
+        scoreboardData.countGoalAway = 0
+        goalAway.setLabel(String(scoreboardData.countGoalAway), forSegment: 1)
+        scoreboardData.periodCount = 1
+        period.setLabel(String(scoreboardData.periodCount), forSegment: 1)
     }
     
     // клик мышкой
@@ -166,8 +168,8 @@ class MainViewController: NSViewController {
             .joined()) //убирает все кроме цифр
         
         // запоминает время до изменения
-        var minutesFromUser:Int = ScoreBoardData.timeNow / 60
-        var secondsFromUser:Int = ScoreBoardData.timeNow - ((ScoreBoardData.timeNow / 60) * 60)
+        var minutesFromUser:Int = scoreboardData.timeNow / 60
+        var secondsFromUser:Int = scoreboardData.timeNow - ((scoreboardData.timeNow / 60) * 60)
         
         if timeFromUserInLabel.count < 3 { //проверка на количество цифр, не меннее 3-ех (минуты:секунды), иначе ,будет краш проги
             showTimeInLabel()
@@ -184,57 +186,59 @@ class MainViewController: NSViewController {
             secondsFromUser = Int (String (timeFromUserInLabel [2...3]))!
         }
         
-        ScoreBoardData.timeNow = (minutesFromUser * 60) + secondsFromUser
+        scoreboardData.timeNow = (minutesFromUser * 60) + secondsFromUser
         showTimeInLabel()
+        
+        buttonStart.window?.makeFirstResponder(buttonStart)
     }
     
     @IBAction func stepperSecondsAction(_ sender: Any) {
-        ScoreBoardData.timeNow = stepperSeconds.integerValue
+        scoreboardData.timeNow = stepperSeconds.integerValue
         showTimeInLabel()
     }
     
     @IBAction func stepperMinutesAction(_ sender: Any) {
-        ScoreBoardData.timeNow = stepperMinutes.integerValue
+        scoreboardData.timeNow = stepperMinutes.integerValue
         showTimeInLabel()
     }
     
     @IBAction func goalHomeAction(_ sender: Any) {
-        if goalHome.selectedSegment == 0, ScoreBoardData.countGoalHome > 0 {
-            ScoreBoardData.countGoalHome -= 1
+        if goalHome.selectedSegment == 0, scoreboardData.countGoalHome > 0 {
+            scoreboardData.countGoalHome -= 1
         }
         if goalHome.selectedSegment == 2 || goalHome.selectedSegment == -1 { // -1 когда передается действие из меню (не нажатие)
-            ScoreBoardData.countGoalHome += 1
+            scoreboardData.countGoalHome += 1
         }
-        goalHome.setLabel(String(ScoreBoardData.countGoalHome), forSegment: 1)
+        goalHome.setLabel(String(scoreboardData.countGoalHome), forSegment: 1)
     }
     
     @IBAction func goalAwayAction(_ sender: Any) {
-        if goalAway.selectedSegment == 0, ScoreBoardData.countGoalAway > 0 {
-            ScoreBoardData.countGoalAway -= 1
+        if goalAway.selectedSegment == 0, scoreboardData.countGoalAway > 0 {
+            scoreboardData.countGoalAway -= 1
         }
         if goalAway.selectedSegment == 2  || goalAway.selectedSegment == -1 {
-            ScoreBoardData.countGoalAway += 1
+            scoreboardData.countGoalAway += 1
         }
-        goalAway.setLabel(String(ScoreBoardData.countGoalAway), forSegment: 1)
+        goalAway.setLabel(String(scoreboardData.countGoalAway), forSegment: 1)
     }
     
     @IBAction func periodAction(_ sender: Any) {
-        if period.selectedSegment == 0, ScoreBoardData.periodCount > 1 {
-            ScoreBoardData.periodCount -= 1
+        if period.selectedSegment == 0, scoreboardData.periodCount > 1 {
+            scoreboardData.periodCount -= 1
         }
         if period.selectedSegment == 2  || period.selectedSegment == -1 {
-            ScoreBoardData.periodCount += 1
+            scoreboardData.periodCount += 1
         }
-        period.setLabel(String(ScoreBoardData.periodCount), forSegment: 1)
+        period.setLabel(String(scoreboardData.periodCount), forSegment: 1)
     }
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {
-        ScoreBoardData.homeName = homeNameTextField.stringValue
+        scoreboardData.homeName = homeNameTextField.stringValue
         awayNameTextField.becomeFirstResponder()
     }
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
-        ScoreBoardData.awayName = awayNameTextField.stringValue
+        scoreboardData.awayName = awayNameTextField.stringValue
         buttonStart.window?.makeFirstResponder(buttonStart)
         deselectTextInTextFileds()
     }
@@ -269,7 +273,7 @@ class MainViewController: NSViewController {
             continueTimeSwitcher.isEnabled = true
         }
         // смена времени на табло с сохранением пройденных секунд
-        ScoreBoardData.timeNow = ScoreBoardData.timeUserPreset - ScoreBoardData.timeNow
+        scoreboardData.timeNow = scoreboardData.timeUserPreset - scoreboardData.timeNow
         showTimeInLabel()
     }
     
@@ -278,12 +282,12 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func swapHomeAwayScores(_ sender: Any) {
-        swap(&ScoreBoardData.homeName, &ScoreBoardData.awayName)
-        homeNameTextField.stringValue = ScoreBoardData.homeName
-        awayNameTextField.stringValue = ScoreBoardData.awayName
-        swap(&ScoreBoardData.countGoalHome, &ScoreBoardData.countGoalAway)
-        goalHome.setLabel(String(ScoreBoardData.countGoalHome), forSegment: 1)
-        goalAway.setLabel(String(ScoreBoardData.countGoalAway), forSegment: 1)
+        swap(&scoreboardData.homeName, &scoreboardData.awayName)
+        homeNameTextField.stringValue = scoreboardData.homeName
+        awayNameTextField.stringValue = scoreboardData.awayName
+        swap(&scoreboardData.countGoalHome, &scoreboardData.countGoalAway)
+        goalHome.setLabel(String(scoreboardData.countGoalHome), forSegment: 1)
+        goalAway.setLabel(String(scoreboardData.countGoalAway), forSegment: 1)
     }
     
     // MARK:- Menu action
@@ -293,25 +297,25 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func plus1SecFromMenu(_ sender: Any) {
-        ScoreBoardData.timeNow += 1
+        scoreboardData.timeNow += 1
         showTimeInLabel()
     }
     
     @IBAction func minus1SecFromMenu(_ sender: Any) {
-        guard ScoreBoardData.timeNow > 0 else { return }
-        ScoreBoardData.timeNow -= 1
+        guard scoreboardData.timeNow > 0 else { return }
+        scoreboardData.timeNow -= 1
         showTimeInLabel()
     }
     
     @IBAction func plus1MinFromMenu(_ sender: Any) {
-        ScoreBoardData.timeNow += 60
+        scoreboardData.timeNow += 60
         showTimeInLabel()
         //stepperMinutesAction.()
     }
     
     @IBAction func minus1MinFromMenu(_ sender: Any) {
-        guard ScoreBoardData.timeNow > 60 else { return }
-        ScoreBoardData.timeNow -= 60
+        guard scoreboardData.timeNow > 60 else { return }
+        scoreboardData.timeNow -= 60
         showTimeInLabel()
     }
     

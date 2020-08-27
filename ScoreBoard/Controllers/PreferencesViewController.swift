@@ -28,6 +28,8 @@ class PreferencesViewController: NSViewController {
         
         // сохранить закладку безопасности на будущее
         WriteFilesToDisk().saveBookmarksPathDirectory(userSelectedDirectoryUrl)
+        
+        WriteFilesToDisk().writeFile(.timer, .homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
     @IBAction func setUserDirectory(_ sender: Any) {

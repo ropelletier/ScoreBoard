@@ -10,6 +10,8 @@ import Foundation
 
 class TimerFunctions {
     
+    let scoreboardData = ScoreBoardData.instance
+    
     var timerStatus: Timer?
     static var isCountdownState: Bool = true
     
@@ -19,19 +21,19 @@ class TimerFunctions {
                 (timer) in
                 //if MainViewController().switchTimerMode.state == .on {
                 if TimerFunctions.isCountdownState {
-                    guard ScoreBoardData.timeNow > 0 else {
+                    guard self.scoreboardData.timeNow > 0 else {
                         MainViewController().resetStateButtonStar()
                         return
                     }
-                    ScoreBoardData.timeNow -= 1
+                    self.scoreboardData.timeNow -= 1
                 } else {
-                    guard ScoreBoardData.timeNow < ScoreBoardData.timeUserPreset else {
+                    guard self.scoreboardData.timeNow < self.scoreboardData.timeUserPreset else {
                         //if MainViewController().continueTimeSwitcher.state == .on { ScoreBoardData.timeUserPreset += ScoreBoardData.timeUserPreset }
-                        if TimerFunctions.isCountdownState { ScoreBoardData.timeUserPreset += ScoreBoardData.timeUserPreset }
+                        if TimerFunctions.isCountdownState { self.scoreboardData.timeUserPreset += self.scoreboardData.timeUserPreset }
                         MainViewController().resetStateButtonStar()
                         return
                     }
-                    ScoreBoardData.timeNow += 1
+                    self.scoreboardData.timeNow += 1
                 }
                 MainViewController().showTimeInLabel()
             }

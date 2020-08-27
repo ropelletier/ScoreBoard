@@ -391,7 +391,7 @@ DQ
                                     <constraint firstAttribute="width" constant="130" id="7fg-bY-QEA"/>
                                     <constraint firstAttribute="height" constant="40" id="NKO-Lw-SSK"/>
                                 </constraints>
-                                <textFieldCell key="cell" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="border" alignment="center" title="00:00" id="ftR-HJ-sNJ">
+                                <textFieldCell key="cell" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" title="00:00" id="ftR-HJ-sNJ">
                                     <font key="font" metaFont="system" size="30"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
