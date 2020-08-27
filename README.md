@@ -1,10 +1,9 @@
 # ScoreBoard (.txt) for MacOS
-Scoreboard for online broadcasting of sports games (hockey, football and others) through OBS.
-
-{{TOC}}
+**Scoreboard for online broadcasting of sports games (hockey, football and others) through OBS.**
 
 ## Downloads
 [Release v1.0](https://github.com/kopsap4ik/ScoreBoard/releases/tag/1.0)
+
 ## Info
 The program counts the time (timer and countdown), keeps the goals and period (half), and also uses the team names.
 
@@ -16,7 +15,7 @@ In the settings window (gear icon), you can select the desired directory for sav
 ![Main window](https://user-images.githubusercontent.com/61139898/91485933-4190fe00-e8b4-11ea-86e5-4f6ea556a41d.png "ScoreBoard for macOS")
 <details>
 <summary>Possible outcome in OBS ...</summary>
-![](https://user-images.githubusercontent.com/61139898/91486208-9af92d00-e8b4-11ea-9844-2f80877b539b.jpg "result ScoreBoard OBS")
+  <img src="https://user-images.githubusercontent.com/61139898/91486208-9af92d00-e8b4-11ea-9844-2f80877b539b.jpg" alt="Scoreboard in OBS">
 </details>
 
 ## Important information
