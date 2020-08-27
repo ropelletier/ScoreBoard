@@ -27,7 +27,6 @@
 		D975873923B607C40004BDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D975873B23B607C40004BDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D975873C23B607C40004BDAD /* ScoreBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScoreBoard.entitlements; sourceTree = "<group>"; };
-		D997435A242255E100F4A1A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D9BD25DD24B336260064230E /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		D9BD25E324B60D800064230E /* ScoreBoardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardData.swift; sourceTree = "<group>"; };
 		D9BD25E524B884490064230E /* WriteFilesToDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteFilesToDisk.swift; sourceTree = "<group>"; };
@@ -47,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D949635F24F7DAE70032E9FD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D9BD25E524B884490064230E /* WriteFilesToDisk.swift */,
+				D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D975872623B607C20004BDAD = {
 			isa = PBXGroup;
 			children = (
@@ -67,9 +75,10 @@
 		D975873123B607C20004BDAD /* ScoreBoard */ = {
 			isa = PBXGroup;
 			children = (
-				D9BD25E024B370620064230E /* Models */,
 				D9BD25E224B5ED0E0064230E /* Views */,
 				D9BD25DF24B370280064230E /* Controllers */,
+				D9BD25E024B370620064230E /* Models */,
+				D949635F24F7DAE70032E9FD /* Services */,
 				D9BD25E124B370960064230E /* Supporting Files */,
 			);
 			path = ScoreBoard;
@@ -89,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				D9BD25E324B60D800064230E /* ScoreBoardData.swift */,
-				D9BD25E524B884490064230E /* WriteFilesToDisk.swift */,
-				D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,7 +210,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				D975873923B607C40004BDAD /* Base */,
-				D997435A242255E100F4A1A4 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -243,7 +249,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Apple Development: vas.pet.app@gmail.com (H747ZP27AD)";
+				CODE_SIGN_IDENTITY = "Apple Development: vspetyhov@gmail.com (8DMVVB8S9M)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -304,7 +310,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Apple Development: vas.pet.app@gmail.com (H747ZP27AD)";
+				CODE_SIGN_IDENTITY = "Apple Development: vspetyhov@gmail.com (8DMVVB8S9M)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -331,16 +337,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ScoreBoard/Supporting Files/ScoreBoard.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: vspetyhov@gmail.com (8DMVVB8S9M)";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 55MCT9R6B9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.VasilyPetuhov.ScoreBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -353,16 +360,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ScoreBoard/Supporting Files/ScoreBoard.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: vspetyhov@gmail.com (8DMVVB8S9M)";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 55MCT9R6B9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.VasilyPetuhov.ScoreBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
