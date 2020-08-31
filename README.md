@@ -5,11 +5,11 @@
 [Release v1.0](https://github.com/kopsap4ik/ScoreBoard/releases/tag/1.0)
 
 ## Info
-The program counts the time (timer and countdown), keeps the goals and period (half), and also uses the team names.
+The program counts the time (timer and countdown), keeps the goals and period (half), and also shows the team names.
 
 All output data are stored in TXT files on the computer. Each of them can be used in OBS (add source: text) over a picture of any scoreboard.
 
-In the settings window (gear icon), you can select the desired directory for saving TXT files.
+In the settings window (gear icon), you can select the desired directory to save TXT files.
 ## Screenshots
 
 ![Main window](https://user-images.githubusercontent.com/61139898/91485933-4190fe00-e8b4-11ea-86e5-4f6ea556a41d.png "ScoreBoard for macOS")
