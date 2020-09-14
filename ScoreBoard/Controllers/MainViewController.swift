@@ -11,6 +11,7 @@ import Cocoa
 class MainViewController: NSViewController {
     
     let scoreboardData = ScoreBoardData.instance
+    var activityAppNap: NSObjectProtocol? //for disable/enable App Nap in macOS
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,8 @@ class MainViewController: NSViewController {
         //UserDefaults.standard.removeObject(forKey: "homeName")
         
         sliderTimer.integerValue = scoreboardData.timeUserPreset // возвращаем состояние слайдера до закрытия проги
+        textFieldForTimerSetting.stringValue = "Timer setting (minutes: \(sliderTimer.integerValue / 60))"
+        
         homeNameTextField.stringValue = scoreboardData.homeName
         awayNameTextField.stringValue = scoreboardData.awayName
         
@@ -47,6 +50,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var resetButton: NSButton!
     @IBOutlet weak var swapScores: NSButton!
     @IBOutlet weak var sliderTimer: NSSlider!
+    @IBOutlet weak var textFieldForTimerSetting: NSTextField!
     @IBOutlet weak var homeNameTextField: NSTextField!
     @IBOutlet weak var awayNameTextField: NSTextField!
     @IBOutlet weak var goalHome: NSSegmentedControl!
@@ -244,6 +248,7 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func sliderTimerAction(_ sender: Any) {
+        textFieldForTimerSetting.stringValue = "Timer setting (minutes: \(sliderTimer.integerValue / 60))"
         setTimeDefault()
         showTimeInLabel()
     }
@@ -257,9 +262,15 @@ class MainViewController: NSViewController {
             buttonStart.title = "PAUSE"
             timerTextField.textColor = .red
             startTimer()
-            //TimerFunctions().startTimer()
+            
+            // disable App Nap
+            activityAppNap = ProcessInfo().beginActivity(options: .userInitiatedAllowingIdleSystemSleep, reason: "Run timer in background")
+            
         } else {
             resetStateButtonStar()
+            
+            // enable App Nap
+            if let pinfo = activityAppNap { ProcessInfo().endActivity(pinfo) }
         }
     }
     
