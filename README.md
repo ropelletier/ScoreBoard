@@ -2,7 +2,7 @@
 **Scoreboard for online broadcasting of sports games (hockey, football and others) through OBS.**
 
 ## Downloads
-[Release v1.0](https://github.com/kopsap4ik/ScoreBoard/releases/tag/1.1)
+[Release v1.1](https://github.com/kopsap4ik/ScoreBoard/releases/tag/1.1)
 
 ## Info
 The program counts the time (timer and countdown), keeps the goals and period (half), and also shows the team names.
