@@ -350,7 +350,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development: vas.pet.app@gmail.com (H747ZP27AD)";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18.11.2020;
+				CURRENT_PROJECT_VERSION = 19.11.2020;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
@@ -376,7 +376,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development: vas.pet.app@gmail.com (H747ZP27AD)";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18.11.2020;
+				CURRENT_PROJECT_VERSION = 19.11.2020;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
