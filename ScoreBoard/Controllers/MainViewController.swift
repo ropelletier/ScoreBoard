@@ -10,36 +10,22 @@ import Cocoa
 
 class MainViewController: NSViewController {
     
-    let scoreboardData = ScoreBoardData.instance
+    let scoreboardData = ScoreBoardData.shared
     var activityAppNap: NSObjectProtocol? //for disable/enable App Nap in macOS
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //UserDefaults.standard.removeObject(forKey: "homeName")
-        
-        sliderTimer.integerValue = scoreboardData.timeUserPreset // возвращаем состояние слайдера до закрытия проги
-        textFieldForTimerSetting.stringValue = "Timer setting (minutes: \(sliderTimer.integerValue / 60))"
-        
-        homeNameTextField.stringValue = scoreboardData.homeName
-        awayNameTextField.stringValue = scoreboardData.awayName
-        
-        if isCountdown.state == .on {
-            TimerFunctions.isCountdownState = true
-        } else { TimerFunctions.isCountdownState = false }
-        
-        showTimeInLabel() //при запуске выставляем таймер по умолчанию + пишем файл с таймером
-        
-        timerTextField.font = NSFont.monospacedDigitSystemFont(ofSize: 30, weight: .regular) // настройка шрифта таймера (одинаковая ширина символа)
-        
-        WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal)
+        super.viewDidLoad()        
+        loadDefaults() // initial setup of the main screen
+        setTimeDefault() // restore default timer value
+        showTimeInLabel() // show time + write timer file
+        WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal) // write other files
     }
     
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
-        }
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        saveDefaults() //save data before closing
     }
+    
     
     // MARK: - IBOutlet
     @IBOutlet weak var timerTextField: NSTextField!
@@ -60,7 +46,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var stepperMinutes: NSStepper!
     
     
-    // MARK: - FUNCtions
+    // MARK: - Functions
     
     // функция запоминает установленные параметры таймера из слайдера
     func setTimeDefault() {
@@ -93,47 +79,49 @@ class MainViewController: NSViewController {
         
         timerTextField.stringValue = minStr + ":" + secStr //вывод времени в формате 00:00 в поле
         scoreboardData.timerString = minStr + ":" + secStr //timerTextField.stringValue
+        
+        textFieldForTimerSetting.stringValue = isCountdown.state == .on ?
+            "Timer setting (from \(sliderTimer.integerValue / 60):00 to 00:00)" :
+            "Timer setting (from 00:00 to \(sliderTimer.integerValue / 60):00)"
     }
     
-    var timerStatus: Timer?
-    func startTimer(){
-        if timerStatus == nil {
-            timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-                if self.isCountdown.state == .on {
-                    guard self.scoreboardData.timeNow > 0 else {
-                        self.resetStateButtonStar()
-                        return
-                    }
-                    self.scoreboardData.timeNow -= 1
-                } else {
-                    // остановить таймер если выключен режим "футбола" (продолжать отсчет)
-                    if self.continueTimeSwitcher.state == .off  {
-                        guard self.scoreboardData.timeNow < self.scoreboardData.timeUserPreset else {
-                            self.resetStateButtonStar()
-                            return
-                        }
-                    }
-                    self.scoreboardData.timeNow += 1
-                }
-                self.showTimeInLabel()
-            }
-        }
-    }
+    // старый таймер (вынесен в файл TimerFunctions)
+    //    var timerStatus: Timer?
+    //    func startTimer(){
+    //        if timerStatus == nil {
+    //            timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+    //                if self.isCountdown.state == .on {
+    //                    guard self.scoreboardData.timeNow > 0 else {
+    //                        self.resetStateButtonStar()
+    //                        self.setTimeDefault()
+    //                        self.showTimeInLabel()
+    //                        return
+    //                    }
+    //                    self.scoreboardData.timeNow -= 1
+    //                } else {
+    //                    // остановить таймер если выключен режим "футбола", когда таймер не останавливается
+    //                    if self.continueTimeSwitcher.state == .off  {
+    //                        guard self.scoreboardData.timeNow < self.scoreboardData.timeUserPreset else {
+    //                            self.resetStateButtonStar()
+    //                            self.setTimeDefault()
+    //                            self.showTimeInLabel()
+    //                            return
+    //                        }
+    //                    }
+    //                    self.scoreboardData.timeNow += 1
+    //                }
+    //                self.showTimeInLabel()
+    //            }
+    //        }
+    //    }
+    //
+    //    func stopTimer(){
+    //        if timerStatus != nil {
+    //            timerStatus?.invalidate()
+    //            timerStatus = nil
+    //        }
+    //    }
     
-    func stopTimer(){
-        if timerStatus != nil {
-            timerStatus?.invalidate()
-            timerStatus = nil
-        }
-    }
-    
-    // Сброс кнопки СТАРТ на начальное значение + остановка таймера
-    func resetStateButtonStar(){
-        stopTimer()
-        //TimerFunctions().stopTimer()
-        buttonStart.title = "START"
-        timerTextField.textColor = .black
-    }
     
     // Сброс всех параметров проги на умолчание
     func resetAllState(){
@@ -152,7 +140,16 @@ class MainViewController: NSViewController {
         period.setLabel(String(scoreboardData.periodCount), forSegment: 1)
     }
     
-    // клик мышкой
+    // Сброс кнопки СТАРТ на начальное значение + остановка таймера
+    func resetStateButtonStar(){
+        //        stopTimer()
+        TimerFunctions.stopTimer()
+        //TimerFunctions().stopTimer()
+        buttonStart.title = "START"
+        timerTextField.textColor = .controlTextColor
+    }
+    
+    // click mouse in window for deselect text
     override func mouseDown(with: NSEvent) {
         //NSApp.mainWindow?.makeFirstResponder(nil) //снять выделения со всех элементов окна
         buttonStart.window?.makeFirstResponder(buttonStart)
@@ -165,43 +162,43 @@ class MainViewController: NSViewController {
         awayNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
     }
     
-    // MARK: - ACTIONS
+    // MARK: - Actions
     
     @IBAction func timeLabelAction(_ sender: Any) {
-        var timeFromUserInLabel = Array(timerTextField.stringValue.components(separatedBy: CharacterSet.decimalDigits.inverted)
-            .joined()) //убирает все кроме цифр
+        buttonStart.window?.makeFirstResponder(buttonStart)
         
-        // запоминает время до изменения
+        // delete everything except digits
+        var timeFromUserInLabel = Array(timerTextField.stringValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+        
+        // timer before changes
         var minutesFromUser:Int = scoreboardData.timeNow / 60
         var secondsFromUser:Int = scoreboardData.timeNow - ((scoreboardData.timeNow / 60) * 60)
         
-        if timeFromUserInLabel.count < 3 { //проверка на количество цифр, не меннее 3-ех (минуты:секунды), иначе ,будет краш проги
-            showTimeInLabel()
+        // if the user entered less than 4 digits, then fill in the missing values with 0
+        if timeFromUserInLabel.count < 4 {
+            for i in 0..<(4 - timeFromUserInLabel.count) {
+                timeFromUserInLabel.insert("0", at: i)
+            }
         }
         
-        if timeFromUserInLabel.count >= 4 { // если пользователь ввел 4 или больше знаков
-            minutesFromUser = Int (String (timeFromUserInLabel [0...1]))!
-            secondsFromUser = Int (String (timeFromUserInLabel [2...3]))!
-        }
+        minutesFromUser = Int (String (timeFromUserInLabel [0...1])) ?? 0
+        secondsFromUser = Int (String (timeFromUserInLabel [2...3])) ?? 0
         
-        if timeFromUserInLabel.count == 3 { // если пользователь ввел 3 знака
-            timeFromUserInLabel.insert("0", at: 0)
-            minutesFromUser = Int (String (timeFromUserInLabel [0...1]))!
-            secondsFromUser = Int (String (timeFromUserInLabel [2...3]))!
-        }
-        
+        // пользовательское время не должно быть больше чем установленный таймер
+        guard scoreboardData.timeUserPreset >= (minutesFromUser * 60 + secondsFromUser) else { return }
         scoreboardData.timeNow = (minutesFromUser * 60) + secondsFromUser
-        showTimeInLabel()
         
-        buttonStart.window?.makeFirstResponder(buttonStart)
+        showTimeInLabel()
     }
     
     @IBAction func stepperSecondsAction(_ sender: Any) {
+        guard scoreboardData.timeUserPreset >= stepperSeconds.integerValue else { return }
         scoreboardData.timeNow = stepperSeconds.integerValue
         showTimeInLabel()
     }
     
     @IBAction func stepperMinutesAction(_ sender: Any) {
+        guard scoreboardData.timeUserPreset >= stepperMinutes.integerValue else { return }
         scoreboardData.timeNow = stepperMinutes.integerValue
         showTimeInLabel()
     }
@@ -210,19 +207,36 @@ class MainViewController: NSViewController {
         if goalHome.selectedSegment == 0, scoreboardData.countGoalHome > 0 {
             scoreboardData.countGoalHome -= 1
         }
+        
         if goalHome.selectedSegment == 2 || goalHome.selectedSegment == -1 { // -1 когда передается действие из меню (не нажатие)
             scoreboardData.countGoalHome += 1
         }
+        if goalHome.selectedSegment == 3 {
+            scoreboardData.countGoalHome += 2
+        }
+        if goalHome.selectedSegment == 4 {
+            scoreboardData.countGoalHome += 3
+        }
+        goalHome.selectedSegment = 1
         goalHome.setLabel(String(scoreboardData.countGoalHome), forSegment: 1)
     }
     
     @IBAction func goalAwayAction(_ sender: Any) {
+        
         if goalAway.selectedSegment == 0, scoreboardData.countGoalAway > 0 {
             scoreboardData.countGoalAway -= 1
         }
-        if goalAway.selectedSegment == 2  || goalAway.selectedSegment == -1 {
+        
+        if goalAway.selectedSegment == 2  || goalAway.selectedSegment == -1 { // -1 когда передается действие из меню (не нажатие)
             scoreboardData.countGoalAway += 1
         }
+        if goalAway.selectedSegment == 3 {
+            scoreboardData.countGoalAway += 2
+        }
+        if goalAway.selectedSegment == 4 {
+            scoreboardData.countGoalAway += 3
+        }
+        goalAway.selectedSegment = 1
         goalAway.setLabel(String(scoreboardData.countGoalAway), forSegment: 1)
     }
     
@@ -233,6 +247,7 @@ class MainViewController: NSViewController {
         if period.selectedSegment == 2  || period.selectedSegment == -1 {
             scoreboardData.periodCount += 1
         }
+        period.selectedSegment = 1
         period.setLabel(String(scoreboardData.periodCount), forSegment: 1)
     }
     
@@ -248,7 +263,6 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func sliderTimerAction(_ sender: Any) {
-        textFieldForTimerSetting.stringValue = "Timer setting (minutes: \(sliderTimer.integerValue / 60))"
         setTimeDefault()
         showTimeInLabel()
     }
@@ -256,17 +270,18 @@ class MainViewController: NSViewController {
     @IBAction func pushButtonStart(_ sender: Any) {
         buttonStart.window?.makeFirstResponder(buttonStart)
         deselectTextInTextFileds()
-
-        //sliderTimer.isEnabled = false
-        if timerStatus == nil {
+        
+        if TimerFunctions.timerStatus == nil {
+//            sliderTimer.isEnabled = false
+            TimerFunctions.startTimer()
             buttonStart.title = "PAUSE"
             timerTextField.textColor = .red
-            startTimer()
             
             // disable App Nap
             activityAppNap = ProcessInfo().beginActivity(options: .userInitiatedAllowingIdleSystemSleep, reason: "Run timer in background")
             
         } else {
+//            sliderTimer.isEnabled = true
             resetStateButtonStar()
             
             // enable App Nap
@@ -308,6 +323,7 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func plus1SecFromMenu(_ sender: Any) {
+        guard scoreboardData.timeUserPreset >= scoreboardData.timeNow + 1 else { return }
         scoreboardData.timeNow += 1
         showTimeInLabel()
     }
@@ -319,9 +335,9 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func plus1MinFromMenu(_ sender: Any) {
+        guard scoreboardData.timeUserPreset >= scoreboardData.timeNow + 60 else { return }
         scoreboardData.timeNow += 60
         showTimeInLabel()
-        //stepperMinutesAction.()
     }
     
     @IBAction func minus1MinFromMenu(_ sender: Any) {
@@ -335,14 +351,17 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func plus1GoalHomeFromMenu(_ sender: Any) {
+        goalHome.selectedSegment = 2
         goalHomeAction(self)
     }
     
     @IBAction func plus1GoalAwayFromMenu(_ sender: Any) {
+        goalAway.selectedSegment = 2
         goalAwayAction(self)
     }
     
     @IBAction func plus1PeriodFromMenu(_ sender: Any) {
+        period.selectedSegment = 2
         periodAction(self)
     }
     

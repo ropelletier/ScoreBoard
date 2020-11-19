@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.3"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -165,26 +166,26 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Game counters" id="RQH-eF-rwj">
                                     <items>
-                                        <menuItem title="+ Goal Home" keyEquivalent="" id="PeS-LS-msi">
+                                        <menuItem title="+1 Goal Home" keyEquivalent="" id="PeS-LS-msi">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                             <connections>
                                                 <action selector="plus1GoalHomeFromMenu:" target="Ady-hI-5gd" id="SXY-IL-hZh"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="+ Goal Away" keyEquivalent="" id="xh7-Cc-ehH">
+                                        <menuItem title="+1 Goal Away" keyEquivalent="" id="xh7-Cc-ehH">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                             <connections>
                                                 <action selector="plus1GoalAwayFromMenu:" target="Ady-hI-5gd" id="6eK-vX-phl"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="+ Period" keyEquivalent="" id="pwB-oF-iHe">
+                                        <menuItem title="+1 Period" keyEquivalent="" id="pwB-oF-iHe">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
                                             <connections>
                                                 <action selector="plus1PeriodFromMenu:" target="Ady-hI-5gd" id="L0y-zJ-cId"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="YNX-Dp-jWa"/>
-                                        <menuItem title="Reset all" image="NSRefreshTemplate" id="hAv-Sd-ro0">
+                                        <menuItem title="Reset stats" image="NSRefreshTemplate" keyEquivalent="R" id="hAv-Sd-ro0">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="resetAllStateFromMenu:" target="Ady-hI-5gd" id="Xah-4y-eSt"/>
@@ -341,16 +342,16 @@ DQ
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
+                    <view key="view" identifier="Main" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField toolTip="Name home team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7b5-xV-TVs">
-                                <rect key="frame" x="10" y="191" width="122" height="31"/>
+                                <rect key="frame" x="10" y="191" width="153" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="bWf-7v-uSN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="153" id="bWf-7v-uSN"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Home" placeholderString="Home name" drawsBackground="YES" id="wbQ-Y7-Vkk">
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Home" placeholderString="Home name" drawsBackground="YES" id="wbQ-Y7-Vkk">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -361,11 +362,11 @@ DQ
                                 </connections>
                             </textField>
                             <textField toolTip="Name away team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nb1-sC-9Oh">
-                                <rect key="frame" x="348" y="191" width="122" height="31"/>
+                                <rect key="frame" x="317" y="191" width="153" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="6tW-uS-Rb0"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="153" id="6tW-uS-Rb0"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Away" placeholderString="Away name" drawsBackground="YES" id="lTh-p4-b5h">
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Away" placeholderString="Away name" drawsBackground="YES" id="lTh-p4-b5h">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -385,10 +386,10 @@ DQ
                                     <action selector="pushButtonStart:" target="XfG-lQ-9wD" id="I0Y-n2-dPZ"/>
                                 </connections>
                             </button>
-                            <textField toolTip="Timer" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RXY-hW-hdK">
-                                <rect key="frame" x="175" y="185" width="130" height="40"/>
+                            <textField toolTip="Timer (minutes : seconds)" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RXY-hW-hdK">
+                                <rect key="frame" x="187" y="185" width="107" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="7fg-bY-QEA"/>
+                                    <constraint firstAttribute="width" constant="107" id="7fg-bY-QEA"/>
                                     <constraint firstAttribute="height" constant="40" id="NKO-Lw-SSK"/>
                                 </constraints>
                                 <textFieldCell key="cell" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" title="00:00" id="ftR-HJ-sNJ">
@@ -471,26 +472,27 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-6e-EiV">
-                                <rect key="frame" x="304" y="191" width="19" height="28"/>
+                            <stepper toolTip="+1 / -1 second" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-6e-EiV">
+                                <rect key="frame" x="293" y="191" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" maxValue="5000" id="PxT-FV-P5k"/>
+                                <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" maxValue="6000" id="PxT-FV-P5k"/>
                                 <connections>
                                     <action selector="stepperSecondsAction:" target="XfG-lQ-9wD" id="xMq-Na-vnB"/>
                                 </connections>
                             </stepper>
                             <segmentedControl toolTip="The number of goals of the away team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yVs-io-wuS">
-                                <rect key="frame" x="347.5" y="227" width="123" height="23"/>
+                                <rect key="frame" x="316.5" y="227" width="154" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="EFc-RX-SNf"/>
-                                    <constraint firstAttribute="width" constant="122" id="TZW-hh-FlY"/>
                                 </constraints>
-                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="hHp-F2-hco">
-                                    <font key="font" metaFont="systemBold"/>
+                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="capsule" trackingMode="selectOne" id="hHp-F2-hco">
+                                    <font key="font" metaFont="system"/>
                                     <segments>
-                                        <segment image="NSRemoveTemplate" imageScaling="none"/>
-                                        <segment label="0" imageScaling="none" width="40"/>
-                                        <segment image="NSAddTemplate" imageScaling="none"/>
+                                        <segment image="NSRemoveTemplate" imageScaling="none" width="26"/>
+                                        <segment label="0" imageScaling="none" width="40" selected="YES"/>
+                                        <segment image="NSAddTemplate" imageScaling="none" width="26"/>
+                                        <segment label="+2" width="26"/>
+                                        <segment label="+3" width="26"/>
                                     </segments>
                                 </segmentedCell>
                                 <connections>
@@ -498,10 +500,10 @@ DQ
                                 </connections>
                             </segmentedControl>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TAq-ib-OCo">
-                                <rect key="frame" x="219" y="253" width="43" height="14"/>
+                                <rect key="frame" x="222" y="255" width="37" height="12"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="period" id="gpH-7w-dee">
-                                    <font key="font" size="12" name="HelveticaNeue"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="font" size="10" name="HelveticaNeue"/>
+                                    <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -509,25 +511,22 @@ DQ
                                 <rect key="frame" x="0.0" y="133" width="480" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
-                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gch-6s-7NE">
-                                <rect key="frame" x="157" y="191" width="19" height="28"/>
+                            <stepper toolTip="+1 / -1 minute" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gch-6s-7NE">
+                                <rect key="frame" x="169" y="191" width="19" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" increment="60" maxValue="5000" id="EW6-qC-lEd"/>
+                                <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" increment="60" maxValue="6000" id="EW6-qC-lEd"/>
                                 <connections>
                                     <action selector="stepperMinutesAction:" target="XfG-lQ-9wD" id="Vyd-8f-ycN"/>
                                 </connections>
                             </stepper>
                             <segmentedControl toolTip="Number of period" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-bO-XRp">
-                                <rect key="frame" x="178.5" y="227" width="123" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="122" id="kh9-Je-xMM"/>
-                                </constraints>
-                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="Q2V-qE-yLO">
-                                    <font key="font" metaFont="systemBold"/>
+                                <rect key="frame" x="186.5" y="227" width="108" height="23"/>
+                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="capsule" trackingMode="selectOne" id="Q2V-qE-yLO">
+                                    <font key="font" metaFont="system"/>
                                     <segments>
-                                        <segment image="NSRemoveTemplate" imageScaling="none"/>
-                                        <segment label="1" width="40"/>
-                                        <segment image="NSAddTemplate" imageScaling="none"/>
+                                        <segment image="NSRemoveTemplate" imageScaling="none" width="30"/>
+                                        <segment label="1" width="40" selected="YES"/>
+                                        <segment image="NSAddTemplate" imageScaling="none" width="30"/>
                                     </segments>
                                 </segmentedCell>
                                 <connections>
@@ -573,24 +572,25 @@ DQ
                                 </connections>
                             </button>
                             <segmentedControl toolTip="The number of goals of the home team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Bi-Qn-fW6">
-                                <rect key="frame" x="9.5" y="227" width="123" height="23"/>
+                                <rect key="frame" x="9.5" y="227" width="154" height="23"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="122" id="PgX-CG-q4G"/>
                                     <constraint firstAttribute="height" constant="22" id="glw-dA-WZ0"/>
                                 </constraints>
-                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="momentary" id="5uH-Y9-x5h">
-                                    <font key="font" metaFont="systemBold"/>
+                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="capsule" trackingMode="selectOne" id="5uH-Y9-x5h">
+                                    <font key="font" metaFont="system"/>
                                     <segments>
-                                        <segment image="NSRemoveTemplate" imageScaling="none"/>
-                                        <segment label="0" imageScaling="none" width="40"/>
-                                        <segment image="NSAddTemplate" imageScaling="none"/>
+                                        <segment image="NSRemoveTemplate" imageScaling="none" width="26"/>
+                                        <segment label="0" imageScaling="none" width="40" selected="YES"/>
+                                        <segment image="NSAddTemplate" imageScaling="none" width="26"/>
+                                        <segment label="+2" width="26"/>
+                                        <segment label="+3" width="26"/>
                                     </segments>
                                 </segmentedCell>
                                 <connections>
                                     <action selector="goalHomeAction:" target="XfG-lQ-9wD" id="tSE-Qg-fCx"/>
                                 </connections>
                             </segmentedControl>
-                            <textField toolTip="Continue the timer in the next period (football: 45 + 45 minutes)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qJk-nm-ZKW">
+                            <textField toolTip="Continue the timer in the next period/time/half (football: 45 + 45 minutes)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qJk-nm-ZKW">
                                 <rect key="frame" x="301" y="45" width="169" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Continue time (for soccer)" id="EFG-0O-9pk">
@@ -603,7 +603,7 @@ DQ
                                 <rect key="frame" x="258" y="40" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSF-dV-WH2">
+                            <button toolTip="Settings" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSF-dV-WH2">
                                 <rect key="frame" x="381.5" y="8" width="27" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAdvanced" imagePosition="only" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OrV-Nq-Vyp">
@@ -615,9 +615,9 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Yee-Wl-rvj">
-                                <rect key="frame" x="167" y="71" width="180" height="16"/>
+                                <rect key="frame" x="115" y="69" width="250" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Timer setting (minutes: )" id="XO1-SI-dNp">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Timer setting (from 20:00 to 00:00)" id="XO1-SI-dNp">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -628,7 +628,7 @@ DQ
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="top" secondItem="QBp-bO-XRp" secondAttribute="bottom" constant="3" id="1ZG-eR-LSM"/>
                             <constraint firstItem="QBp-bO-XRp" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="5CJ-yg-Hme"/>
                             <constraint firstItem="QBp-bO-XRp" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="92i-cT-dN5"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7b5-xV-TVs" secondAttribute="trailing" constant="348" id="EDG-ak-ZE5"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7b5-xV-TVs" secondAttribute="trailing" constant="317" id="EDG-ak-ZE5"/>
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Fxc-Pe-qoL"/>
                             <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="8Bi-Qn-fW6" secondAttribute="bottom" constant="6" id="Iaj-SD-z4e"/>
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="J1E-hf-Uud"/>
@@ -636,13 +636,13 @@ DQ
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="yVs-io-wuS" secondAttribute="bottom" constant="6" id="Qwk-0a-2KR"/>
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="STa-Nu-dy1"/>
                             <constraint firstItem="TAq-ib-OCo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="TSj-T7-e1H"/>
-                            <constraint firstAttribute="trailing" secondItem="yVs-io-wuS" secondAttribute="trailing" constant="10" id="Tjz-VO-fhq"/>
-                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="348" id="aNS-vI-O8D"/>
+                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="317" id="aNS-vI-O8D"/>
                             <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="aPF-lM-5YP"/>
-                            <constraint firstItem="8Bi-Qn-fW6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="bIP-ve-oeo"/>
                             <constraint firstAttribute="trailing" secondItem="Nb1-sC-9Oh" secondAttribute="trailing" constant="10" id="c5Y-wj-7E6"/>
                             <constraint firstItem="qJk-nm-ZKW" firstAttribute="leading" secondItem="Lpn-cp-aMc" secondAttribute="trailing" constant="5" id="glN-Sp-ZfV"/>
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="top" secondItem="RXY-hW-hdK" secondAttribute="bottom" constant="8" id="kCi-cQ-2R0"/>
+                            <constraint firstItem="yVs-io-wuS" firstAttribute="centerX" secondItem="Nb1-sC-9Oh" secondAttribute="centerX" id="lax-cF-RVs"/>
+                            <constraint firstItem="8Bi-Qn-fW6" firstAttribute="centerX" secondItem="7b5-xV-TVs" secondAttribute="centerX" id="oPg-7q-JtU"/>
                             <constraint firstItem="QlU-kf-kyh" firstAttribute="leading" secondItem="dRb-Gv-lIH" secondAttribute="trailing" constant="5" id="oum-v3-Vyz"/>
                             <constraint firstItem="7b5-xV-TVs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="ziF-1z-U6z"/>
                         </constraints>

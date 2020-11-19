@@ -10,14 +10,12 @@ import Foundation
 
 class WriteFilesToDisk {
     
-    let scoreboardData = ScoreBoardData.instance
+    let scoreboardData = ScoreBoardData.shared
     
-    // перечисление файлов для записи
     enum FilesList {
         case timer, homeName, awayName, period, homeGoal, awayGoal
     }
     
-    // запись файлов
     func writeFile(_ fileToWrite: FilesList...) {
         do {
             if var userDirectoryUrl = restoreBookmarksPathDirectory() {
@@ -52,7 +50,7 @@ class WriteFilesToDisk {
                         text = String(scoreboardData.countGoalAway)
                         fileName = "AwayGoal.txt"
                     }
-                    // запись нужного файла
+
                     try text.write(to: userDirectoryUrl.appendingPathComponent(fileName), atomically: false, encoding: .utf8)
                 }
             }

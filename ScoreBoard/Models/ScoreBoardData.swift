@@ -11,7 +11,7 @@ import Foundation
 class ScoreBoardData {
     
     private init() {}
-    static let instance = ScoreBoardData()
+    static let shared = ScoreBoardData()
     
     var timeUserPreset: Int {
         get {
