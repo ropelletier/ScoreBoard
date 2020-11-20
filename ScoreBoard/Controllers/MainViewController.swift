@@ -14,7 +14,11 @@ class MainViewController: NSViewController {
     var activityAppNap: NSObjectProtocol? //for disable/enable App Nap in macOS
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        // Clear all UserDefaults
+//        if let bundleID = Bundle.main.bundleIdentifier {
+//            UserDefaults.standard.removePersistentDomain(forName: bundleID)
+//        }        
         loadDefaults() // initial setup of the main screen
         setTimeDefault() // restore default timer value
         showTimeInLabel() // show time + write timer file
@@ -24,6 +28,7 @@ class MainViewController: NSViewController {
     override func viewDidDisappear() {
         super.viewDidDisappear()
         saveDefaults() //save data before closing
+        NSApplication.shared.terminate(nil)
     }
     
     
@@ -192,13 +197,19 @@ class MainViewController: NSViewController {
     }
     
     @IBAction func stepperSecondsAction(_ sender: Any) {
-        guard scoreboardData.timeUserPreset >= stepperSeconds.integerValue else { return }
-        scoreboardData.timeNow = stepperSeconds.integerValue
+        guard scoreboardData.timeUserPreset >= stepperSeconds.integerValue else {
+            stepperSeconds.integerValue -= 1 // change value back (stepper triggered before checking)
+            return
+        }
+        scoreboardData.timeNow = stepperSeconds.integerValue 
         showTimeInLabel()
     }
     
     @IBAction func stepperMinutesAction(_ sender: Any) {
-        guard scoreboardData.timeUserPreset >= stepperMinutes.integerValue else { return }
+        guard scoreboardData.timeUserPreset >= stepperMinutes.integerValue else {
+            stepperMinutes.integerValue -= 60  // change value back (stepper triggered before checking)
+            return
+        }
         scoreboardData.timeNow = stepperMinutes.integerValue
         showTimeInLabel()
     }

@@ -347,7 +347,7 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField toolTip="Name home team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7b5-xV-TVs">
-                                <rect key="frame" x="10" y="191" width="153" height="31"/>
+                                <rect key="frame" x="10" y="190" width="153" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="153" id="bWf-7v-uSN"/>
                                 </constraints>
@@ -362,7 +362,7 @@ DQ
                                 </connections>
                             </textField>
                             <textField toolTip="Name away team" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nb1-sC-9Oh">
-                                <rect key="frame" x="317" y="191" width="153" height="31"/>
+                                <rect key="frame" x="317" y="190" width="153" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="153" id="6tW-uS-Rb0"/>
                                 </constraints>
@@ -485,7 +485,7 @@ DQ
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="EFc-RX-SNf"/>
                                 </constraints>
-                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="capsule" trackingMode="selectOne" id="hHp-F2-hco">
+                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="selectOne" id="hHp-F2-hco">
                                     <font key="font" metaFont="system"/>
                                     <segments>
                                         <segment image="NSRemoveTemplate" imageScaling="none" width="26"/>
@@ -521,11 +521,11 @@ DQ
                             </stepper>
                             <segmentedControl toolTip="Number of period" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-bO-XRp">
                                 <rect key="frame" x="186.5" y="227" width="108" height="23"/>
-                                <segmentedCell key="cell" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="capsule" trackingMode="selectOne" id="Q2V-qE-yLO">
+                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="selectOne" id="Q2V-qE-yLO">
                                     <font key="font" metaFont="system"/>
                                     <segments>
                                         <segment image="NSRemoveTemplate" imageScaling="none" width="30"/>
-                                        <segment label="1" width="40" selected="YES"/>
+                                        <segment label="1" imageScaling="none" width="40" selected="YES"/>
                                         <segment image="NSAddTemplate" imageScaling="none" width="30"/>
                                     </segments>
                                 </segmentedCell>
@@ -533,7 +533,7 @@ DQ
                                     <action selector="periodAction:" target="XfG-lQ-9wD" id="NVH-EW-4As"/>
                                 </connections>
                             </segmentedControl>
-                            <switch toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="10" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" state="on" id="dRb-Gv-lIH">
+                            <switch toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="750" verticalHuggingPriority="750" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" state="on" id="dRb-Gv-lIH">
                                 <rect key="frame" x="21" y="40" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -576,7 +576,7 @@ DQ
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="glw-dA-WZ0"/>
                                 </constraints>
-                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="capsule" trackingMode="selectOne" id="5uH-Y9-x5h">
+                                <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="selectOne" id="5uH-Y9-x5h">
                                     <font key="font" metaFont="system"/>
                                     <segments>
                                         <segment image="NSRemoveTemplate" imageScaling="none" width="26"/>
@@ -628,20 +628,20 @@ DQ
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="top" secondItem="QBp-bO-XRp" secondAttribute="bottom" constant="3" id="1ZG-eR-LSM"/>
                             <constraint firstItem="QBp-bO-XRp" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="5CJ-yg-Hme"/>
                             <constraint firstItem="QBp-bO-XRp" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="92i-cT-dN5"/>
+                            <constraint firstItem="yVs-io-wuS" firstAttribute="centerX" secondItem="Nb1-sC-9Oh" secondAttribute="centerX" id="BZt-IX-TTj"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7b5-xV-TVs" secondAttribute="trailing" constant="317" id="EDG-ak-ZE5"/>
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Fxc-Pe-qoL"/>
-                            <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="8Bi-Qn-fW6" secondAttribute="bottom" constant="6" id="Iaj-SD-z4e"/>
-                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="J1E-hf-Uud"/>
+                            <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="8Bi-Qn-fW6" secondAttribute="bottom" constant="7" id="Iaj-SD-z4e"/>
                             <constraint firstItem="TAq-ib-OCo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="3" id="Noi-NJ-CeJ"/>
-                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="yVs-io-wuS" secondAttribute="bottom" constant="6" id="Qwk-0a-2KR"/>
+                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="yVs-io-wuS" secondAttribute="bottom" constant="7" id="Qwk-0a-2KR"/>
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="STa-Nu-dy1"/>
                             <constraint firstItem="TAq-ib-OCo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="TSj-T7-e1H"/>
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="317" id="aNS-vI-O8D"/>
-                            <constraint firstItem="7b5-xV-TVs" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="aPF-lM-5YP"/>
                             <constraint firstAttribute="trailing" secondItem="Nb1-sC-9Oh" secondAttribute="trailing" constant="10" id="c5Y-wj-7E6"/>
                             <constraint firstItem="qJk-nm-ZKW" firstAttribute="leading" secondItem="Lpn-cp-aMc" secondAttribute="trailing" constant="5" id="glN-Sp-ZfV"/>
+                            <constraint firstItem="Nb1-sC-9Oh" firstAttribute="centerY" secondItem="RXY-hW-hdK" secondAttribute="centerY" id="ipB-mE-6er"/>
+                            <constraint firstItem="7b5-xV-TVs" firstAttribute="centerY" secondItem="RXY-hW-hdK" secondAttribute="centerY" id="jOk-gh-OuH"/>
                             <constraint firstItem="nD0-gN-t1M" firstAttribute="top" secondItem="RXY-hW-hdK" secondAttribute="bottom" constant="8" id="kCi-cQ-2R0"/>
-                            <constraint firstItem="yVs-io-wuS" firstAttribute="centerX" secondItem="Nb1-sC-9Oh" secondAttribute="centerX" id="lax-cF-RVs"/>
                             <constraint firstItem="8Bi-Qn-fW6" firstAttribute="centerX" secondItem="7b5-xV-TVs" secondAttribute="centerX" id="oPg-7q-JtU"/>
                             <constraint firstItem="QlU-kf-kyh" firstAttribute="leading" secondItem="dRb-Gv-lIH" secondAttribute="trailing" constant="5" id="oum-v3-Vyz"/>
                             <constraint firstItem="7b5-xV-TVs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="ziF-1z-U6z"/>
