@@ -11,8 +11,8 @@ All output data are stored in TXT files on the computer. Each of them can be use
 
 In the settings window (gear icon), you can select the desired directory to save TXT files.
 ## Screenshots
+<img width="492" alt="ScoreBoard_v1 2" src="https://user-images.githubusercontent.com/61139898/99841110-b6579980-2b7e-11eb-83ad-e3a2118fb7a7.png">
 
-![Main window](https://user-images.githubusercontent.com/61139898/99841110-b6579980-2b7e-11eb-83ad-e3a2118fb7a7.png "ScoreBoard for macOS - Main window")
 <details>
 <summary>Possible outcome in OBS ...</summary>
   <img src="https://user-images.githubusercontent.com/61139898/91486208-9af92d00-e8b4-11ea-9844-2f80877b539b.jpg" alt="Scoreboard in OBS">
