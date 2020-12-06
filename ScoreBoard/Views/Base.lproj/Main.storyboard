@@ -331,7 +331,7 @@ DQ
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="WorkDirectoryPath" destination="m4C-ey-13F" id="DFn-7N-UAo"/>
+                        <outlet property="workDirectoryPath" destination="m4C-ey-13F" id="GFj-M6-wwP"/>
                     </connections>
                 </viewController>
                 <customObject id="6Rm-Fd-R4t" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
