@@ -12,7 +12,7 @@
 		D975873523B607C20004BDAD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975873423B607C20004BDAD /* MainViewController.swift */; };
 		D975873723B607C40004BDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D975873623B607C40004BDAD /* Assets.xcassets */; };
 		D975873A23B607C40004BDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D975873823B607C40004BDAD /* Main.storyboard */; };
-		D979448F255E9BBF009165A0 /* LoadSaveDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* LoadSaveDefaults.swift */; };
+		D979448F255E9BBF009165A0 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* Defaults.swift */; };
 		D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */; };
 		D9BD25DE24B336260064230E /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25DD24B336260064230E /* PreferencesViewController.swift */; };
 		D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E324B60D800064230E /* ScoreBoardData.swift */; };
@@ -30,7 +30,7 @@
 		D975873923B607C40004BDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D975873B23B607C40004BDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D975873C23B607C40004BDAD /* ScoreBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScoreBoard.entitlements; sourceTree = "<group>"; };
-		D979448E255E9BBF009165A0 /* LoadSaveDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadSaveDefaults.swift; sourceTree = "<group>"; };
+		D979448E255E9BBF009165A0 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		D9BD25DD24B336260064230E /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		D9BD25E324B60D800064230E /* ScoreBoardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardData.swift; sourceTree = "<group>"; };
 		D9BD25E524B884490064230E /* WriteFilesToDisk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteFilesToDisk.swift; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		D949635F24F7DAE70032E9FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D979448E255E9BBF009165A0 /* LoadSaveDefaults.swift */,
+				D979448E255E9BBF009165A0 /* Defaults.swift */,
 				D9BD25E524B884490064230E /* WriteFilesToDisk.swift */,
 				D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */,
 			);
@@ -201,7 +201,7 @@
 			files = (
 				D9BD25E624B884490064230E /* WriteFilesToDisk.swift in Sources */,
 				D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */,
-				D979448F255E9BBF009165A0 /* LoadSaveDefaults.swift in Sources */,
+				D979448F255E9BBF009165A0 /* Defaults.swift in Sources */,
 				D975873523B607C20004BDAD /* MainViewController.swift in Sources */,
 				D975873323B607C20004BDAD /* AppDelegate.swift in Sources */,
 				D9BD25EA24BC76D10064230E /* SelectDirectoryWindow.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  DefaultsState.swift
+//  Defaults.swift
 //  ScoreBoard
 //
 //  Created by Василий Петухов on 13.11.2020.

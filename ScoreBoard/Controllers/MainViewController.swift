@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MainViewController: NSViewController {
+class MainViewController: NSViewController, NSWindowDelegate {
     
     let scoreboardData = ScoreBoardData.shared
     var activityAppNap: NSObjectProtocol? //for disable/enable App Nap in macOS
@@ -25,8 +25,11 @@ class MainViewController: NSViewController {
         WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal) // write other files
     }
     
-    override func viewDidDisappear() {
-        super.viewDidDisappear()
+    override func viewDidAppear() {
+        view.window?.delegate = self // delegate for windowWillClose()
+    }
+    
+    func windowWillClose(_ notification: Notification) {
         saveDefaults() //save data before closing
         NSApplication.shared.terminate(nil)
     }
