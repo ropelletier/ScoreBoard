@@ -16,9 +16,12 @@ class PreferencesViewController: NSViewController {
         //UserDefaults.standard.removeObject(forKey: "bookmarkForDirecory")
         // выставляем директорию Downloads по умолчанию
         workDirectoryPath.url = WriteFilesToDisk().restoreBookmarksPathDirectory()?.appendingPathComponent("ScoreBoard Outputs")
+        
+        autoResetTimer.state = ScoreBoardData.shared.autoResetTimer ? .on : .off
     }
     
     @IBOutlet weak var workDirectoryPath: NSPathControl!
+    @IBOutlet weak var autoResetTimer: NSButton!
     
     @IBAction func selectUserDirectory(_ sender: Any) {
 
@@ -34,6 +37,10 @@ class PreferencesViewController: NSViewController {
     
     @IBAction func setUserDirectory(_ sender: Any) {
         selectUserDirectory(self)
+    }
+    
+    @IBAction func autoResetTimerCheckBox(_ sender: Any) {
+        ScoreBoardData.shared.autoResetTimer = autoResetTimer.state == .on ? true : false
     }
     
     @IBAction func pressOKButtonPreferences(_ sender: Any) {

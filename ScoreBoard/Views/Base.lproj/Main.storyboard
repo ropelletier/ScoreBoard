@@ -172,12 +172,38 @@
                                                 <action selector="plus1GoalHomeFromMenu:" target="Ady-hI-5gd" id="SXY-IL-hZh"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="+2 Goal Home" id="iqp-Xu-6gg">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="plus2GoalHomeFromMenu:" target="Ady-hI-5gd" id="cDb-Se-bt0"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="+3 Goal Home" id="frA-wB-Bo9">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="plus3GoalHomeFromMenu:" target="Ady-hI-5gd" id="KXg-Po-DMH"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="mgf-wC-Iil"/>
                                         <menuItem title="+1 Goal Away" keyEquivalent="" id="xh7-Cc-ehH">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                             <connections>
                                                 <action selector="plus1GoalAwayFromMenu:" target="Ady-hI-5gd" id="6eK-vX-phl"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="+2 Goal Away" id="rsK-ja-Yef">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="plus2GoalAwayFromMenu:" target="Ady-hI-5gd" id="1Tr-8g-nNa"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="+3 Goal Away" id="bgK-yu-Ile">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="plus3GoalAwayFromMenu:" target="Ady-hI-5gd" id="6nm-Fb-90L"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="rUn-cw-ohY"/>
                                         <menuItem title="+1 Period" keyEquivalent="" id="pwB-oF-iHe">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
                                             <connections>
@@ -316,6 +342,16 @@ DQ
                                     <action selector="selectUserDirectory:" target="aw4-w5-dXm" id="zWW-51-OTN"/>
                                 </connections>
                             </button>
+                            <button toolTip="Enable or disable automatic time reset after the timer expires." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4c9-Lb-P4s">
+                                <rect key="frame" x="18" y="91" width="444" height="18"/>
+                                <buttonCell key="cell" type="check" title="Automatically reset the timer after the end." bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" state="on" inset="2" id="Kwq-1O-4Gk">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="autoResetTimerCheckBox:" target="aw4-w5-dXm" id="MPl-Vk-IX0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="mZ0-2v-uRU" firstAttribute="centerY" secondItem="m4C-ey-13F" secondAttribute="centerY" id="0SN-Ss-yod"/>
@@ -324,13 +360,17 @@ DQ
                             <constraint firstAttribute="trailing" secondItem="mZ0-2v-uRU" secondAttribute="trailing" constant="20" id="AW5-oy-eKi"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="DBG-MS-wOU" secondAttribute="trailing" constant="283" id="GLJ-GZ-ofX"/>
                             <constraint firstItem="DBG-MS-wOU" firstAttribute="top" secondItem="QIq-4A-fvG" secondAttribute="top" constant="20" id="Jds-xk-zv9"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4c9-Lb-P4s" secondAttribute="trailing" constant="20" symbolic="YES" id="KYK-pN-mjC"/>
                             <constraint firstItem="4ra-61-dlp" firstAttribute="centerX" secondItem="QIq-4A-fvG" secondAttribute="centerX" id="QZG-sU-sPs"/>
+                            <constraint firstItem="4c9-Lb-P4s" firstAttribute="top" secondItem="m4C-ey-13F" secondAttribute="bottom" constant="30" id="QsA-wA-zoT"/>
+                            <constraint firstItem="4c9-Lb-P4s" firstAttribute="leading" secondItem="m4C-ey-13F" secondAttribute="leading" id="YrZ-Qo-nRz"/>
                             <constraint firstItem="m4C-ey-13F" firstAttribute="leading" secondItem="QIq-4A-fvG" secondAttribute="leading" constant="20" id="bJe-Oh-59Q"/>
                             <constraint firstItem="mZ0-2v-uRU" firstAttribute="leading" secondItem="m4C-ey-13F" secondAttribute="trailing" constant="20" id="mJs-Vd-LdD"/>
                             <constraint firstItem="m4C-ey-13F" firstAttribute="top" secondItem="DBG-MS-wOU" secondAttribute="bottom" constant="5" id="xF4-2O-KhT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="autoResetTimer" destination="4c9-Lb-P4s" id="Yue-Ci-8jw"/>
                         <outlet property="workDirectoryPath" destination="m4C-ey-13F" id="GFj-M6-wwP"/>
                     </connections>
                 </viewController>
@@ -560,7 +600,7 @@ DQ
                                     <action selector="swapHomeAwayScores:" target="XfG-lQ-9wD" id="bFq-6P-59L"/>
                                 </connections>
                             </button>
-                            <button toolTip="Reset all scores" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cra-ZW-qR3">
+                            <button toolTip="Reset all scores and timer" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cra-ZW-qR3">
                                 <rect key="frame" x="443.5" y="6" width="27" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="↺" bezelStyle="texturedRounded" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" inset="2" id="wj7-ys-TZX">
@@ -673,7 +713,7 @@ DQ
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KJJ-UF-cM0"/>
+        <segue reference="ShR-G3-uoz"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>

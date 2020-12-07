@@ -66,6 +66,15 @@ class ScoreBoardData {
         }
     }
     
+    var autoResetTimer: Bool {
+        get {
+            UserDefaults.standard.register(defaults: ["autoResetTimer" : true])
+            return UserDefaults.standard.bool(forKey: "autoResetTimer")
+        } set {
+            UserDefaults.standard.set(newValue, forKey: "autoResetTimer")
+        }
+    }
+    
 }
 
 

@@ -18,7 +18,8 @@ class MainViewController: NSViewController, NSWindowDelegate {
         // Clear all UserDefaults
 //        if let bundleID = Bundle.main.bundleIdentifier {
 //            UserDefaults.standard.removePersistentDomain(forName: bundleID)
-//        }        
+//        }
+        
         loadDefaults() // initial setup of the main screen
         setTimeDefault() // restore default timer value
         showTimeInLabel() // show time + write timer file
@@ -227,8 +228,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
         if goalHome.selectedSegment == 0, scoreboardData.countGoalHome > 0 {
             scoreboardData.countGoalHome -= 1
         }
-        
-        if goalHome.selectedSegment == 2 || goalHome.selectedSegment == -1 { // -1 когда передается действие из меню (не нажатие)
+        if goalHome.selectedSegment == 2 { // || goalHome.selectedSegment == -1 (-1  передается из меню, а не по клику на кнопку)
             scoreboardData.countGoalHome += 1
         }
         if goalHome.selectedSegment == 3 {
@@ -247,7 +247,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
             scoreboardData.countGoalAway -= 1
         }
         
-        if goalAway.selectedSegment == 2  || goalAway.selectedSegment == -1 { // -1 когда передается действие из меню (не нажатие)
+        if goalAway.selectedSegment == 2 { //  || goalAway.selectedSegment == -1 (-1  передается из меню, а не по клику на кнопку)
             scoreboardData.countGoalAway += 1
         }
         if goalAway.selectedSegment == 3 {
@@ -375,8 +375,28 @@ class MainViewController: NSViewController, NSWindowDelegate {
         goalHomeAction(self)
     }
     
+    @IBAction func plus2GoalHomeFromMenu(_ sender: Any) {
+        goalHome.selectedSegment = 3
+        goalHomeAction(self)
+    }
+    
+    @IBAction func plus3GoalHomeFromMenu(_ sender: Any) {
+        goalHome.selectedSegment = 4
+        goalHomeAction(self)
+    }
+    
     @IBAction func plus1GoalAwayFromMenu(_ sender: Any) {
         goalAway.selectedSegment = 2
+        goalAwayAction(self)
+    }
+    
+    @IBAction func plus2GoalAwayFromMenu(_ sender: Any) {
+        goalAway.selectedSegment = 3
+        goalAwayAction(self)
+    }
+    
+    @IBAction func plus3GoalAwayFromMenu(_ sender: Any) {
+        goalAway.selectedSegment = 4
         goalAwayAction(self)
     }
     
