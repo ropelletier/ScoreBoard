@@ -170,6 +170,13 @@ class MainViewController: NSViewController, NSWindowDelegate {
         awayNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
     }
     
+    // пользовательское время не должно быть больше чем установленный таймер, только если включен режим "футбол"
+    private func isAllowedChangeTime(newTime: Int) -> Bool {
+        if continueTimeSwitcher.state == .on { return true }
+        if scoreboardData.timeUserPreset >= newTime { return true }
+        return false
+    }
+    
     // MARK: - Actions
     
     @IBAction func timeLabelAction(_ sender: Any) {
@@ -191,25 +198,24 @@ class MainViewController: NSViewController, NSWindowDelegate {
         
         minutesFromUser = Int (String (timeFromUserInLabel [0...1])) ?? 0
         secondsFromUser = Int (String (timeFromUserInLabel [2...3])) ?? 0
-        
-        // пользовательское время не должно быть больше чем установленный таймер
-        guard scoreboardData.timeUserPreset >= (minutesFromUser * 60 + secondsFromUser) else { return }
-        scoreboardData.timeNow = (minutesFromUser * 60) + secondsFromUser
-        
+    
+        if isAllowedChangeTime(newTime: minutesFromUser * 60 + secondsFromUser) {
+            scoreboardData.timeNow = (minutesFromUser * 60) + secondsFromUser
+        }
         showTimeInLabel()
     }
     
     @IBAction func stepperSecondsAction(_ sender: Any) {
-        guard scoreboardData.timeUserPreset >= stepperSeconds.integerValue else {
+        guard isAllowedChangeTime(newTime: stepperSeconds.integerValue) else {
             stepperSeconds.integerValue -= 1 // change value back (stepper triggered before checking)
             return
         }
-        scoreboardData.timeNow = stepperSeconds.integerValue 
+        scoreboardData.timeNow = stepperSeconds.integerValue
         showTimeInLabel()
     }
     
     @IBAction func stepperMinutesAction(_ sender: Any) {
-        guard scoreboardData.timeUserPreset >= stepperMinutes.integerValue else {
+        guard isAllowedChangeTime(newTime: stepperMinutes.integerValue) else {
             stepperMinutes.integerValue -= 60  // change value back (stepper triggered before checking)
             return
         }
@@ -337,7 +343,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     }
     
     @IBAction func plus1SecFromMenu(_ sender: Any) {
-        guard scoreboardData.timeUserPreset >= scoreboardData.timeNow + 1 else { return }
+        guard isAllowedChangeTime(newTime: scoreboardData.timeNow + 1) else { return }
         scoreboardData.timeNow += 1
         showTimeInLabel()
     }
@@ -349,13 +355,13 @@ class MainViewController: NSViewController, NSWindowDelegate {
     }
     
     @IBAction func plus1MinFromMenu(_ sender: Any) {
-        guard scoreboardData.timeUserPreset >= scoreboardData.timeNow + 60 else { return }
+        guard isAllowedChangeTime(newTime: scoreboardData.timeNow + 60) else { return }
         scoreboardData.timeNow += 60
         showTimeInLabel()
     }
     
     @IBAction func minus1MinFromMenu(_ sender: Any) {
-        guard scoreboardData.timeNow > 60 else { return }
+        guard scoreboardData.timeNow >= 60 else { return }
         scoreboardData.timeNow -= 60
         showTimeInLabel()
     }
