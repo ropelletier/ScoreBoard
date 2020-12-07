@@ -23,9 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //
 //        mainVC.titleTimerMode.stringValue = mainVC.isCountdown.state == .on ? "Countdown: ON" : "Countdown: OFF"
 //        mainVC.continueTimeSwitcher.isEnabled = mainVC.isCountdown.state == .on ? false : true
-        
     }
-
     
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
