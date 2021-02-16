@@ -8,7 +8,11 @@
 
 import Cocoa
 
-extension MainViewController {    
+extension MainViewController {
+    private var defaults: UserDefaults{
+        UserDefaults.standard
+    }
+    
     func loadDefaults() {
         // restore NSSwitches state (timer and "soccer")
         isCountdown.state = UserDefaults.standard.value(forKey: "isCountdown") as? NSControl.StateValue ?? .on
@@ -32,8 +36,12 @@ extension MainViewController {
     
     func saveDefaults() {
         // save NSSwitches state (timer and "soccer")
-        UserDefaults.standard.set(isCountdown.state, forKey: "isCountdown")
-        UserDefaults.standard.set(continueTimeSwitcher.state, forKey: "continueTimeSwitcher")
+        defaults.set(isCountdown.state, forKey: "isCountdown")
+        defaults.set(continueTimeSwitcher.state, forKey: "continueTimeSwitcher")
+        
+        // last position windows
+        defaults.set(view.window?.frame.origin.x, forKey: "position-x")
+        defaults.set(view.window?.frame.origin.y, forKey: "position-y")
     }
     
 }

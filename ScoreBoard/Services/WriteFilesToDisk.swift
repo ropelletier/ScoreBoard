@@ -8,9 +8,9 @@
 
 import Foundation
 
-class WriteFilesToDisk {
+final class WriteFilesToDisk {
     
-    let scoreboardData = ScoreBoardData.shared
+    private let scoreboardData = ScoreBoardData.shared
     
     enum FilesList {
         case timer, homeName, awayName, period, homeGoal, awayGoal

@@ -10,32 +10,6 @@ import Cocoa
 
 class MainViewController: NSViewController, NSWindowDelegate {
     
-    let scoreboardData = ScoreBoardData.shared
-    var activityAppNap: NSObjectProtocol? //for disable/enable App Nap in macOS
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Clear all UserDefaults
-//        if let bundleID = Bundle.main.bundleIdentifier {
-//            UserDefaults.standard.removePersistentDomain(forName: bundleID)
-//        }
-        
-        loadDefaults() // initial setup of the main screen
-        setTimeDefault() // restore default timer value
-        showTimeInLabel() // show time + write timer file
-        WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal) // write other files
-    }
-    
-    override func viewDidAppear() {
-        view.window?.delegate = self // delegate for windowWillClose()
-    }
-    
-    func windowWillClose(_ notification: Notification) {
-        saveDefaults() //save data before closing
-        NSApplication.shared.terminate(nil)
-    }
-    
-    
     // MARK: - IBOutlet
     @IBOutlet weak var timerTextField: NSTextField!
     @IBOutlet weak var buttonStart: NSButton!
@@ -54,6 +28,49 @@ class MainViewController: NSViewController, NSWindowDelegate {
     @IBOutlet weak var stepperSeconds: NSStepper!
     @IBOutlet weak var stepperMinutes: NSStepper!
     
+    @IBOutlet weak var scoreBoardView: BasicSBTemplateView!
+    
+    let scoreboardData = ScoreBoardData.shared
+    var activityAppNap: NSObjectProtocol? //for disable/enable App Nap in macOS
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Clear all UserDefaults
+//        if let bundleID = Bundle.main.bundleIdentifier {
+//            UserDefaults.standard.removePersistentDomain(forName: bundleID)
+//        }
+        
+        loadDefaults() // initial setup of the main screen
+        setTimeDefault() // restore default timer value
+        showTimeInLabel() // show time + write timer file
+        WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal) // write other files
+    }
+    
+    override func viewDidAppear() {
+        view.window?.delegate = self // delegate for windowWillClose()
+//        var frame = self.view.window?.frame.origin
+//        print(frame!.x)
+//        print(frame!.y)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            self.resize()
+//        }
+    }
+    
+    func windowWillClose(_ notification: Notification) {
+        saveDefaults() //save data before closing
+        NSApplication.shared.terminate(nil)
+    }
+    
+    func resize() {
+        guard var frame = self.view.window?.frame else { return }
+        frame = NSRect(x: frame.origin.x, y: frame.origin.y - 100, width: 480, height: 370)
+//        (x: frame.origin.x, y: <#T##Int#>, width: 480, height: 370)
+//        frame.size = NSSize(width: 480, height:370)
+//        frame.origin = CGPoint(x: 100, y: 100)
+        self.view.window?.setFrame(frame, display: true, animate: true)
+        print(frame.origin.x)
+        print(frame.origin.y)
+    }
     
     // MARK: - Functions
     
@@ -93,44 +110,6 @@ class MainViewController: NSViewController, NSWindowDelegate {
             "Timer setting (from \(sliderTimer.integerValue / 60):00 to 00:00)" :
             "Timer setting (from 00:00 to \(sliderTimer.integerValue / 60):00)"
     }
-    
-    // старый таймер (вынесен в файл TimerFunctions)
-    //    var timerStatus: Timer?
-    //    func startTimer(){
-    //        if timerStatus == nil {
-    //            timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-    //                if self.isCountdown.state == .on {
-    //                    guard self.scoreboardData.timeNow > 0 else {
-    //                        self.resetStateButtonStar()
-    //                        self.setTimeDefault()
-    //                        self.showTimeInLabel()
-    //                        return
-    //                    }
-    //                    self.scoreboardData.timeNow -= 1
-    //                } else {
-    //                    // остановить таймер если выключен режим "футбола", когда таймер не останавливается
-    //                    if self.continueTimeSwitcher.state == .off  {
-    //                        guard self.scoreboardData.timeNow < self.scoreboardData.timeUserPreset else {
-    //                            self.resetStateButtonStar()
-    //                            self.setTimeDefault()
-    //                            self.showTimeInLabel()
-    //                            return
-    //                        }
-    //                    }
-    //                    self.scoreboardData.timeNow += 1
-    //                }
-    //                self.showTimeInLabel()
-    //            }
-    //        }
-    //    }
-    //
-    //    func stopTimer(){
-    //        if timerStatus != nil {
-    //            timerStatus?.invalidate()
-    //            timerStatus = nil
-    //        }
-    //    }
-    
     
     // Сброс всех параметров проги на умолчание
     func resetAllState(){

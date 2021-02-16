@@ -8,14 +8,13 @@
 
 import Cocoa
 
-class TimerFunctions {
+final class TimerFunctions {
     
-    static var timerStatus: Timer?
+    static var timerStatus: Timer? = nil
     
     static func startTimer(){
         let mainVC = NSApplication.shared.mainWindow?.windowController?.contentViewController as! MainViewController
         let scoreboardData = ScoreBoardData.shared
-//        let delayResetTimer = 5.0
         
         if timerStatus == nil {
             timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
@@ -23,11 +22,8 @@ class TimerFunctions {
                     guard scoreboardData.timeNow > 0 else {
                         mainVC.resetStateButtonStar()
                         if scoreboardData.autoResetTimer {
-                            //задержка перед обнулением таймера
-//                            DispatchQueue.main.asyncAfter(deadline: .now() + delayResetTimer) {
                                 mainVC.setTimeDefault()
                                 mainVC.showTimeInLabel()
-//                            }
                         }
                         return
                     }
@@ -38,11 +34,8 @@ class TimerFunctions {
                         guard scoreboardData.timeNow < scoreboardData.timeUserPreset else {
                             mainVC.resetStateButtonStar()
                             if scoreboardData.autoResetTimer {
-                                //задержка перед обнулением таймера
-//                                DispatchQueue.main.asyncAfter(deadline: .now() + delayResetTimer) {
                                     mainVC.setTimeDefault()
                                     mainVC.showTimeInLabel()
-//                                }
                             }
                             return
                         }
