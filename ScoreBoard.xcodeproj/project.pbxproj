@@ -14,6 +14,7 @@
 		D975873A23B607C40004BDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D975873823B607C40004BDAD /* Main.storyboard */; };
 		D979448F255E9BBF009165A0 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* Defaults.swift */; };
 		D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */; };
+		D980DCCC25F4ADB90026B596 /* EditTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCCB25F4ADB90026B596 /* EditTextField.swift */; };
 		D997E11A25AA45F7000F6C77 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D997E11925AA45F7000F6C77 /* README.md */; };
 		D997E12125AA4D85000F6C77 /* BasicSBTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D997E12025AA4D85000F6C77 /* BasicSBTemplateView.xib */; };
 		D997E12425AA4D93000F6C77 /* BasicSBTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */; };
@@ -34,6 +35,8 @@
 		D975873B23B607C40004BDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D975873C23B607C40004BDAD /* ScoreBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScoreBoard.entitlements; sourceTree = "<group>"; };
 		D979448E255E9BBF009165A0 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		D980DCCB25F4ADB90026B596 /* EditTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextField.swift; sourceTree = "<group>"; };
+		D980DCD2260E74C00026B596 /* testPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = testPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D997E11925AA45F7000F6C77 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D997E12025AA4D85000F6C77 /* BasicSBTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicSBTemplateView.xib; sourceTree = "<group>"; };
 		D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSBTemplateView.swift; sourceTree = "<group>"; };
@@ -96,6 +99,14 @@
 			path = ScoreBoard;
 			sourceTree = "<group>";
 		};
+		D980DCCA25F4AD710026B596 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				D980DCCB25F4ADB90026B596 /* EditTextField.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		D997E11F25AA4D2F000F6C77 /* ScoreBoardTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +137,7 @@
 		D9BD25E124B370960064230E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D980DCD2260E74C00026B596 /* testPlayground.playground */,
 				D975873B23B607C40004BDAD /* Info.plist */,
 				D975873C23B607C40004BDAD /* ScoreBoard.entitlements */,
 				D975873623B607C40004BDAD /* Assets.xcassets */,
@@ -140,6 +152,7 @@
 				D975873823B607C40004BDAD /* Main.storyboard */,
 				D9BD25E724B8A55D0064230E /* AlertWindow.swift */,
 				D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */,
+				D980DCCA25F4AD710026B596 /* CustomViews */,
 				D997E11F25AA4D2F000F6C77 /* ScoreBoardTemplate */,
 			);
 			path = Views;
@@ -225,6 +238,7 @@
 				D975873523B607C20004BDAD /* MainViewController.swift in Sources */,
 				D975873323B607C20004BDAD /* AppDelegate.swift in Sources */,
 				D9BD25EA24BC76D10064230E /* SelectDirectoryWindow.swift in Sources */,
+				D980DCCC25F4ADB90026B596 /* EditTextField.swift in Sources */,
 				D9BD25DE24B336260064230E /* PreferencesViewController.swift in Sources */,
 				D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */,
 				D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */,

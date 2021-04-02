@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ScoreBoardData {
+final class ScoreBoardData {
     
     private init() {}
     static let shared = ScoreBoardData()

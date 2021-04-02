@@ -31,17 +31,13 @@ extension MainViewController {
         awayNameTextField.stringValue = scoreboardData.awayName
         
         // set timer text style
-        timerTextField.font = NSFont.monospacedDigitSystemFont(ofSize: 30, weight: .regular)
+        timerTextField.font = NSFont.monospacedDigitSystemFont(ofSize: 28, weight: .regular)
     }
     
     func saveDefaults() {
         // save NSSwitches state (timer and "soccer")
         defaults.set(isCountdown.state, forKey: "isCountdown")
         defaults.set(continueTimeSwitcher.state, forKey: "continueTimeSwitcher")
-        
-        // last position windows
-        defaults.set(view.window?.frame.origin.x, forKey: "position-x")
-        defaults.set(view.window?.frame.origin.y, forKey: "position-y")
     }
     
 }

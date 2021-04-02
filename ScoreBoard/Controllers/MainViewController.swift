@@ -11,7 +11,7 @@ import Cocoa
 class MainViewController: NSViewController, NSWindowDelegate {
     
     // MARK: - IBOutlet
-    @IBOutlet weak var timerTextField: NSTextField!
+    @IBOutlet weak var timerTextField: EditTextField!
     @IBOutlet weak var buttonStart: NSButton!
     @IBOutlet weak var isCountdown: NSSwitch!
     @IBOutlet weak var titleTimerMode: NSTextField!
@@ -20,8 +20,8 @@ class MainViewController: NSViewController, NSWindowDelegate {
     @IBOutlet weak var swapScores: NSButton!
     @IBOutlet weak var sliderTimer: NSSlider!
     @IBOutlet weak var textFieldForTimerSetting: NSTextField!
-    @IBOutlet weak var homeNameTextField: NSTextField!
-    @IBOutlet weak var awayNameTextField: NSTextField!
+    @IBOutlet weak var homeNameTextField: EditTextField!
+    @IBOutlet weak var awayNameTextField: EditTextField!
     @IBOutlet weak var goalHome: NSSegmentedControl!
     @IBOutlet weak var goalAway: NSSegmentedControl!
     @IBOutlet weak var period: NSSegmentedControl!
@@ -48,12 +48,6 @@ class MainViewController: NSViewController, NSWindowDelegate {
     
     override func viewDidAppear() {
         view.window?.delegate = self // delegate for windowWillClose()
-//        var frame = self.view.window?.frame.origin
-//        print(frame!.x)
-//        print(frame!.y)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.resize()
-//        }
     }
     
     func windowWillClose(_ notification: Notification) {
@@ -61,16 +55,16 @@ class MainViewController: NSViewController, NSWindowDelegate {
         NSApplication.shared.terminate(nil)
     }
     
-    func resize() {
-        guard var frame = self.view.window?.frame else { return }
-        frame = NSRect(x: frame.origin.x, y: frame.origin.y - 100, width: 480, height: 370)
-//        (x: frame.origin.x, y: <#T##Int#>, width: 480, height: 370)
-//        frame.size = NSSize(width: 480, height:370)
-//        frame.origin = CGPoint(x: 100, y: 100)
-        self.view.window?.setFrame(frame, display: true, animate: true)
-        print(frame.origin.x)
-        print(frame.origin.y)
-    }
+//    func resize() {
+//        guard var frame = self.view.window?.frame else { return }
+//        frame = NSRect(x: frame.origin.x, y: frame.origin.y - 100, width: 480, height: 370)
+////        (x: frame.origin.x, y: <#T##Int#>, width: 480, height: 370)
+////        frame.size = NSSize(width: 480, height:370)
+////        frame.origin = CGPoint(x: 100, y: 100)
+//        self.view.window?.setFrame(frame, display: true, animate: true)
+//        print(frame.origin.x)
+//        print(frame.origin.y)
+//    }
     
     // MARK: - Functions
     
@@ -116,10 +110,6 @@ class MainViewController: NSViewController, NSWindowDelegate {
         resetStateButtonStar()
         setTimeDefault()
         showTimeInLabel()
-        //        homeName = "Home"
-        //        textFieldHomeName.stringValue = homeName
-        //        awayName = "Away"
-        //        textFieldAwayName.stringValue = awayName
         scoreboardData.countGoalHome = 0
         goalHome.setLabel(String(scoreboardData.countGoalHome), forSegment: 1)
         scoreboardData.countGoalAway = 0
@@ -137,19 +127,6 @@ class MainViewController: NSViewController, NSWindowDelegate {
         timerTextField.textColor = .controlTextColor
     }
     
-    // click mouse in window for deselect text
-    override func mouseDown(with: NSEvent) {
-        //NSApp.mainWindow?.makeFirstResponder(nil) //снять выделения со всех элементов окна
-        buttonStart.window?.makeFirstResponder(buttonStart)
-        deselectTextInTextFileds()
-    }
-    
-    //отменить выделение текста в полях NSTextFiled, так как фокус не связан с выделением (фокус на кнопке, а выделено назавание команды)
-    func deselectTextInTextFileds() {
-        homeNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
-        awayNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
-    }
-    
     // пользовательское время не должно быть больше чем установленный таймер, только если включен режим "футбол"
     private func isAllowedChangeTime(newTime: Int) -> Bool {
         if continueTimeSwitcher.state == .on { return true }
@@ -160,25 +137,35 @@ class MainViewController: NSViewController, NSWindowDelegate {
     // MARK: - Actions
     
     @IBAction func timeLabelAction(_ sender: Any) {
-        buttonStart.window?.makeFirstResponder(buttonStart)
+        focusToStartButton()
         
         // delete everything except digits
-        var timeFromUserInLabel = Array(timerTextField.stringValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+        var timeFromUser = Array(timerTextField.stringValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
         
-        // timer before changes
+        // timer before changes (for case 0)
         var minutesFromUser:Int = scoreboardData.timeNow / 60
         var secondsFromUser:Int = scoreboardData.timeNow - ((scoreboardData.timeNow / 60) * 60)
         
-        // if the user entered less than 4 digits, then fill in the missing values with 0
-        if timeFromUserInLabel.count < 4 {
-            for i in 0..<(4 - timeFromUserInLabel.count) {
-                timeFromUserInLabel.insert("0", at: i)
+        switch timeFromUser.count {
+        case 0:
+            break
+        case 1..<4:
+            // if user entered less than 4 digits, then fill in the missing values with 0
+            for i in 0..<(4 - timeFromUser.count) {
+                timeFromUser.insert("0", at: i)
             }
+            fallthrough
+        
+        case 4:
+            minutesFromUser = Int (String (timeFromUser [0...1])) ?? 0
+            secondsFromUser = Int (String (timeFromUser [2...3])) ?? 0
+            
+        default:
+            // if user entered more than 4 digits, then use only 5 first digit (exemple: 152:12)
+            minutesFromUser = Int (String (timeFromUser [0...2])) ?? 0
+            secondsFromUser = Int (String (timeFromUser [3...4])) ?? 0
         }
         
-        minutesFromUser = Int (String (timeFromUserInLabel [0...1])) ?? 0
-        secondsFromUser = Int (String (timeFromUserInLabel [2...3])) ?? 0
-    
         if isAllowedChangeTime(newTime: minutesFromUser * 60 + secondsFromUser) {
             scoreboardData.timeNow = (minutesFromUser * 60) + secondsFromUser
         }
@@ -257,8 +244,8 @@ class MainViewController: NSViewController, NSWindowDelegate {
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
         scoreboardData.awayName = awayNameTextField.stringValue
-        buttonStart.window?.makeFirstResponder(buttonStart)
         deselectTextInTextFileds()
+        focusToStartButton()
     }
     
     @IBAction func sliderTimerAction(_ sender: Any) {
@@ -267,11 +254,10 @@ class MainViewController: NSViewController, NSWindowDelegate {
     }
     
     @IBAction func pushButtonStart(_ sender: Any) {
-        buttonStart.window?.makeFirstResponder(buttonStart)
         deselectTextInTextFileds()
+        focusToStartButton()
         
         if TimerFunctions.timerStatus == nil {
-//            sliderTimer.isEnabled = false
             TimerFunctions.startTimer()
             buttonStart.title = "PAUSE"
             timerTextField.textColor = .red
@@ -280,7 +266,6 @@ class MainViewController: NSViewController, NSWindowDelegate {
             activityAppNap = ProcessInfo().beginActivity(options: .userInitiatedAllowingIdleSystemSleep, reason: "Run timer in background")
             
         } else {
-//            sliderTimer.isEnabled = true
             resetStateButtonStar()
             
             // enable App Nap
@@ -387,3 +372,28 @@ class MainViewController: NSViewController, NSWindowDelegate {
     
 }
 
+// MARK:  - Override
+extension MainViewController {
+    override func mouseDown(with: NSEvent) {
+//        NSApp.mainWindow?.makeFirstResponder(nil) //снять выделения со всех элементов окна
+        deselectTextInTextFileds()
+        focusToStartButton()
+    }
+}
+
+// MARK:  - Ptivate func
+private extension MainViewController {
+    //отменить выделение текста в полях NSTextFiled, так как фокус не связан с выделением (фокус на кнопке, а выделено назавание команды)
+    func deselectTextInTextFileds() {
+        homeNameTextField.abortEditing()
+        awayNameTextField.abortEditing()
+        
+        // deselect all text in Range
+//        homeNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
+//        awayNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
+    }
+    
+    func focusToStartButton() {
+        buttonStart.window?.makeFirstResponder(buttonStart)
+    }
+}
