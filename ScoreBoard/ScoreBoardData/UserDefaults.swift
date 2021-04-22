@@ -15,8 +15,8 @@ extension MainViewController {
     
     func loadDefaults() {
         // restore NSSwitches state (timer and "soccer")
-        isCountdown.state = UserDefaults.standard.value(forKey: "isCountdown") as? NSControl.StateValue ?? .on
-        continueTimeSwitcher.state = UserDefaults.standard.value(forKey: "continueTimeSwitcher") as? NSControl.StateValue ?? .off
+        isCountdown.state = defaults.value(forKey: "isCountdown") as? NSControl.StateValue ?? .on
+        continueTimeSwitcher.state = defaults.value(forKey: "continueTimeSwitcher") as? NSControl.StateValue ?? .off
         titleTimerMode.stringValue = isCountdown.state == .on ? "Countdown: ON" : "Countdown: OFF"
         continueTimeSwitcher.isEnabled = isCountdown.state == .on ? false : true
                 

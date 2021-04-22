@@ -386,38 +386,36 @@
                                 <menu key="submenu" title="Game counters" id="RQH-eF-rwj">
                                     <items>
                                         <menuItem title="+1 Goal Home" keyEquivalent="" id="PeS-LS-msi">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="plus1GoalHomeFromMenu:" target="Ady-hI-5gd" id="SXY-IL-hZh"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="+2 Goal Home" keyEquivalent="2" id="iqp-Xu-6gg">
-                                            <modifierMask key="keyEquivalentModifierMask" control="YES"/>
+                                        <menuItem title="+2 Goal Home" keyEquivalent="" id="iqp-Xu-6gg">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                             <connections>
                                                 <action selector="plus2GoalHomeFromMenu:" target="Ady-hI-5gd" id="cDb-Se-bt0"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="+3 Goal Home" keyEquivalent="3" id="frA-wB-Bo9">
-                                            <modifierMask key="keyEquivalentModifierMask" control="YES"/>
+                                        <menuItem title="+3 Goal Home" keyEquivalent="" id="frA-wB-Bo9">
                                             <connections>
                                                 <action selector="plus3GoalHomeFromMenu:" target="Ady-hI-5gd" id="KXg-Po-DMH"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="mgf-wC-Iil"/>
                                         <menuItem title="+1 Goal Away" keyEquivalent="" id="xh7-Cc-ehH">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="plus1GoalAwayFromMenu:" target="Ady-hI-5gd" id="6eK-vX-phl"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="+2 Goal Away" keyEquivalent="2" id="rsK-ja-Yef">
+                                        <menuItem title="+2 Goal Away" keyEquivalent="" id="rsK-ja-Yef">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                             <connections>
                                                 <action selector="plus2GoalAwayFromMenu:" target="Ady-hI-5gd" id="1Tr-8g-nNa"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="+3 Goal Away" keyEquivalent="3" id="bgK-yu-Ile">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                        <menuItem title="+3 Goal Away" keyEquivalent="" id="bgK-yu-Ile">
                                             <connections>
                                                 <action selector="plus3GoalAwayFromMenu:" target="Ady-hI-5gd" id="6nm-Fb-90L"/>
                                             </connections>

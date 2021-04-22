@@ -8,14 +8,16 @@
 
 import Cocoa
 
-class PreferencesViewController: NSViewController {
+private class PreferencesViewController: NSViewController {
+    
+    private let writerFiles = WriterFiles()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //UserDefaults.standard.removeObject(forKey: "bookmarkForDirecory")
         // выставляем директорию Downloads по умолчанию
-        workDirectoryPath.url = WriteFilesToDisk().restoreBookmarksPathDirectory()?.appendingPathComponent("ScoreBoard Outputs")
+        workDirectoryPath.url = writerFiles.restoreBookmarksPathDirectory()?.appendingPathComponent("ScoreBoard Outputs")
         
         autoResetTimer.state = ScoreBoardData.shared.autoResetTimer ? .on : .off
     }
@@ -30,9 +32,9 @@ class PreferencesViewController: NSViewController {
         workDirectoryPath.url = userSelectedDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
         
         // сохранить закладку безопасности на будущее
-        WriteFilesToDisk().saveBookmarksPathDirectory(userSelectedDirectoryUrl)
+        writerFiles.saveBookmarksPathDirectory(userSelectedDirectoryUrl)
         
-        WriteFilesToDisk().writeFile(.timer, .homeName, .awayName, .period, .homeGoal, .awayGoal)
+        writerFiles.writeToDisk(for: .timer, .homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
     @IBAction func setUserDirectory(_ sender: Any) {

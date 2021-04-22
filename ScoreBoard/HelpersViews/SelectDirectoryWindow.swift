@@ -8,8 +8,7 @@
 
 import Cocoa
 
-class SelectDirectoryWindow {
-    
+final class SelectDirectoryWindow {
     func selectDirectory() -> URL? {
         let panel = NSOpenPanel()
         panel.canChooseDirectories = true
@@ -19,5 +18,4 @@ class SelectDirectoryWindow {
         guard let userDirectoryUrl = panel.url else { return nil }
         return userDirectoryUrl
     }
-    
 }

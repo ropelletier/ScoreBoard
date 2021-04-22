@@ -12,15 +12,16 @@
 		D975873523B607C20004BDAD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975873423B607C20004BDAD /* MainViewController.swift */; };
 		D975873723B607C40004BDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D975873623B607C40004BDAD /* Assets.xcassets */; };
 		D975873A23B607C40004BDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D975873823B607C40004BDAD /* Main.storyboard */; };
-		D979448F255E9BBF009165A0 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* Defaults.swift */; };
+		D979448F255E9BBF009165A0 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* UserDefaults.swift */; };
 		D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */; };
 		D980DCCC25F4ADB90026B596 /* EditTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCCB25F4ADB90026B596 /* EditTextField.swift */; };
+		D980DCF326184FF60026B596 /* Extension_mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCF226184FF60026B596 /* Extension_mainVC.swift */; };
 		D997E11A25AA45F7000F6C77 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D997E11925AA45F7000F6C77 /* README.md */; };
 		D997E12125AA4D85000F6C77 /* BasicSBTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D997E12025AA4D85000F6C77 /* BasicSBTemplateView.xib */; };
 		D997E12425AA4D93000F6C77 /* BasicSBTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */; };
 		D9BD25DE24B336260064230E /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25DD24B336260064230E /* PreferencesViewController.swift */; };
 		D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E324B60D800064230E /* ScoreBoardData.swift */; };
-		D9BD25E624B884490064230E /* WriteFilesToDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E524B884490064230E /* WriteFilesToDisk.swift */; };
+		D9BD25E624B884490064230E /* WriterFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E524B884490064230E /* WriterFiles.swift */; };
 		D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E724B8A55D0064230E /* AlertWindow.swift */; };
 		D9BD25EA24BC76D10064230E /* SelectDirectoryWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */; };
 /* End PBXBuildFile section */
@@ -34,15 +35,16 @@
 		D975873923B607C40004BDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D975873B23B607C40004BDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D975873C23B607C40004BDAD /* ScoreBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScoreBoard.entitlements; sourceTree = "<group>"; };
-		D979448E255E9BBF009165A0 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		D979448E255E9BBF009165A0 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		D980DCCB25F4ADB90026B596 /* EditTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextField.swift; sourceTree = "<group>"; };
 		D980DCD2260E74C00026B596 /* testPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = testPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D980DCF226184FF60026B596 /* Extension_mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_mainVC.swift; sourceTree = "<group>"; };
 		D997E11925AA45F7000F6C77 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D997E12025AA4D85000F6C77 /* BasicSBTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicSBTemplateView.xib; sourceTree = "<group>"; };
 		D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSBTemplateView.swift; sourceTree = "<group>"; };
 		D9BD25DD24B336260064230E /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		D9BD25E324B60D800064230E /* ScoreBoardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardData.swift; sourceTree = "<group>"; };
-		D9BD25E524B884490064230E /* WriteFilesToDisk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteFilesToDisk.swift; sourceTree = "<group>"; };
+		D9BD25E524B884490064230E /* WriterFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriterFiles.swift; sourceTree = "<group>"; };
 		D9BD25E724B8A55D0064230E /* AlertWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertWindow.swift; sourceTree = "<group>"; };
 		D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDirectoryWindow.swift; sourceTree = "<group>"; };
 		D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFunctions.swift; sourceTree = "<group>"; };
@@ -59,14 +61,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D949635F24F7DAE70032E9FD /* Services */ = {
+		D949635F24F7DAE70032E9FD /* Workers */ = {
 			isa = PBXGroup;
 			children = (
-				D979448E255E9BBF009165A0 /* Defaults.swift */,
-				D9BD25E524B884490064230E /* WriteFilesToDisk.swift */,
+				D9BD25E524B884490064230E /* WriterFiles.swift */,
 				D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */,
 			);
-			path = Services;
+			path = Workers;
 			sourceTree = "<group>";
 		};
 		D975872623B607C20004BDAD = {
@@ -90,48 +91,68 @@
 		D975873123B607C20004BDAD /* ScoreBoard */ = {
 			isa = PBXGroup;
 			children = (
-				D9BD25E224B5ED0E0064230E /* Views */,
-				D9BD25DF24B370280064230E /* Controllers */,
-				D9BD25E024B370620064230E /* Models */,
-				D949635F24F7DAE70032E9FD /* Services */,
+				D975873223B607C20004BDAD /* AppDelegate.swift */,
+				D980DCF9262A2ECB0026B596 /* Modules */,
+				D9BD25E024B370620064230E /* ScoreBoardData */,
+				D9BD25E224B5ED0E0064230E /* HelpersViews */,
+				D949635F24F7DAE70032E9FD /* Workers */,
 				D9BD25E124B370960064230E /* Supporting Files */,
 			);
 			path = ScoreBoard;
 			sourceTree = "<group>";
 		};
-		D980DCCA25F4AD710026B596 /* CustomViews */ = {
+		D980DCF9262A2ECB0026B596 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				D980DCCB25F4ADB90026B596 /* EditTextField.swift */,
+				D980DCFA262A2ED80026B596 /* MainViewController */,
+				D980DCFB262A2EE10026B596 /* SettingsViewController */,
+				D980DD00262E0C770026B596 /* ScoreBoardTemplates */,
 			);
-			path = CustomViews;
+			path = Modules;
 			sourceTree = "<group>";
 		};
-		D997E11F25AA4D2F000F6C77 /* ScoreBoardTemplate */ = {
+		D980DCFA262A2ED80026B596 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D980DCF226184FF60026B596 /* Extension_mainVC.swift */,
+				D975873423B607C20004BDAD /* MainViewController.swift */,
+				D975873823B607C40004BDAD /* Main.storyboard */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		D980DCFB262A2EE10026B596 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9BD25DD24B336260064230E /* PreferencesViewController.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		D980DD00262E0C770026B596 /* ScoreBoardTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				D997E11F25AA4D2F000F6C77 /* Basic */,
+			);
+			path = ScoreBoardTemplates;
+			sourceTree = "<group>";
+		};
+		D997E11F25AA4D2F000F6C77 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
 				D997E12025AA4D85000F6C77 /* BasicSBTemplateView.xib */,
 				D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */,
 			);
-			path = ScoreBoardTemplate;
+			path = Basic;
 			sourceTree = "<group>";
 		};
-		D9BD25DF24B370280064230E /* Controllers */ = {
+		D9BD25E024B370620064230E /* ScoreBoardData */ = {
 			isa = PBXGroup;
 			children = (
-				D975873423B607C20004BDAD /* MainViewController.swift */,
-				D9BD25DD24B336260064230E /* PreferencesViewController.swift */,
-				D975873223B607C20004BDAD /* AppDelegate.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		D9BD25E024B370620064230E /* Models */ = {
-			isa = PBXGroup;
-			children = (
+				D979448E255E9BBF009165A0 /* UserDefaults.swift */,
 				D9BD25E324B60D800064230E /* ScoreBoardData.swift */,
 			);
-			path = Models;
+			path = ScoreBoardData;
 			sourceTree = "<group>";
 		};
 		D9BD25E124B370960064230E /* Supporting Files */ = {
@@ -146,16 +167,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D9BD25E224B5ED0E0064230E /* Views */ = {
+		D9BD25E224B5ED0E0064230E /* HelpersViews */ = {
 			isa = PBXGroup;
 			children = (
-				D975873823B607C40004BDAD /* Main.storyboard */,
-				D9BD25E724B8A55D0064230E /* AlertWindow.swift */,
 				D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */,
-				D980DCCA25F4AD710026B596 /* CustomViews */,
-				D997E11F25AA4D2F000F6C77 /* ScoreBoardTemplate */,
+				D9BD25E724B8A55D0064230E /* AlertWindow.swift */,
+				D980DCCB25F4ADB90026B596 /* EditTextField.swift */,
 			);
-			path = Views;
+			path = HelpersViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,10 +250,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9BD25E624B884490064230E /* WriteFilesToDisk.swift in Sources */,
+				D9BD25E624B884490064230E /* WriterFiles.swift in Sources */,
 				D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */,
 				D997E12425AA4D93000F6C77 /* BasicSBTemplateView.swift in Sources */,
-				D979448F255E9BBF009165A0 /* Defaults.swift in Sources */,
+				D980DCF326184FF60026B596 /* Extension_mainVC.swift in Sources */,
+				D979448F255E9BBF009165A0 /* UserDefaults.swift in Sources */,
 				D975873523B607C20004BDAD /* MainViewController.swift in Sources */,
 				D975873323B607C20004BDAD /* AppDelegate.swift in Sources */,
 				D9BD25EA24BC76D10064230E /* SelectDirectoryWindow.swift in Sources */,
@@ -381,11 +401,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ScoreBoard/Supporting Files/ScoreBoard.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development: vas.pet.app@gmail.com (H747ZP27AD)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = "хх.01.2021";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 55MCT9R6B9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -407,11 +427,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ScoreBoard/Supporting Files/ScoreBoard.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development: vas.pet.app@gmail.com (H747ZP27AD)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = "хх.01.2021";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 55MCT9R6B9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

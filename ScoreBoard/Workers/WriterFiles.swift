@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class WriteFilesToDisk {
+final class WriterFiles {
     
     private let scoreboardData = ScoreBoardData.shared
     
@@ -16,7 +16,7 @@ final class WriteFilesToDisk {
         case timer, homeName, awayName, period, homeGoal, awayGoal
     }
     
-    func writeFile(_ fileToWrite: FilesList...) {
+    func writeToDisk(for files: FilesList...) {
         do {
             if var userDirectoryUrl = restoreBookmarksPathDirectory() {
                 userDirectoryUrl = userDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
@@ -29,7 +29,7 @@ final class WriteFilesToDisk {
                 var text: String
                 var fileName: String
                 
-                for file in fileToWrite {
+                for file in files {
                     switch file {
                     case .timer:
                         text = scoreboardData.timerString

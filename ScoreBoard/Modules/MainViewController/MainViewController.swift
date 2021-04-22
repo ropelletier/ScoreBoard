@@ -43,7 +43,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
         loadDefaults() // initial setup of the main screen
         setTimeDefault() // restore default timer value
         showTimeInLabel() // show time + write timer file
-        WriteFilesToDisk().writeFile(.homeName, .awayName, .period, .homeGoal, .awayGoal) // write other files
+        WriterFiles().writeToDisk(for: .homeName, .awayName, .period, .homeGoal, .awayGoal) // write other files
     }
     
     override func viewDidAppear() {
@@ -138,6 +138,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     
     @IBAction func timeLabelAction(_ sender: Any) {
         focusToStartButton()
+        ScoreBoardData.shared.menuIsEnabled = true
         
         // delete everything except digits
         var timeFromUser = Array(timerTextField.stringValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
@@ -239,7 +240,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {
         scoreboardData.homeName = homeNameTextField.stringValue
-        awayNameTextField.becomeFirstResponder()
+        _ = awayNameTextField.becomeFirstResponder()
     }
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
@@ -263,13 +264,18 @@ class MainViewController: NSViewController, NSWindowDelegate {
             timerTextField.textColor = .red
             
             // disable App Nap
-            activityAppNap = ProcessInfo().beginActivity(options: .userInitiatedAllowingIdleSystemSleep, reason: "Run timer in background")
+            activityAppNap = ProcessInfo().beginActivity(
+                options: .userInitiatedAllowingIdleSystemSleep,
+                reason: "Run timer in background"
+            )
             
         } else {
             resetStateButtonStar()
             
             // enable App Nap
-            if let pinfo = activityAppNap { ProcessInfo().endActivity(pinfo) }
+            if let pinfo = activityAppNap {
+                ProcessInfo().endActivity(pinfo)
+            }
         }
     }
     
@@ -372,7 +378,6 @@ class MainViewController: NSViewController, NSWindowDelegate {
     
 }
 
-// MARK:  - Override
 extension MainViewController {
     override func mouseDown(with: NSEvent) {
 //        NSApp.mainWindow?.makeFirstResponder(nil) //снять выделения со всех элементов окна
@@ -387,6 +392,8 @@ private extension MainViewController {
     func deselectTextInTextFileds() {
         homeNameTextField.abortEditing()
         awayNameTextField.abortEditing()
+        
+        ScoreBoardData.shared.menuIsEnabled = true
         
         // deselect all text in Range
 //        homeNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)

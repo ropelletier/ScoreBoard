@@ -26,7 +26,7 @@ final class ScoreBoardData {
     
     var timerString: String = "00:00" {
         didSet {
-            WriteFilesToDisk().writeFile(.timer)
+            WriterFiles().writeToDisk(for: .timer)
         }
     }
     
@@ -35,7 +35,7 @@ final class ScoreBoardData {
             return UserDefaults.standard.string(forKey: "homeName") ?? "Home"
         } set {
             UserDefaults.standard.set(newValue, forKey: "homeName")
-            WriteFilesToDisk().writeFile(.homeName)
+            WriterFiles().writeToDisk(for: .homeName)
         }
     }
     
@@ -44,25 +44,25 @@ final class ScoreBoardData {
             return UserDefaults.standard.string(forKey: "awayName") ?? "Away"
         } set {
             UserDefaults.standard.set(newValue, forKey: "awayName")
-            WriteFilesToDisk().writeFile(.awayName)
+            WriterFiles().writeToDisk(for: .awayName)
         }
     }
     
     var countGoalHome: Int = 0 {
         didSet{
-            WriteFilesToDisk().writeFile(.homeGoal)
+            WriterFiles().writeToDisk(for: .homeGoal)
         }
     }
     
     var countGoalAway: Int = 0 {
         didSet{
-            WriteFilesToDisk().writeFile(.awayGoal)
+            WriterFiles().writeToDisk(for: .awayGoal)
         }
     }
     
     var periodCount: Int = 1 {
         didSet{
-            WriteFilesToDisk().writeFile(.period)
+            WriterFiles().writeToDisk(for: .period)
         }
     }
     
@@ -74,6 +74,8 @@ final class ScoreBoardData {
             UserDefaults.standard.set(newValue, forKey: "autoResetTimer")
         }
     }
+    
+    var menuIsEnabled: Bool = true
     
 }
 

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class AlertWindow {
+final class AlertWindow {
     
 //    private let titleDefault = "Unable to write file"
 //    private let messageDefault = """
