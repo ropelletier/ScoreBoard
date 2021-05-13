@@ -9,7 +9,7 @@
 import Cocoa
 
 extension MainViewController {
-    private var defaults: UserDefaults{
+    private var defaults: UserDefaults {
         UserDefaults.standard
     }
     
@@ -17,8 +17,8 @@ extension MainViewController {
         // restore NSSwitches state (timer and "soccer")
         isCountdown.state = defaults.value(forKey: "isCountdown") as? NSControl.StateValue ?? .on
         continueTimeSwitcher.state = defaults.value(forKey: "continueTimeSwitcher") as? NSControl.StateValue ?? .off
-        titleTimerMode.stringValue = isCountdown.state == .on ? "Countdown: ON" : "Countdown: OFF"
         continueTimeSwitcher.isEnabled = isCountdown.state == .on ? false : true
+        titleTimerMode.stringValue = isCountdown.state == .on ? "Countdown: ON" : "Countdown: OFF"
                 
         // restore slider and time
         sliderTimer.integerValue = scoreboardData.timeUserPreset

@@ -12,7 +12,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     
     // MARK: - IBOutlet
     @IBOutlet weak var timerTextField: EditTextField!
-    @IBOutlet weak var buttonStart: NSButton!
+    @IBOutlet weak var buttonStart: StartButton!
     @IBOutlet weak var isCountdown: NSSwitch!
     @IBOutlet weak var titleTimerMode: NSTextField!
     @IBOutlet weak var continueTimeSwitcher: NSSwitch!
@@ -35,12 +35,8 @@ class MainViewController: NSViewController, NSWindowDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Clear all UserDefaults
-//        if let bundleID = Bundle.main.bundleIdentifier {
-//            UserDefaults.standard.removePersistentDomain(forName: bundleID)
-//        }
-        
-        loadDefaults() // initial setup of the main screen
+        loadDefaults() // load properties the main screen
+        setCountsGoals()
         setTimeDefault() // restore default timer value
         showTimeInLabel() // show time + write timer file
         WriterFiles().writeToDisk(for: .homeName, .awayName, .period, .homeGoal, .awayGoal) // write other files
@@ -55,20 +51,9 @@ class MainViewController: NSViewController, NSWindowDelegate {
         NSApplication.shared.terminate(nil)
     }
     
-//    func resize() {
-//        guard var frame = self.view.window?.frame else { return }
-//        frame = NSRect(x: frame.origin.x, y: frame.origin.y - 100, width: 480, height: 370)
-////        (x: frame.origin.x, y: <#T##Int#>, width: 480, height: 370)
-////        frame.size = NSSize(width: 480, height:370)
-////        frame.origin = CGPoint(x: 100, y: 100)
-//        self.view.window?.setFrame(frame, display: true, animate: true)
-//        print(frame.origin.x)
-//        print(frame.origin.y)
-//    }
-    
     // MARK: - Functions
     
-    // функция запоминает установленные параметры таймера из слайдера
+    /// Save value timer from slider
     func setTimeDefault() {
         scoreboardData.timeUserPreset = sliderTimer.integerValue
         if isCountdown.state == .on {
@@ -78,7 +63,18 @@ class MainViewController: NSViewController, NSWindowDelegate {
         }
     }
     
-    // функция показывает время в поле (берет из таймера)
+    func setCountsGoals() {
+        goalHome.setLabel(
+            scoreboardData.getCountGoalsString(for: .home),
+            forSegment: 1
+        )
+        goalAway.setLabel(
+            scoreboardData.getCountGoalsString(for: .away),
+            forSegment: 1
+        )
+    }
+    
+    /// Show time in TextField
     func showTimeInLabel() {
         
         stepperSeconds.integerValue = scoreboardData.timeNow //сохраняет время для степперов
@@ -105,7 +101,6 @@ class MainViewController: NSViewController, NSWindowDelegate {
             "Timer setting (from 00:00 to \(sliderTimer.integerValue / 60):00)"
     }
     
-    // Сброс всех параметров проги на умолчание
     func resetAllState(){
         resetStateButtonStar()
         setTimeDefault()
@@ -118,17 +113,14 @@ class MainViewController: NSViewController, NSWindowDelegate {
         period.setLabel(String(scoreboardData.periodCount), forSegment: 1)
     }
     
-    // Сброс кнопки СТАРТ на начальное значение + остановка таймера
     func resetStateButtonStar(){
-        //        stopTimer()
         TimerFunctions.stopTimer()
-        //TimerFunctions().stopTimer()
         buttonStart.title = "START"
         timerTextField.textColor = .controlTextColor
     }
     
     // пользовательское время не должно быть больше чем установленный таймер, только если включен режим "футбол"
-    private func isAllowedChangeTime(newTime: Int) -> Bool {
+    func isAllowedChangeTime(newTime: Int) -> Bool {
         if continueTimeSwitcher.state == .on { return true }
         if scoreboardData.timeUserPreset >= newTime { return true }
         return false
@@ -192,55 +184,78 @@ class MainViewController: NSViewController, NSWindowDelegate {
     }
     
     @IBAction func goalHomeAction(_ sender: Any) {
-        if goalHome.selectedSegment == 0, scoreboardData.countGoalHome > 0 {
+        switch goalHome.selectedSegment {
+        case 0:
+            guard scoreboardData.countGoalHome > 0 else { break }
             scoreboardData.countGoalHome -= 1
-        }
-        if goalHome.selectedSegment == 2 { // || goalHome.selectedSegment == -1 (-1  передается из меню, а не по клику на кнопку)
+        
+        case 2:
             scoreboardData.countGoalHome += 1
-        }
-        if goalHome.selectedSegment == 3 {
+        
+        case 3:
             scoreboardData.countGoalHome += 2
-        }
-        if goalHome.selectedSegment == 4 {
+            
+        case 4:
             scoreboardData.countGoalHome += 3
+            
+        default:
+            return
         }
+    
         goalHome.selectedSegment = 1
-        goalHome.setLabel(String(scoreboardData.countGoalHome), forSegment: 1)
+        goalHome.setLabel(
+            scoreboardData.getCountGoalsString(for: .home),
+            forSegment: 1
+        )
     }
     
     @IBAction func goalAwayAction(_ sender: Any) {
         
-        if goalAway.selectedSegment == 0, scoreboardData.countGoalAway > 0 {
+        switch goalAway.selectedSegment {
+        case 0:
+            guard scoreboardData.countGoalAway > 0 else { break }
             scoreboardData.countGoalAway -= 1
-        }
         
-        if goalAway.selectedSegment == 2 { //  || goalAway.selectedSegment == -1 (-1  передается из меню, а не по клику на кнопку)
+        case 2:
             scoreboardData.countGoalAway += 1
-        }
-        if goalAway.selectedSegment == 3 {
+        
+        case 3:
             scoreboardData.countGoalAway += 2
-        }
-        if goalAway.selectedSegment == 4 {
+            
+        case 4:
             scoreboardData.countGoalAway += 3
+            
+        default:
+            return
         }
+    
         goalAway.selectedSegment = 1
-        goalAway.setLabel(String(scoreboardData.countGoalAway), forSegment: 1)
+        goalAway.setLabel(
+            scoreboardData.getCountGoalsString(for: .away),
+            forSegment: 1
+        )
     }
     
     @IBAction func periodAction(_ sender: Any) {
-        if period.selectedSegment == 0, scoreboardData.periodCount > 1 {
+        switch period.selectedSegment {
+        case 0:
+            guard scoreboardData.periodCount > 1 else { break }
             scoreboardData.periodCount -= 1
-        }
-        if period.selectedSegment == 2  || period.selectedSegment == -1 {
+        
+        case 2:
             scoreboardData.periodCount += 1
+            
+        default:
+            return
         }
+        
         period.selectedSegment = 1
         period.setLabel(String(scoreboardData.periodCount), forSegment: 1)
     }
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {
         scoreboardData.homeName = homeNameTextField.stringValue
-        _ = awayNameTextField.becomeFirstResponder()
+        awayNameTextField.becomeFirstResponder()
     }
     
     @IBAction func textFieldAwayNameAction(_ sender: Any) {
@@ -301,106 +316,15 @@ class MainViewController: NSViewController, NSWindowDelegate {
         swap(&scoreboardData.homeName, &scoreboardData.awayName)
         homeNameTextField.stringValue = scoreboardData.homeName
         awayNameTextField.stringValue = scoreboardData.awayName
+        
         swap(&scoreboardData.countGoalHome, &scoreboardData.countGoalAway)
-        goalHome.setLabel(String(scoreboardData.countGoalHome), forSegment: 1)
-        goalAway.setLabel(String(scoreboardData.countGoalAway), forSegment: 1)
-    }
-    
-    // MARK:- Menu action
-    
-    @IBAction func startPauseTimerFromMenu(_ sender: Any) {
-        pushButtonStart(self)
-    }
-    
-    @IBAction func plus1SecFromMenu(_ sender: Any) {
-        guard isAllowedChangeTime(newTime: scoreboardData.timeNow + 1) else { return }
-        scoreboardData.timeNow += 1
-        showTimeInLabel()
-    }
-    
-    @IBAction func minus1SecFromMenu(_ sender: Any) {
-        guard scoreboardData.timeNow > 0 else { return }
-        scoreboardData.timeNow -= 1
-        showTimeInLabel()
-    }
-    
-    @IBAction func plus1MinFromMenu(_ sender: Any) {
-        guard isAllowedChangeTime(newTime: scoreboardData.timeNow + 60) else { return }
-        scoreboardData.timeNow += 60
-        showTimeInLabel()
-    }
-    
-    @IBAction func minus1MinFromMenu(_ sender: Any) {
-        guard scoreboardData.timeNow >= 60 else { return }
-        scoreboardData.timeNow -= 60
-        showTimeInLabel()
-    }
-    
-    @IBAction func resetAllStateFromMenu(_ sender: Any) {
-        resetButtonPush(self)
-    }
-    
-    @IBAction func plus1GoalHomeFromMenu(_ sender: Any) {
-        goalHome.selectedSegment = 2
-        goalHomeAction(self)
-    }
-    
-    @IBAction func plus2GoalHomeFromMenu(_ sender: Any) {
-        goalHome.selectedSegment = 3
-        goalHomeAction(self)
-    }
-    
-    @IBAction func plus3GoalHomeFromMenu(_ sender: Any) {
-        goalHome.selectedSegment = 4
-        goalHomeAction(self)
-    }
-    
-    @IBAction func plus1GoalAwayFromMenu(_ sender: Any) {
-        goalAway.selectedSegment = 2
-        goalAwayAction(self)
-    }
-    
-    @IBAction func plus2GoalAwayFromMenu(_ sender: Any) {
-        goalAway.selectedSegment = 3
-        goalAwayAction(self)
-    }
-    
-    @IBAction func plus3GoalAwayFromMenu(_ sender: Any) {
-        goalAway.selectedSegment = 4
-        goalAwayAction(self)
-    }
-    
-    @IBAction func plus1PeriodFromMenu(_ sender: Any) {
-        period.selectedSegment = 2
-        periodAction(self)
-    }
-    
-    
-}
-
-extension MainViewController {
-    override func mouseDown(with: NSEvent) {
-//        NSApp.mainWindow?.makeFirstResponder(nil) //снять выделения со всех элементов окна
-        deselectTextInTextFileds()
-        focusToStartButton()
-    }
-}
-
-// MARK:  - Ptivate func
-private extension MainViewController {
-    //отменить выделение текста в полях NSTextFiled, так как фокус не связан с выделением (фокус на кнопке, а выделено назавание команды)
-    func deselectTextInTextFileds() {
-        homeNameTextField.abortEditing()
-        awayNameTextField.abortEditing()
-        
-        ScoreBoardData.shared.menuIsEnabled = true
-        
-        // deselect all text in Range
-//        homeNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
-//        awayNameTextField.currentEditor()?.selectedRange = NSMakeRange(0, 0)
-    }
-    
-    func focusToStartButton() {
-        buttonStart.window?.makeFirstResponder(buttonStart)
+        goalHome.setLabel(
+            scoreboardData.getCountGoalsString(for: .home),
+            forSegment: 1
+        )
+        goalAway.setLabel(
+            scoreboardData.getCountGoalsString(for: .away),
+            forSegment: 1
+        )
     }
 }

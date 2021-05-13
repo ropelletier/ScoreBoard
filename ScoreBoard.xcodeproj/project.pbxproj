@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D90D1EA62643302000005682 /* MenuActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1EA52643302000005682 /* MenuActions.swift */; };
+		D90D1EA82643BAB400005682 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1EA72643BAB400005682 /* StartButton.swift */; };
 		D950678A25273BED00C1080B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D950678925273BED00C1080B /* Credits.rtf */; };
+		D97553042644810E00A9D4BA /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25DD24B336260064230E /* PreferencesViewController.swift */; };
 		D975873323B607C20004BDAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975873223B607C20004BDAD /* AppDelegate.swift */; };
 		D975873523B607C20004BDAD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975873423B607C20004BDAD /* MainViewController.swift */; };
 		D975873723B607C40004BDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D975873623B607C40004BDAD /* Assets.xcassets */; };
@@ -15,11 +18,11 @@
 		D979448F255E9BBF009165A0 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* UserDefaults.swift */; };
 		D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */; };
 		D980DCCC25F4ADB90026B596 /* EditTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCCB25F4ADB90026B596 /* EditTextField.swift */; };
-		D980DCF326184FF60026B596 /* Extension_mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCF226184FF60026B596 /* Extension_mainVC.swift */; };
+		D980DCF326184FF60026B596 /* DisableMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCF226184FF60026B596 /* DisableMenuItems.swift */; };
+		D987631226320791005E1174 /* DeselectText+SetFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987631126320791005E1174 /* DeselectText+SetFocus.swift */; };
 		D997E11A25AA45F7000F6C77 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D997E11925AA45F7000F6C77 /* README.md */; };
 		D997E12125AA4D85000F6C77 /* BasicSBTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D997E12025AA4D85000F6C77 /* BasicSBTemplateView.xib */; };
 		D997E12425AA4D93000F6C77 /* BasicSBTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */; };
-		D9BD25DE24B336260064230E /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25DD24B336260064230E /* PreferencesViewController.swift */; };
 		D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E324B60D800064230E /* ScoreBoardData.swift */; };
 		D9BD25E624B884490064230E /* WriterFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E524B884490064230E /* WriterFiles.swift */; };
 		D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E724B8A55D0064230E /* AlertWindow.swift */; };
@@ -27,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D90D1EA52643302000005682 /* MenuActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuActions.swift; sourceTree = "<group>"; };
+		D90D1EA72643BAB400005682 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		D950678925273BED00C1080B /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		D975872F23B607C20004BDAD /* ScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D975873223B607C20004BDAD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +43,8 @@
 		D979448E255E9BBF009165A0 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		D980DCCB25F4ADB90026B596 /* EditTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextField.swift; sourceTree = "<group>"; };
 		D980DCD2260E74C00026B596 /* testPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = testPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		D980DCF226184FF60026B596 /* Extension_mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_mainVC.swift; sourceTree = "<group>"; };
+		D980DCF226184FF60026B596 /* DisableMenuItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableMenuItems.swift; sourceTree = "<group>"; };
+		D987631126320791005E1174 /* DeselectText+SetFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeselectText+SetFocus.swift"; sourceTree = "<group>"; };
 		D997E11925AA45F7000F6C77 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D997E12025AA4D85000F6C77 /* BasicSBTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicSBTemplateView.xib; sourceTree = "<group>"; };
 		D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSBTemplateView.swift; sourceTree = "<group>"; };
@@ -94,7 +100,7 @@
 				D975873223B607C20004BDAD /* AppDelegate.swift */,
 				D980DCF9262A2ECB0026B596 /* Modules */,
 				D9BD25E024B370620064230E /* ScoreBoardData */,
-				D9BD25E224B5ED0E0064230E /* HelpersViews */,
+				D9BD25E224B5ED0E0064230E /* Views */,
 				D949635F24F7DAE70032E9FD /* Workers */,
 				D9BD25E124B370960064230E /* Supporting Files */,
 			);
@@ -105,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				D980DCFA262A2ED80026B596 /* MainViewController */,
-				D980DCFB262A2EE10026B596 /* SettingsViewController */,
+				D980DCFB262A2EE10026B596 /* PreferencesViewController */,
 				D980DD00262E0C770026B596 /* ScoreBoardTemplates */,
 			);
 			path = Modules;
@@ -114,19 +120,19 @@
 		D980DCFA262A2ED80026B596 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D980DCF226184FF60026B596 /* Extension_mainVC.swift */,
+				D987630E26320776005E1174 /* Extensions MainVC */,
 				D975873423B607C20004BDAD /* MainViewController.swift */,
 				D975873823B607C40004BDAD /* Main.storyboard */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
 		};
-		D980DCFB262A2EE10026B596 /* SettingsViewController */ = {
+		D980DCFB262A2EE10026B596 /* PreferencesViewController */ = {
 			isa = PBXGroup;
 			children = (
 				D9BD25DD24B336260064230E /* PreferencesViewController.swift */,
 			);
-			path = SettingsViewController;
+			path = PreferencesViewController;
 			sourceTree = "<group>";
 		};
 		D980DD00262E0C770026B596 /* ScoreBoardTemplates */ = {
@@ -135,6 +141,16 @@
 				D997E11F25AA4D2F000F6C77 /* Basic */,
 			);
 			path = ScoreBoardTemplates;
+			sourceTree = "<group>";
+		};
+		D987630E26320776005E1174 /* Extensions MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				D980DCF226184FF60026B596 /* DisableMenuItems.swift */,
+				D90D1EA52643302000005682 /* MenuActions.swift */,
+				D987631126320791005E1174 /* DeselectText+SetFocus.swift */,
+			);
+			path = "Extensions MainVC";
 			sourceTree = "<group>";
 		};
 		D997E11F25AA4D2F000F6C77 /* Basic */ = {
@@ -167,14 +183,15 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D9BD25E224B5ED0E0064230E /* HelpersViews */ = {
+		D9BD25E224B5ED0E0064230E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */,
+				D90D1EA72643BAB400005682 /* StartButton.swift */,
 				D9BD25E724B8A55D0064230E /* AlertWindow.swift */,
 				D980DCCB25F4ADB90026B596 /* EditTextField.swift */,
 			);
-			path = HelpersViews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,13 +270,16 @@
 				D9BD25E624B884490064230E /* WriterFiles.swift in Sources */,
 				D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */,
 				D997E12425AA4D93000F6C77 /* BasicSBTemplateView.swift in Sources */,
-				D980DCF326184FF60026B596 /* Extension_mainVC.swift in Sources */,
+				D980DCF326184FF60026B596 /* DisableMenuItems.swift in Sources */,
 				D979448F255E9BBF009165A0 /* UserDefaults.swift in Sources */,
+				D97553042644810E00A9D4BA /* PreferencesViewController.swift in Sources */,
 				D975873523B607C20004BDAD /* MainViewController.swift in Sources */,
 				D975873323B607C20004BDAD /* AppDelegate.swift in Sources */,
 				D9BD25EA24BC76D10064230E /* SelectDirectoryWindow.swift in Sources */,
+				D90D1EA62643302000005682 /* MenuActions.swift in Sources */,
 				D980DCCC25F4ADB90026B596 /* EditTextField.swift in Sources */,
-				D9BD25DE24B336260064230E /* PreferencesViewController.swift in Sources */,
+				D987631226320791005E1174 /* DeselectText+SetFocus.swift in Sources */,
+				D90D1EA82643BAB400005682 /* StartButton.swift in Sources */,
 				D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */,
 				D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */,
 			);

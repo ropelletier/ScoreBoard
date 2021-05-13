@@ -13,36 +13,36 @@ final class TimerFunctions {
     static var timerStatus: Timer? = nil
     
     static func startTimer(){
-        let mainVC = NSApplication.shared.mainWindow?.windowController?.contentViewController as! MainViewController
+        let mainVC = NSApplication.shared.mainWindow?.windowController?.contentViewController as? MainViewController
         let scoreboardData = ScoreBoardData.shared
         
         if timerStatus == nil {
             timerStatus = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-                if mainVC.isCountdown.state == .on {
+                if mainVC?.isCountdown.state == .on {
                     guard scoreboardData.timeNow > 0 else {
-                        mainVC.resetStateButtonStar()
+                        mainVC?.resetStateButtonStar()
                         if scoreboardData.autoResetTimer {
-                                mainVC.setTimeDefault()
-                                mainVC.showTimeInLabel()
+                                mainVC?.setTimeDefault()
+                                mainVC?.showTimeInLabel()
                         }
                         return
                     }
                     scoreboardData.timeNow -= 1
                 } else {
                     // остановить таймер если выключен режим "футбола", когда таймер не останавливается
-                    if mainVC.continueTimeSwitcher.state == .off  {
+                    if mainVC?.continueTimeSwitcher.state == .off  {
                         guard scoreboardData.timeNow < scoreboardData.timeUserPreset else {
-                            mainVC.resetStateButtonStar()
+                            mainVC?.resetStateButtonStar()
                             if scoreboardData.autoResetTimer {
-                                    mainVC.setTimeDefault()
-                                    mainVC.showTimeInLabel()
+                                    mainVC?.setTimeDefault()
+                                    mainVC?.showTimeInLabel()
                             }
                             return
                         }
                     }
                     scoreboardData.timeNow += 1
                 }
-                mainVC.showTimeInLabel()
+                mainVC?.showTimeInLabel()
             }
         }
     }

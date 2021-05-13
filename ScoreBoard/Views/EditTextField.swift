@@ -8,9 +8,10 @@
 
 import Cocoa
 
-class EditTextField: NSTextField {
+final class EditTextField: NSTextField {
     private let scoreboardData = ScoreBoardData.shared
 
+    @discardableResult
     override func becomeFirstResponder() -> Bool {
         let becomeFirstResponder = super.becomeFirstResponder()
         if becomeFirstResponder {
@@ -19,7 +20,6 @@ class EditTextField: NSTextField {
         return becomeFirstResponder
     }
     
-    // select all text when tap in TextField
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
         if let textEditor = currentEditor() {

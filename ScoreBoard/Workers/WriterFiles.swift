@@ -11,6 +11,7 @@ import Foundation
 final class WriterFiles {
     
     private let scoreboardData = ScoreBoardData.shared
+    private let alertWindow = AlertWindow()
     
     enum FilesList {
         case timer, homeName, awayName, period, homeGoal, awayGoal
@@ -44,10 +45,10 @@ final class WriterFiles {
                         text = String(scoreboardData.periodCount)
                         fileName = "Period.txt"
                     case .homeGoal:
-                        text = String(scoreboardData.countGoalHome)
+                        text = scoreboardData.getCountGoalsString(for: .home)
                         fileName = "HomeGoal.txt"
                     case .awayGoal:
-                        text = String(scoreboardData.countGoalAway)
+                        text = scoreboardData.getCountGoalsString(for: .away)
                         fileName = "AwayGoal.txt"
                     }
 
@@ -67,7 +68,8 @@ final class WriterFiles {
                 
                 """
             
-            AlertWindow().showAlert(title: title, message: message) // передавать текст ошибки и рекомендации
+            // передавать текст ошибки и рекомендации
+            alertWindow.showAlert(title: title, message: message)
         }
     }
     
@@ -89,7 +91,8 @@ final class WriterFiles {
             let title = "saveBookmarksPathDirectory"
             let message = "Dont saved BookmarksPathDirectory"
             
-            AlertWindow().showAlert(title: title, message: message) // передавать текст ошибки и рекомендации
+            // передавать текст ошибки и рекомендации
+            alertWindow.showAlert(title: title, message: message)
         }
     }
     
@@ -114,7 +117,8 @@ final class WriterFiles {
             let title = "restoreBookmarksPathDirectory"
             let message = "Dont load BookmarksPathDirectory"
             
-            AlertWindow().showAlert(title: title, message: message) // передавать текст ошибки и рекомендации
+            // передавать текст ошибки и рекомендации
+            alertWindow.showAlert(title: title, message: message)
             
             return nil
         }

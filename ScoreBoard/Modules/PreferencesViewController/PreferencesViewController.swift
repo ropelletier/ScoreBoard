@@ -8,7 +8,7 @@
 
 import Cocoa
 
-private class PreferencesViewController: NSViewController {
+final class PreferencesViewController: NSViewController {
     
     private let writerFiles = WriterFiles()
 
@@ -20,10 +20,12 @@ private class PreferencesViewController: NSViewController {
         workDirectoryPath.url = writerFiles.restoreBookmarksPathDirectory()?.appendingPathComponent("ScoreBoard Outputs")
         
         autoResetTimer.state = ScoreBoardData.shared.autoResetTimer ? .on : .off
+        addZeroToGoalsOutlet.state = ScoreBoardData.shared.addZeroToGoalsCounts ? .on : .off
     }
     
     @IBOutlet weak var workDirectoryPath: NSPathControl!
     @IBOutlet weak var autoResetTimer: NSButton!
+    @IBOutlet weak var addZeroToGoalsOutlet: NSButton!
     
     @IBAction func selectUserDirectory(_ sender: Any) {
 
@@ -43,6 +45,10 @@ private class PreferencesViewController: NSViewController {
     
     @IBAction func autoResetTimerCheckBox(_ sender: Any) {
         ScoreBoardData.shared.autoResetTimer = autoResetTimer.state == .on ? true : false
+    }
+    
+    @IBAction func addZeroToGoalCounts(_ sender: Any) {
+        ScoreBoardData.shared.addZeroToGoalsCounts = addZeroToGoalsOutlet.state == .on ? true : false
     }
     
     @IBAction func pressOKButtonPreferences(_ sender: Any) {

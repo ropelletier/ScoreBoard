@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -385,6 +385,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Game counters" id="RQH-eF-rwj">
                                     <items>
+                                        <menuItem title="-1 Goal Home" id="6U9-SS-VOY">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="minus1GoalHomeFromMenu:" target="Ady-hI-5gd" id="8Y1-7G-w9h"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="+1 Goal Home" keyEquivalent="" id="PeS-LS-msi">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -403,6 +409,12 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="mgf-wC-Iil"/>
+                                        <menuItem title="-1 Goal Away" id="tm1-q3-Ohl">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="minus1GoalAwayFromMenu:" target="Ady-hI-5gd" id="zrV-nl-MKH"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="+1 Goal Away" keyEquivalent="" id="xh7-Cc-ehH">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -432,6 +444,12 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="resetAllStateFromMenu:" target="Ady-hI-5gd" id="Xah-4y-eSt"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Clear Defaults" image="NSRefreshTemplate" alternate="YES" keyEquivalent="R" id="yk0-kT-NwX">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <connections>
+                                                <action selector="clearUserDefaults:" target="Ady-hI-5gd" id="FPh-aO-z3C"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -507,10 +525,18 @@
         <scene sceneID="0HL-i3-GaJ">
             <objects>
                 <viewController storyboardIdentifier="Preferences" showSeguePresentationStyle="single" id="aw4-w5-dXm" customClass="PreferencesViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="QIq-4A-fvG">
+                    <view key="view" identifier="Preferences" id="QIq-4A-fvG">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-MS-wOU">
+                                <rect key="frame" x="18" y="164" width="198" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Directory to write the files (.txt):" id="vLU-dP-IQV">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <pathControl horizontalHuggingPriority="249" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-ey-13F">
                                 <rect key="frame" x="20" y="137" width="353" height="22"/>
                                 <constraints>
@@ -525,14 +551,36 @@
                                     <action selector="setUserDirectory:" target="aw4-w5-dXm" id="xtZ-AE-shD"/>
                                 </connections>
                             </pathControl>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-MS-wOU">
-                                <rect key="frame" x="18" y="164" width="198" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Directory to write the files (.txt):" id="vLU-dP-IQV">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-2v-uRU">
+                                <rect key="frame" x="386" y="131" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zjj-Pr-1nh">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectUserDirectory:" target="aw4-w5-dXm" id="zWW-51-OTN"/>
+                                </connections>
+                            </button>
+                            <button toolTip="Enable or disable automatic time reset after the timer expires." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4c9-Lb-P4s">
+                                <rect key="frame" x="18" y="90" width="442" height="18"/>
+                                <buttonCell key="cell" type="check" title="Automatically reset the timer after the end." bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" inset="2" id="Kwq-1O-4Gk">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="autoResetTimerCheckBox:" target="aw4-w5-dXm" id="MPl-Vk-IX0"/>
+                                </connections>
+                            </button>
+                            <button toolTip="Enable or disable add zerro to goals counter when count less than 10" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hy3-zR-PdW">
+                                <rect key="frame" x="18" y="64" width="442" height="18"/>
+                                <buttonCell key="cell" type="check" title="Add zero if the goal counter is less than 10 (6 or 06)" bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" inset="2" id="Ace-3x-lx4">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="addZeroToGoalCounts:" target="aw4-w5-dXm" id="5H5-1Z-2I5"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-61-dlp">
                                 <rect key="frame" x="214" y="13" width="53" height="32"/>
                                 <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NFb-n9-y0G">
@@ -546,26 +594,6 @@ DQ
                                     <action selector="pressOKButtonPreferences:" target="aw4-w5-dXm" id="cv2-5F-FC9"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-2v-uRU">
-                                <rect key="frame" x="386" y="131" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zjj-Pr-1nh">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="selectUserDirectory:" target="aw4-w5-dXm" id="zWW-51-OTN"/>
-                                </connections>
-                            </button>
-                            <button toolTip="Enable or disable automatic time reset after the timer expires." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4c9-Lb-P4s">
-                                <rect key="frame" x="18" y="90" width="442" height="18"/>
-                                <buttonCell key="cell" type="check" title="Automatically reset the timer after the end." bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" state="on" inset="2" id="Kwq-1O-4Gk">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="autoResetTimerCheckBox:" target="aw4-w5-dXm" id="MPl-Vk-IX0"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="mZ0-2v-uRU" firstAttribute="centerY" secondItem="m4C-ey-13F" secondAttribute="centerY" id="0SN-Ss-yod"/>
@@ -575,15 +603,19 @@ DQ
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="DBG-MS-wOU" secondAttribute="trailing" constant="283" id="GLJ-GZ-ofX"/>
                             <constraint firstItem="DBG-MS-wOU" firstAttribute="top" secondItem="QIq-4A-fvG" secondAttribute="top" constant="20" id="Jds-xk-zv9"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4c9-Lb-P4s" secondAttribute="trailing" constant="20" symbolic="YES" id="KYK-pN-mjC"/>
+                            <constraint firstItem="hy3-zR-PdW" firstAttribute="top" secondItem="4c9-Lb-P4s" secondAttribute="bottom" constant="10" id="O05-Eu-HK5"/>
                             <constraint firstItem="4ra-61-dlp" firstAttribute="centerX" secondItem="QIq-4A-fvG" secondAttribute="centerX" id="QZG-sU-sPs"/>
                             <constraint firstItem="4c9-Lb-P4s" firstAttribute="top" secondItem="m4C-ey-13F" secondAttribute="bottom" constant="30" id="QsA-wA-zoT"/>
+                            <constraint firstItem="hy3-zR-PdW" firstAttribute="leading" secondItem="m4C-ey-13F" secondAttribute="leading" id="YKC-Y7-QXe"/>
                             <constraint firstItem="4c9-Lb-P4s" firstAttribute="leading" secondItem="m4C-ey-13F" secondAttribute="leading" id="YrZ-Qo-nRz"/>
                             <constraint firstItem="m4C-ey-13F" firstAttribute="leading" secondItem="QIq-4A-fvG" secondAttribute="leading" constant="20" id="bJe-Oh-59Q"/>
                             <constraint firstItem="mZ0-2v-uRU" firstAttribute="leading" secondItem="m4C-ey-13F" secondAttribute="trailing" constant="20" id="mJs-Vd-LdD"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hy3-zR-PdW" secondAttribute="trailing" constant="20" symbolic="YES" id="wyu-AZ-BMC"/>
                             <constraint firstItem="m4C-ey-13F" firstAttribute="top" secondItem="DBG-MS-wOU" secondAttribute="bottom" constant="5" id="xF4-2O-KhT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addZeroToGoalsOutlet" destination="hy3-zR-PdW" id="X4D-cv-618"/>
                         <outlet property="autoResetTimer" destination="4c9-Lb-P4s" id="Yue-Ci-8jw"/>
                         <outlet property="workDirectoryPath" destination="m4C-ey-13F" id="GFj-M6-wwP"/>
                     </connections>
@@ -637,7 +669,7 @@ DQ
                                     <outlet property="nextKeyView" destination="7b5-xV-TVs" id="SuE-zM-9ou"/>
                                 </connections>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-gN-t1M">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-gN-t1M" customClass="StartButton" customModule="ScoreBoard" customModuleProvider="target">
                                 <rect key="frame" x="198" y="146" width="84" height="33"/>
                                 <buttonCell key="cell" type="bevel" title="START" bezelStyle="regularSquare" alignment="center" lineBreakMode="charWrapping" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="saF-P2-6MX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

@@ -10,17 +10,6 @@ import Cocoa
 
 final class AlertWindow {
     
-//    private let titleDefault = "Unable to write file"
-//    private let messageDefault = """
-//        There is no access to the directory for writing.
-//        Give the program access to write files to disk:
-//
-//        System Preferences > Security and Privacy > Privacy > Files and Folders
-//
-//        Check the box for the program "ScoreBoard.app".
-//
-//        """
-    
     func showAlert(title: String = "Error", message: String = "Something went wrong") {
         let alert = NSAlert()
         alert.messageText = title
