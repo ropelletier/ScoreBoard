@@ -12,13 +12,18 @@ All output data are stored in TXT files on the computer. Each of them can be use
 In the settings window (gear icon), you can select the desired directory to save TXT files.
 ## Screenshots
 
-<img width="500" alt="ScoreBoard_v1.4" src="https://user-images.githubusercontent.com/61139898/118131360-1ed55400-b407-11eb-8da0-6728311ebccd.png">
-<img width="500" alt="ScoreBoard_preferences_v1.4" src="https://user-images.githubusercontent.com/61139898/118131539-52b07980-b407-11eb-844b-d49a909adfb1.png">
+<p align="center">
+  <img width="500" alt="ScoreBoard_v1.4" src="https://user-images.githubusercontent.com/61139898/118131360-1ed55400-b407-11eb-8da0-6728311ebccd.png">
+  <img width="500" alt="ScoreBoard_preferences_v1.4" src="https://user-images.githubusercontent.com/61139898/118131539-52b07980-b407-11eb-844b-d49a909adfb1.png">
+</p>
 
 <details>
 <summary>Possible outcome in OBS ...</summary>
   <img src="https://user-images.githubusercontent.com/61139898/91486208-9af92d00-e8b4-11ea-9844-2f80877b539b.jpg" alt="Scoreboard in OBS">
 </details>
+
+## Video instructions for use
+[![ScoreBoard for OBS on MacOS (instruction)](https://user-images.githubusercontent.com/61139898/118133889-00248c80-b40a-11eb-838c-1a7699af4db3.png)](https://youtu.be/dHj56FIE2ng "ScoreBoard for OBS on MacOS (instruction)")
 
 ## Important information
 Since the program is not signed with an Apple certificate, it is necessary to manually enable launch at startup:
