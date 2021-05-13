@@ -18,12 +18,12 @@ In the settings window (gear icon), you can select the desired directory to save
 </p>
 
 <details>
-<summary>Possible outcome in OBS ...</summary>
+<summary>Possible scoreboard template in OBS...</summary>
   <img src="https://user-images.githubusercontent.com/61139898/91486208-9af92d00-e8b4-11ea-9844-2f80877b539b.jpg" alt="Scoreboard in OBS">
 </details>
 
 ## Video instructions for use
-[![ScoreBoard for OBS on MacOS (instruction)](https://user-images.githubusercontent.com/61139898/118133889-00248c80-b40a-11eb-838c-1a7699af4db3.png)](https://youtu.be/dHj56FIE2ng "ScoreBoard for OBS on MacOS (instruction)")
+  [<img width="500" alt="ScoreBoard for OBS on MacOS (instruction)" src="https://user-images.githubusercontent.com/61139898/118147118-eee27c80-b417-11eb-8874-7b7e5a660840.png">](https://youtu.be/dHj56FIE2ng "ScoreBoard for OBS on MacOS (instruction)")
 
 ## Important information
 Since the program is not signed with an Apple certificate, it is necessary to manually enable launch at startup:
