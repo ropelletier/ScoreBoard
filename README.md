@@ -11,7 +11,9 @@ All output data are stored in TXT files on the computer. Each of them can be use
 
 In the settings window (gear icon), you can select the desired directory to save TXT files.
 ## Screenshots
-<img width="500" alt="ScoreBoard_v1 2" src="https://user-images.githubusercontent.com/61139898/99843203-39c6ba00-2b82-11eb-82d7-0a864a1e92b5.png">
+
+<img width="500" alt="ScoreBoard_v1.4" src="https://user-images.githubusercontent.com/61139898/118131360-1ed55400-b407-11eb-8da0-6728311ebccd.png">
+<img width="500" alt="ScoreBoard_preferences_v1.4" src="https://user-images.githubusercontent.com/61139898/118131539-52b07980-b407-11eb-844b-d49a909adfb1.png">
 
 <details>
 <summary>Possible outcome in OBS ...</summary>
