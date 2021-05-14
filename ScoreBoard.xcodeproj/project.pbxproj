@@ -42,7 +42,6 @@
 		D975873C23B607C40004BDAD /* ScoreBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScoreBoard.entitlements; sourceTree = "<group>"; };
 		D979448E255E9BBF009165A0 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		D980DCCB25F4ADB90026B596 /* EditTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextField.swift; sourceTree = "<group>"; };
-		D980DCD2260E74C00026B596 /* testPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = testPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D980DCF226184FF60026B596 /* DisableMenuItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableMenuItems.swift; sourceTree = "<group>"; };
 		D987631126320791005E1174 /* DeselectText+SetFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeselectText+SetFocus.swift"; sourceTree = "<group>"; };
 		D997E11925AA45F7000F6C77 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -174,7 +173,6 @@
 		D9BD25E124B370960064230E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D980DCD2260E74C00026B596 /* testPlayground.playground */,
 				D975873B23B607C40004BDAD /* Info.plist */,
 				D975873C23B607C40004BDAD /* ScoreBoard.entitlements */,
 				D975873623B607C40004BDAD /* Assets.xcassets */,
@@ -424,7 +422,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = "хх.01.2021";
+				CURRENT_PROJECT_VERSION = 13.05.2021;
 				DEVELOPMENT_TEAM = 55MCT9R6B9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
@@ -450,7 +448,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = "хх.01.2021";
+				CURRENT_PROJECT_VERSION = 13.05.2021;
 				DEVELOPMENT_TEAM = 55MCT9R6B9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
