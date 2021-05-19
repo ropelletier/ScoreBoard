@@ -545,7 +545,7 @@
                                 <pathCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" refusesFirstResponder="YES" alignment="left" id="TyS-DA-e9Z">
                                     <font key="font" metaFont="system"/>
                                     <url key="url" string="file:////"/>
-                                    <color key="backgroundColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 </pathCell>
                                 <connections>
                                     <action selector="setUserDirectory:" target="aw4-w5-dXm" id="xtZ-AE-shD"/>
