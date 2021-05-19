@@ -105,15 +105,20 @@ final class ScoreBoardData {
         } set {
             UserDefaults.standard.set(newValue, forKey: "addZeroToGoalsCounts")
             writerFiles.writeToDisk(for: .homeGoal, .awayGoal)
-            
-            if let mainWindow = NSApplication.shared.windows.first(where: { $0.windowController?.contentViewController is MainViewController }) {
-                let mainVC = mainWindow.windowController?.contentViewController as? MainViewController
-                mainVC?.setCountsGoals()
-            }
+            mainVC?.setCountsGoals()
         }
     }
     
     var menuIsEnabled: Bool = true
+    
+    var mainVC: MainViewController? {
+        if let mainWindow = NSApplication.shared.windows.first(where: { $0.windowController?.contentViewController is MainViewController }) {
+            
+            return mainWindow.windowController?.contentViewController as? MainViewController
+        } else {
+            return nil
+        }
+    }
 }
 
 

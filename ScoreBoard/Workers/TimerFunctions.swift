@@ -13,7 +13,7 @@ final class TimerFunctions {
     static var timerStatus: Timer? = nil
     
     static func startTimer(){
-        let mainVC = NSApplication.shared.mainWindow?.windowController?.contentViewController as? MainViewController
+        let mainVC = ScoreBoardData.shared.mainVC
         let scoreboardData = ScoreBoardData.shared
         
         if timerStatus == nil {
