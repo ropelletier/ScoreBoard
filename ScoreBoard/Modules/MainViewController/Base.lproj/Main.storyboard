@@ -702,8 +702,17 @@ DQ
                                     <action selector="sliderTimerAction:" target="XfG-lQ-9wD" id="OWD-a0-Uo3"/>
                                 </connections>
                             </slider>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="kO3-ng-4DD">
+                                <rect key="frame" x="6" y="108" width="25" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="1" id="Ra6-tb-s4z">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="otc-Kn-LFT">
-                                <rect key="frame" x="43" y="108" width="25" height="16"/>
+                                <rect key="frame" x="40" y="108" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="5" id="5ME-VK-dp0">
                                     <font key="font" metaFont="system"/>
@@ -712,7 +721,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Mfq-dM-UQs">
-                                <rect key="frame" x="80" y="108" width="25" height="16"/>
+                                <rect key="frame" x="78" y="108" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="center" title="10" id="frH-C7-1El">
                                     <font key="font" metaFont="system"/>
@@ -721,7 +730,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TLo-of-hE4">
-                                <rect key="frame" x="116" y="108" width="25" height="16"/>
+                                <rect key="frame" x="113" y="108" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="15" id="pQq-eB-vYx">
                                     <font key="font" metaFont="system"/>
@@ -730,7 +739,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="syC-0B-HuT">
-                                <rect key="frame" x="152" y="108" width="25" height="16"/>
+                                <rect key="frame" x="150" y="108" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="20" id="OrR-rA-ct3">
                                     <font key="font" metaFont="system"/>
@@ -748,7 +757,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iYZ-Jt-E31">
-                                <rect key="frame" x="333" y="108" width="25" height="16"/>
+                                <rect key="frame" x="334" y="108" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="45" id="nvF-R2-VId">
                                     <font key="font" metaFont="system"/>
@@ -757,7 +766,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FXT-Tp-HWe">
-                                <rect key="frame" x="442" y="108" width="25" height="16"/>
+                                <rect key="frame" x="449" y="108" width="25" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="60" id="lBP-fQ-9rk">
                                     <font key="font" metaFont="system"/>
