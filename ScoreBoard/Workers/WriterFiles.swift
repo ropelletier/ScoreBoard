@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class WriterFiles {
+final class WriterFiles { // name - FileWriter
     
     private let scoreboardData = ScoreBoardData.shared
     private let alertWindow = AlertWindow()

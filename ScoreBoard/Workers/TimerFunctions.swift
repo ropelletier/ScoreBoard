@@ -8,7 +8,7 @@
 
 import Cocoa
 
-final class TimerFunctions {
+final class TimerFunctions { // name ScoreBoardTimer
     
     static var timerStatus: Timer? = nil
     
@@ -21,6 +21,7 @@ final class TimerFunctions {
                 if mainVC?.isCountdown.state == .on {
                     guard scoreboardData.timeNow > 0 else {
                         mainVC?.resetStateButtonStar()
+                        mainVC?.redTipForNextPeriod.isHidden = false
                         if scoreboardData.autoResetTimer {
                                 mainVC?.setTimeDefault()
                                 mainVC?.showTimeInLabel()
@@ -33,6 +34,7 @@ final class TimerFunctions {
                     if mainVC?.continueTimeSwitcher.state == .off  {
                         guard scoreboardData.timeNow < scoreboardData.timeUserPreset else {
                             mainVC?.resetStateButtonStar()
+                            mainVC?.redTipForNextPeriod.isHidden = false
                             if scoreboardData.autoResetTimer {
                                     mainVC?.setTimeDefault()
                                     mainVC?.showTimeInLabel()

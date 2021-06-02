@@ -25,13 +25,14 @@ class MainViewController: NSViewController, NSWindowDelegate {
     @IBOutlet weak var goalHome: NSSegmentedControl!
     @IBOutlet weak var goalAway: NSSegmentedControl!
     @IBOutlet weak var period: NSSegmentedControl!
+    @IBOutlet weak var redTipForNextPeriod: NSImageView!
     @IBOutlet weak var stepperSeconds: NSStepper!
     @IBOutlet weak var stepperMinutes: NSStepper!
     
     @IBOutlet weak var scoreBoardView: BasicSBTemplateView!
     
     let scoreboardData = ScoreBoardData.shared
-    var activityAppNap: NSObjectProtocol? //for disable/enable App Nap in macOS
+    private var activityAppNap: NSObjectProtocol? //for disable/enable App Nap in macOS
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
         setCountsGoals()
         setTimeDefault() // restore default timer value
         showTimeInLabel() // show time + write timer file
-        WriterFiles().writeToDisk(for: .homeName, .awayName, .period, .homeGoal, .awayGoal) // write other files
+        WriterFiles().writeToDisk(for: .homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
     override func viewDidAppear() {

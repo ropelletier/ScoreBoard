@@ -86,6 +86,7 @@ final class ScoreBoardData {
     var periodCount: Int = 1 {
         didSet{
             writerFiles.writeToDisk(for: .period)
+            mainVC?.redTipForNextPeriod.isHidden = true
         }
     }
     

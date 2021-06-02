@@ -537,7 +537,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <pathControl horizontalHuggingPriority="249" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-ey-13F">
+                            <pathControl toolTip="Choosing a directory to save files with statistics." horizontalHuggingPriority="249" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-ey-13F">
                                 <rect key="frame" x="20" y="137" width="353" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="353" id="QHc-j9-i9w"/>
@@ -551,7 +551,7 @@
                                     <action selector="setUserDirectory:" target="aw4-w5-dXm" id="xtZ-AE-shD"/>
                                 </connections>
                             </pathControl>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-2v-uRU">
+                            <button toolTip="Choosing a directory to save files with statistics." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-2v-uRU">
                                 <rect key="frame" x="386" y="131" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zjj-Pr-1nh">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -669,7 +669,7 @@ DQ
                                     <outlet property="nextKeyView" destination="7b5-xV-TVs" id="SuE-zM-9ou"/>
                                 </connections>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-gN-t1M" customClass="StartButton" customModule="ScoreBoard" customModuleProvider="target">
+                            <button toolTip="Start or Stop timer" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-gN-t1M" customClass="StartButton" customModule="ScoreBoard" customModuleProvider="target">
                                 <rect key="frame" x="198" y="146" width="84" height="33"/>
                                 <buttonCell key="cell" type="bevel" title="START" bezelStyle="regularSquare" alignment="center" lineBreakMode="charWrapping" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="saF-P2-6MX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -827,7 +827,7 @@ DQ
                                     <font key="font" metaFont="system"/>
                                     <segments>
                                         <segment image="NSRemoveTemplate" imageScaling="none" width="30"/>
-                                        <segment label="1" imageScaling="none" width="40" selected="YES"/>
+                                        <segment label="1" width="40" selected="YES"/>
                                         <segment image="NSAddTemplate" imageScaling="none" width="30"/>
                                     </segments>
                                 </segmentedCell>
@@ -835,6 +835,14 @@ DQ
                                     <action selector="periodAction:" target="XfG-lQ-9wD" id="NVH-EW-4As"/>
                                 </connections>
                             </segmentedControl>
+                            <imageView hidden="YES" toolTip="Tip: maybe you need to change the period? Change period for hide red dot or don't pay attention!" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uM7-gd-Oje" userLabel="TipNextPeriod">
+                                <rect key="frame" x="251" y="239" width="10" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="KsZ-CP-mSY"/>
+                                    <constraint firstAttribute="height" constant="10" id="fNs-Bp-Rhg"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusUnavailable" id="reQ-o2-HqD"/>
+                            </imageView>
                             <switch toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="750" verticalHuggingPriority="750" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" state="on" id="dRb-Gv-lIH">
                                 <rect key="frame" x="21" y="40" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -901,11 +909,11 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" id="Lpn-cp-aMc">
+                            <switch toolTip="Continue the timer in the next period/time/half (football: 45 + 45 minutes)" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" id="Lpn-cp-aMc">
                                 <rect key="frame" x="258" y="40" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                             </switch>
-                            <button toolTip="Settings" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSF-dV-WH2">
+                            <button toolTip="Show settings window" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSF-dV-WH2">
                                 <rect key="frame" x="382" y="8" width="27" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAdvanced" imagePosition="only" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OrV-Nq-Vyp">
@@ -938,9 +946,11 @@ DQ
                             <constraint firstItem="pYI-dH-ipB" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="K5D-ir-IFI"/>
                             <constraint firstItem="TAq-ib-OCo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="3" id="Noi-NJ-CeJ"/>
                             <constraint firstItem="pYI-dH-ipB" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="bottom" constant="10" id="NwZ-q7-t43"/>
+                            <constraint firstItem="QBp-bO-XRp" firstAttribute="top" secondItem="uM7-gd-Oje" secondAttribute="bottom" constant="-11" id="PD9-qQ-gl8"/>
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="top" secondItem="yVs-io-wuS" secondAttribute="bottom" constant="7" id="Qwk-0a-2KR"/>
                             <constraint firstItem="RXY-hW-hdK" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="STa-Nu-dy1"/>
                             <constraint firstItem="TAq-ib-OCo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="TSj-T7-e1H"/>
+                            <constraint firstItem="uM7-gd-Oje" firstAttribute="leading" secondItem="QBp-bO-XRp" secondAttribute="trailing" constant="-43" id="WkJ-JY-MhB"/>
                             <constraint firstItem="Nb1-sC-9Oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="317" id="aNS-vI-O8D"/>
                             <constraint firstAttribute="trailing" secondItem="Nb1-sC-9Oh" secondAttribute="trailing" constant="10" id="c5Y-wj-7E6"/>
                             <constraint firstItem="qJk-nm-ZKW" firstAttribute="leading" secondItem="Lpn-cp-aMc" secondAttribute="trailing" constant="5" id="glN-Sp-ZfV"/>
@@ -961,6 +971,7 @@ DQ
                         <outlet property="homeNameTextField" destination="7b5-xV-TVs" id="ZwM-78-Hyw"/>
                         <outlet property="isCountdown" destination="dRb-Gv-lIH" id="faT-s4-usk"/>
                         <outlet property="period" destination="QBp-bO-XRp" id="6Wz-ee-fyb"/>
+                        <outlet property="redTipForNextPeriod" destination="uM7-gd-Oje" id="h2x-JV-0ah"/>
                         <outlet property="resetButton" destination="cra-ZW-qR3" id="Tey-RS-Es2"/>
                         <outlet property="scoreBoardView" destination="pYI-dH-ipB" id="Jco-KK-Icw"/>
                         <outlet property="sliderTimer" destination="15e-3A-sM7" id="w3Y-kL-uy7"/>
@@ -986,5 +997,6 @@ DQ
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSRefreshTemplate" width="14" height="16"/>
         <image name="NSRemoveTemplate" width="14" height="4"/>
+        <image name="NSStatusUnavailable" width="16" height="16"/>
     </resources>
 </document>
