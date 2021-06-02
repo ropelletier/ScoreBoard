@@ -433,6 +433,12 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="rUn-cw-ohY"/>
+                                        <menuItem title="-1 Period" keyEquivalent="" id="Yod-Qj-RhI">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
+                                            <connections>
+                                                <action selector="minus1PeriodFromMenu:" target="Ady-hI-5gd" id="G8L-PR-e2b"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="+1 Period" keyEquivalent="" id="pwB-oF-iHe">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
                                             <connections>
@@ -990,7 +996,7 @@ DQ
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KJJ-UF-cM0"/>
+        <segue reference="VvK-wF-3fr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>

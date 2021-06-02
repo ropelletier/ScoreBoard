@@ -10,12 +10,12 @@ import Foundation
 
 final class WriterFiles { // name - FileWriter
     
-    private let scoreboardData = ScoreBoardData.shared
-    private let alertWindow = AlertWindow()
-    
     enum FilesList {
         case timer, homeName, awayName, period, homeGoal, awayGoal
     }
+
+    private let scoreboardData = ScoreBoardData.shared
+    private let alertWindow = AlertWindow()
     
     func writeToDisk(for files: FilesList...) {
         do {
@@ -42,7 +42,7 @@ final class WriterFiles { // name - FileWriter
                         text = scoreboardData.awayName
                         fileName = "Away_Name.txt"
                     case .period:
-                        text = String(scoreboardData.periodCount)
+                        text = scoreboardData.periodCount == 0 ? "OT" : String(scoreboardData.periodCount)
                         fileName = "Period.txt"
                     case .homeGoal:
                         text = scoreboardData.getCountGoalsString(for: .home)
@@ -52,7 +52,11 @@ final class WriterFiles { // name - FileWriter
                         fileName = "AwayGoal.txt"
                     }
 
-                    try text.write(to: userDirectoryUrl.appendingPathComponent(fileName), atomically: false, encoding: .utf8)
+                    try text.write(
+                        to: userDirectoryUrl.appendingPathComponent(fileName),
+                        atomically: false,
+                        encoding: .utf8
+                    )
                 }
             }
         } catch {

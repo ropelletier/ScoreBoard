@@ -87,6 +87,11 @@ extension MainViewController {
         periodAction(self)
     }
     
+    @IBAction func minus1PeriodFromMenu(_ sender: Any) {
+        period.selectedSegment = 0
+        periodAction(self)
+    }
+    
     @IBAction func clearUserDefaults(_ sender: Any) {
         if let bundleID = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: bundleID)

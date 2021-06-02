@@ -8,11 +8,11 @@
 
 import Cocoa
 
-enum Team {
-    case home, away
-}
-
 final class ScoreBoardData {
+    
+    enum Team {
+        case home, away
+    }
     
     private init() {}
     static let shared = ScoreBoardData()

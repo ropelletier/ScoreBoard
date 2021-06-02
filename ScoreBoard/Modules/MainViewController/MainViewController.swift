@@ -149,11 +149,9 @@ class MainViewController: NSViewController, NSWindowDelegate {
                 timeFromUser.insert("0", at: i)
             }
             fallthrough
-        
         case 4:
             minutesFromUser = Int (String (timeFromUser [0...1])) ?? 0
             secondsFromUser = Int (String (timeFromUser [2...3])) ?? 0
-            
         default:
             // if user entered more than 4 digits, then use only 5 first digit (exemple: 152:12)
             minutesFromUser = Int (String (timeFromUser [0...2])) ?? 0
@@ -189,20 +187,16 @@ class MainViewController: NSViewController, NSWindowDelegate {
         case 0:
             guard scoreboardData.countGoalHome > 0 else { break }
             scoreboardData.countGoalHome -= 1
-        
         case 2:
             scoreboardData.countGoalHome += 1
-        
         case 3:
             scoreboardData.countGoalHome += 2
-            
         case 4:
             scoreboardData.countGoalHome += 3
-            
         default:
             return
         }
-    
+        
         goalHome.selectedSegment = 1
         goalHome.setLabel(
             scoreboardData.getCountGoalsString(for: .home),
@@ -216,20 +210,16 @@ class MainViewController: NSViewController, NSWindowDelegate {
         case 0:
             guard scoreboardData.countGoalAway > 0 else { break }
             scoreboardData.countGoalAway -= 1
-        
         case 2:
             scoreboardData.countGoalAway += 1
-        
         case 3:
             scoreboardData.countGoalAway += 2
-            
         case 4:
             scoreboardData.countGoalAway += 3
-            
         default:
             return
         }
-    
+        
         goalAway.selectedSegment = 1
         goalAway.setLabel(
             scoreboardData.getCountGoalsString(for: .away),
@@ -240,18 +230,17 @@ class MainViewController: NSViewController, NSWindowDelegate {
     @IBAction func periodAction(_ sender: Any) {
         switch period.selectedSegment {
         case 0:
-            guard scoreboardData.periodCount > 1 else { break }
+            guard scoreboardData.periodCount > 0 else { break }
             scoreboardData.periodCount -= 1
-        
         case 2:
             scoreboardData.periodCount += 1
-            
         default:
             return
         }
         
         period.selectedSegment = 1
-        period.setLabel(String(scoreboardData.periodCount), forSegment: 1)
+        let stringPeriodCount = scoreboardData.periodCount == 0 ? "OT" : String(scoreboardData.periodCount)
+        period.setLabel(stringPeriodCount, forSegment: 1)
     }
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {
@@ -284,7 +273,6 @@ class MainViewController: NSViewController, NSWindowDelegate {
                 options: .userInitiatedAllowingIdleSystemSleep,
                 reason: "Run timer in background"
             )
-            
         } else {
             resetStateButtonStar()
             
