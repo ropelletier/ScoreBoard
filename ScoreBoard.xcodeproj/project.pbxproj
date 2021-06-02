@@ -24,7 +24,7 @@
 		D997E12125AA4D85000F6C77 /* BasicSBTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D997E12025AA4D85000F6C77 /* BasicSBTemplateView.xib */; };
 		D997E12425AA4D93000F6C77 /* BasicSBTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */; };
 		D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E324B60D800064230E /* ScoreBoardData.swift */; };
-		D9BD25E624B884490064230E /* WriterFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E524B884490064230E /* WriterFiles.swift */; };
+		D9BD25E624B884490064230E /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E524B884490064230E /* FileWriter.swift */; };
 		D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E724B8A55D0064230E /* AlertWindow.swift */; };
 		D9BD25EA24BC76D10064230E /* SelectDirectoryWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +49,7 @@
 		D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSBTemplateView.swift; sourceTree = "<group>"; };
 		D9BD25DD24B336260064230E /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		D9BD25E324B60D800064230E /* ScoreBoardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardData.swift; sourceTree = "<group>"; };
-		D9BD25E524B884490064230E /* WriterFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriterFiles.swift; sourceTree = "<group>"; };
+		D9BD25E524B884490064230E /* FileWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileWriter.swift; sourceTree = "<group>"; };
 		D9BD25E724B8A55D0064230E /* AlertWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertWindow.swift; sourceTree = "<group>"; };
 		D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDirectoryWindow.swift; sourceTree = "<group>"; };
 		D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFunctions.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		D949635F24F7DAE70032E9FD /* Workers */ = {
 			isa = PBXGroup;
 			children = (
-				D9BD25E524B884490064230E /* WriterFiles.swift */,
+				D9BD25E524B884490064230E /* FileWriter.swift */,
 				D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */,
 			);
 			path = Workers;
@@ -265,7 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9BD25E624B884490064230E /* WriterFiles.swift in Sources */,
+				D9BD25E624B884490064230E /* FileWriter.swift in Sources */,
 				D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */,
 				D997E12425AA4D93000F6C77 /* BasicSBTemplateView.swift in Sources */,
 				D980DCF326184FF60026B596 /* DisableMenuItems.swift in Sources */,

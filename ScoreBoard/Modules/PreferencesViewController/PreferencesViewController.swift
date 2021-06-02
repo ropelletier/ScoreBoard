@@ -14,7 +14,7 @@ final class PreferencesViewController: NSViewController {
     @IBOutlet weak var autoResetTimer: NSButton!
     @IBOutlet weak var addZeroToGoalsOutlet: NSButton!
 
-    private let writerFiles = WriterFiles()
+    private let fileWriter = FileWriter()
     private var scoreBoardData = ScoreBoardData.shared
     
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ final class PreferencesViewController: NSViewController {
         
         //UserDefaults.standard.removeObject(forKey: "bookmarkForDirecory")
         // выставляем директорию Downloads по умолчанию
-        workDirectoryPath.url = writerFiles.restoreBookmarksPathDirectory()?.appendingPathComponent("ScoreBoard Outputs")
+        workDirectoryPath.url = fileWriter.restoreBookmarksPathDirectory()?.appendingPathComponent("ScoreBoard Outputs")
         
         autoResetTimer.state = ScoreBoardData.shared.autoResetTimer ? .on : .off
         addZeroToGoalsOutlet.state = ScoreBoardData.shared.addZeroToGoalsCounts ? .on : .off
@@ -41,9 +41,9 @@ final class PreferencesViewController: NSViewController {
         workDirectoryPath.url = userSelectedDirectoryUrl.appendingPathComponent("ScoreBoard Outputs")
         
         // сохранить закладку безопасности на будущее
-        writerFiles.saveBookmarksPathDirectory(userSelectedDirectoryUrl)
+        fileWriter.saveBookmarksPathDirectory(userSelectedDirectoryUrl)
         
-        writerFiles.writeToDisk(for: .timer, .homeName, .awayName, .period, .homeGoal, .awayGoal)
+        fileWriter.writeToDisk(for: .timer, .homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
     @IBAction func setUserDirectory(_ sender: Any) {

@@ -17,7 +17,7 @@ final class ScoreBoardData {
     private init() {}
     static let shared = ScoreBoardData()
     
-    private lazy var writerFiles = WriterFiles()
+    private lazy var writerFiles = FileWriter()
     
     var timeUserPreset: Int {
         get {

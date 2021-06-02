@@ -40,7 +40,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
         setCountsGoals()
         setTimeDefault() // restore default timer value
         showTimeInLabel() // show time + write timer file
-        WriterFiles().writeToDisk(for: .homeName, .awayName, .period, .homeGoal, .awayGoal)
+        FileWriter().writeToDisk(for: .homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
     override func viewDidAppear() {

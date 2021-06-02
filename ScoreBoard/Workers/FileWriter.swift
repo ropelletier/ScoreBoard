@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  FileWriter.swift
 //  ScoreBoard
 //
 //  Created by Василий Петухов on 10.07.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class WriterFiles { // name - FileWriter
+final class FileWriter {
     
     enum FilesList {
         case timer, homeName, awayName, period, homeGoal, awayGoal
