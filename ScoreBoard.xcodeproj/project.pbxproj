@@ -16,7 +16,7 @@
 		D975873723B607C40004BDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D975873623B607C40004BDAD /* Assets.xcassets */; };
 		D975873A23B607C40004BDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D975873823B607C40004BDAD /* Main.storyboard */; };
 		D979448F255E9BBF009165A0 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* UserDefaults.swift */; };
-		D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */; };
+		D9794494255E9FEF009165A0 /* ScoreBoardTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25EB24BC8EEA0064230E /* ScoreBoardTimer.swift */; };
 		D980DCCC25F4ADB90026B596 /* EditTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCCB25F4ADB90026B596 /* EditTextField.swift */; };
 		D980DCF326184FF60026B596 /* DisableMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCF226184FF60026B596 /* DisableMenuItems.swift */; };
 		D987631226320791005E1174 /* DeselectText+SetFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987631126320791005E1174 /* DeselectText+SetFocus.swift */; };
@@ -52,7 +52,7 @@
 		D9BD25E524B884490064230E /* FileWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileWriter.swift; sourceTree = "<group>"; };
 		D9BD25E724B8A55D0064230E /* AlertWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertWindow.swift; sourceTree = "<group>"; };
 		D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDirectoryWindow.swift; sourceTree = "<group>"; };
-		D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFunctions.swift; sourceTree = "<group>"; };
+		D9BD25EB24BC8EEA0064230E /* ScoreBoardTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				D9BD25E524B884490064230E /* FileWriter.swift */,
-				D9BD25EB24BC8EEA0064230E /* TimerFunctions.swift */,
+				D9BD25EB24BC8EEA0064230E /* ScoreBoardTimer.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9BD25E624B884490064230E /* FileWriter.swift in Sources */,
-				D9794494255E9FEF009165A0 /* TimerFunctions.swift in Sources */,
+				D9794494255E9FEF009165A0 /* ScoreBoardTimer.swift in Sources */,
 				D997E12425AA4D93000F6C77 /* BasicSBTemplateView.swift in Sources */,
 				D980DCF326184FF60026B596 /* DisableMenuItems.swift in Sources */,
 				D979448F255E9BBF009165A0 /* UserDefaults.swift in Sources */,

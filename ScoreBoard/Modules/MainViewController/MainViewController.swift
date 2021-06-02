@@ -115,7 +115,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     }
     
     func resetStateButtonStar(){
-        TimerFunctions.stopTimer()
+        ScoreBoardTimer.stopTimer()
         buttonStart.title = "START"
         timerTextField.textColor = .controlTextColor
     }
@@ -263,8 +263,8 @@ class MainViewController: NSViewController, NSWindowDelegate {
         deselectTextInTextFileds()
         focusToStartButton()
         
-        if TimerFunctions.timerStatus == nil {
-            TimerFunctions.startTimer()
+        if ScoreBoardTimer.timerStatus == nil {
+            ScoreBoardTimer.startTimer()
             buttonStart.title = "PAUSE"
             timerTextField.textColor = .red
             

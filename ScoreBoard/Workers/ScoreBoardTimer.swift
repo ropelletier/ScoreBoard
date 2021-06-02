@@ -1,5 +1,5 @@
 //
-//  Timer.swift
+//  ScoreBoardTimer.swift
 //  ScoreBoard
 //
 //  Created by Василий Петухов on 13.07.2020.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-final class TimerFunctions { // name ScoreBoardTimer
+final class ScoreBoardTimer {
     
     static var timerStatus: Timer? = nil
     
