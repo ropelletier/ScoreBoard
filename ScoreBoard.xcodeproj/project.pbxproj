@@ -15,7 +15,7 @@
 		D975873523B607C20004BDAD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975873423B607C20004BDAD /* MainViewController.swift */; };
 		D975873723B607C40004BDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D975873623B607C40004BDAD /* Assets.xcassets */; };
 		D975873A23B607C40004BDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D975873823B607C40004BDAD /* Main.storyboard */; };
-		D979448F255E9BBF009165A0 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* UserDefaults.swift */; };
+		D979448F255E9BBF009165A0 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* Defaults.swift */; };
 		D9794494255E9FEF009165A0 /* ScoreBoardTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25EB24BC8EEA0064230E /* ScoreBoardTimer.swift */; };
 		D980DCCC25F4ADB90026B596 /* EditTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCCB25F4ADB90026B596 /* EditTextField.swift */; };
 		D980DCF326184FF60026B596 /* DisableMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCF226184FF60026B596 /* DisableMenuItems.swift */; };
@@ -40,7 +40,7 @@
 		D975873923B607C40004BDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D975873B23B607C40004BDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D975873C23B607C40004BDAD /* ScoreBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScoreBoard.entitlements; sourceTree = "<group>"; };
-		D979448E255E9BBF009165A0 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		D979448E255E9BBF009165A0 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		D980DCCB25F4ADB90026B596 /* EditTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextField.swift; sourceTree = "<group>"; };
 		D980DCF226184FF60026B596 /* DisableMenuItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableMenuItems.swift; sourceTree = "<group>"; };
 		D987631126320791005E1174 /* DeselectText+SetFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeselectText+SetFocus.swift"; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 				D980DCF226184FF60026B596 /* DisableMenuItems.swift */,
 				D90D1EA52643302000005682 /* MenuActions.swift */,
 				D987631126320791005E1174 /* DeselectText+SetFocus.swift */,
+				D979448E255E9BBF009165A0 /* Defaults.swift */,
 			);
 			path = "Extensions MainVC";
 			sourceTree = "<group>";
@@ -164,7 +165,6 @@
 		D9BD25E024B370620064230E /* ScoreBoardData */ = {
 			isa = PBXGroup;
 			children = (
-				D979448E255E9BBF009165A0 /* UserDefaults.swift */,
 				D9BD25E324B60D800064230E /* ScoreBoardData.swift */,
 			);
 			path = ScoreBoardData;
@@ -269,7 +269,7 @@
 				D9794494255E9FEF009165A0 /* ScoreBoardTimer.swift in Sources */,
 				D997E12425AA4D93000F6C77 /* BasicSBTemplateView.swift in Sources */,
 				D980DCF326184FF60026B596 /* DisableMenuItems.swift in Sources */,
-				D979448F255E9BBF009165A0 /* UserDefaults.swift in Sources */,
+				D979448F255E9BBF009165A0 /* Defaults.swift in Sources */,
 				D97553042644810E00A9D4BA /* PreferencesViewController.swift in Sources */,
 				D975873523B607C20004BDAD /* MainViewController.swift in Sources */,
 				D975873323B607C20004BDAD /* AppDelegate.swift in Sources */,
