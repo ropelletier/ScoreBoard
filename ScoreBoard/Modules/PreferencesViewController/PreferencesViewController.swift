@@ -10,8 +10,13 @@ import Cocoa
 
 final class PreferencesViewController: NSViewController {
     
-    private let writerFiles = WriterFiles()
+    @IBOutlet weak var workDirectoryPath: NSPathControl!
+    @IBOutlet weak var autoResetTimer: NSButton!
+    @IBOutlet weak var addZeroToGoalsOutlet: NSButton!
 
+    private let writerFiles = WriterFiles()
+    private var scoreBoardData = ScoreBoardData.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,9 +28,11 @@ final class PreferencesViewController: NSViewController {
         addZeroToGoalsOutlet.state = ScoreBoardData.shared.addZeroToGoalsCounts ? .on : .off
     }
     
-    @IBOutlet weak var workDirectoryPath: NSPathControl!
-    @IBOutlet weak var autoResetTimer: NSButton!
-    @IBOutlet weak var addZeroToGoalsOutlet: NSButton!
+    override func viewWillAppear() {
+        setupAppearance()
+    }
+    
+    // MARK:  - IBActions
     
     @IBAction func selectUserDirectory(_ sender: Any) {
 
@@ -44,14 +51,45 @@ final class PreferencesViewController: NSViewController {
     }
     
     @IBAction func autoResetTimerCheckBox(_ sender: Any) {
-        ScoreBoardData.shared.autoResetTimer = autoResetTimer.state == .on ? true : false
+        scoreBoardData.autoResetTimer = autoResetTimer.state == .on ? true : false
     }
     
     @IBAction func addZeroToGoalCounts(_ sender: Any) {
-        ScoreBoardData.shared.addZeroToGoalsCounts = addZeroToGoalsOutlet.state == .on ? true : false
+        scoreBoardData.addZeroToGoalsCounts = addZeroToGoalsOutlet.state == .on ? true : false
     }
     
     @IBAction func pressOKButtonPreferences(_ sender: Any) {
         view.window?.close()
+    }
+}
+
+// MARK:  - Private
+private extension PreferencesViewController {
+    func setupAppearance() {
+        
+        // disable resizzable window by double tap or drag mouse (.insert for enable)
+        view.window?.styleMask.remove(.resizable)
+        
+        let resizeButton = view.window?.standardWindowButton(.zoomButton)
+        resizeButton?.isEnabled = false
+        
+        let minimizeButton = view.window?.standardWindowButton(.miniaturizeButton)
+        minimizeButton?.isEnabled = false
+        
+        // setup size and position Preferences Window
+        if let mainWindowFrame = scoreBoardData.mainVC?.view.window?.frame {
+            let mainWindowOrigin = mainWindowFrame.origin
+ 
+            var ofSetOrigin: CGFloat {
+                let mainWindowHeight = mainWindowFrame.size.height
+                let preferencesWindowHeight = view.window?.frame.height ?? 200
+                return (mainWindowHeight - preferencesWindowHeight) / 2
+            }
+            
+            view.window?.setFrameOrigin(CGPoint(
+                x: mainWindowOrigin.x,
+                y: mainWindowOrigin.y + ofSetOrigin
+            ))
+        }
     }
 }

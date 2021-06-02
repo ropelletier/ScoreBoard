@@ -25,7 +25,7 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <segue destination="Vr1-Lg-vXi" kind="show" id="ShR-G3-uoz"/>
+                                                <segue destination="Vr1-Lg-vXi" kind="modal" id="VvK-wF-3fr"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
@@ -504,7 +504,7 @@
         <scene sceneID="9S3-az-ohQ">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="Vr1-Lg-vXi" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Preferences" animationBehavior="default" id="AA9-qe-aTa">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" frameAutosaveName="Preferences" animationBehavior="default" id="AA9-qe-aTa">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="1135" y="170" width="480" height="200"/>
@@ -519,12 +519,12 @@
                 </windowController>
                 <customObject id="B3V-HI-UC8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="223"/>
+            <point key="canvasLocation" x="684" y="215"/>
         </scene>
-        <!--Preferences View Controller-->
+        <!--Preferences-->
         <scene sceneID="0HL-i3-GaJ">
             <objects>
-                <viewController storyboardIdentifier="Preferences" showSeguePresentationStyle="single" id="aw4-w5-dXm" customClass="PreferencesViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Preferences" storyboardIdentifier="Preferences" showSeguePresentationStyle="single" id="aw4-w5-dXm" customClass="PreferencesViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" identifier="Preferences" id="QIq-4A-fvG">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -921,7 +921,7 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="Vr1-Lg-vXi" kind="show" id="KJJ-UF-cM0"/>
+                                    <segue destination="Vr1-Lg-vXi" kind="modal" id="KJJ-UF-cM0"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Yee-Wl-rvj">
