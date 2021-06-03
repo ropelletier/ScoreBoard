@@ -25,7 +25,7 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <segue destination="Vr1-Lg-vXi" kind="modal" id="VvK-wF-3fr"/>
+                                                <segue destination="UHI-45-C02" kind="modal" id="7hD-ac-y7e"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
@@ -506,130 +506,6 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Window Controller-->
-        <scene sceneID="9S3-az-ohQ">
-            <objects>
-                <windowController showSeguePresentationStyle="single" id="Vr1-Lg-vXi" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" frameAutosaveName="Preferences" animationBehavior="default" id="AA9-qe-aTa">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="1135" y="170" width="480" height="200"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <connections>
-                            <outlet property="delegate" destination="Vr1-Lg-vXi" id="sn9-8k-0Wu"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="aw4-w5-dXm" kind="relationship" relationship="window.shadowedContentViewController" id="5Gu-8W-gZZ"/>
-                    </connections>
-                </windowController>
-                <customObject id="B3V-HI-UC8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="684" y="215"/>
-        </scene>
-        <!--Preferences-->
-        <scene sceneID="0HL-i3-GaJ">
-            <objects>
-                <viewController title="Preferences" storyboardIdentifier="Preferences" showSeguePresentationStyle="single" id="aw4-w5-dXm" customClass="PreferencesViewController" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" identifier="Preferences" id="QIq-4A-fvG">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="200"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-MS-wOU">
-                                <rect key="frame" x="18" y="164" width="198" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Directory to write the files (.txt):" id="vLU-dP-IQV">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <pathControl toolTip="Choosing a directory to save files with statistics." horizontalHuggingPriority="249" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-ey-13F">
-                                <rect key="frame" x="20" y="137" width="353" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="353" id="QHc-j9-i9w"/>
-                                </constraints>
-                                <pathCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" refusesFirstResponder="YES" alignment="left" id="TyS-DA-e9Z">
-                                    <font key="font" metaFont="system"/>
-                                    <url key="url" string="file:////"/>
-                                    <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                </pathCell>
-                                <connections>
-                                    <action selector="setUserDirectory:" target="aw4-w5-dXm" id="xtZ-AE-shD"/>
-                                </connections>
-                            </pathControl>
-                            <button toolTip="Choosing a directory to save files with statistics." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-2v-uRU">
-                                <rect key="frame" x="386" y="131" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zjj-Pr-1nh">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="selectUserDirectory:" target="aw4-w5-dXm" id="zWW-51-OTN"/>
-                                </connections>
-                            </button>
-                            <button toolTip="Enable or disable automatic time reset after the timer expires." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4c9-Lb-P4s">
-                                <rect key="frame" x="18" y="90" width="442" height="18"/>
-                                <buttonCell key="cell" type="check" title="Automatically reset the timer after the end." bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" inset="2" id="Kwq-1O-4Gk">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="autoResetTimerCheckBox:" target="aw4-w5-dXm" id="MPl-Vk-IX0"/>
-                                </connections>
-                            </button>
-                            <button toolTip="Enable or disable add zerro to goals counter when count less than 10" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hy3-zR-PdW">
-                                <rect key="frame" x="18" y="64" width="442" height="18"/>
-                                <buttonCell key="cell" type="check" title="Add zero if the goal counter is less than 10 (6 or 06)" bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" inset="2" id="Ace-3x-lx4">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <connections>
-                                        <action selector="addZeroToGoalCounts:" target="aw4-w5-dXm" id="5H5-1Z-2I5"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-61-dlp">
-                                <rect key="frame" x="214" y="13" width="53" height="32"/>
-                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NFb-n9-y0G">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="pressOKButtonPreferences:" target="aw4-w5-dXm" id="cv2-5F-FC9"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="mZ0-2v-uRU" firstAttribute="centerY" secondItem="m4C-ey-13F" secondAttribute="centerY" id="0SN-Ss-yod"/>
-                            <constraint firstAttribute="bottom" secondItem="4ra-61-dlp" secondAttribute="bottom" constant="20" id="5Io-dI-f9U"/>
-                            <constraint firstItem="DBG-MS-wOU" firstAttribute="leading" secondItem="QIq-4A-fvG" secondAttribute="leading" constant="20" id="906-JW-pNa"/>
-                            <constraint firstAttribute="trailing" secondItem="mZ0-2v-uRU" secondAttribute="trailing" constant="20" id="AW5-oy-eKi"/>
-                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="DBG-MS-wOU" secondAttribute="trailing" constant="283" id="GLJ-GZ-ofX"/>
-                            <constraint firstItem="DBG-MS-wOU" firstAttribute="top" secondItem="QIq-4A-fvG" secondAttribute="top" constant="20" id="Jds-xk-zv9"/>
-                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4c9-Lb-P4s" secondAttribute="trailing" constant="20" symbolic="YES" id="KYK-pN-mjC"/>
-                            <constraint firstItem="hy3-zR-PdW" firstAttribute="top" secondItem="4c9-Lb-P4s" secondAttribute="bottom" constant="10" id="O05-Eu-HK5"/>
-                            <constraint firstItem="4ra-61-dlp" firstAttribute="centerX" secondItem="QIq-4A-fvG" secondAttribute="centerX" id="QZG-sU-sPs"/>
-                            <constraint firstItem="4c9-Lb-P4s" firstAttribute="top" secondItem="m4C-ey-13F" secondAttribute="bottom" constant="30" id="QsA-wA-zoT"/>
-                            <constraint firstItem="hy3-zR-PdW" firstAttribute="leading" secondItem="m4C-ey-13F" secondAttribute="leading" id="YKC-Y7-QXe"/>
-                            <constraint firstItem="4c9-Lb-P4s" firstAttribute="leading" secondItem="m4C-ey-13F" secondAttribute="leading" id="YrZ-Qo-nRz"/>
-                            <constraint firstItem="m4C-ey-13F" firstAttribute="leading" secondItem="QIq-4A-fvG" secondAttribute="leading" constant="20" id="bJe-Oh-59Q"/>
-                            <constraint firstItem="mZ0-2v-uRU" firstAttribute="leading" secondItem="m4C-ey-13F" secondAttribute="trailing" constant="20" id="mJs-Vd-LdD"/>
-                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hy3-zR-PdW" secondAttribute="trailing" constant="20" symbolic="YES" id="wyu-AZ-BMC"/>
-                            <constraint firstItem="m4C-ey-13F" firstAttribute="top" secondItem="DBG-MS-wOU" secondAttribute="bottom" constant="5" id="xF4-2O-KhT"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="addZeroToGoalsOutlet" destination="hy3-zR-PdW" id="X4D-cv-618"/>
-                        <outlet property="autoResetTimer" destination="4c9-Lb-P4s" id="Yue-Ci-8jw"/>
-                        <outlet property="workDirectoryPath" destination="m4C-ey-13F" id="GFj-M6-wwP"/>
-                    </connections>
-                </viewController>
-                <customObject id="6Rm-Fd-R4t" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="684" y="663"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -927,7 +803,7 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="Vr1-Lg-vXi" kind="modal" id="KJJ-UF-cM0"/>
+                                    <segue destination="UHI-45-C02" kind="modal" id="T7a-ha-RxY"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Yee-Wl-rvj">
@@ -994,9 +870,17 @@ DQ
             </objects>
             <point key="canvasLocation" x="75" y="698"/>
         </scene>
+        <!--Preferences-->
+        <scene sceneID="sES-4E-pY8">
+            <objects>
+                <controllerPlaceholder storyboardName="Preferences" id="UHI-45-C02" sceneMemberID="viewController"/>
+                <customObject id="7bf-4P-5C2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="435"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VvK-wF-3fr"/>
+        <segue reference="T7a-ha-RxY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>
