@@ -41,7 +41,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="050-iS-FRL">
-                                <rect key="frame" x="18" y="164" width="198" height="16"/>
+                                <rect key="frame" x="18" y="169" width="198" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Directory to write the files (.txt):" id="Xiy-b0-cPh">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -49,7 +49,7 @@
                                 </textFieldCell>
                             </textField>
                             <pathControl toolTip="Choosing a directory to save files with statistics." horizontalHuggingPriority="249" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dkI-9R-EKp">
-                                <rect key="frame" x="20" y="137" width="353" height="22"/>
+                                <rect key="frame" x="20" y="142" width="353" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="353" id="k4Q-px-Udd"/>
                                 </constraints>
@@ -63,7 +63,7 @@
                                 </connections>
                             </pathControl>
                             <button toolTip="Choosing a directory to save files with statistics." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ofc-xw-4pT">
-                                <rect key="frame" x="386" y="131" width="81" height="32"/>
+                                <rect key="frame" x="386" y="136" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rgq-hY-6zX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <button toolTip="Enable or disable automatic time reset after the timer expires." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xk3-vY-4Nl">
-                                <rect key="frame" x="18" y="90" width="442" height="18"/>
+                                <rect key="frame" x="18" y="105" width="442" height="18"/>
                                 <buttonCell key="cell" type="check" title="Automatically reset the timer after the end." bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" inset="2" id="fWu-lI-4xi">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -83,7 +83,7 @@
                                 </connections>
                             </button>
                             <button toolTip="Enable or disable add zerro to goals counter when count less than 10" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Frj-Gh-leb">
-                                <rect key="frame" x="18" y="64" width="442" height="18"/>
+                                <rect key="frame" x="18" y="79" width="442" height="18"/>
                                 <buttonCell key="cell" type="check" title="Add zero if the goal counter is less than 10 (6 or 06)" bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" inset="2" id="zzy-cG-c7g">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -93,8 +93,8 @@
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WXb-1z-eWp">
-                                <rect key="frame" x="214" y="13" width="53" height="32"/>
-                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tUt-2U-yCf">
+                                <rect key="frame" x="206" y="8" width="69" height="32"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tUt-2U-yCf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">
@@ -105,27 +105,41 @@ DQ
                                     <action selector="pressOKButtonPreferences:" target="UTX-F2-dZR" id="9RL-lc-Bhl"/>
                                 </connections>
                             </button>
+                            <button toolTip="Add suffix to period counter (1 or 1st). English only!" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KWr-ny-xYm">
+                                <rect key="frame" x="18" y="53" width="442" height="18"/>
+                                <buttonCell key="cell" type="check" title="Add suffix to period counter (1 or 1st)" bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" inset="2" id="8zz-WC-Lfp">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addSuffixToPeriodCount:" target="UTX-F2-dZR" id="Sd6-rs-a6I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ofc-xw-4pT" secondAttribute="trailing" constant="20" id="05b-hc-KXT"/>
                             <constraint firstItem="xk3-vY-4Nl" firstAttribute="leading" secondItem="dkI-9R-EKp" secondAttribute="leading" id="2UY-7i-oGS"/>
-                            <constraint firstItem="050-iS-FRL" firstAttribute="top" secondItem="Pmq-Lk-Ypo" secondAttribute="top" constant="20" id="8MO-F5-M3H"/>
-                            <constraint firstItem="xk3-vY-4Nl" firstAttribute="top" secondItem="dkI-9R-EKp" secondAttribute="bottom" constant="30" id="9SU-pc-4rf"/>
+                            <constraint firstItem="050-iS-FRL" firstAttribute="top" secondItem="Pmq-Lk-Ypo" secondAttribute="top" constant="15" id="8MO-F5-M3H"/>
+                            <constraint firstItem="xk3-vY-4Nl" firstAttribute="top" secondItem="dkI-9R-EKp" secondAttribute="bottom" constant="20" id="9SU-pc-4rf"/>
                             <constraint firstItem="Frj-Gh-leb" firstAttribute="leading" secondItem="dkI-9R-EKp" secondAttribute="leading" id="CUb-ay-7hb"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="xk3-vY-4Nl" secondAttribute="trailing" constant="20" symbolic="YES" id="HDY-DY-3ui"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="050-iS-FRL" secondAttribute="trailing" constant="283" id="KLe-pY-5sK"/>
                             <constraint firstItem="ofc-xw-4pT" firstAttribute="leading" secondItem="dkI-9R-EKp" secondAttribute="trailing" constant="20" id="Lb1-7b-1kQ"/>
                             <constraint firstItem="050-iS-FRL" firstAttribute="leading" secondItem="Pmq-Lk-Ypo" secondAttribute="leading" constant="20" id="MAf-uE-80j"/>
                             <constraint firstItem="Frj-Gh-leb" firstAttribute="top" secondItem="xk3-vY-4Nl" secondAttribute="bottom" constant="10" id="Pag-6x-r4R"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="KWr-ny-xYm" secondAttribute="trailing" constant="20" symbolic="YES" id="RMN-Pl-NUq"/>
+                            <constraint firstItem="KWr-ny-xYm" firstAttribute="top" secondItem="Frj-Gh-leb" secondAttribute="bottom" constant="10" id="SUR-Bs-EZR"/>
                             <constraint firstItem="dkI-9R-EKp" firstAttribute="top" secondItem="050-iS-FRL" secondAttribute="bottom" constant="5" id="now-DB-cKl"/>
                             <constraint firstItem="dkI-9R-EKp" firstAttribute="leading" secondItem="Pmq-Lk-Ypo" secondAttribute="leading" constant="20" id="qXT-ig-VX3"/>
                             <constraint firstItem="ofc-xw-4pT" firstAttribute="centerY" secondItem="dkI-9R-EKp" secondAttribute="centerY" id="qip-3b-4L6"/>
+                            <constraint firstItem="KWr-ny-xYm" firstAttribute="leading" secondItem="dkI-9R-EKp" secondAttribute="leading" id="tus-IA-FNY"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Frj-Gh-leb" secondAttribute="trailing" constant="20" symbolic="YES" id="vZS-oN-yCI"/>
-                            <constraint firstAttribute="bottom" secondItem="WXb-1z-eWp" secondAttribute="bottom" constant="20" id="yNH-wq-599"/>
+                            <constraint firstAttribute="bottom" secondItem="WXb-1z-eWp" secondAttribute="bottom" constant="15" id="yNH-wq-599"/>
                             <constraint firstItem="WXb-1z-eWp" firstAttribute="centerX" secondItem="Pmq-Lk-Ypo" secondAttribute="centerX" id="yj2-jK-Fmy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addSuffixToPeriodOutlet" destination="KWr-ny-xYm" id="48W-ZI-lu5"/>
                         <outlet property="addZeroToGoalsOutlet" destination="Frj-Gh-leb" id="gAZ-m0-prF"/>
                         <outlet property="autoResetTimer" destination="xk3-vY-4Nl" id="cU7-1H-uqw"/>
                         <outlet property="workDirectoryPath" destination="dkI-9R-EKp" id="Re1-U5-BOd"/>

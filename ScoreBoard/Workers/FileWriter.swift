@@ -42,7 +42,7 @@ final class FileWriter {
                         text = scoreboardData.awayName
                         fileName = "Away_Name.txt"
                     case .period:
-                        text = scoreboardData.periodCount == 0 ? "OT" : String(scoreboardData.periodCount)
+                        text = scoreboardData.getPeriodCountString()
                         fileName = "Period.txt"
                     case .homeGoal:
                         text = scoreboardData.getCountGoalsString(for: .home)

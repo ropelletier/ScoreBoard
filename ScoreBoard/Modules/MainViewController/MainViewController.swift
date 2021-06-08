@@ -37,7 +37,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefaults() // load properties the main screen
-        setCountsGoals()
+
         setTimeDefault() // restore default timer value
         showTimeInLabel() // show time + write timer file
         FileWriter().writeToDisk(for: .homeName, .awayName, .period, .homeGoal, .awayGoal)
@@ -75,6 +75,10 @@ class MainViewController: NSViewController, NSWindowDelegate {
         )
     }
     
+    func setCountPeriod() {
+        period.setLabel(scoreboardData.getPeriodCountString(), forSegment: 1)
+    }
+    
     /// Show time in TextField
     func showTimeInLabel() {
         
@@ -107,11 +111,11 @@ class MainViewController: NSViewController, NSWindowDelegate {
         setTimeDefault()
         showTimeInLabel()
         scoreboardData.countGoalHome = 0
-        goalHome.setLabel(String(scoreboardData.countGoalHome), forSegment: 1)
         scoreboardData.countGoalAway = 0
-        goalAway.setLabel(String(scoreboardData.countGoalAway), forSegment: 1)
+        
+        goalHome.setLabel(scoreboardData.getCountGoalsString(for: .home), forSegment: 1)
+        goalAway.setLabel(scoreboardData.getCountGoalsString(for: .away), forSegment: 1)
         scoreboardData.periodCount = 1
-        period.setLabel(String(scoreboardData.periodCount), forSegment: 1)
     }
     
     func resetStateButtonStar(){
@@ -237,10 +241,8 @@ class MainViewController: NSViewController, NSWindowDelegate {
         default:
             return
         }
-        
+
         period.selectedSegment = 1
-        let stringPeriodCount = scoreboardData.periodCount == 0 ? "OT" : String(scoreboardData.periodCount)
-        period.setLabel(stringPeriodCount, forSegment: 1)
     }
     
     @IBAction func textFieldHomeNameAction(_ sender: Any) {

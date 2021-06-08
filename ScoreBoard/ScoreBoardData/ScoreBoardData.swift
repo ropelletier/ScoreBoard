@@ -19,11 +19,48 @@ final class ScoreBoardData {
     
     private lazy var writerFiles = FileWriter()
     
+    var menuIsEnabled: Bool = true
+    
+    var autoResetTimer: Bool {
+        get {
+            UserDefaults.standard.register(defaults: ["autoResetTimer" : false])
+            return UserDefaults.standard.bool(forKey: "autoResetTimer")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "autoResetTimer")
+        }
+    }
+    
+    var addZeroToGoalsCounts: Bool {
+        get {
+            UserDefaults.standard.register(defaults: ["addZeroToGoalsCounts" : false])
+            return UserDefaults.standard.bool(forKey: "addZeroToGoalsCounts")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "addZeroToGoalsCounts")
+            writerFiles.writeToDisk(for: .homeGoal, .awayGoal)
+            mainVC?.setCountsGoals()
+        }
+    }
+    
+    var addSuffixToPeriodCount: Bool {
+        get {
+            UserDefaults.standard.register(defaults: ["addSuffixToPeriodCount" : false])
+            return UserDefaults.standard.bool(forKey: "addSuffixToPeriodCount")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "addSuffixToPeriodCount")
+            writerFiles.writeToDisk(for: .period)
+            mainVC?.setCountPeriod()
+        }
+    }
+    
     var timeUserPreset: Int {
         get {
             UserDefaults.standard.register(defaults: ["timeUserPreset" : 900])
             return UserDefaults.standard.integer(forKey: "timeUserPreset")
-        } set {
+        }
+        set {
             UserDefaults.standard.set(newValue, forKey: "timeUserPreset")
         }
     }
@@ -39,7 +76,8 @@ final class ScoreBoardData {
     var homeName: String {
         get {
             return UserDefaults.standard.string(forKey: "homeName") ?? "Home"
-        } set {
+        }
+        set {
             UserDefaults.standard.set(newValue, forKey: "homeName")
             writerFiles.writeToDisk(for: .homeName)
         }
@@ -48,7 +86,8 @@ final class ScoreBoardData {
     var awayName: String {
         get {
             return UserDefaults.standard.string(forKey: "awayName") ?? "Away"
-        } set {
+        }
+        set {
             UserDefaults.standard.set(newValue, forKey: "awayName")
             writerFiles.writeToDisk(for: .awayName)
         }
@@ -57,12 +96,14 @@ final class ScoreBoardData {
     var countGoalHome: Int = 0 {
         didSet{
             writerFiles.writeToDisk(for: .homeGoal)
+//            mainVC?.setCountsGoals()
         }
     }
     
     var countGoalAway: Int = 0 {
         didSet{
             writerFiles.writeToDisk(for: .awayGoal)
+//            mainVC?.setCountsGoals()
         }
     }
     
@@ -86,31 +127,22 @@ final class ScoreBoardData {
     var periodCount: Int = 1 {
         didSet{
             writerFiles.writeToDisk(for: .period)
+            mainVC?.setCountPeriod()
             mainVC?.redTipForNextPeriod.isHidden = true
         }
     }
     
-    var autoResetTimer: Bool {
-        get {
-            UserDefaults.standard.register(defaults: ["autoResetTimer" : false])
-            return UserDefaults.standard.bool(forKey: "autoResetTimer")
-        } set {
-            UserDefaults.standard.set(newValue, forKey: "autoResetTimer")
-        }
+    func getPeriodCountString() -> String {
+        guard periodCount != 0 else { return "OT" }
+        guard addSuffixToPeriodCount else { return String(periodCount) }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .ordinal
+        formatter.locale = Locale(identifier: "en_US")
+        
+        let countWithSuffix = formatter.string(from: NSNumber(value: periodCount)) ?? String(periodCount)
+        return countWithSuffix
     }
-    
-    var addZeroToGoalsCounts: Bool {
-        get {
-            UserDefaults.standard.register(defaults: ["addZeroToGoalsCounts" : false])
-            return UserDefaults.standard.bool(forKey: "addZeroToGoalsCounts")
-        } set {
-            UserDefaults.standard.set(newValue, forKey: "addZeroToGoalsCounts")
-            writerFiles.writeToDisk(for: .homeGoal, .awayGoal)
-            mainVC?.setCountsGoals()
-        }
-    }
-    
-    var menuIsEnabled: Bool = true
     
     var mainVC: MainViewController? {
         if let mainWindow = NSApplication.shared.windows.first(where: { $0.windowController?.contentViewController is MainViewController }) {

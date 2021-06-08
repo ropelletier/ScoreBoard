@@ -30,6 +30,9 @@ extension MainViewController {
         homeNameTextField.stringValue = scoreboardData.homeName
         awayNameTextField.stringValue = scoreboardData.awayName
         
+        setCountsGoals()
+        setCountPeriod()
+        
         // set timer text style
         timerTextField.font = NSFont.monospacedDigitSystemFont(ofSize: 28, weight: .regular)
     }

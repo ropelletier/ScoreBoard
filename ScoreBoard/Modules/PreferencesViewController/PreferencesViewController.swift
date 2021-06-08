@@ -13,19 +13,19 @@ final class PreferencesViewController: NSViewController {
     @IBOutlet weak var workDirectoryPath: NSPathControl!
     @IBOutlet weak var autoResetTimer: NSButton!
     @IBOutlet weak var addZeroToGoalsOutlet: NSButton!
+    @IBOutlet weak var addSuffixToPeriodOutlet: NSButton!
 
     private let fileWriter = FileWriter()
     private var scoreBoardData = ScoreBoardData.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //UserDefaults.standard.removeObject(forKey: "bookmarkForDirecory")
-        // выставляем директорию Downloads по умолчанию
+        
+        // Set the Downloads directory by default
         workDirectoryPath.url = fileWriter.restoreBookmarksPathDirectory()?.appendingPathComponent("ScoreBoard Outputs")
         
-        autoResetTimer.state = ScoreBoardData.shared.autoResetTimer ? .on : .off
-        addZeroToGoalsOutlet.state = ScoreBoardData.shared.addZeroToGoalsCounts ? .on : .off
+        restoreSettingsState()
     }
     
     override func viewWillAppear() {
@@ -58,6 +58,10 @@ final class PreferencesViewController: NSViewController {
         scoreBoardData.addZeroToGoalsCounts = addZeroToGoalsOutlet.state == .on ? true : false
     }
     
+    @IBAction func addSuffixToPeriodCount(_ sender: Any) {
+        scoreBoardData.addSuffixToPeriodCount = addSuffixToPeriodOutlet.state == .on ? true : false
+    }
+    
     @IBAction func pressOKButtonPreferences(_ sender: Any) {
         view.window?.close()
     }
@@ -65,6 +69,13 @@ final class PreferencesViewController: NSViewController {
 
 // MARK:  - Private
 private extension PreferencesViewController {
+    func restoreSettingsState() {
+        autoResetTimer.state = scoreBoardData.autoResetTimer ? .on : .off
+        addZeroToGoalsOutlet.state = scoreBoardData.addZeroToGoalsCounts ? .on : .off
+        addSuffixToPeriodOutlet.state = scoreBoardData.addSuffixToPeriodCount ? .on : .off
+    }
+    
+    /// Setup modal Preferences Window
     func setupAppearance() {
         
         // disable resizzable window by double tap or drag mouse (.insert for enable)
