@@ -2,7 +2,8 @@
 **Scoreboard for online broadcasting of sports games (hockey, football and others) through OBS.**
 
 ## Downloads
-[Release v1.4](https://github.com/kopsap4ik/ScoreBoard/releases/tag/1.4)
+[Latest release](https://github.com/kopsap4ik/ScoreBoard/releases/latest)
+[History releases](https://github.com/kopsap4ik/ScoreBoard/releases)
 
 ## Info
 The program counts the time (timer and countdown), keeps the goals and period (half), and also shows the team names.
@@ -33,4 +34,8 @@ Since the program is not signed with an Apple certificate, it is necessary to ma
 4. You'll be asked one more time if you're sure, but clicking Open will run the app.
 
 ## Other
+[LICENSE](https://github.com/kopsap4ik/ScoreBoard/blob/master/LICENSE)
+[PRIVACY POLICY](https://github.com/kopsap4ik/ScoreBoard/blob/master/PRIVACY_POLICY.md)
+
+Contacts: [vas.pet.app@gmail.com](mailto:vas.pet.app@gmail.com)
 *Errors, requests and questions are accepted.*
