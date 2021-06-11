@@ -34,8 +34,8 @@ Since the program is not signed with an Apple certificate, it is necessary to ma
 4. You'll be asked one more time if you're sure, but clicking Open will run the app.
 
 ## Other
-[LICENSE](https://github.com/kopsap4ik/ScoreBoard/blob/master/LICENSE)
+[LICENSE](https://github.com/kopsap4ik/ScoreBoard/blob/master/LICENSE)  
 [PRIVACY POLICY](https://github.com/kopsap4ik/ScoreBoard/blob/master/PRIVACY_POLICY.md)
 
-Contacts: [vas.pet.app@gmail.com](mailto:vas.pet.app@gmail.com)
+Contacts: [vas.pet.app@gmail.com](mailto:vas.pet.app@gmail.com)  
 *Errors, requests and questions are accepted.*
