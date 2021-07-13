@@ -23,7 +23,7 @@ final class ScoreBoardData {
     
     var autoResetTimer: Bool {
         get {
-            UserDefaults.standard.register(defaults: ["autoResetTimer" : false])
+            UserDefaults.standard.register(defaults: ["autoResetTimer" : true])
             return UserDefaults.standard.bool(forKey: "autoResetTimer")
         }
         set {
@@ -96,7 +96,7 @@ final class ScoreBoardData {
     var countGoalHome: Int = 0 {
         didSet{
             writerFiles.writeToDisk(for: .homeGoal)
-//            mainVC?.setCountsGoals()
+//            mainVC?.setCountsGoals() 
         }
     }
     

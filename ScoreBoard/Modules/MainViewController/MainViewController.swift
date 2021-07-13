@@ -81,12 +81,12 @@ class MainViewController: NSViewController, NSWindowDelegate {
     
     /// Show time in TextField
     func showTimeInLabel() {
-        
-        stepperSeconds.integerValue = scoreboardData.timeNow //сохраняет время для степперов
+        // сохраняет время для степперов
+        stepperSeconds.integerValue = scoreboardData.timeNow
         stepperMinutes.integerValue = scoreboardData.timeNow
         
         let minutes:Int = scoreboardData.timeNow / 60
-        let seconds:Int = scoreboardData.timeNow - (minutes*60)
+        let seconds:Int = scoreboardData.timeNow % 60
         var minStr:String = "\(minutes)"
         var secStr:String = "\(seconds)"
         
@@ -98,8 +98,8 @@ class MainViewController: NSViewController, NSWindowDelegate {
             secStr = "0" + secStr
         }
         
-        timerTextField.stringValue = minStr + ":" + secStr //вывод времени в формате 00:00 в поле
-        scoreboardData.timerString = minStr + ":" + secStr //timerTextField.stringValue
+        timerTextField.stringValue = minStr + ":" + secStr
+        scoreboardData.timerString = minStr + ":" + secStr
         
         textFieldForTimerSetting.stringValue = isCountdown.state == .on ?
             "Timer setting (from \(sliderTimer.integerValue / 60):00 to 00:00)" :
@@ -141,8 +141,8 @@ class MainViewController: NSViewController, NSWindowDelegate {
         var timeFromUser = Array(timerTextField.stringValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
         
         // timer before changes (for case 0)
-        var minutesFromUser:Int = scoreboardData.timeNow / 60
-        var secondsFromUser:Int = scoreboardData.timeNow - ((scoreboardData.timeNow / 60) * 60)
+        var minutesFromUser: Int = scoreboardData.timeNow / 60
+        var secondsFromUser: Int = scoreboardData.timeNow % 60
         
         switch timeFromUser.count {
         case 0:

@@ -74,7 +74,7 @@
                             </button>
                             <button toolTip="Enable or disable automatic time reset after the timer expires." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xk3-vY-4Nl">
                                 <rect key="frame" x="18" y="105" width="442" height="18"/>
-                                <buttonCell key="cell" type="check" title="Automatically reset the timer after the end." bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" inset="2" id="fWu-lI-4xi">
+                                <buttonCell key="cell" type="check" title="Automatically reset the timer after the end." bezelStyle="regularSquare" imagePosition="left" scrollable="YES" lineBreakMode="clipping" state="on" inset="2" id="fWu-lI-4xi">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -94,7 +94,7 @@
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WXb-1z-eWp">
                                 <rect key="frame" x="206" y="8" width="69" height="32"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tUt-2U-yCf">
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tUt-2U-yCf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">

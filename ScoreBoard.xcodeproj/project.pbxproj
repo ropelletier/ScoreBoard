@@ -10,6 +10,7 @@
 		D907AF032668ED9F00A0BDDB /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D907AF022668ED9F00A0BDDB /* Preferences.storyboard */; };
 		D90D1EA62643302000005682 /* MenuActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1EA52643302000005682 /* MenuActions.swift */; };
 		D90D1EA82643BAB400005682 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1EA72643BAB400005682 /* StartButton.swift */; };
+		D94B5F1126977D51009A0D5A /* GetAccessToDiskGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = D94B5F1026977D51009A0D5A /* GetAccessToDiskGIF.gif */; };
 		D950678A25273BED00C1080B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D950678925273BED00C1080B /* Credits.rtf */; };
 		D97553042644810E00A9D4BA /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25DD24B336260064230E /* PreferencesViewController.swift */; };
 		D975873323B607C20004BDAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975873223B607C20004BDAD /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		D907AF022668ED9F00A0BDDB /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		D90D1EA52643302000005682 /* MenuActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuActions.swift; sourceTree = "<group>"; };
 		D90D1EA72643BAB400005682 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
+		D94B5F1026977D51009A0D5A /* GetAccessToDiskGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = GetAccessToDiskGIF.gif; sourceTree = "<group>"; };
 		D950678925273BED00C1080B /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		D975872F23B607C20004BDAD /* ScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D975873223B607C20004BDAD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			path = ScoreBoardTemplates;
 			sourceTree = "<group>";
 		};
+		D9867BEA269776F0009FE332 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D94B5F1026977D51009A0D5A /* GetAccessToDiskGIF.gif */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		D987630E26320776005E1174 /* Extensions MainVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +183,7 @@
 		D9BD25E124B370960064230E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D9867BEA269776F0009FE332 /* Images */,
 				D975873B23B607C40004BDAD /* Info.plist */,
 				D975873C23B607C40004BDAD /* ScoreBoard.entitlements */,
 				D975873623B607C40004BDAD /* Assets.xcassets */,
@@ -201,6 +212,7 @@
 			buildPhases = (
 				D975872B23B607C20004BDAD /* Sources */,
 				D975872C23B607C20004BDAD /* Frameworks */,
+				D94B5F12269E2366009A0D5A /* Increment Build */,
 				D975872D23B607C20004BDAD /* Resources */,
 			);
 			buildRules = (
@@ -250,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D94B5F1126977D51009A0D5A /* GetAccessToDiskGIF.gif in Resources */,
 				D975873723B607C40004BDAD /* Assets.xcassets in Resources */,
 				D950678A25273BED00C1080B /* Credits.rtf in Resources */,
 				D997E12125AA4D85000F6C77 /* BasicSBTemplateView.xib in Resources */,
@@ -259,6 +272,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D94B5F12269E2366009A0D5A /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D975872B23B607C20004BDAD /* Sources */ = {
@@ -422,7 +456,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13.05.2021;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55MCT9R6B9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
@@ -431,8 +465,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.VasilyPetuhov.ScoreBoard;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VasPet.ScoreBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -448,7 +482,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13.05.2021;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55MCT9R6B9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ScoreBoard/Supporting Files/Info.plist";
@@ -457,8 +491,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.VasilyPetuhov.ScoreBoard;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VasPet.ScoreBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

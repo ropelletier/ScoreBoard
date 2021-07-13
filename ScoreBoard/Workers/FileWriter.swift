@@ -60,20 +60,7 @@ final class FileWriter {
                 }
             }
         } catch {
-            
-            let title = "Unable to write file"
-            let message = """
-                There is no access to the directory for writing.
-                Give the program access to write files to disk:
-                
-                System Preferences > Security and Privacy > Privacy > Files and Folders
-                
-                Check the box for the program "ScoreBoard.app".
-                
-                """
-            
-            // передавать текст ошибки и рекомендации
-            alertWindow.showAlert(title: title, message: message)
+            alertWindow.showAccessToDiskAlert()
         }
     }
     
@@ -102,8 +89,10 @@ final class FileWriter {
     
     // восстановить закладку
     func restoreBookmarksPathDirectory() -> URL? {
-        guard let bookmark = UserDefaults.standard.data(forKey: "bookmarkForDirecory")
-            else { return FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first } // каталог downloads по умолчанию
+        guard let bookmark = UserDefaults.standard.data(forKey: "bookmarkForDirecory") else {
+            return FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first // каталог downloads по умолчанию
+        }
+        
         var bookmarkDataIsStale: ObjCBool = false
         
         do {

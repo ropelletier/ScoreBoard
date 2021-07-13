@@ -735,7 +735,7 @@
                             <textField toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QlU-kf-kyh">
                                 <rect key="frame" x="64" y="45" width="112" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Countdown: ON" id="SLq-6B-6Nd">
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="left" title="Countdown: ON" id="SLq-6B-6Nd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
