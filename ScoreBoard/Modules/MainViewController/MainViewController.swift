@@ -37,7 +37,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefaults() // load properties the main screen
-
+        
         setTimeDefault() // restore default timer value
         showTimeInLabel() // show time + write timer file
         FileWriter().writeToDisk(for: .homeName, .awayName, .period, .homeGoal, .awayGoal)
@@ -241,7 +241,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
         default:
             return
         }
-
+        
         period.selectedSegment = 1
     }
     
@@ -294,8 +294,14 @@ class MainViewController: NSViewController, NSWindowDelegate {
             titleTimerMode.stringValue = "Countdown: OFF"
             continueTimeSwitcher.isEnabled = true
         }
-        // смена времени на табло с сохранением пройденных секунд
-        scoreboardData.timeNow = scoreboardData.timeUserPreset - scoreboardData.timeNow
+        
+        // changing the time in label with saving the passed seconds
+        // if timeUserPreset is less than timeNow,
+        // then the time is set to zero,
+        // otherwise will be an error in label (0-96: 0-12)
+        scoreboardData.timeNow = scoreboardData.timeUserPreset > scoreboardData.timeNow ?
+            scoreboardData.timeUserPreset - scoreboardData.timeNow : 0
+        
         showTimeInLabel()
     }
     
