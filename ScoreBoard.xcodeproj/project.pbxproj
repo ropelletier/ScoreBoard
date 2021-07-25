@@ -11,6 +11,7 @@
 		D90D1EA62643302000005682 /* MenuActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1EA52643302000005682 /* MenuActions.swift */; };
 		D90D1EA82643BAB400005682 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1EA72643BAB400005682 /* StartButton.swift */; };
 		D94B5F1126977D51009A0D5A /* GetAccessToDiskGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = D94B5F1026977D51009A0D5A /* GetAccessToDiskGIF.gif */; };
+		D94B5F14269EFD11009A0D5A /* TimerSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B5F13269EFD11009A0D5A /* TimerSliderCell.swift */; };
 		D950678A25273BED00C1080B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D950678925273BED00C1080B /* Credits.rtf */; };
 		D97553042644810E00A9D4BA /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25DD24B336260064230E /* PreferencesViewController.swift */; };
 		D975873323B607C20004BDAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975873223B607C20004BDAD /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 		D90D1EA52643302000005682 /* MenuActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuActions.swift; sourceTree = "<group>"; };
 		D90D1EA72643BAB400005682 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		D94B5F1026977D51009A0D5A /* GetAccessToDiskGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = GetAccessToDiskGIF.gif; sourceTree = "<group>"; };
+		D94B5F13269EFD11009A0D5A /* TimerSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSliderCell.swift; sourceTree = "<group>"; };
 		D950678925273BED00C1080B /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		D975872F23B607C20004BDAD /* ScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D975873223B607C20004BDAD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				D90D1EA72643BAB400005682 /* StartButton.swift */,
 				D9BD25E724B8A55D0064230E /* AlertWindow.swift */,
 				D980DCCB25F4ADB90026B596 /* EditTextField.swift */,
+				D94B5F13269EFD11009A0D5A /* TimerSliderCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildConfigurationList = D975873F23B607C40004BDAD /* Build configuration list for PBXNativeTarget "ScoreBoard" */;
 			buildPhases = (
 				D975872B23B607C20004BDAD /* Sources */,
+				D9C2D2C526A8A12C0087F10D /* Todo/Fix/Error */,
 				D975872C23B607C20004BDAD /* Frameworks */,
 				D94B5F12269E2366009A0D5A /* Increment Build */,
 				D975872D23B607C20004BDAD /* Resources */,
@@ -292,6 +296,24 @@
 			shellPath = /bin/sh;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
+		D9C2D2C526A8A12C0087F10D /* Todo/Fix/Error */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Todo/Fix/Error;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -312,6 +334,7 @@
 				D980DCCC25F4ADB90026B596 /* EditTextField.swift in Sources */,
 				D987631226320791005E1174 /* DeselectText+SetFocus.swift in Sources */,
 				D90D1EA82643BAB400005682 /* StartButton.swift in Sources */,
+				D94B5F14269EFD11009A0D5A /* TimerSliderCell.swift in Sources */,
 				D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */,
 				D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */,
 			);

@@ -18,7 +18,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     @IBOutlet weak var continueTimeSwitcher: NSSwitch!
     @IBOutlet weak var resetButton: NSButton!
     @IBOutlet weak var swapScores: NSButton!
-    @IBOutlet weak var sliderTimer: NSSlider!
+    @IBOutlet weak var sliderTimer: TimerSliderCell!
     @IBOutlet weak var textFieldForTimerSetting: NSTextField!
     @IBOutlet weak var homeNameTextField: EditTextField!
     @IBOutlet weak var awayNameTextField: EditTextField!
@@ -37,9 +37,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefaults() // load properties the main screen
-        
-        setTimeDefault() // restore default timer value
-        showTimeInLabel() // show time + write timer file
+        resetTimeInTimer()
         FileWriter().writeToDisk(for: .homeName, .awayName, .period, .homeGoal, .awayGoal)
     }
     
@@ -79,7 +77,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
         period.setLabel(scoreboardData.getPeriodCountString(), forSegment: 1)
     }
     
-    /// Show time in TextField
+    /// Show time in TextField + write timer file
     func showTimeInLabel() {
         // сохраняет время для степперов
         stepperSeconds.integerValue = scoreboardData.timeNow
@@ -106,10 +104,15 @@ class MainViewController: NSViewController, NSWindowDelegate {
             "Timer setting (from 00:00 to \(sliderTimer.integerValue / 60):00)"
     }
     
-    func resetAllState(){
-        resetStateButtonStar()
+    func resetTimeInTimer(){
         setTimeDefault()
         showTimeInLabel()
+        scoreboardData.timerIsFinished = false
+    }
+    
+    func resetAllState(){
+        resetStateButtonStar()
+        resetTimeInTimer()
         scoreboardData.countGoalHome = 0
         scoreboardData.countGoalAway = 0
         
@@ -257,8 +260,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
     }
     
     @IBAction func sliderTimerAction(_ sender: Any) {
-        setTimeDefault()
-        showTimeInLabel()
+        resetTimeInTimer()
     }
     
     @IBAction func pushButtonStart(_ sender: Any) {

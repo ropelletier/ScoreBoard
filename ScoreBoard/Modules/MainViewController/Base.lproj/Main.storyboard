@@ -579,7 +579,7 @@
                             <slider toolTip="Setting the timer duration in minutes" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15e-3A-sM7">
                                 <rect key="frame" x="16" y="83" width="448" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <sliderCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" minValue="60" maxValue="3600" doubleValue="900" tickMarkPosition="above" numberOfTickMarks="60" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VG6-g9-2KU"/>
+                                <sliderCell key="cell" continuous="YES" refusesFirstResponder="YES" state="on" alignment="left" minValue="60" maxValue="3600" doubleValue="900" tickMarkPosition="above" numberOfTickMarks="60" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VG6-g9-2KU" customClass="TimerSliderCell" customModule="ScoreBoard" customModuleProvider="target"/>
                                 <connections>
                                     <action selector="sliderTimerAction:" target="XfG-lQ-9wD" id="OWD-a0-Uo3"/>
                                 </connections>
@@ -726,14 +726,14 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusUnavailable" id="reQ-o2-HqD"/>
                             </imageView>
                             <switch toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="750" verticalHuggingPriority="750" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" state="on" id="dRb-Gv-lIH">
-                                <rect key="frame" x="21" y="40" width="42" height="24"/>
+                                <rect key="frame" x="21" y="38" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <action selector="switchTimerOnOff:" target="XfG-lQ-9wD" id="k6G-xn-BiE"/>
                                 </connections>
                             </switch>
                             <textField toolTip="Countdown mode (timer or stopwatch)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QlU-kf-kyh">
-                                <rect key="frame" x="64" y="45" width="112" height="16"/>
+                                <rect key="frame" x="64" y="43" width="112" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="left" title="Countdown: ON" id="SLq-6B-6Nd">
                                     <font key="font" metaFont="system"/>
@@ -783,16 +783,16 @@
                                 </connections>
                             </segmentedControl>
                             <textField toolTip="Continue the timer in the next period/time/half (football: 45 + 45 minutes)" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qJk-nm-ZKW">
-                                <rect key="frame" x="301" y="45" width="169" height="16"/>
+                                <rect key="frame" x="301" y="43" width="169" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Continue time (for soccer)" id="EFG-0O-9pk">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Don't stop timer (soccer)" id="EFG-0O-9pk">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <switch toolTip="Continue the timer in the next period/time/half (football: 45 + 45 minutes)" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" refusesFirstResponder="YES" baseWritingDirection="leftToRight" alignment="left" id="Lpn-cp-aMc">
-                                <rect key="frame" x="258" y="40" width="42" height="24"/>
+                                <rect key="frame" x="258" y="38" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                             </switch>
                             <button toolTip="Show settings window" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSF-dV-WH2">

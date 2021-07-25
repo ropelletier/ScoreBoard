@@ -28,6 +28,14 @@ final class ScoreBoardData {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "autoResetTimer")
+            mainVC?.resetTimeInTimer()
+        }
+    }
+
+    var timerIsFinished = false {
+        didSet {
+            mainVC?.sliderTimer.isEnabled = false
+            mainVC?.sliderTimer.isEnabled = true
         }
     }
     

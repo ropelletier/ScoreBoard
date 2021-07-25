@@ -23,21 +23,23 @@ final class ScoreBoardTimer {
                         mainVC?.resetStateButtonStar()
                         mainVC?.redTipForNextPeriod.isHidden = false
                         if scoreboardData.autoResetTimer {
-                                mainVC?.setTimeDefault()
-                                mainVC?.showTimeInLabel()
+                            mainVC?.resetTimeInTimer()
+                        } else {
+                            scoreboardData.timerIsFinished = true
                         }
                         return
                     }
                     scoreboardData.timeNow -= 1
                 } else {
-                    // остановить таймер если выключен режим "футбола", когда таймер не останавливается
+                    // stop timer if soccer mode is off
                     if mainVC?.continueTimeSwitcher.state == .off  {
                         guard scoreboardData.timeNow < scoreboardData.timeUserPreset else {
                             mainVC?.resetStateButtonStar()
                             mainVC?.redTipForNextPeriod.isHidden = false
                             if scoreboardData.autoResetTimer {
-                                    mainVC?.setTimeDefault()
-                                    mainVC?.showTimeInLabel()
+                                mainVC?.resetTimeInTimer()
+                            } else {
+                                scoreboardData.timerIsFinished = true
                             }
                             return
                         }
