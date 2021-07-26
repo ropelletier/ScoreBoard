@@ -29,6 +29,28 @@
 		D9BD25E624B884490064230E /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E524B884490064230E /* FileWriter.swift */; };
 		D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E724B8A55D0064230E /* AlertWindow.swift */; };
 		D9BD25EA24BC76D10064230E /* SelectDirectoryWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */; };
+		D9C2D2C826AF4E0F0087F10D /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E524B884490064230E /* FileWriter.swift */; };
+		D9C2D2C926AF4E0F0087F10D /* ScoreBoardTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25EB24BC8EEA0064230E /* ScoreBoardTimer.swift */; };
+		D9C2D2CA26AF4E0F0087F10D /* BasicSBTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D997E12325AA4D93000F6C77 /* BasicSBTemplateView.swift */; };
+		D9C2D2CB26AF4E0F0087F10D /* DisableMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCF226184FF60026B596 /* DisableMenuItems.swift */; };
+		D9C2D2CC26AF4E0F0087F10D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979448E255E9BBF009165A0 /* Defaults.swift */; };
+		D9C2D2CD26AF4E0F0087F10D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25DD24B336260064230E /* PreferencesViewController.swift */; };
+		D9C2D2CE26AF4E0F0087F10D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975873423B607C20004BDAD /* MainViewController.swift */; };
+		D9C2D2CF26AF4E0F0087F10D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975873223B607C20004BDAD /* AppDelegate.swift */; };
+		D9C2D2D026AF4E0F0087F10D /* SelectDirectoryWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */; };
+		D9C2D2D126AF4E0F0087F10D /* MenuActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1EA52643302000005682 /* MenuActions.swift */; };
+		D9C2D2D226AF4E0F0087F10D /* EditTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980DCCB25F4ADB90026B596 /* EditTextField.swift */; };
+		D9C2D2D326AF4E0F0087F10D /* DeselectText+SetFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987631126320791005E1174 /* DeselectText+SetFocus.swift */; };
+		D9C2D2D426AF4E0F0087F10D /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1EA72643BAB400005682 /* StartButton.swift */; };
+		D9C2D2D526AF4E0F0087F10D /* TimerSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B5F13269EFD11009A0D5A /* TimerSliderCell.swift */; };
+		D9C2D2D626AF4E0F0087F10D /* ScoreBoardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E324B60D800064230E /* ScoreBoardData.swift */; };
+		D9C2D2D726AF4E0F0087F10D /* AlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BD25E724B8A55D0064230E /* AlertWindow.swift */; };
+		D9C2D2DC26AF4E0F0087F10D /* GetAccessToDiskGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = D94B5F1026977D51009A0D5A /* GetAccessToDiskGIF.gif */; };
+		D9C2D2DD26AF4E0F0087F10D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D975873623B607C40004BDAD /* Assets.xcassets */; };
+		D9C2D2DE26AF4E0F0087F10D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D950678925273BED00C1080B /* Credits.rtf */; };
+		D9C2D2DF26AF4E0F0087F10D /* BasicSBTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D997E12025AA4D85000F6C77 /* BasicSBTemplateView.xib */; };
+		D9C2D2E026AF4E0F0087F10D /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D907AF022668ED9F00A0BDDB /* Preferences.storyboard */; };
+		D9C2D2E126AF4E0F0087F10D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D975873823B607C40004BDAD /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,10 +79,19 @@
 		D9BD25E724B8A55D0064230E /* AlertWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertWindow.swift; sourceTree = "<group>"; };
 		D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDirectoryWindow.swift; sourceTree = "<group>"; };
 		D9BD25EB24BC8EEA0064230E /* ScoreBoardTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardTimer.swift; sourceTree = "<group>"; };
+		D9C2D2E526AF4E0F0087F10D /* ScoreBoard OBS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScoreBoard OBS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9C2D2E626AF4E0F0087F10D /* InfoOBS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = InfoOBS.plist; path = /Users/vasily/Documents/ScoreBoard/InfoOBS.plist; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D975872C23B607C20004BDAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9C2D2D926AF4E0F0087F10D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -92,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				D975872F23B607C20004BDAD /* ScoreBoard.app */,
+				D9C2D2E526AF4E0F0087F10D /* ScoreBoard OBS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +222,7 @@
 				D975873C23B607C40004BDAD /* ScoreBoard.entitlements */,
 				D975873623B607C40004BDAD /* Assets.xcassets */,
 				D950678925273BED00C1080B /* Credits.rtf */,
+				D9C2D2E626AF4E0F0087F10D /* InfoOBS.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -228,6 +261,25 @@
 			productReference = D975872F23B607C20004BDAD /* ScoreBoard.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D9C2D2C626AF4E0F0087F10D /* ScoreBoard OBS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9C2D2E226AF4E0F0087F10D /* Build configuration list for PBXNativeTarget "ScoreBoard OBS" */;
+			buildPhases = (
+				D9C2D2C726AF4E0F0087F10D /* Sources */,
+				D9C2D2D826AF4E0F0087F10D /* Todo/Fix/Error */,
+				D9C2D2D926AF4E0F0087F10D /* Frameworks */,
+				D9C2D2DA26AF4E0F0087F10D /* Increment Build */,
+				D9C2D2DB26AF4E0F0087F10D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ScoreBoard OBS";
+			productName = ScoreBoard;
+			productReference = D9C2D2E526AF4E0F0087F10D /* ScoreBoard OBS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -257,6 +309,7 @@
 			projectRoot = "";
 			targets = (
 				D975872E23B607C20004BDAD /* ScoreBoard */,
+				D9C2D2C626AF4E0F0087F10D /* ScoreBoard OBS */,
 			);
 		};
 /* End PBXProject section */
@@ -272,6 +325,19 @@
 				D997E12125AA4D85000F6C77 /* BasicSBTemplateView.xib in Resources */,
 				D907AF032668ED9F00A0BDDB /* Preferences.storyboard in Resources */,
 				D975873A23B607C40004BDAD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9C2D2DB26AF4E0F0087F10D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9C2D2DC26AF4E0F0087F10D /* GetAccessToDiskGIF.gif in Resources */,
+				D9C2D2DD26AF4E0F0087F10D /* Assets.xcassets in Resources */,
+				D9C2D2DE26AF4E0F0087F10D /* Credits.rtf in Resources */,
+				D9C2D2DF26AF4E0F0087F10D /* BasicSBTemplateView.xib in Resources */,
+				D9C2D2E026AF4E0F0087F10D /* Preferences.storyboard in Resources */,
+				D9C2D2E126AF4E0F0087F10D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +380,42 @@
 			shellPath = /bin/sh;
 			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"\n";
 		};
+		D9C2D2D826AF4E0F0087F10D /* Todo/Fix/Error */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Todo/Fix/Error;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
+		D9C2D2DA26AF4E0F0087F10D /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -337,6 +439,29 @@
 				D94B5F14269EFD11009A0D5A /* TimerSliderCell.swift in Sources */,
 				D9BD25E424B60D800064230E /* ScoreBoardData.swift in Sources */,
 				D9BD25E824B8A55D0064230E /* AlertWindow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9C2D2C726AF4E0F0087F10D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9C2D2C826AF4E0F0087F10D /* FileWriter.swift in Sources */,
+				D9C2D2C926AF4E0F0087F10D /* ScoreBoardTimer.swift in Sources */,
+				D9C2D2CA26AF4E0F0087F10D /* BasicSBTemplateView.swift in Sources */,
+				D9C2D2CB26AF4E0F0087F10D /* DisableMenuItems.swift in Sources */,
+				D9C2D2CC26AF4E0F0087F10D /* Defaults.swift in Sources */,
+				D9C2D2CD26AF4E0F0087F10D /* PreferencesViewController.swift in Sources */,
+				D9C2D2CE26AF4E0F0087F10D /* MainViewController.swift in Sources */,
+				D9C2D2CF26AF4E0F0087F10D /* AppDelegate.swift in Sources */,
+				D9C2D2D026AF4E0F0087F10D /* SelectDirectoryWindow.swift in Sources */,
+				D9C2D2D126AF4E0F0087F10D /* MenuActions.swift in Sources */,
+				D9C2D2D226AF4E0F0087F10D /* EditTextField.swift in Sources */,
+				D9C2D2D326AF4E0F0087F10D /* DeselectText+SetFocus.swift in Sources */,
+				D9C2D2D426AF4E0F0087F10D /* StartButton.swift in Sources */,
+				D9C2D2D526AF4E0F0087F10D /* TimerSliderCell.swift in Sources */,
+				D9C2D2D626AF4E0F0087F10D /* ScoreBoardData.swift in Sources */,
+				D9C2D2D726AF4E0F0087F10D /* AlertWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +648,58 @@
 			};
 			name = Release;
 		};
+		D9C2D2E326AF4E0F0087F10D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconOBS;
+				CODE_SIGN_ENTITLEMENTS = "ScoreBoard/Supporting Files/ScoreBoard.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55MCT9R6B9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = InfoOBS.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VasPet.ScoreBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "";
+			};
+			name = Debug;
+		};
+		D9C2D2E426AF4E0F0087F10D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconOBS;
+				CODE_SIGN_ENTITLEMENTS = "ScoreBoard/Supporting Files/ScoreBoard.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55MCT9R6B9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = InfoOBS.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VasPet.ScoreBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -540,6 +717,15 @@
 			buildConfigurations = (
 				D975874023B607C40004BDAD /* Debug */,
 				D975874123B607C40004BDAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9C2D2E226AF4E0F0087F10D /* Build configuration list for PBXNativeTarget "ScoreBoard OBS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9C2D2E326AF4E0F0087F10D /* Debug */,
+				D9C2D2E426AF4E0F0087F10D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
