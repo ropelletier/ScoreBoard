@@ -80,7 +80,7 @@
 		D9BD25E924BC76D10064230E /* SelectDirectoryWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDirectoryWindow.swift; sourceTree = "<group>"; };
 		D9BD25EB24BC8EEA0064230E /* ScoreBoardTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardTimer.swift; sourceTree = "<group>"; };
 		D9C2D2E526AF4E0F0087F10D /* ScoreBoard OBS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScoreBoard OBS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9C2D2E626AF4E0F0087F10D /* InfoOBS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = InfoOBS.plist; path = /Users/vasily/Documents/ScoreBoard/InfoOBS.plist; sourceTree = "<absolute>"; };
+		D9C2D2E626AF4E0F0087F10D /* InfoOBS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoOBS.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

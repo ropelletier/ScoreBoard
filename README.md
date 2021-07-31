@@ -37,5 +37,5 @@ Since the program is not signed with an Apple certificate, it is necessary to ma
 [LICENSE](https://github.com/kopsap4ik/ScoreBoard/blob/master/LICENSE)\
 [PRIVACY POLICY](https://github.com/kopsap4ik/ScoreBoard/blob/master/PRIVACY_POLICY.md)
 
-Contacts: [vas.pet.app@gmail.com](mailto:vas.pet.app@gmail.com)\
+Contacts: [support.scoreboard@icloud.com](mailto:support.scoreboard@icloud.com)\
 *Errors, requests and questions are accepted.*

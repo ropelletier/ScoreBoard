@@ -12,4 +12,4 @@ We do not use or have access to your personal data, including all data related t
 
 ## Contact Us
 
-If you have any questions or concerns about our Privacy Policy, please contact us at [vas.pet.app@gmail.com](mailto:vas.pet.app@gmail.com)
+If you have any questions or concerns about our Privacy Policy, please contact us at [support.scoreboard@icloud.com](mailto:support.scoreboard@icloud.com)
