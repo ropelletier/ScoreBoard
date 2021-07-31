@@ -46,10 +46,10 @@ final class FileWriter {
                         fileName = "Period.txt"
                     case .homeGoal:
                         text = scoreboardData.getCountGoalsString(for: .home)
-                        fileName = "HomeGoal.txt"
+                        fileName = "Home_Goal.txt"
                     case .awayGoal:
                         text = scoreboardData.getCountGoalsString(for: .away)
-                        fileName = "AwayGoal.txt"
+                        fileName = "Away_Goal.txt"
                     }
 
                     try text.write(

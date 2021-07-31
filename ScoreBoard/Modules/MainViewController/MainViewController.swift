@@ -119,6 +119,7 @@ class MainViewController: NSViewController, NSWindowDelegate {
         goalHome.setLabel(scoreboardData.getCountGoalsString(for: .home), forSegment: 1)
         goalAway.setLabel(scoreboardData.getCountGoalsString(for: .away), forSegment: 1)
         scoreboardData.periodCount = 1
+        FileWriter().writeToDisk(for: .homeName, .awayName)
     }
     
     func resetStateButtonStar(){
