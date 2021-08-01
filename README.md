@@ -2,8 +2,7 @@
 ScoreBoard for OBS, WireCast and etc. for sport streaming on MacOS.
 
 
-Description text lorem ipsum...
-```html
+{::nomarkdown}
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
@@ -19,3 +18,4 @@ Description text lorem ipsum...
     </form>
   </body>
 </html>
+{:/nomarkdown}
