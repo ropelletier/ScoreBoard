@@ -8,9 +8,8 @@
 
 ## Downloads
 <p align="center">
-[<img width="100" alt="Download from Mac AppStore" src="img/MacAppStore.png">](# "Download from Mac AppStore")
+[![Download from Mac AppStore](img/MacAppStore.png)](#)
 </p>
-[![N|Solid](img/MacAppStore.png)](#)
 
 ## Info
 Scoreboard to improve your sports streams on OBS, Wirecast, Streamlabs and more. It will help you easily display statistics over the online broadcast of sports games.
