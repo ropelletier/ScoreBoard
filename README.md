@@ -7,6 +7,9 @@
 </p>
 
 ## Downloads
+<p align="center">
+[<img width="100" alt="Download from Mac AppStore" src="img/MacAppStore.png">](# "Download from Mac AppStore")
+</p>
 [![N|Solid](img/MacAppStore.png)](#)
 
 ## Info
