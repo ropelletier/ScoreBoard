@@ -5,49 +5,41 @@
 <head>
 
   <meta charset='UTF-8'>
-  <title>CodePen Demo</title>
-
+  <title>ScoreBoard support</title>
   <meta name="robots" content="noindex">
 
 <!--   <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"> -->
 <!--   <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111"> -->
-<!--   <link rel="canonical" href="https://codepen.io/roycode/pen/eZopwP?editors=1111"> -->
 
-  
   <link rel="stylesheet" href="style1.css">
 </head>
-
 <body>
-	
 <div class="content-holder">
 	<h1>ScoreBoard app technical support</h1>
-		<img src="https://user-images.githubusercontent.com/61139898/118131360-1ed55400-b407-11eb-8da0-6728311ebccd.png" alt="ScoreBoard for Mac" width="400">
-		<h2>Send feedback if you have:</h2>
-		<ul>
-			<li>Questions and / or suggestions to the developer of the ScoreBoard program</li>
-			<li>Problems, errors or it is not clear how to use the application.</li>
-		</ul>
-<p>- Questions and / or suggestions to the developer of the ScoreBoard program</p>
-<p>- Problems, errors or it is not clear how to use the application.</p>
-
-	<form action="https://formspree.io/mnqgnopb" method="POST">
+	<img src="https://user-images.githubusercontent.com/61139898/118131360-1ed55400-b407-11eb-8da0-6728311ebccd.png" alt="ScoreBoard for Mac" width="400">
+	<h2>Send feedback if you have:</h2>
+	<ul>
+		<li>Questions and / or suggestions to the developer of the ScoreBoard program</li>
+		<li>Problems, errors or it is not clear how to use the application.</li>
+	</ul>
+	
+	<form action="https://formspree.io/f/xgernygo" method="POST">
 		<label>
-<!-- 			<p>Your email:</p> -->
-			<input type="text" name="_replyto" placeholder="Your e-mail: example@site.com">
-		</label>
+<!-- 			<p>Your e-mail:</p> -->
+			<input type="email" name="_replyto" placeholder="Your e-mail: example@site.com" required="required">
 		<label>
-			<label>
-<!-- 				<p>Your message:</p> -->
-				<textarea name="message" rows="10" placeholder="Type your text message here" required="required"></textarea>
-<!-- 				<textarea name="message"></textarea> -->
-			</label>
-
-			<!-- your other form fields go here -->
-
-			<button type="submit">Send</button>
+<!-- 		<label> -->
+<!-- 			<p>Your name:</p> -->
+<!-- 			<input type="text" name="name" placeholder="Your name" required="required"></input> -->
+<!-- 		<label> -->
+		<label>
+<!-- 			<p>Your message:</p> -->
+			<textarea name="message" rows="6" placeholder="Type your message..." required="required"></textarea>
+		<label>
+		
+		<input type="hidden" name="_subject" value="ScoreBoard support page from GitHub" />
+		<button type="submit">Send</button>	
 	</form>
-
 </div>
 </body>
-
 </html>
