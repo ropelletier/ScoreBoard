@@ -1,0 +1,74 @@
+body{
+  background:#272727;
+}
+.formbox {
+	max-width:20vw;
+	width:100%;
+	margin:0 auto;
+	position:relative;
+}
+#contactform {
+	padding:25px;
+	margin:0 auto;
+  width:100%;
+}
+#contactform input[type="text"], #contactform input[type="email"], #contactform textarea{
+	width:100%;
+	border:2px transparent;
+	background:#393e41;
+	margin:0 0 5px;
+	padding:10px;
+  box-sizing: border-box;
+-moz-box-sizing: border-box;
+}
+#contactform input[type="text"]:hover, #contactform input[type="email"]:hover, #contactform textarea:hover{
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:2px solid ;
+  -moz-border-image: -moz-linear-gradient(-45deg, #F92A82 0%, #E2C044 100%);
+  -webkit-border-image:  -webkit-linear-gradient(-45deg, rgba(249, 42, 130, 1) 0%, rgba(226, 192, 68, 1) 100%);
+  border-image: linear-gradient(to bottom right, #F92A82, #E2C044);
+  border-image-slice: 1;
+}
+#contactform input[type="submit"]{
+  width:100%;
+	border:2px transparent;
+	background: #e0e0e0;
+	margin:0 0 5px;
+	padding:10px;  
+  color:;
+  display: block;
+  box-sizing: border-box;
+-moz-box-sizing: border-box;
+}
+#contactform input[type="submit"]:hover{
+ -webkit-transition:background-color 0.3s ease-in-out;
+	-moz-transition:background-color 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+  background:  -moz-linear-gradient: -moz-linear-gradient(-45deg, #F92A82 0%, #E2C044 100%);
+  background:  -webkit-linear-gradient:  -webkit-linear-gradient(-45deg, rgba(249, 42, 130, 1) 0%, rgba(226, 192, 68, 1) 100%);
+  background: linear-gradient(to bottom right, #F92A82, #E2C044);
+}
+#contactform textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+#contactform input:focus, #contactform textarea:focus {
+	outline:0;
+	border:2px solid #f2f1ef;
+  color: #f2f1ef;
+}
+::-webkit-input-placeholder {
+ color:#e0e0e0;
+}
+:-moz-placeholder {
+ color:#e0e0e0;
+}
+::-moz-placeholder {
+ color:#e0e0e0;
+}
+:-ms-input-placeholder {
+ color:#e0e0e0;
+}
