@@ -1,24 +1,76 @@
-#my-form{
-  max-width: 500px !important;
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+
+$font-stack: 'Lato', Lato, Open Sans, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$bs: 0 2px 4px rgba(0, 0, 0, .10), 0 4px 6px rgba(0, 0, 0, .12);
+$trans: all 0.3s ease;
+
+body {
+  font-family: $font-stack;
+  // background: url('https://i.imgur.com/lJOMNeJ.png');
 }
-#my-form input,textarea{
-  background: var(--dark) !important;
-  color: var(--lightv) !important;
+
+.form__container {
+  background: #fff;
+  margin: 0 auto;
+  margin-top: 16px;
+  padding: 32px;
+  box-shadow: $bs;
+  border-radius: 4px;
 }
-#my-form label{
-  color: var(--lightv);
+
+//social media colors
+$colors: (
+	"instagram": "#3f729b",
+	"twitter": "#3CF",
+  "github": #4183c4,
+  "codepen": #1D1F20
+);
+
+.gutter {
+  height: 32px;
 }
-#my-form-status{
-  max-width: 500px !important;
+
+.footer__social {	
+	height: 68px;
+	text-align: center;
+	opacity: 1;
+	transition: $trans;
+  line-height: 70px;
+  
+	.fa {
+		vertical-align: middle;
+		transition: $trans;
+	}
+	
+	@each $class,$color in $colors {
+		
+		&.#{$class} {
+			
+			&:hover {
+				background-color: #{$color};
+			}
+			
+			.fa {
+				color: #{$color};
+			}
+		}
+	}
+	
+	&:hover {
+		
+		.fa {
+			color: #fff;
+		}
+	}
+	
+	&:focus {
+		opacity: .85;
+	}
 }
-.blur {
-width:100%;
-height:100%;
-background-size:cover;
--webkit-filter: blur(4px);
--moz-filter: blur(4px);
--ms-filter: blur(4px);
--o-filter: blur(4px);
-filter: blur(4px);
-z-index: 9;
+
+@media(max-width:767px){
+  .form__container {
+    margin: 0;
+    padding: 16px;
+  }
 }
