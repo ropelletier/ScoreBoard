@@ -7,9 +7,7 @@
 </p>
 
 ## Downloads
-[AppStore](#)\
-[Latest release](https://github.com/kopsap4ik/ScoreBoard/releases/latest)\
-[History releases](https://github.com/kopsap4ik/ScoreBoard/releases)
+[![N|Solid](img/MacAppStore.png)](#)
 
 ## Info
 Scoreboard to improve your sports streams on OBS, Wirecast, Streamlabs and more. It will help you easily display statistics over the online broadcast of sports games.
