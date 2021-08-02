@@ -8,7 +8,9 @@
 
 ## Downloads
 <p align="center">
+
 [![Download from Mac AppStore](img/MacAppStore.png)](#)
+
 </p>
 
 ## Info
