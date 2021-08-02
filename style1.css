@@ -1,8 +1,8 @@
 body{
-  background:#272727;
+/*   background:#272727; */
 }
 .formbox {
-	max-width:20vw;
+	max-width:30vw;
 	width:100%;
 	margin:0 auto;
 	position:relative;
