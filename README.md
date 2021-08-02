@@ -1,41 +1,84 @@
-# ScoreBoard (.txt) for MacOS
-**Scoreboard for online broadcasting of sports games (hockey, football and others) through OBS.**
+# ScoreBoard
+ScoreBoard for OBS, WireCast and etc. for sport streaming on MacOS.
 
-## Downloads
-[Latest release](https://github.com/kopsap4ik/ScoreBoard/releases/latest)\
-[History releases](https://github.com/kopsap4ik/ScoreBoard/releases)
 
-## Info
-The program counts the time (timer and countdown), keeps the goals and period (half), and also shows the team names.
+{::nomarkdown}
+<html>
+  <head>
+    <link rel="stylesheet" href="style1.css">
+  </head>
+  <body>
+<!--     <h1>Contact me for ScoreBoard support.</h1> -->
+<!--     <h1>Contact me for ScoreBoard support.</h1>
+    <form action="https://formspree.io/f/xgernygo" method="POST">
+      <input class="inputfield" type="email" name="_replyto" placeholder="Your e-mail *" required="required">
+      <input class="inputfield" type="text" name="name" placeholder="Your name *" required="required"></input>
+      <input class="inputfield" type="hidden" name="_subject" value="ScoreBoard support page from GitHub" />
+      <textarea class="inputfield" name="message" rows="6" placeholder="Message text... *" required="required"></textarea>
+      <button class="button" type="submit">Send</button>
+    </form> -->
+  </body>
+</html>
+{:/nomarkdown}
 
-All output data are stored in TXT files on the computer. Each of them can be used in OBS (add source: text) over a picture of any scoreboard.
 
-In the settings window (gear icon), you can select the desired directory to save TXT files.
-## Screenshots
+{::nomarkdown}
+<html>
+  <head>
+    <link rel="stylesheet" href="style1.css">
+  </head>
+  <body>
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+<link rel="stylesheet" href="https://sahiljena.github.io/style.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<header class="navbar">
 
-<p align="center">
-  <img width="500" alt="ScoreBoard_v1.4" src="https://user-images.githubusercontent.com/61139898/118131360-1ed55400-b407-11eb-8da0-6728311ebccd.png">
-  <img width="500" alt="ScoreBoard_preferences_v1.4" src="https://user-images.githubusercontent.com/61139898/118131539-52b07980-b407-11eb-844b-d49a909adfb1.png">
-</p>
-
-<details>
-<summary>Possible scoreboard template in OBS...</summary>
-  <img src="https://user-images.githubusercontent.com/61139898/91486208-9af92d00-e8b4-11ea-9844-2f80877b539b.jpg" alt="Scoreboard in OBS">
-</details>
-
-## Video instructions for use
-  [<img width="500" alt="ScoreBoard for OBS on MacOS (instruction)" src="https://user-images.githubusercontent.com/61139898/118147118-eee27c80-b417-11eb-8874-7b7e5a660840.png">](https://youtu.be/dHj56FIE2ng "ScoreBoard for OBS on MacOS (instruction)")
-
-## Important information
-Since the program is not signed with an Apple certificate, it is necessary to manually enable launch at startup:
-1. Open System Preferences.
-2. Go to Security & Privacy and select the General tab.
-3. If you've been blocked from opening an app within the past hour, this page will give you the option to override this by clicking the temporary button 'Open Anyway'.
-4. You'll be asked one more time if you're sure, but clicking Open will run the app.
-
-## Other
-[LICENSE](https://github.com/kopsap4ik/ScoreBoard/blob/master/LICENSE)\
-[PRIVACY POLICY](https://github.com/kopsap4ik/ScoreBoard/blob/master/PRIVACY_POLICY.md)
-
-Contacts: [support.scoreboard@icloud.com](mailto:support.scoreboard@icloud.com)\
-*Errors, requests and questions are accepted.*
+  <section class="navbar-center">
+    <!-- centered logo or brand -->
+  </section>
+  <section class="navbar-section">
+    <a href="#" class="btn btn-link rest-link">Home</a>
+    <a href="#" class="btn btn-link rest-link">Blogs</a>
+    <a href="#" class="btn btn-link rest-link">Projects</a>
+    <a href="#" class="btn btn-link active-link">Contact</a>
+    
+  </section>
+</header>
+<br>
+<main>
+  <h1>
+    <span class="text-primary"> Contact</span>
+  </h1>
+  <p>
+    Fill in the form to contact me!
+  </p>
+  <p id="my-form-status"></p>
+  <form class="" id="my-form" action="https://formspree.io/f/mjvp" method="POST">
+    
+    <div class="form-group">
+      <label class="form-label" for="input-name-1">Name</label>
+      <input class="form-input" type="text" id="input-name-1" placeholder="Name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="input-email-2">E-mail</label>
+      <input class="form-input" type="email" id="input-email-2" placeholder="E-mail" name="_replyto" required>
+    </div>
+    <!-- form textarea control -->
+    <div class="form-group">
+      <label class="form-label" for="input-example-3">Message</label>
+      <textarea class="form-input" id="input-example-3" placeholder="Type your message here." rows="3" name="message" required></textarea>
+    </div>
+    <button id="my-form-button" class="btn btn-primary" type="submit">Send</button>
+    
+  </form>
+  <br>
+  <a style="background: #212529;" class="btn" href="">Back to homepage</a>
+</main>
+<footer>
+  Made with ❤️ by sahiljena
+</footer>
+  </body>
+</html>
+{:/nomarkdown}

@@ -1,9 +1,38 @@
-<form action="https://formspree.io/yourformlink" method="POST">
-<div class="row gtr-uniform">
-<div class="col-6 col-12-xsmall">
-<input type="text" name="name" id="name" value="" placeholder="Name" />
-</div>
-<div class="col-6 col-12-xsmall">
-<input type="email" name="_replyto" id="email" value="" placeholder="Email" />
-</div>
-</form>
+<!DOCTYPE HTML>
+<html lang='en' class=''>
+   <head>
+      <meta charset='UTF-8'>
+      <title>ScoreBoard support</title>
+      <meta name="robots" content="noindex">
+      <!--   <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"> -->
+      <!--   <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111"> -->
+      <link rel="stylesheet" href="support.css">
+   </head>
+   <body>
+      <div class="content-holder">
+         <h1>ScoreBoard app technical support</h1>
+         <img src="https://user-images.githubusercontent.com/61139898/118131360-1ed55400-b407-11eb-8da0-6728311ebccd.png" alt="ScoreBoard for Mac" width="400">
+         <h2>Send feedback if you have</h2>
+         <ul>
+            <li>Questions and / or suggestions to the developer of the ScoreBoard program</li>
+            <li>Problems, errors or it is not clear how to use the application.</li>
+         </ul>
+         <form action="https://formspree.io/f/xgernygo" method="POST">
+            <label>
+            Your e-mail:
+            <input type="email" name="_replyto" placeholder="Your e-mail: example@site.com" required="required">
+            </label>
+            <label>
+            Your name:
+            <input type="text" name="name" placeholder="Your name" required="required">
+            </label>
+            <label>
+            Your message:
+            <textarea name="message" rows="6" placeholder="Type your message..." required="required"></textarea>
+            </label>
+            <input type="hidden" name="_subject" value="ScoreBoard support page from GitHub" />
+            <button type="submit">Send</button> 
+         </form>
+      </div>
+   </body>
+</html>
