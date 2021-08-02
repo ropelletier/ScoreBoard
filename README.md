@@ -5,7 +5,7 @@ ScoreBoard for OBS, WireCast and etc. for sport streaming on MacOS.
 {::nomarkdown}
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
   </head>
   <body>
     <h1>Contact me for ScoreBoard support.</h1>
