@@ -1,74 +1,48 @@
-body{
-/*   background:#272727; */
-}
-.formbox {
-	max-width:30vw;
-	width:100%;
-	margin:0 auto;
-	position:relative;
-}
-#contactform {
-	padding:25px;
-	margin:0 auto;
-  width:100%;
-}
-#contactform input[type="text"], #contactform input[type="email"], #contactform textarea{
-	width:100%;
-	border:2px transparent;
-	background:#393e41;
-	margin:0 0 5px;
-	padding:10px;
-  box-sizing: border-box;
--moz-box-sizing: border-box;
-}
-#contactform input[type="text"]:hover, #contactform input[type="email"]:hover, #contactform textarea:hover{
-	-webkit-transition:border-color 0.3s ease-in-out;
-	-moz-transition:border-color 0.3s ease-in-out;
-	transition:border-color 0.3s ease-in-out;
-	border:2px solid ;
-  -moz-border-image: -moz-linear-gradient(-45deg, #F92A82 0%, #E2C044 100%);
-  -webkit-border-image:  -webkit-linear-gradient(-45deg, rgba(249, 42, 130, 1) 0%, rgba(226, 192, 68, 1) 100%);
-  border-image: linear-gradient(to bottom right, #F92A82, #E2C044);
-  border-image-slice: 1;
-}
-#contactform input[type="submit"]{
-  width:100%;
-	border:2px transparent;
-	background: #e0e0e0;
-	margin:0 0 5px;
-	padding:10px;  
-  color:;
-  display: block;
-  box-sizing: border-box;
--moz-box-sizing: border-box;
-}
-#contactform input[type="submit"]:hover{
- -webkit-transition:background-color 0.3s ease-in-out;
-	-moz-transition:background-color 0.3s ease-in-out;
-	transition:background-color 0.3s ease-in-out;
-  background:  -moz-linear-gradient: -moz-linear-gradient(-45deg, #F92A82 0%, #E2C044 100%);
-  background:  -webkit-linear-gradient:  -webkit-linear-gradient(-45deg, rgba(249, 42, 130, 1) 0%, rgba(226, 192, 68, 1) 100%);
-  background: linear-gradient(to bottom right, #F92A82, #E2C044);
-}
-#contactform textarea {
-	height:100px;
-	max-width:100%;
-  resize:none;
-}
-#contactform input:focus, #contactform textarea:focus {
-	outline:0;
-	border:2px solid #f2f1ef;
-  color: #f2f1ef;
-}
-::-webkit-input-placeholder {
- color:#e0e0e0;
-}
-:-moz-placeholder {
- color:#e0e0e0;
-}
-::-moz-placeholder {
- color:#e0e0e0;
-}
-:-ms-input-placeholder {
- color:#e0e0e0;
-}
+form
+    max-width 600px
+    margin 0 auto
+    font-family 'Open Sans', sans-serif
+    font-weight weight
+    font-style normal
+    padding 10px
+    fieldset
+        border none
+        font-weight normal
+    input[type="text"], input[type="email"], textarea
+        box-sizing border-box
+        outline none
+        display block
+        color #333333
+        width 100%
+        padding 7px
+        border none
+        border-bottom 1px solid #ddd
+        margin-bottom 10px
+        font-family inherit
+        font-size 18px
+        height 45px
+        &.has-error
+            border-color #f04242
+    textarea
+        height 200px
+    span
+        display block
+        font-size 14px
+        color #f04242
+        padding-bottom 10px
+    button[type="submit"]
+        display block
+        padding 19px 39px 18px 39px
+        color #ffffff
+        background #1abc9c
+        font-size 18px
+        width 100%
+        border 1px solid #16a085
+        border-width 1px 1px 3px
+        margin-top 50px
+        margin-bottom 10px
+        cursor pointer
+        transition all .3s
+        outline none
+        &:hover
+            background #109177
