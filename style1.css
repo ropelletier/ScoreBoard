@@ -1,48 +1,24 @@
-form
-    max-width 600px
-    margin 0 auto
-    font-family 'Open Sans', sans-serif
-    font-weight weight
-    font-style normal
-    padding 10px
-    fieldset
-        border none
-        font-weight normal
-    input[type="text"], input[type="email"], textarea
-        box-sizing border-box
-        outline none
-        display block
-        color #333333
-        width 100%
-        padding 7px
-        border none
-        border-bottom 1px solid #ddd
-        margin-bottom 10px
-        font-family inherit
-        font-size 18px
-        height 45px
-        &.has-error
-            border-color #f04242
-    textarea
-        height 200px
-    span
-        display block
-        font-size 14px
-        color #f04242
-        padding-bottom 10px
-    button[type="submit"]
-        display block
-        padding 19px 39px 18px 39px
-        color #ffffff
-        background #1abc9c
-        font-size 18px
-        width 100%
-        border 1px solid #16a085
-        border-width 1px 1px 3px
-        margin-top 50px
-        margin-bottom 10px
-        cursor pointer
-        transition all .3s
-        outline none
-        &:hover
-            background #109177
+#my-form{
+  max-width: 500px !important;
+}
+#my-form input,textarea{
+  background: var(--dark) !important;
+  color: var(--lightv) !important;
+}
+#my-form label{
+  color: var(--lightv);
+}
+#my-form-status{
+  max-width: 500px !important;
+}
+.blur {
+width:100%;
+height:100%;
+background-size:cover;
+-webkit-filter: blur(4px);
+-moz-filter: blur(4px);
+-ms-filter: blur(4px);
+-o-filter: blur(4px);
+filter: blur(4px);
+z-index: 9;
+}
