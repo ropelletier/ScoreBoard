@@ -7,11 +7,7 @@
 </p>
 
 ## Downloads
-<p align="center">
-
 [![Download from Mac AppStore](img/MacAppStore.png)](#)
-
-</p>
 
 ## Info
 Scoreboard to improve your sports streams on OBS, Wirecast, Streamlabs and more. It will help you easily display statistics over the online broadcast of sports games.
