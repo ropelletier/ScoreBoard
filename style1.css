@@ -1,64 +1,16 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
- body {
-	 font-family: 'Lato', Lato, Open Sans, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-	 background: url('https://i.imgur.com/lJOMNeJ.png');
+body{
+      background: url('https://www.dropbox.com/s/2ct3ihgi3dr7oys/concrete_seamless.png?raw=1');
 }
- .form__container {
-	 background: #fff;
-	 margin: 0 auto;
-	 margin-top: 16px;
-	 padding: 32px;
-	 box-shadow: 0 2px 4px rgba(0, 0, 0, .10), 0 4px 6px rgba(0, 0, 0, .12);
-	 border-radius: 4px;
+.container{
+  margin-top: 20px;
 }
- .gutter {
-	 height: 32px;
+.btn-send{
+  background-color: #294c85;
+  color: #ededff;
+  padding: 9px 33px 9px 33px;
+  border: 1px solid white;
+  border-radius: 20px;
 }
- .footer__social {
-	 height: 68px;
-	 text-align: center;
-	 opacity: 1;
-	 transition: all 0.3s ease;
-	 line-height: 70px;
+.btn-send:hover{
+  background-color: #3e79d9;
 }
- .footer__social .fa {
-	 vertical-align: middle;
-	 transition: all 0.3s ease;
-}
- .footer__social.instagram:hover {
-	 background-color: #3f729b;
-}
- .footer__social.instagram .fa {
-	 color: #3f729b;
-}
- .footer__social.twitter:hover {
-	 background-color: #3CF;
-}
- .footer__social.twitter .fa {
-	 color: #3CF;
-}
- .footer__social.github:hover {
-	 background-color: #4183c4;
-}
- .footer__social.github .fa {
-	 color: #4183c4;
-}
- .footer__social.codepen:hover {
-	 background-color: #1d1f20;
-}
- .footer__social.codepen .fa {
-	 color: #1d1f20;
-}
- .footer__social:hover .fa {
-	 color: #fff;
-}
- .footer__social:focus {
-	 opacity: 0.85;
-}
- @media (max-width: 767px) {
-	 .form__container {
-		 margin: 0;
-		 padding: 16px;
-	}
-}
- 
