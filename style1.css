@@ -1,49 +1,64 @@
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: weight;
-  font-style: normal;
-  padding: 10px;
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+ body {
+	 font-family: 'Lato', Lato, Open Sans, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+	 background: url('https://i.imgur.com/lJOMNeJ.png');
 }
-form fieldset {
-  border: none;
-  font-weight: normal;
+ .form__container {
+	 background: #fff;
+	 margin: 0 auto;
+	 margin-top: 16px;
+	 padding: 32px;
+	 box-shadow: 0 2px 4px rgba(0, 0, 0, .10), 0 4px 6px rgba(0, 0, 0, .12);
+	 border-radius: 4px;
 }
-form input[type="text"],
-form input[type="email"],
-form textarea {
-  box-sizing: border-box;
-  outline: none;
-  display: block;
-  color: #333;
-  width: 100%;
-  padding: 7px;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 10px;
-  font-family: inherit;
-  font-size: 18px;
-  height: 45px;
+ .gutter {
+	 height: 32px;
 }
-form textarea {
-  height: 200px;
+ .footer__social {
+	 height: 68px;
+	 text-align: center;
+	 opacity: 1;
+	 transition: all 0.3s ease;
+	 line-height: 70px;
 }
-form button[type="submit"] {
-  display: block;
-  padding: 19px 39px 18px 39px;
-  color: #fff;
-  background: #1abc9c;
-  font-size: 18px;
-  width: 100%;
-  border: 1px solid #16a085;
-  border-width: 1px 1px 3px;
-  margin-top: 50px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
-  outline: none;
+ .footer__social .fa {
+	 vertical-align: middle;
+	 transition: all 0.3s ease;
 }
-form button[type="submit"]:hover {
-  background: #109177;
+ .footer__social.instagram:hover {
+	 background-color: #3f729b;
 }
+ .footer__social.instagram .fa {
+	 color: #3f729b;
+}
+ .footer__social.twitter:hover {
+	 background-color: #3CF;
+}
+ .footer__social.twitter .fa {
+	 color: #3CF;
+}
+ .footer__social.github:hover {
+	 background-color: #4183c4;
+}
+ .footer__social.github .fa {
+	 color: #4183c4;
+}
+ .footer__social.codepen:hover {
+	 background-color: #1d1f20;
+}
+ .footer__social.codepen .fa {
+	 color: #1d1f20;
+}
+ .footer__social:hover .fa {
+	 color: #fff;
+}
+ .footer__social:focus {
+	 opacity: 0.85;
+}
+ @media (max-width: 767px) {
+	 .form__container {
+		 margin: 0;
+		 padding: 16px;
+	}
+}
+ 
