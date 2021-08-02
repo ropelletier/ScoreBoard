@@ -42,7 +42,7 @@ Statistics are written to TXT files on the computer disk (by default, to the Dow
 [LICENSE](https://github.com/kopsap4ik/ScoreBoard/blob/master/LICENSE)\
 [PRIVACY POLICY](https://github.com/kopsap4ik/ScoreBoard/blob/master/PRIVACY_POLICY.md)
 
-[Contact for support](/support.html)\
+[Contact for support](https://kopsap4ik.github.io/ScoreBoard/support.html)\
 *Errors, requests and questions are accepted.*
 
 
