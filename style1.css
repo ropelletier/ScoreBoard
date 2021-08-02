@@ -43,3 +43,7 @@ button:hover {
 	text-align: center;
 	border-radius: 10px;
 }
+
+ul {
+  text-align: left;
+}
