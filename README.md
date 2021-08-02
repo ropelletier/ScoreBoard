@@ -6,13 +6,12 @@
   <img width="720" alt="ScoreBoard_output_files" src="https://is2-ssl.mzstatic.com/image/thumb/PurpleSource125/v4/6e/fe/13/6efe135a-0991-c41c-d1eb-1cf59711c711/bb17733d-0c48-4c62-864e-3ac369ad354e_4_txtFiles.jpg/1440x900bb.png">
 </p>
 
-## Downloads
-[![Download from Mac AppStore](img/MacAppStore.png)](#)
-
 ## Info
 Scoreboard to improve your sports streams on OBS, Wirecast, Streamlabs and more. It will help you easily display statistics over the online broadcast of sports games.
 
 Statistics are written to TXT files on the computer disk (by default, to the Downloads directory). Each file can be used in a streamer program (add source: text) and overlay it over any of your scoreboard images.
+
+[![Download from Mac AppStore](img/MacAppStore.png)](#)
 
 ### The program allows you to keep statistics:
 - Timer and reverse timer
