@@ -1,41 +1,49 @@
-form
-    max-width 600px
-    margin 0 auto
-    font-family 'Open Sans', sans-serif
-    font-weight weight
-    font-style normal
-    padding 10px
-    fieldset
-        border none
-        font-weight normal
-    input[type="text"], input[type="email"], textarea
-        box-sizing border-box
-        outline none
-        display block
-        color #333333
-        width 100%
-        padding 7px
-        border none
-        border-bottom 1px solid #ddd
-        margin-bottom 10px
-        font-family inherit
-        font-size 18px
-        height 45px
-    textarea
-        height 200px
-    button[type="submit"]
-        display block
-        padding 19px 39px 18px 39px
-        color #ffffff
-        background #1abc9c
-        font-size 18px
-        width 100%
-        border 1px solid #16a085
-        border-width 1px 1px 3px
-        margin-top 50px
-        margin-bottom 10px
-        cursor pointer
-        transition all .3s
-        outline none
-        &:hover
-            background #109177
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: weight;
+  font-style: normal;
+  padding: 10px;
+}
+form fieldset {
+  border: none;
+  font-weight: normal;
+}
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  box-sizing: border-box;
+  outline: none;
+  display: block;
+  color: #333;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-size: 18px;
+  height: 45px;
+}
+form textarea {
+  height: 200px;
+}
+form button[type="submit"] {
+  display: block;
+  padding: 19px 39px 18px 39px;
+  color: #fff;
+  background: #1abc9c;
+  font-size: 18px;
+  width: 100%;
+  border: 1px solid #16a085;
+  border-width: 1px 1px 3px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  outline: none;
+}
+form button[type="submit"]:hover {
+  background: #109177;
+}
