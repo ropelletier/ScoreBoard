@@ -2,27 +2,27 @@
 ScoreBoard for OBS, WireCast and etc. for sport streaming on MacOS.
 
 
-{::nomarkdown}
+<!-- {::nomarkdown}
 <html>
   <head>
     <link rel="stylesheet" href="style1.css">
   </head>
   <body>
-<!--     <h1>Contact me for ScoreBoard support.</h1> -->
-<!--     <h1>Contact me for ScoreBoard support.</h1>
+    <h1>Contact me for ScoreBoard support.</h1>
+    <h1>Contact me for ScoreBoard support.</h1>
     <form action="https://formspree.io/f/xgernygo" method="POST">
       <input class="inputfield" type="email" name="_replyto" placeholder="Your e-mail *" required="required">
       <input class="inputfield" type="text" name="name" placeholder="Your name *" required="required"></input>
       <input class="inputfield" type="hidden" name="_subject" value="ScoreBoard support page from GitHub" />
       <textarea class="inputfield" name="message" rows="6" placeholder="Message text... *" required="required"></textarea>
       <button class="button" type="submit">Send</button>
-    </form> -->
+    </form>
   </body>
 </html>
-{:/nomarkdown}
+{:/nomarkdown} -->
 
 
-{::nomarkdown}
+<!-- {::nomarkdown}
 <html>
   <head>
     <link rel="stylesheet" href="style1.css">
@@ -36,13 +36,12 @@ ScoreBoard for OBS, WireCast and etc. for sport streaming on MacOS.
 <header class="navbar">
 
   <section class="navbar-center">
-    <!-- centered logo or brand -->
   </section>
   <section class="navbar-section">
     <a href="#" class="btn btn-link rest-link">Home</a>
-    <a href="#" class="btn btn-link rest-link">Blogs</a>
-    <a href="#" class="btn btn-link rest-link">Projects</a>
-    <a href="#" class="btn btn-link active-link">Contact</a>
+    <a href="#" class="btn btn-link rest-link">Wiki</a>
+    <a href="#" class="btn btn-link rest-link">Isues</a>
+    <a href="/support.html" class="btn btn-link active-link">Support</a>
     
   </section>
 </header>
@@ -65,7 +64,6 @@ ScoreBoard for OBS, WireCast and etc. for sport streaming on MacOS.
       <label class="form-label" for="input-email-2">E-mail</label>
       <input class="form-input" type="email" id="input-email-2" placeholder="E-mail" name="_replyto" required>
     </div>
-    <!-- form textarea control -->
     <div class="form-group">
       <label class="form-label" for="input-example-3">Message</label>
       <textarea class="form-input" id="input-example-3" placeholder="Type your message here." rows="3" name="message" required></textarea>
@@ -82,3 +80,4 @@ ScoreBoard for OBS, WireCast and etc. for sport streaming on MacOS.
   </body>
 </html>
 {:/nomarkdown}
+ -->
