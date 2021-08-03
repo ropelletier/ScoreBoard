@@ -1,4 +1,4 @@
-# ScoreBoard for sport streams
+# ScoreBoard for sport stream
 **Sport statistics for streaming throw OBS, WireCast and etc. on MacOS.**
 
 <p align="center">
