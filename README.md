@@ -30,7 +30,7 @@ In the settings window (gear icon), you can select the desired directory to save
   [<img width="500" alt="ScoreBoard for OBS on MacOS (instruction)" src="https://user-images.githubusercontent.com/61139898/118147118-eee27c80-b417-11eb-8874-7b7e5a660840.png">](https://youtu.be/dHj56FIE2ng "ScoreBoard for OBS on MacOS (instruction)")
 
 ## Important information
-_Only if you do not want to use the version of the AppStore, but better to download from Mac AppStore!_
+_Only if you do not want to use the version of the AppStore, but better to download from Mac AppStore!_\
 Since the program is not signed with an Apple certificate, it is necessary to manually enable launch at startup:
 1. Open System Preferences.
 2. Go to Security & Privacy and select the General tab.
