@@ -2,7 +2,7 @@
 **Scoreboard for online broadcasting of sports games (hockey, football and others) through OBS.**
 
 ## Downloads
-[![Download from Mac AppStore](img/MacAppStore.png)](https://apps.apple.com/us/app/scoreboard-for-sport-stream/id1579159150)
+[![Download from Mac AppStore](../support-page/img/MacAppStore.png)](https://apps.apple.com/us/app/scoreboard-for-sport-stream/id1579159150)
 
 [Latest release (not AppStore)](https://github.com/kopsap4ik/ScoreBoard/releases/latest)\
 [History releases (not AppStore)](https://github.com/kopsap4ik/ScoreBoard/releases)
