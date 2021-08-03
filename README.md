@@ -2,10 +2,13 @@
 **Scoreboard for online broadcasting of sports games (hockey, football and others) through OBS.**
 
 ## Downloads
-[Latest release](https://github.com/kopsap4ik/ScoreBoard/releases/latest)\
-[History releases](https://github.com/kopsap4ik/ScoreBoard/releases)
+[![Download from Mac AppStore](img/MacAppStore.png)](https://apps.apple.com/us/app/scoreboard-for-sport-stream/id1579159150)
+
+[Latest release (not AppStore)](https://github.com/kopsap4ik/ScoreBoard/releases/latest)\
+[History releases (not AppStore)](https://github.com/kopsap4ik/ScoreBoard/releases)
 
 ## Info
+[Home Page](https://kopsap4ik.github.io/ScoreBoard/)\
 The program counts the time (timer and countdown), keeps the goals and period (half), and also shows the team names.
 
 All output data are stored in TXT files on the computer. Each of them can be used in OBS (add source: text) over a picture of any scoreboard.
@@ -27,6 +30,7 @@ In the settings window (gear icon), you can select the desired directory to save
   [<img width="500" alt="ScoreBoard for OBS on MacOS (instruction)" src="https://user-images.githubusercontent.com/61139898/118147118-eee27c80-b417-11eb-8874-7b7e5a660840.png">](https://youtu.be/dHj56FIE2ng "ScoreBoard for OBS on MacOS (instruction)")
 
 ## Important information
+_Only if you do not want to use the version of the AppStore, but better to download from Mac AppStore!_
 Since the program is not signed with an Apple certificate, it is necessary to manually enable launch at startup:
 1. Open System Preferences.
 2. Go to Security & Privacy and select the General tab.
@@ -37,5 +41,5 @@ Since the program is not signed with an Apple certificate, it is necessary to ma
 [LICENSE](https://github.com/kopsap4ik/ScoreBoard/blob/master/LICENSE)\
 [PRIVACY POLICY](https://github.com/kopsap4ik/ScoreBoard/blob/master/PRIVACY_POLICY.md)
 
-Contacts: [support.scoreboard@icloud.com](mailto:support.scoreboard@icloud.com)\
+[Contact for support](https://kopsap4ik.github.io/ScoreBoard/support.html)\
 *Errors, requests and questions are accepted.*

@@ -12,4 +12,4 @@ We do not use or have access to your personal data, including all data related t
 
 ## Contact Us
 
-If you have any questions or concerns about our Privacy Policy, please contact us at [support.scoreboard@icloud.com](mailto:support.scoreboard@icloud.com)
+If you have any questions or concerns about our Privacy Policy, please [contact us](https://kopsap4ik.github.io/ScoreBoard/support.html)
