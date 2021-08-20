@@ -14,6 +14,10 @@ extension MainViewController {
         pushButtonStart(self)
     }
     
+    @IBAction func resetTimerFromMenu(_ sender: Any) {
+        resetTimeInTimer()
+    }
+    
     @IBAction func plus1SecFromMenu(_ sender: Any) {
         guard isAllowedChangeTime(newTime: scoreboardData.timeNow + 1) else { return }
         scoreboardData.timeNow += 1

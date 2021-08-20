@@ -378,6 +378,13 @@
                                                 <action selector="minus1MinFromMenu:" target="Ady-hI-5gd" id="MJU-az-hGV"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="gqO-2m-RXe"/>
+                                        <menuItem title="Reset timer" keyEquivalent="T" id="Kzj-6K-fYR">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="resetTimerFromMenu:" target="Ady-hI-5gd" id="Sph-xH-7jt"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -446,7 +453,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="YNX-Dp-jWa"/>
-                                        <menuItem title="Reset stats" image="NSRefreshTemplate" keyEquivalent="R" id="hAv-Sd-ro0">
+                                        <menuItem title="Reset all stats" image="NSRefreshTemplate" keyEquivalent="R" id="hAv-Sd-ro0">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="resetAllStateFromMenu:" target="Ady-hI-5gd" id="Xah-4y-eSt"/>
@@ -880,7 +887,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T7a-ha-RxY"/>
+        <segue reference="7hD-ac-y7e"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>
