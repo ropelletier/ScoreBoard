@@ -13,7 +13,7 @@ final class SelectDirectoryWindow {
         let panel = NSOpenPanel()
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
-        panel.prompt = "Select"
+        panel.prompt = NSLocalizedString("Select", comment: "")
         guard panel.runModal() == NSApplication.ModalResponse.OK else { return nil }
         guard let userDirectoryUrl = panel.url else { return nil }
         return userDirectoryUrl

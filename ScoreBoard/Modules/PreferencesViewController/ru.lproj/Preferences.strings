@@ -1,0 +1,39 @@
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "5tz-2r-0uZ"; */
+"5tz-2r-0uZ.title" = "Настройки";
+
+/* Class = "NSButtonCell"; title = "Add suffix to period counter (1 or 1st)"; ObjectID = "8zz-WC-Lfp"; */
+"8zz-WC-Lfp.title" = "Добавить суфикс к номеру периода (1 или 1st)";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Enable or disable add zerro to goals counter when count less than 10"; ObjectID = "Frj-Gh-leb"; */
+"Frj-Gh-leb.ibShadowedToolTip" = "Добавить или нет ноль к голам если количесво меньше 10 (6 или 06)";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add suffix to period counter (1 or 1st). English only!"; ObjectID = "KWr-ny-xYm"; */
+"KWr-ny-xYm.ibShadowedToolTip" = "Добавить суфикс к номеру периода (1 или 1st).";
+
+/* Class = "NSViewController"; title = "Preferences"; ObjectID = "UTX-F2-dZR"; */
+"UTX-F2-dZR.title" = "Настройки";
+
+/* Class = "NSTextFieldCell"; title = "Directory to write the files (.txt):"; ObjectID = "Xiy-b0-cPh"; */
+"Xiy-b0-cPh.title" = "Директория для записи файлов (.txt):";
+
+/* Class = "NSPathControl"; ibShadowedToolTip = "Choosing a directory to save files with statistics."; ObjectID = "dkI-9R-EKp"; */
+"dkI-9R-EKp.ibShadowedToolTip" = "Выберите директорию для сохранения .txt файлов со статистикой.";
+
+/* Class = "NSButtonCell"; title = "Automatically reset the timer after the end."; ObjectID = "fWu-lI-4xi"; */
+"fWu-lI-4xi.title" = "Автоматически сбросить таймер после завершения периода.";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Choosing a directory to save files with statistics."; ObjectID = "ofc-xw-4pT"; */
+"ofc-xw-4pT.ibShadowedToolTip" = "Выберите директорию для сохранения .txt файлов со статистикой.";
+
+/* Class = "NSButtonCell"; title = "Select"; ObjectID = "rgq-hY-6zX"; */
+"rgq-hY-6zX.title" = "Выбрать";
+
+/* Class = "NSButtonCell"; title = "Close"; ObjectID = "tUt-2U-yCf"; */
+"tUt-2U-yCf.title" = "Закрыть";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Enable or disable automatic time reset after the timer expires."; ObjectID = "xk3-vY-4Nl"; */
+"xk3-vY-4Nl.ibShadowedToolTip" = "Включить или отключить автоматический возрат таймера в изначальное состояние после завершения периода.";
+
+/* Class = "NSButtonCell"; title = "Add zero if the goal counter is less than 10 (6 or 06)"; ObjectID = "zzy-cG-c7g"; */
+"zzy-cG-c7g.title" = "Добавить ноль к голам если значение меньше 10 (6 или 06)";

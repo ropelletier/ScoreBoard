@@ -1,0 +1,417 @@
+
+/* Class = "NSMenuItem"; title = "Spelling and Grammar"; ObjectID = "0f3-hq-fEs"; */
+"0f3-hq-fEs.title" = "Spelling and Grammar";
+
+/* Class = "NSSlider"; ibShadowedToolTip = "Setting the timer duration in minutes"; ObjectID = "15e-3A-sM7"; */
+"15e-3A-sM7.ibShadowedToolTip" = "Setting the timer duration in minutes";
+
+/* Class = "NSMenuItem"; title = "ScoreBoard"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "ScoreBoard";
+
+/* Class = "NSMenuItem"; title = "Make Lower Case"; ObjectID = "1dN-nU-sTm"; */
+"1dN-nU-sTm.title" = "Make Lower Case";
+
+/* Class = "NSMenu"; title = "Speech"; ObjectID = "214-zN-004"; */
+"214-zN-004.title" = "Speech";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Swap Home and Away scores"; ObjectID = "2iv-ah-fII"; */
+"2iv-ah-fII.ibShadowedToolTip" = "Swap Home and Away scores";
+
+/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "3Vn-G2-6qE"; */
+"3Vn-G2-6qE.title" = "Jump to Selection";
+
+/* Class = "NSMenuItem"; title = "Quit ScoreBoard"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit ScoreBoard";
+
+/* Class = "NSButtonCell"; title = "⇆"; ObjectID = "56k-MK-Kqd"; */
+"56k-MK-Kqd.title" = "⇆";
+
+/* Class = "NSTextFieldCell"; title = "5"; ObjectID = "5ME-VK-dp0"; */
+"5ME-VK-dp0.title" = "5";
+
+/* Class = "NSMenuItem"; title = "Timer"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "Timer";
+
+/* Class = "NSMenuItem"; title = "About ScoreBoard"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About ScoreBoard";
+
+/* Class = "NSSegmentedCell"; 5uH-Y9-x5h.ibShadowedLabels[1] = "0"; ObjectID = "5uH-Y9-x5h"; */
+"5uH-Y9-x5h.ibShadowedLabels[1]" = "0";
+
+/* Class = "NSSegmentedCell"; 5uH-Y9-x5h.ibShadowedLabels[3] = "+2"; ObjectID = "5uH-Y9-x5h"; */
+"5uH-Y9-x5h.ibShadowedLabels[3]" = "+2";
+
+/* Class = "NSSegmentedCell"; 5uH-Y9-x5h.ibShadowedLabels[4] = "+3"; ObjectID = "5uH-Y9-x5h"; */
+"5uH-Y9-x5h.ibShadowedLabels[4]" = "+3";
+
+/* Class = "NSMenuItem"; title = "-1 Goal Home"; ObjectID = "6U9-SS-VOY"; */
+"6U9-SS-VOY.title" = "-1 Goal Home";
+
+/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "6ye-Gd-S8F"; */
+"6ye-Gd-S8F.title" = "Paste and Match Style";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Name home team"; ObjectID = "7b5-xV-TVs"; */
+"7b5-xV-TVs.ibShadowedToolTip" = "Name home team";
+
+/* Class = "NSSegmentedControl"; ibShadowedToolTip = "The number of goals of the home team"; ObjectID = "8Bi-Qn-fW6"; */
+"8Bi-Qn-fW6.ibShadowedToolTip" = "The number of goals of the home team";
+
+/* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "AMo-9g-Prn"; */
+"AMo-9g-Prn.title" = "Stop Speaking";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSMenuItem"; title = "-1 sec"; ObjectID = "AcW-pE-Krx"; */
+"AcW-pE-Krx.title" = "-1 sec";
+
+/* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "AnR-x3-j5b"; */
+"AnR-x3-j5b.title" = "Start Speaking";
+
+/* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "Awh-Ne-kka"; */
+"Awh-Ne-kka.title" = "Find Previous";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "Preferences…";
+
+/* Class = "NSMenuItem"; title = "Make Upper Case"; ObjectID = "Bhe-Kx-V0a"; */
+"Bhe-Kx-V0a.title" = "Make Upper Case";
+
+/* Class = "NSMenu"; title = "Find"; ObjectID = "Bqh-U7-FDo"; */
+"Bqh-U7-FDo.title" = "Find";
+
+/* Class = "NSMenuItem"; title = "Save As…"; ObjectID = "Bw7-FT-i3A"; */
+"Bw7-FT-i3A.title" = "Save As…";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "Close";
+
+/* Class = "NSMenu"; title = "Spelling"; ObjectID = "Dmk-p3-1Cw"; */
+"Dmk-p3-1Cw.title" = "Spelling";
+
+/* Class = "NSTextFieldCell"; title = "Don't stop timer (soccer)"; ObjectID = "EFG-0O-9pk"; */
+"EFG-0O-9pk.title" = "Don't stop timer (soccer)";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "Help";
+
+/* Class = "NSMenuItem"; title = "ScoreBoard Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "ScoreBoard Help";
+
+/* Class = "NSMenuItem"; title = "Game counters"; ObjectID = "H8h-7b-M4v"; */
+"H8h-7b-M4v.title" = "Game counters";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "HWv-Ba-3XW"; */
+"HWv-Ba-3XW.title" = "Paste";
+
+/* Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "HuA-0j-JIM"; */
+"HuA-0j-JIM.title" = "Show Spelling and Grammar";
+
+/* Class = "NSMenuItem"; title = "Open…"; ObjectID = "IAo-SY-fd9"; */
+"IAo-SY-fd9.title" = "Open…";
+
+/* Class = "NSWindow"; title = "ScoreBoard"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "ScoreBoard";
+
+/* Class = "NSMenuItem"; title = "+1 sec"; ObjectID = "JBa-cj-2pH"; */
+"JBa-cj-2pH.title" = "+1 sec";
+
+/* Class = "NSMenuItem"; title = "Text Replacement"; ObjectID = "KL8-oV-r27"; */
+"KL8-oV-r27.title" = "Text Replacement";
+
+/* Class = "NSMenuItem"; title = "Revert to Saved"; ObjectID = "KaW-ft-85H"; */
+"KaW-ft-85H.title" = "Revert to Saved";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "Reset timer"; ObjectID = "Kzj-6K-fYR"; */
+"Kzj-6K-fYR.title" = "Reset timer";
+
+/* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "L1L-wP-cdC"; */
+"L1L-wP-cdC.title" = "Find and Replace…";
+
+/* Class = "NSSwitch"; ibShadowedToolTip = "Continue the timer in the next period/time/half (football: 45 + 45 minutes)"; ObjectID = "Lpn-cp-aMc"; */
+"Lpn-cp-aMc.ibShadowedToolTip" = "Continue the timer in the next period/time/half (football: 45 + 45 minutes)";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "NIY-gs-X0x"; */
+"NIY-gs-X0x.title" = "Cut";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Show settings window"; ObjectID = "NSF-dV-WH2"; */
+"NSF-dV-WH2.ibShadowedToolTip" = "Show settings window";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Name away team"; ObjectID = "Nb1-sC-9Oh"; */
+"Nb1-sC-9Oh.ibShadowedToolTip" = "Name away team";
+
+/* Class = "NSMenu"; title = "Substitutions"; ObjectID = "Ndz-3f-Nwt"; */
+"Ndz-3f-Nwt.title" = "Substitutions";
+
+/* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "NmJ-b9-s49"; */
+"NmJ-b9-s49.title" = "Show Substitutions";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "OEz-04-xqL"; */
+"OEz-04-xqL.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "OYu-bC-84r"; */
+"OYu-bC-84r.title" = "Redo";
+
+/* Class = "NSMenuItem"; title = "Hide ScoreBoard"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide ScoreBoard";
+
+/* Class = "NSTextFieldCell"; title = "20"; ObjectID = "OrR-rA-ct3"; */
+"OrR-rA-ct3.title" = "20";
+
+/* Class = "NSMenuItem"; title = "+1 Goal Home"; ObjectID = "PeS-LS-msi"; */
+"PeS-LS-msi.title" = "+1 Goal Home";
+
+/* Class = "NSSegmentedCell"; Q2V-qE-yLO.ibShadowedLabels[1] = "1"; ObjectID = "Q2V-qE-yLO"; */
+"Q2V-qE-yLO.ibShadowedLabels[1]" = "1";
+
+/* Class = "NSSegmentedControl"; ibShadowedToolTip = "Number of period"; ObjectID = "QBp-bO-XRp"; */
+"QBp-bO-XRp.ibShadowedToolTip" = "Number of period";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Countdown mode (timer or stopwatch)"; ObjectID = "QlU-kf-kyh"; */
+"QlU-kf-kyh.ibShadowedToolTip" = "Countdown mode (timer or stopwatch)";
+
+/* Class = "NSMenu"; title = "Game counters"; ObjectID = "RQH-eF-rwj"; */
+"RQH-eF-rwj.title" = "Game counters";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Timer (minutes : seconds)"; ObjectID = "RXY-hW-hdK"; */
+"RXY-hW-hdK.ibShadowedToolTip" = "Timer (minutes : seconds)";
+
+/* Class = "NSTextFieldCell"; title = "1"; ObjectID = "Ra6-tb-s4z"; */
+"Ra6-tb-s4z.title" = "1";
+
+/* Class = "NSMenuItem"; title = "Correct Spelling Automatically"; ObjectID = "RaE-aQ-Mfw"; */
+"RaE-aQ-Mfw.title" = "Correct Spelling Automatically";
+
+/* Class = "NSTextFieldCell"; title = "Countdown: ON"; ObjectID = "SLq-6B-6Nd"; */
+"SLq-6B-6Nd.title" = "Countdown: ON";
+
+/* Class = "NSMenuItem"; title = "+1 min"; ObjectID = "TGf-ai-tzk"; */
+"TGf-ai-tzk.title" = "+1 min";
+
+/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "UHK-Eq-xAo"; */
+"UHK-Eq-xAo.title" = "Find…";
+
+/* Class = "NSMenuItem"; title = "Transformations"; ObjectID = "Uyr-l9-WKD"; */
+"Uyr-l9-WKD.title" = "Transformations";
+
+/* Class = "NSMenuItem"; title = "Smart Dashes"; ObjectID = "VGp-hZ-Jle"; */
+"VGp-hZ-Jle.title" = "Smart Dashes";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "WVV-PP-Eil"; */
+"WVV-PP-Eil.title" = "Delete";
+
+/* Class = "NSMenuItem"; title = "New"; ObjectID = "Was-JA-tGl"; */
+"Was-JA-tGl.title" = "New";
+
+/* Class = "NSMenuItem"; title = "Check Grammar With Spelling"; ObjectID = "Wii-xR-9FO"; */
+"Wii-xR-9FO.title" = "Check Grammar With Spelling";
+
+/* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "XEK-NQ-NHg"; */
+"XEK-NQ-NHg.title" = "Find Next";
+
+/* Class = "NSTextFieldCell"; title = "Timer setting (from 20:00 to 00:00)"; ObjectID = "XO1-SI-dNp"; */
+"XO1-SI-dNp.title" = "Timer setting (from 20:00 to 00:00)";
+
+/* Class = "NSMenuItem"; title = "Start/Pause"; ObjectID = "XyJ-n2-OL4"; */
+"XyJ-n2-OL4.title" = "Start/Pause";
+
+/* Class = "NSMenuItem"; title = "Substitutions"; ObjectID = "Y6H-Vv-noJ"; */
+"Y6H-Vv-noJ.title" = "Substitutions";
+
+/* Class = "NSMenuItem"; title = "-1 Period"; ObjectID = "Yod-Qj-RhI"; */
+"Yod-Qj-RhI.title" = "-1 Period";
+
+/* Class = "NSMenuItem"; title = "Print…"; ObjectID = "aTl-1u-JFS"; */
+"aTl-1u-JFS.title" = "Print…";
+
+/* Class = "NSMenuItem"; title = "+3 Goal Away"; ObjectID = "bgK-yu-Ile"; */
+"bgK-yu-Ile.title" = "+3 Goal Away";
+
+/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "bhy-PU-Izl"; */
+"bhy-PU-Izl.title" = "Use Selection for Find";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Smart Copy/Paste"; ObjectID = "cbk-ZM-ptj"; */
+"cbk-ZM-ptj.title" = "Smart Copy/Paste";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Reset all scores and timer"; ObjectID = "cra-ZW-qR3"; */
+"cra-ZW-qR3.ibShadowedToolTip" = "Reset all scores and timer";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "File";
+
+/* Class = "NSSwitch"; ibShadowedToolTip = "Countdown mode (timer or stopwatch)"; ObjectID = "dRb-Gv-lIH"; */
+"dRb-Gv-lIH.ibShadowedToolTip" = "Countdown mode (timer or stopwatch)";
+
+/* Class = "NSMenuItem"; title = "Check Document Now"; ObjectID = "eXj-op-NBy"; */
+"eXj-op-NBy.title" = "Check Document Now";
+
+/* Class = "NSMenu"; title = "Timer"; ObjectID = "efA-Ct-qfO"; */
+"efA-Ct-qfO.title" = "Timer";
+
+/* Class = "NSMenuItem"; title = "-1 min"; ObjectID = "fXq-fs-hya"; */
+"fXq-fs-hya.title" = "-1 min";
+
+/* Class = "NSMenuItem"; title = "+3 Goal Home"; ObjectID = "frA-wB-Bo9"; */
+"frA-wB-Bo9.title" = "+3 Goal Home";
+
+/* Class = "NSTextFieldCell"; title = "10"; ObjectID = "frH-C7-1El"; */
+"frH-C7-1El.title" = "10";
+
+/* Class = "NSTextFieldCell"; placeholderString = "15:00"; ObjectID = "ftR-HJ-sNJ"; */
+"ftR-HJ-sNJ.placeholderString" = "15:00";
+
+/* Class = "NSTextFieldCell"; title = "00:00"; ObjectID = "ftR-HJ-sNJ"; */
+"ftR-HJ-sNJ.title" = "00:00";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "g8v-Bk-Qnh"; */
+"g8v-Bk-Qnh.title" = "Copy";
+
+/* Class = "NSStepper"; ibShadowedToolTip = "+1 / -1 minute"; ObjectID = "gch-6s-7NE"; */
+"gch-6s-7NE.ibShadowedToolTip" = "+1 / -1 minute";
+
+/* Class = "NSTextFieldCell"; title = "period"; ObjectID = "gpH-7w-dee"; */
+"gpH-7w-dee.title" = "period";
+
+/* Class = "NSMenuItem"; title = "Reset all stats"; ObjectID = "hAv-Sd-ro0"; */
+"hAv-Sd-ro0.title" = "Reset all stats";
+
+/* Class = "NSSegmentedCell"; hHp-F2-hco.ibShadowedLabels[1] = "0"; ObjectID = "hHp-F2-hco"; */
+"hHp-F2-hco.ibShadowedLabels[1]" = "0";
+
+/* Class = "NSSegmentedCell"; hHp-F2-hco.ibShadowedLabels[3] = "+2"; ObjectID = "hHp-F2-hco"; */
+"hHp-F2-hco.ibShadowedLabels[3]" = "+2";
+
+/* Class = "NSSegmentedCell"; hHp-F2-hco.ibShadowedLabels[4] = "+3"; ObjectID = "hHp-F2-hco"; */
+"hHp-F2-hco.ibShadowedLabels[4]" = "+3";
+
+/* Class = "NSMenuItem"; title = "Check Spelling While Typing"; ObjectID = "hhZ-xL-YwL"; */
+"hhZ-xL-YwL.title" = "Check Spelling While Typing";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "+2 Goal Home"; ObjectID = "iqp-Xu-6gg"; */
+"iqp-Xu-6gg.title" = "+2 Goal Home";
+
+/* Class = "NSMenuItem"; title = "Smart Links"; ObjectID = "jFv-7d-6RM"; */
+"jFv-7d-6RM.title" = "Smart Links";
+
+/* Class = "NSMenu"; title = "Transformations"; ObjectID = "jMp-WV-Ocn"; */
+"jMp-WV-Ocn.title" = "Transformations";
+
+/* Class = "NSMenuItem"; title = "Data Detectors"; ObjectID = "jmc-IA-yTX"; */
+"jmc-IA-yTX.title" = "Data Detectors";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "kXr-GD-XwD"; */
+"kXr-GD-XwD.title" = "Undo";
+
+/* Class = "NSStepper"; ibShadowedToolTip = "+1 / -1 second"; ObjectID = "ktK-6e-EiV"; */
+"ktK-6e-EiV.ibShadowedToolTip" = "+1 / -1 second";
+
+/* Class = "NSTextFieldCell"; title = "60"; ObjectID = "lBP-fQ-9rk"; */
+"lBP-fQ-9rk.title" = "60";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Away name"; ObjectID = "lTh-p4-b5h"; */
+"lTh-p4-b5h.placeholderString" = "Away name";
+
+/* Class = "NSTextFieldCell"; title = "Away"; ObjectID = "lTh-p4-b5h"; */
+"lTh-p4-b5h.title" = "Away";
+
+/* Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "lvj-Zr-NQs"; */
+"lvj-Zr-NQs.title" = "Capitalize";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Start or Stop timer"; ObjectID = "nD0-gN-t1M"; */
+"nD0-gN-t1M.ibShadowedToolTip" = "Start or Stop timer";
+
+/* Class = "NSTextFieldCell"; title = "45"; ObjectID = "nvF-R2-VId"; */
+"nvF-R2-VId.title" = "45";
+
+/* Class = "NSMenuItem"; title = "Find"; ObjectID = "o8z-pC-xTc"; */
+"o8z-pC-xTc.title" = "Find";
+
+/* Class = "NSMenu"; title = "Open Recent"; ObjectID = "oas-Oc-fiZ"; */
+"oas-Oc-fiZ.title" = "Open Recent";
+
+/* Class = "NSTextFieldCell"; title = "30"; ObjectID = "pL6-V4-uaR"; */
+"pL6-V4-uaR.title" = "30";
+
+/* Class = "NSTextFieldCell"; title = "15"; ObjectID = "pQq-eB-vYx"; */
+"pQq-eB-vYx.title" = "15";
+
+/* Class = "NSMenuItem"; title = "+1 Period"; ObjectID = "pwB-oF-iHe"; */
+"pwB-oF-iHe.title" = "+1 Period";
+
+/* Class = "NSMenuItem"; title = "Save…"; ObjectID = "pxx-59-PXV"; */
+"pxx-59-PXV.title" = "Save…";
+
+/* Class = "NSMenuItem"; title = "Page Setup…"; ObjectID = "qIS-W8-SiK"; */
+"qIS-W8-SiK.title" = "Page Setup…";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Continue the timer in the next period/time/half (football: 45 + 45 minutes)"; ObjectID = "qJk-nm-ZKW"; */
+"qJk-nm-ZKW.ibShadowedToolTip" = "Continue the timer in the next period/time/half (football: 45 + 45 minutes)";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "rob-8m-yFp"; */
+"rob-8m-yFp.title" = "Select All";
+
+/* Class = "NSMenuItem"; title = "+2 Goal Away"; ObjectID = "rsK-ja-Yef"; */
+"rsK-ja-Yef.title" = "+2 Goal Away";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "sXv-NW-3y7"; */
+"sXv-NW-3y7.title" = "Edit";
+
+/* Class = "NSButtonCell"; title = "START"; ObjectID = "saF-P2-6MX"; */
+"saF-P2-6MX.title" = "START";
+
+/* Class = "NSMenuItem"; title = "Open Recent"; ObjectID = "tXI-mr-wws"; */
+"tXI-mr-wws.title" = "Open Recent";
+
+/* Class = "NSMenuItem"; title = "-1 Goal Away"; ObjectID = "tm1-q3-Ohl"; */
+"tm1-q3-Ohl.title" = "-1 Goal Away";
+
+/* Class = "NSImageView"; ibShadowedToolTip = "Tip: maybe you need to change the period? Change period for hide red dot or don't pay attention!"; ObjectID = "uM7-gd-Oje"; */
+"uM7-gd-Oje.ibShadowedToolTip" = "Tip: maybe you need to change the period? Change period for hide red dot or don't pay attention!";
+
+/* Class = "NSMenu"; title = "ScoreBoard"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "ScoreBoard";
+
+/* Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "vNY-rz-j42"; */
+"vNY-rz-j42.title" = "Clear Menu";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Home name"; ObjectID = "wbQ-Y7-Vkk"; */
+"wbQ-Y7-Vkk.placeholderString" = "Home name";
+
+/* Class = "NSTextFieldCell"; title = "Home"; ObjectID = "wbQ-Y7-Vkk"; */
+"wbQ-Y7-Vkk.title" = "Home";
+
+/* Class = "NSButtonCell"; title = "↺"; ObjectID = "wj7-ys-TZX"; */
+"wj7-ys-TZX.title" = "↺";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Help";
+
+/* Class = "NSMenuItem"; title = "+1 Goal Away"; ObjectID = "xh7-Cc-ehH"; */
+"xh7-Cc-ehH.title" = "+1 Goal Away";
+
+/* Class = "NSMenuItem"; title = "Speech"; ObjectID = "yC9-cC-sP0"; */
+"yC9-cC-sP0.title" = "Speech";
+
+/* Class = "NSSegmentedControl"; ibShadowedToolTip = "The number of goals of the away team"; ObjectID = "yVs-io-wuS"; */
+"yVs-io-wuS.ibShadowedToolTip" = "The number of goals of the away team";
+
+/* Class = "NSMenuItem"; title = "Clear Defaults"; ObjectID = "yk0-kT-NwX"; */
+"yk0-kT-NwX.title" = "Clear Defaults";
+
+/* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "zjB-TI-RCu"; */
+"zjB-TI-RCu.title" = "Smart Quotes";
